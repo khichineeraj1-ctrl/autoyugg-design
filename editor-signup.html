@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Apply as Editor — [Brand]</title>
+<meta name="description" content="Join [Brand]'s editorial team. Submit your profile, expertise, and portfolio. We review every application within 5 working days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff;--bg-alt:#f5f6f8;--surface:#fff;
+  --ink:#1a1410;--ink-soft:#52525b;--ink-faint:#94949c;--line:#e9ebee;
+  --accent:#8b1820;--accent-soft:#f5e6e8;
+  --green:#1a8744;--green-soft:#e3f3ea;
+  --blue:#1a5fd9;--blue-soft:#e3ecfc;
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",system-ui,sans-serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  --r:10px;
+}
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg-alt);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--sans);cursor:pointer}
+
+/* ── Header ── */
+.hd{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+.hd-inner{max-width:1100px;margin:0 auto;padding:0 40px;height:60px;display:flex;align-items:center;gap:20px}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.025em}
+.logo span{color:var(--accent)}
+.hd-back{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:var(--ink-soft);padding:7px 13px;border:1px solid var(--line);border-radius:8px;transition:all .15s}
+.hd-back:hover{color:var(--ink);border-color:var(--ink-soft)}
+.hd-back svg{width:13px;height:13px}
+@media(max-width:600px){.hd-inner{padding:0 20px}}
+
+/* ── Layout ── */
+.layout{max-width:1100px;margin:0 auto;padding:40px 40px 80px;display:grid;grid-template-columns:260px 1fr;gap:32px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr;padding:24px 20px 60px}}
+
+/* ── Sidebar progress ── */
+.sidebar{position:sticky;top:80px}
+.sidebar-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.sidebar-hd{padding:20px 20px 16px;border-bottom:1px solid var(--line)}
+.sidebar-hd-title{font-weight:700;font-size:15px;margin-bottom:4px}
+.sidebar-hd-sub{font-size:12px;color:var(--ink-soft)}
+
+.steps-list{padding:12px 0}
+.step-item{display:flex;align-items:center;gap:12px;padding:10px 20px;cursor:pointer;transition:background .12s;border-left:3px solid transparent}
+.step-item:hover{background:var(--bg-alt)}
+.step-item.active{border-left-color:var(--accent);background:var(--accent-soft)}
+.step-item.done{border-left-color:var(--green)}
+.step-num{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--ink-faint);flex-shrink:0;transition:all .2s}
+.step-item.active .step-num{background:var(--accent);border-color:var(--accent);color:#fff}
+.step-item.done .step-num{background:var(--green);border-color:var(--green);color:#fff}
+.step-text{font-size:13px;font-weight:500;color:var(--ink-soft)}
+.step-item.active .step-text{color:var(--ink);font-weight:600}
+.step-item.done .step-text{color:var(--green)}
+
+.progress-wrap{padding:16px 20px;border-top:1px solid var(--line)}
+.progress-lbl{display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:6px}
+.progress-lbl span:first-child{color:var(--ink-soft)}
+.progress-lbl span:last-child{font-weight:700;font-family:var(--mono)}
+.progress-bar{height:5px;background:var(--line);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:100px;transition:width .4s ease;width:0%}
+
+/* Benefits sidebar */
+.benefits{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.benefits-title{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+.benefit{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.benefit:last-child{margin-bottom:0}
+.benefit-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.benefit-text{font-size:12.5px;color:var(--ink-soft);line-height:1.45}
+.benefit-text b{color:var(--ink);font-weight:600}
+
+/* ── Form ── */
+.form-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.form-section{padding:28px 32px;border-bottom:1px solid var(--line)}
+.form-section:last-of-type{border-bottom:0}
+@media(max-width:600px){.form-section{padding:22px 20px}}
+
+.section-hd{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.section-icon{width:36px;height:36px;border-radius:10px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;border:1px solid var(--line)}
+.section-label{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:2px}
+.section-title{font-weight:700;font-size:16px;letter-spacing:-.01em}
+
+/* Fields */
+.field-row{display:grid;gap:16px;margin-bottom:16px}
+.field-row.cols2{grid-template-columns:1fr 1fr}
+.field-row.cols3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:600px){.field-row.cols2,.field-row.cols3{grid-template-columns:1fr}}
+.field-row.solo{grid-template-columns:1fr}
+
+.field{display:flex;flex-direction:column;gap:5px}
+.label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.label .req{color:var(--accent);margin-left:2px}
+.label .opt{color:var(--ink-faint);font-weight:400;letter-spacing:0;text-transform:none;font-size:10px;margin-left:4px;font-family:var(--sans)}
+
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],select,textarea{
+  width:100%;padding:11px 13px;
+  font-family:var(--sans);font-size:14px;color:var(--ink);
+  background:var(--bg-alt);border:1.5px solid var(--line);border-radius:var(--r);
+  outline:none;transition:border-color .15s,background .15s;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--ink);background:var(--surface)}
+input.error,select.error,textarea.error{border-color:var(--accent)}
+input::placeholder,textarea::placeholder{color:var(--ink-faint)}
+textarea{resize:vertical;min-height:90px;line-height:1.55}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394949c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.field-hint{font-size:11.5px;color:var(--ink-faint);margin-top:2px}
+.field-error{font-size:11.5px;color:var(--accent);font-weight:500;display:none;margin-top:2px}
+.field.has-error .field-error{display:block}
+.field.has-error input,.field.has-error select,.field.has-error textarea{border-color:var(--accent)}
+
+/* char counter */
+.field-top{display:flex;justify-content:space-between;align-items:baseline}
+.char-count{font-size:11px;font-family:var(--mono);color:var(--ink-faint)}
+.char-count.warn{color:var(--accent)}
+
+/* Phone prefix */
+.tel-wrap{display:flex;border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--bg-alt);transition:border-color .15s,background .15s}
+.tel-wrap:focus-within{border-color:var(--ink);background:var(--surface)}
+.tel-prefix{padding:11px 12px;background:var(--line);font-family:var(--mono);font-size:13px;font-weight:600;flex-shrink:0;color:var(--ink);border-right:1.5px solid var(--line)}
+.tel-wrap input{border:0;background:transparent;flex:1;padding:11px 13px;outline:none;font-size:14px}
+
+/* Avatar upload */
+.avatar-upload{display:flex;align-items:center;gap:18px}
+.avatar-preview{
+  width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,var(--bg-alt),var(--line));
+  border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;cursor:pointer;overflow:hidden;transition:border-color .2s;position:relative;
+}
+.avatar-preview:hover{border-color:var(--ink-soft)}
+.avatar-preview img{width:100%;height:100%;object-fit:cover;display:none}
+.avatar-preview-icon{font-size:24px;color:var(--ink-faint)}
+.avatar-preview-initials{font-family:var(--display);font-weight:700;font-size:28px;color:#fff;display:none}
+.avatar-upload-info{}
+.avatar-upload-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer;transition:all .15s;margin-bottom:5px}
+.avatar-upload-btn:hover{border-color:var(--ink);color:var(--ink)}
+.avatar-upload-btn svg{width:13px;height:13px}
+.avatar-upload-hint{font-size:11.5px;color:var(--ink-faint);line-height:1.5}
+input[type=file]#avatarFile{display:none}
+
+/* Expertise checkboxes */
+.expertise-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.expertise-chip{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 13px;border-radius:10px;
+  border:1.5px solid var(--line);background:var(--surface);
+  cursor:pointer;transition:all .15s;font-size:13px;font-weight:500;color:var(--ink-soft);
+  user-select:none;
+}
+.expertise-chip:hover{border-color:var(--ink-soft);color:var(--ink)}
+.expertise-chip.selected{border-color:var(--ink);background:var(--ink);color:#fff}
+.expertise-chip input{display:none}
+.expertise-icon{font-size:16px;flex-shrink:0}
+
+/* Vehicle type chips */
+.vehicle-chips{display:flex;gap:8px;flex-wrap:wrap}
+.vehicle-chip{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;border-radius:100px;
+  border:1.5px solid var(--line);background:var(--surface);
+  cursor:pointer;transition:all .15s;font-size:13px;font-weight:500;color:var(--ink-soft);
+  user-select:none;
+}
+.vehicle-chip:hover{border-color:var(--ink-soft);color:var(--ink)}
+.vehicle-chip.selected{border-color:var(--ink);background:var(--ink);color:#fff}
+.vehicle-chip input{display:none}
+
+/* Portfolio URLs */
+.url-list{display:flex;flex-direction:column;gap:8px}
+.url-row{display:flex;gap:8px;align-items:center}
+.url-row input{flex:1}
+.url-del{width:34px;height:34px;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-faint);flex-shrink:0;transition:all .15s;font-size:18px;line-height:1}
+.url-del:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.url-add{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border:1.5px dashed var(--line);border-radius:8px;font-size:13px;font-weight:500;color:var(--ink-soft);cursor:pointer;background:none;transition:all .15s;margin-top:4px}
+.url-add:hover{border-color:var(--ink);color:var(--ink)}
+
+/* Social icons row */
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:500px){.social-grid{grid-template-columns:1fr}}
+.social-field{position:relative}
+.social-field input{padding-left:38px}
+.social-field-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--ink-faint);pointer-events:none}
+
+/* Availability radios */
+.avail-options{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+@media(max-width:500px){.avail-options{grid-template-columns:1fr}}
+.avail-option{
+  padding:13px 12px;border-radius:10px;border:1.5px solid var(--line);
+  background:var(--surface);cursor:pointer;transition:all .15s;text-align:center;
+  user-select:none;
+}
+.avail-option:hover{border-color:var(--ink-soft)}
+.avail-option.selected{border-color:var(--ink);background:var(--ink);color:#fff}
+.avail-option input{display:none}
+.avail-icon{font-size:20px;margin-bottom:4px}
+.avail-title{font-size:13px;font-weight:700;margin-bottom:2px}
+.avail-sub{font-size:11px;opacity:.7}
+
+/* Languages */
+.lang-grid{display:flex;gap:8px;flex-wrap:wrap}
+.lang-chip{
+  padding:6px 13px;border-radius:100px;border:1.5px solid var(--line);background:var(--surface);
+  cursor:pointer;font-size:12.5px;font-weight:500;color:var(--ink-soft);transition:all .15s;user-select:none;
+}
+.lang-chip:hover{border-color:var(--ink-soft);color:var(--ink)}
+.lang-chip.selected{border-color:var(--ink);background:var(--ink);color:#fff}
+.lang-chip input{display:none}
+
+/* Consent */
+.consent-box{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:14px;background:var(--bg-alt);border-radius:10px;
+  font-size:12.5px;color:var(--ink-soft);line-height:1.55;cursor:pointer;
+}
+.consent-box input{margin-top:2px;accent-color:var(--accent);width:15px;height:15px;flex-shrink:0}
+.consent-box a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+
+/* Submit footer */
+.form-footer{padding:24px 32px;background:var(--bg-alt);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:600px){.form-footer{padding:18px 20px}}
+.footer-trust{font-size:12px;color:var(--ink-faint);display:flex;align-items:center;gap:5px}
+.footer-trust svg{width:14px;height:14px;color:var(--green);flex-shrink:0}
+.submit-btn{
+  padding:13px 30px;border-radius:10px;background:var(--accent);color:#fff;
+  font-size:14px;font-weight:700;border:0;cursor:pointer;
+  display:flex;align-items:center;gap:8px;transition:background .15s,transform .1s;
+  font-family:var(--sans);
+}
+.submit-btn:hover{background:#6d1218}
+.submit-btn:active{transform:scale(.98)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.submit-btn svg{width:16px;height:16px}
+
+/* ── Success screen ── */
+/* ── OTP Gate ── */
+.otp-gate{min-height:calc(100vh - 60px);display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.otp-gate.hidden{display:none}
+.otp-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:44px 40px;width:100%;max-width:440px;box-shadow:0 8px 40px rgba(0,0,0,.08)}
+@media(max-width:480px){.otp-card{padding:32px 24px;border-radius:16px}}
+
+.otp-brand{display:flex;align-items:center;gap:10px;margin-bottom:32px}
+.otp-brand-logo{width:38px;height:38px;border-radius:10px;background:var(--ink);color:#fff;font-family:var(--display);font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;letter-spacing:-.02em}
+.otp-brand-name{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.04em}
+.otp-brand-name span{color:var(--ink-faint);font-weight:400}
+
+/* Step indicator */
+.otp-steps{display:flex;align-items:center;gap:0;margin-bottom:28px}
+.otp-step-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;transition:all .25s}
+.otp-step-dot.pending{background:var(--bg-alt);color:var(--ink-faint);border:1.5px solid var(--line)}
+.otp-step-dot.active{background:var(--ink);color:#fff}
+.otp-step-dot.done{background:var(--green);color:#fff}
+.otp-step-line{flex:1;height:1.5px;background:var(--line);transition:background .25s}
+.otp-step-line.done{background:var(--green)}
+
+/* Headings */
+.otp-icon{font-size:36px;margin-bottom:14px;line-height:1}
+.otp-title{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.02em;margin-bottom:6px}
+.otp-sub{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:24px}
+.otp-sub b{color:var(--ink)}
+
+/* Email input */
+.otp-email-wrap{position:relative}
+.otp-email-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--ink-faint);pointer-events:none}
+.otp-email-input{width:100%;padding:13px 13px 13px 40px;font-family:var(--sans);font-size:14px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg-alt);color:var(--ink);outline:none;transition:border-color .15s,background .15s}
+.otp-email-input:focus{border-color:var(--ink);background:var(--surface)}
+.otp-email-input.error{border-color:var(--accent)}
+.otp-field-error{font-size:12px;color:var(--accent);font-weight:500;margin-top:5px;display:none}
+.otp-field-error.show{display:block}
+
+/* OTP digit boxes */
+.otp-boxes{display:flex;gap:10px;justify-content:center;margin:8px 0 20px}
+.otp-box{
+  width:52px;height:58px;border:1.5px solid var(--line);border-radius:10px;
+  background:var(--bg-alt);font-family:var(--display);font-weight:700;font-size:24px;
+  text-align:center;color:var(--ink);outline:none;caret-color:transparent;
+  transition:border-color .15s,background .15s,transform .1s;
+}
+.otp-box:focus{border-color:var(--ink);background:var(--surface);transform:scale(1.05)}
+.otp-box.filled{border-color:var(--ink-soft)}
+.otp-box.error{border-color:var(--accent);background:var(--accent-soft)}
+.otp-box.success{border-color:var(--green);background:var(--green-soft);animation:otp-pop .25s ease}
+@keyframes otp-pop{0%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media(max-width:360px){.otp-box{width:42px;height:50px;font-size:20px;gap:6px}}
+
+/* Resend */
+.otp-resend{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:8px}
+.otp-resend-btn{background:none;border:0;color:var(--accent);font-weight:600;font-size:12.5px;cursor:pointer;font-family:var(--sans);padding:0;transition:opacity .15s}
+.otp-resend-btn:disabled{opacity:.4;cursor:not-allowed}
+.otp-timer{font-family:var(--mono);color:var(--ink-faint)}
+
+/* Primary button */
+.otp-btn{
+  width:100%;padding:13px;border-radius:10px;background:var(--ink);color:#fff;
+  font-family:var(--sans);font-size:14px;font-weight:700;border:0;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:background .15s,transform .1s;margin-top:20px;
+}
+.otp-btn:hover{background:var(--accent)}
+.otp-btn:active{transform:scale(.98)}
+.otp-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.otp-btn svg{width:16px;height:16px}
+
+/* Change email link */
+.otp-change{font-size:12px;color:var(--ink-faint);text-align:center;margin-top:14px}
+.otp-change a{color:var(--ink-soft);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.otp-change a:hover{color:var(--accent)}
+
+/* Demo hint */
+.otp-demo-hint{
+  background:rgba(26,95,217,.06);border:1px solid rgba(26,95,217,.15);
+  border-radius:8px;padding:10px 13px;font-size:12px;color:#1a5fd9;
+  margin-top:16px;display:flex;align-items:flex-start;gap:7px;line-height:1.5;
+}
+.otp-demo-hint svg{width:14px;height:14px;flex-shrink:0;margin-top:1px}
+
+/* Verified badge on form */
+.verified-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12px;font-weight:600;color:var(--green);
+  background:var(--green-soft);padding:4px 10px;border-radius:100px;
+}
+.verified-badge svg{width:12px;height:12px}
+
+.success-screen{display:none;min-height:60vh;align-items:center;justify-content:center;padding:60px 20px}
+.success-screen.visible{display:flex}
+.success-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:52px 44px;max-width:520px;width:100%;text-align:center}
+.success-icon{width:72px;height:72px;border-radius:50%;background:var(--green-soft);color:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.success-icon svg{width:34px;height:34px}
+.success-title{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.02em;margin-bottom:8px}
+.success-sub{font-size:14.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:28px;max-width:380px;margin-left:auto;margin-right:auto}
+.success-sub b{color:var(--ink)}
+.success-timeline{background:var(--bg-alt);border-radius:12px;padding:18px;margin-bottom:28px;text-align:left}
+.success-timeline-title{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.success-step{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.success-step:last-child{margin-bottom:0}
+.success-step-dot{width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.success-step-text{font-size:13px;color:var(--ink-soft);line-height:1.4}
+.success-step-text b{color:var(--ink)}
+.success-id{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-bottom:20px}
+.success-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.success-btn-primary{padding:11px 22px;border-radius:10px;background:var(--ink);color:#fff;font-size:13.5px;font-weight:600;border:0;cursor:pointer;font-family:var(--sans);transition:background .15s}
+.success-btn-primary:hover{background:var(--accent)}
+.success-btn-secondary{padding:11px 22px;border-radius:10px;background:var(--surface);color:var(--ink);font-size:13.5px;font-weight:600;border:1.5px solid var(--line);cursor:pointer;font-family:var(--sans);transition:all .15s}
+.success-btn-secondary:hover{border-color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="hd">
+  <div class="hd-inner">
+    <a href="homepage-final.html" class="logo">[Brand]<span>.</span></a>
+    <a href="editors.html" class="hd-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Meet our editors
+    </a>
+  </div>
+</header>
+
+<!-- OTP Gate -->
+<div class="otp-gate" id="otpGate">
+  <div class="otp-card">
+
+    <div class="otp-brand">
+      <div class="otp-brand-logo">B</div>
+      <div class="otp-brand-name">[Brand]<span> · Editor portal</span></div>
+    </div>
+
+    <!-- Step indicator -->
+    <div class="otp-steps">
+      <div class="otp-step-dot active" id="otpDot1">1</div>
+      <div class="otp-step-line" id="otpLine1"></div>
+      <div class="otp-step-dot pending" id="otpDot2">2</div>
+      <div class="otp-step-line" id="otpLine2"></div>
+      <div class="otp-step-dot pending" id="otpDot3">✓</div>
+    </div>
+
+    <!-- Step A: Enter email -->
+    <div id="stepEmail">
+      <div class="otp-icon">✉️</div>
+      <h2 class="otp-title">Enter your email</h2>
+      <p class="otp-sub">We'll send a 6-digit verification code to confirm it's you before you start the application.</p>
+
+      <div class="otp-email-wrap">
+        <svg class="otp-email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <input class="otp-email-input" type="email" id="otpEmailInput" placeholder="you@example.com" autocomplete="email" required>
+      </div>
+      <div class="otp-field-error" id="otpEmailError">Please enter a valid email address</div>
+
+      <button class="otp-btn" id="sendOtpBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+        Send verification code
+      </button>
+    </div>
+
+    <!-- Step B: Enter OTP -->
+    <div id="stepOtp" style="display:none">
+      <div class="otp-icon">📬</div>
+      <h2 class="otp-title">Check your inbox</h2>
+      <p class="otp-sub">We sent a 6-digit code to <b id="otpEmailDisplay">your email</b>. Enter it below — it expires in 10 minutes.</p>
+
+      <div class="otp-boxes" id="otpBoxes">
+        <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1">
+        <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2">
+        <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3">
+        <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4">
+        <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 5">
+        <input class="otp-box" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 6">
+      </div>
+      <div class="otp-field-error" id="otpCodeError">Incorrect code. Please try again.</div>
+
+      <button class="otp-btn" id="verifyOtpBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Verify & continue
+      </button>
+
+      <div class="otp-resend">
+        Didn't get it?
+        <button class="otp-resend-btn" id="resendBtn" disabled>Resend code</button>
+        <span class="otp-timer" id="otpTimer">in 30s</span>
+      </div>
+
+      <div class="otp-change">
+        Wrong email? <a id="changeEmailLink">Change email</a>
+      </div>
+
+      <div class="otp-demo-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span><b>Demo mode:</b> use code <b>123456</b> to verify. In production this is sent to your actual email via a backend API.</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Success screen -->
+<div class="success-screen" id="successScreen">
+  <div class="success-card">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 class="success-title">Application submitted! 🎉</h2>
+    <p class="success-sub">We've received your editor application and will review it within <b>5 working days</b>. You'll hear from our editorial team at <b id="successEmail">your email</b>.</p>
+    <div class="success-id">Application ID: <b id="successId">EDR-000000</b></div>
+    <div class="success-timeline">
+      <div class="success-timeline-title">What happens next</div>
+      <div class="success-step">
+        <div class="success-step-dot">1</div>
+        <div class="success-step-text"><b>Portfolio review</b> — our editorial team reads your writing samples and checks your background. (1–2 days)</div>
+      </div>
+      <div class="success-step">
+        <div class="success-step-dot">2</div>
+        <div class="success-step-text"><b>Video call</b> — 30-minute conversation with our editor-in-chief about coverage expectations and your beat. (Day 3–4)</div>
+      </div>
+      <div class="success-step">
+        <div class="success-step-dot">3</div>
+        <div class="success-step-text"><b>Test assignment</b> — we'll send a brief to write one 300-word review excerpt on a car of your choice. (Day 5)</div>
+      </div>
+      <div class="success-step">
+        <div class="success-step-dot">4</div>
+        <div class="success-step-text"><b>Offer or feedback</b> — final decision communicated with detailed feedback either way.</div>
+      </div>
+    </div>
+    <div class="success-actions">
+      <button class="success-btn-primary" onclick="window.location.href='editors.html'">Meet our editors</button>
+      <button class="success-btn-secondary" onclick="window.location.href='homepage-final.html'">Go to homepage</button>
+    </div>
+  </div>
+</div>
+
+<!-- Main layout (hidden until OTP verified) -->
+<div class="layout" id="mainLayout" style="display:none">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-hd">
+        <div class="sidebar-hd-title">Editor application</div>
+        <div class="sidebar-hd-sub">Complete all sections to submit</div>
+      </div>
+      <div class="steps-list">
+        <div class="step-item active" data-step="1">
+          <div class="step-num">1</div>
+          <div class="step-text">Personal details</div>
+        </div>
+        <div class="step-item" data-step="2">
+          <div class="step-num">2</div>
+          <div class="step-text">Professional background</div>
+        </div>
+        <div class="step-item" data-step="3">
+          <div class="step-num">3</div>
+          <div class="step-text">Expertise & coverage</div>
+        </div>
+        <div class="step-item" data-step="4">
+          <div class="step-num">4</div>
+          <div class="step-text">Portfolio & links</div>
+        </div>
+        <div class="step-item" data-step="5">
+          <div class="step-num">5</div>
+          <div class="step-text">Social profiles</div>
+        </div>
+        <div class="step-item" data-step="6">
+          <div class="step-num">6</div>
+          <div class="step-text">Availability & consent</div>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-lbl"><span>Profile completion</span><span id="progressPct">0%</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+    </div>
+
+    <div class="benefits">
+      <div class="benefits-title">Why join [Brand]</div>
+      <div class="benefit"><div class="benefit-icon">🚗</div><div class="benefit-text"><b>Test unit access</b> — drive every major launch before it hits showrooms</div></div>
+      <div class="benefit"><div class="benefit-icon">✍️</div><div class="benefit-text"><b>Editorial freedom</b> — 100% honest reviews, zero advertiser influence</div></div>
+      <div class="benefit"><div class="benefit-icon">📈</div><div class="benefit-text"><b>Massive reach</b> — your byline seen by <b>20M+ readers</b> monthly</div></div>
+      <div class="benefit"><div class="benefit-icon">💼</div><div class="benefit-text"><b>Flexible</b> — full-time, part-time, or freelance per-review arrangements</div></div>
+      <div class="benefit"><div class="benefit-icon">🏆</div><div class="benefit-text"><b>Industry recognition</b> — press launches, SIAM events, media test drives</div></div>
+    </div>
+  </aside>
+
+  <!-- Form -->
+  <form class="form-card" id="editorForm" novalidate>
+
+    <!-- ── Section 1: Personal details ── -->
+    <div class="form-section" id="section1">
+      <div class="section-hd">
+        <div class="section-icon">👤</div>
+        <div>
+          <div class="section-label">Step 1</div>
+          <div class="section-title">Personal details</div>
+        </div>
+      </div>
+
+      <!-- Avatar -->
+      <div class="field-row solo" style="margin-bottom:20px">
+        <div class="field">
+          <div class="label">Profile photo <span class="opt">optional but recommended</span></div>
+          <div class="avatar-upload">
+            <div class="avatar-preview" id="avatarPreview" onclick="document.getElementById('avatarFile').click()">
+              <div class="avatar-preview-icon">📷</div>
+              <div class="avatar-preview-initials" id="avatarInitials"></div>
+              <img id="avatarImg" alt="Profile photo">
+            </div>
+            <div class="avatar-upload-info">
+              <label for="avatarFile" class="avatar-upload-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Upload photo
+              </label>
+              <input type="file" id="avatarFile" accept="image/*">
+              <div class="avatar-upload-hint">JPG or PNG · Max 2 MB · Square crop recommended<br>This appears on your public editor profile.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row cols2">
+        <div class="field" id="f-firstName">
+          <div class="label">First name <span class="req">*</span></div>
+          <input type="text" id="firstName" placeholder="Rohan" autocomplete="given-name" required>
+          <div class="field-error">Please enter your first name</div>
+        </div>
+        <div class="field" id="f-lastName">
+          <div class="label">Last name <span class="req">*</span></div>
+          <input type="text" id="lastName" placeholder="Saxena" autocomplete="family-name" required>
+          <div class="field-error">Please enter your last name</div>
+        </div>
+      </div>
+
+      <div class="field-row cols2">
+        <div class="field" id="f-email">
+          <div class="label" style="display:flex;align-items:center;gap:8px">
+            Email address
+            <span class="verified-badge" id="emailVerifiedBadge" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Verified
+            </span>
+          </div>
+          <input type="email" id="email" placeholder="rohan@example.com" autocomplete="email" required readonly style="background:var(--green-soft);border-color:var(--green);color:var(--green)">
+          <div class="field-error">Enter a valid email address</div>
+        </div>
+        <div class="field">
+          <div class="label">Mobile number <span class="req">*</span></div>
+          <div class="tel-wrap" id="f-phone">
+            <span class="tel-prefix">+91</span>
+            <input type="tel" id="phone" placeholder="98XXX XXXXX" maxlength="10" autocomplete="tel-national" required>
+          </div>
+          <div class="field-error" id="phoneError">Enter a valid 10-digit number</div>
+        </div>
+      </div>
+
+      <div class="field-row cols2">
+        <div class="field">
+          <div class="label">City <span class="req">*</span></div>
+          <select id="city" required>
+            <option value="">Select your city</option>
+            <option>Mumbai</option><option>Delhi NCR</option><option>Bengaluru</option>
+            <option>Hyderabad</option><option>Chennai</option><option>Pune</option>
+            <option>Kolkata</option><option>Ahmedabad</option><option>Jaipur</option>
+            <option>Lucknow</option><option>Chandigarh</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="label">Gender <span class="opt">optional</span></div>
+          <select id="gender">
+            <option value="">Prefer not to say</option>
+            <option>Male</option><option>Female</option><option>Non-binary</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row solo">
+        <div class="field" id="f-tagline">
+          <div class="field-top">
+            <div class="label">One-line bio / tagline <span class="req">*</span>
+              <span class="opt">shown under your name on the profile</span>
+            </div>
+            <div class="char-count" id="taglineCount">0/100</div>
+          </div>
+          <input type="text" id="tagline" maxlength="100" placeholder="e.g. 8 years covering Indian EVs. Tested every electric car since 2019. Fmr. Editor, EVO India.">
+          <div class="field-error">Please add a tagline</div>
+        </div>
+      </div>
+
+      <div class="field-row solo">
+        <div class="field" id="f-bio">
+          <div class="field-top">
+            <div class="label">Full bio <span class="req">*</span>
+              <span class="opt">3–5 sentences · shown on your profile page</span>
+            </div>
+            <div class="char-count" id="bioCount">0/600</div>
+          </div>
+          <textarea id="bio" maxlength="600" rows="4" placeholder="Describe your automotive journalism background, what you specialise in, notable publications you've worked with, and what makes your coverage unique…"></textarea>
+          <div class="field-error">Please write a short bio (min 80 characters)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 2: Professional background ── -->
+    <div class="form-section" id="section2">
+      <div class="section-hd">
+        <div class="section-icon">💼</div>
+        <div>
+          <div class="section-label">Step 2</div>
+          <div class="section-title">Professional background</div>
+        </div>
+      </div>
+
+      <div class="field-row cols2">
+        <div class="field" id="f-role">
+          <div class="label">Desired role / title <span class="req">*</span></div>
+          <select id="role" required>
+            <option value="">Select role</option>
+            <option>EV & Electric Vehicles Editor</option>
+            <option>SUV & Family Cars Editor</option>
+            <option>Bikes & Performance Editor</option>
+            <option>Commuter Bikes & Scooters Editor</option>
+            <option>Off-road & Adventure Editor</option>
+            <option>Hybrid & Sustainability Editor</option>
+            <option>Tech & ADAS Editor</option>
+            <option>News & Industry Editor</option>
+            <option>Senior Road Test Editor</option>
+            <option>Video / Multimedia Editor</option>
+            <option>Freelance Contributor</option>
+            <option>Other</option>
+          </select>
+          <div class="field-error">Please select a role</div>
+        </div>
+        <div class="field" id="f-experience">
+          <div class="label">Years of automotive journalism <span class="req">*</span></div>
+          <select id="experience" required>
+            <option value="">Select experience</option>
+            <option value="0-1">Less than 1 year</option>
+            <option value="1-3">1–3 years</option>
+            <option value="3-5">3–5 years</option>
+            <option value="5-8">5–8 years</option>
+            <option value="8-12">8–12 years</option>
+            <option value="12+">12+ years</option>
+          </select>
+          <div class="field-error">Please select your experience</div>
+        </div>
+      </div>
+
+      <div class="field-row cols2">
+        <div class="field">
+          <div class="label">Current employer <span class="opt">optional</span></div>
+          <input type="text" id="employer" placeholder="e.g. AutoCar India, Zigwheels, Freelance">
+        </div>
+        <div class="field">
+          <div class="label">Previous notable employers <span class="opt">optional</span></div>
+          <input type="text" id="prevEmployer" placeholder="e.g. EVO India, MotorOctane, BikeWale">
+        </div>
+      </div>
+
+      <div class="field-row cols3">
+        <div class="field">
+          <div class="label">Total reviews written</div>
+          <select id="reviewCount">
+            <option value="">Approx. count</option>
+            <option value="1-10">1–10</option>
+            <option value="10-50">10–50</option>
+            <option value="50-100">50–100</option>
+            <option value="100-200">100–200</option>
+            <option value="200+">200+</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="label">Monthly readership</div>
+          <select id="readership">
+            <option value="">Approx. reach</option>
+            <option value="under-10k">Under 10,000</option>
+            <option value="10k-50k">10K–50K</option>
+            <option value="50k-200k">50K–2L</option>
+            <option value="200k-1m">2L–10L</option>
+            <option value="1m+">10L+</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="label">KM driven in testing</div>
+          <select id="kmDriven">
+            <option value="">Approx. km</option>
+            <option value="under-10k">Under 10,000</option>
+            <option value="10k-50k">10,000–50,000</option>
+            <option value="50k-1l">50,000–1 lakh</option>
+            <option value="1l-5l">1L–5L km</option>
+            <option value="5l+">5L+ km</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row solo">
+        <div class="field">
+          <div class="label">Notable cars / bikes tested <span class="opt">optional · comma separated</span></div>
+          <input type="text" id="notableCars" placeholder="e.g. Tata Curvv EV, Hyundai Creta EV, Mahindra XUV700, KTM Duke 390">
+          <div class="field-hint">List the most impressive or recent vehicles you've tested. This helps us match you to the right beat.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 3: Expertise & coverage ── -->
+    <div class="form-section" id="section3">
+      <div class="section-hd">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-label">Step 3</div>
+          <div class="section-title">Expertise & coverage</div>
+        </div>
+      </div>
+
+      <div class="field-row solo" style="margin-bottom:20px">
+        <div class="field">
+          <div class="label">Coverage areas <span class="req">*</span> <span class="opt">select all that apply</span></div>
+          <div class="expertise-grid" id="expertiseGrid">
+            <label class="expertise-chip"><input type="checkbox" value="ev"><span class="expertise-icon">⚡</span>Electric vehicles</label>
+            <label class="expertise-chip"><input type="checkbox" value="hybrid"><span class="expertise-icon">🌿</span>Hybrid & CNG</label>
+            <label class="expertise-chip"><input type="checkbox" value="suv"><span class="expertise-icon">🚙</span>SUVs & Crossovers</label>
+            <label class="expertise-chip"><input type="checkbox" value="sedan"><span class="expertise-icon">🚗</span>Sedans & Hatchbacks</label>
+            <label class="expertise-chip"><input type="checkbox" value="sports-bikes"><span class="expertise-icon">🏍</span>Sports bikes</label>
+            <label class="expertise-chip"><input type="checkbox" value="cruisers"><span class="expertise-icon">🛣️</span>Cruisers & Touring</label>
+            <label class="expertise-chip"><input type="checkbox" value="scooters"><span class="expertise-icon">🛵</span>Scooters & Commuters</label>
+            <label class="expertise-chip"><input type="checkbox" value="offroad"><span class="expertise-icon">🏔️</span>Off-road & 4x4</label>
+            <label class="expertise-chip"><input type="checkbox" value="tech"><span class="expertise-icon">📱</span>Tech & ADAS</label>
+            <label class="expertise-chip"><input type="checkbox" value="commercial"><span class="expertise-icon">🚚</span>Commercial vehicles</label>
+            <label class="expertise-chip"><input type="checkbox" value="news"><span class="expertise-icon">📰</span>News & Industry</label>
+            <label class="expertise-chip"><input type="checkbox" value="video"><span class="expertise-icon">🎥</span>Video & Multimedia</label>
+          </div>
+          <div class="field-error" id="expertiseError">Please select at least one area</div>
+        </div>
+      </div>
+
+      <div class="field-row solo">
+        <div class="field">
+          <div class="label">Vehicle types you actively cover <span class="req">*</span></div>
+          <div class="vehicle-chips" id="vehicleChips">
+            <label class="vehicle-chip"><input type="checkbox" value="cars">🚗 Cars</label>
+            <label class="vehicle-chip"><input type="checkbox" value="bikes">🏍 Bikes</label>
+            <label class="vehicle-chip"><input type="checkbox" value="scooters">🛵 Scooters</label>
+            <label class="vehicle-chip"><input type="checkbox" value="ev">⚡ EVs</label>
+            <label class="vehicle-chip"><input type="checkbox" value="commercial">🚚 Commercial</label>
+            <label class="vehicle-chip"><input type="checkbox" value="luxury">💎 Luxury</label>
+          </div>
+          <div class="field-error" id="vehicleError">Please select at least one</div>
+        </div>
+      </div>
+
+      <div class="field-row cols2">
+        <div class="field">
+          <div class="label">Languages you write in <span class="req">*</span></div>
+          <div class="lang-grid" id="langGrid">
+            <label class="lang-chip"><input type="checkbox" value="english">English</label>
+            <label class="lang-chip"><input type="checkbox" value="hindi">Hindi</label>
+            <label class="lang-chip"><input type="checkbox" value="tamil">Tamil</label>
+            <label class="lang-chip"><input type="checkbox" value="telugu">Telugu</label>
+            <label class="lang-chip"><input type="checkbox" value="kannada">Kannada</label>
+            <label class="lang-chip"><input type="checkbox" value="marathi">Marathi</label>
+            <label class="lang-chip"><input type="checkbox" value="gujarati">Gujarati</label>
+            <label class="lang-chip"><input type="checkbox" value="bengali">Bengali</label>
+          </div>
+          <div class="field-error" id="langError">Please select at least one language</div>
+        </div>
+        <div class="field">
+          <div class="label">Testing city / region <span class="opt">where you do most road tests</span></div>
+          <input type="text" id="testingCity" placeholder="e.g. Bengaluru & NH-48 highway corridor">
+          <div class="field-hint">This helps us assign you launch events and long-term test cars in your region.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 4: Portfolio & writing samples ── -->
+    <div class="form-section" id="section4">
+      <div class="section-hd">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-label">Step 4</div>
+          <div class="section-title">Portfolio & writing samples</div>
+        </div>
+      </div>
+
+      <div class="field-row solo">
+        <div class="field">
+          <div class="label">Portfolio / personal website <span class="opt">optional</span></div>
+          <div class="social-field">
+            <svg class="social-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <input type="url" id="portfolio" placeholder="https://yoursite.com">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row solo">
+        <div class="field" id="f-samples">
+          <div class="label">Writing samples — article URLs <span class="req">*</span>
+            <span class="opt">minimum 2, up to 5</span>
+          </div>
+          <div class="url-list" id="urlList">
+            <div class="url-row">
+              <input type="url" placeholder="https://autocarindia.com/your-review" class="sample-url">
+              <button type="button" class="url-del" onclick="removeUrl(this)" style="visibility:hidden">×</button>
+            </div>
+            <div class="url-row">
+              <input type="url" placeholder="https://evoindia.com/your-article" class="sample-url">
+              <button type="button" class="url-del" onclick="removeUrl(this)" style="visibility:hidden">×</button>
+            </div>
+          </div>
+          <button type="button" class="url-add" id="addUrlBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add another URL
+          </button>
+          <div class="field-error" id="samplesError">Please add at least 2 article URLs</div>
+          <div class="field-hint">Link to your best work — reviews, road tests, news articles. Must be publicly accessible.</div>
+        </div>
+      </div>
+
+      <div class="field-row solo">
+        <div class="field">
+          <div class="label">Cover letter / why us <span class="opt">optional but recommended</span></div>
+          <textarea id="coverLetter" rows="4" placeholder="Tell us what excites you about joining [Brand], which beat you'd own, and what you'd bring to our readers that they can't get elsewhere…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 5: Social profiles ── -->
+    <div class="form-section" id="section5">
+      <div class="section-hd">
+        <div class="section-icon">🔗</div>
+        <div>
+          <div class="section-label">Step 5</div>
+          <div class="section-title">Social profiles</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--ink-soft);margin-bottom:18px;line-height:1.5">These will appear on your public editor profile and help us verify your reach. At least one is required.</p>
+
+      <div class="social-grid">
+        <div class="field">
+          <div class="label">X (Twitter)</div>
+          <div class="social-field">
+            <svg class="social-field-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631Z"/></svg>
+            <input type="text" id="twitter" placeholder="@username">
+          </div>
+        </div>
+        <div class="field">
+          <div class="label">LinkedIn</div>
+          <div class="social-field">
+            <svg class="social-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourname">
+          </div>
+        </div>
+        <div class="field">
+          <div class="label">Instagram</div>
+          <div class="social-field">
+            <svg class="social-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <input type="text" id="instagram" placeholder="@username">
+          </div>
+        </div>
+        <div class="field">
+          <div class="label">YouTube channel</div>
+          <div class="social-field">
+            <svg class="social-field-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg>
+            <input type="url" id="youtube" placeholder="https://youtube.com/@channel">
+          </div>
+        </div>
+      </div>
+      <div class="field-error" id="socialError" style="margin-top:10px">Please add at least one social profile</div>
+    </div>
+
+    <!-- ── Section 6: Availability & consent ── -->
+    <div class="form-section" id="section6">
+      <div class="section-hd">
+        <div class="section-icon">📅</div>
+        <div>
+          <div class="section-label">Step 6</div>
+          <div class="section-title">Availability & consent</div>
+        </div>
+      </div>
+
+      <div class="field-row solo" style="margin-bottom:20px">
+        <div class="field">
+          <div class="label">Availability <span class="req">*</span></div>
+          <div class="avail-options" id="availOptions">
+            <label class="avail-option">
+              <input type="radio" name="availability" value="fulltime">
+              <div class="avail-icon">🏢</div>
+              <div class="avail-title">Full-time</div>
+              <div class="avail-sub">5 days/week</div>
+            </label>
+            <label class="avail-option">
+              <input type="radio" name="availability" value="parttime">
+              <div class="avail-icon">⏱️</div>
+              <div class="avail-title">Part-time</div>
+              <div class="avail-sub">2–3 days/week</div>
+            </label>
+            <label class="avail-option">
+              <input type="radio" name="availability" value="freelance">
+              <div class="avail-icon">🌐</div>
+              <div class="avail-title">Freelance</div>
+              <div class="avail-sub">Per-review basis</div>
+            </label>
+          </div>
+          <div class="field-error" id="availError">Please select your availability</div>
+        </div>
+      </div>
+
+      <div class="field-row cols2">
+        <div class="field">
+          <div class="label">Earliest start date</div>
+          <input type="date" id="startDate" min="">
+        </div>
+        <div class="field">
+          <div class="label">Expected monthly reviews</div>
+          <select id="monthlyReviews">
+            <option value="">Select count</option>
+            <option value="1-2">1–2 reviews/month</option>
+            <option value="3-5">3–5 reviews/month</option>
+            <option value="6-10">6–10 reviews/month</option>
+            <option value="10+">10+ reviews/month</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row solo">
+        <div class="field">
+          <div class="label">Anything else you'd like us to know? <span class="opt">optional</span></div>
+          <textarea id="notes" rows="3" placeholder="Awards, certifications, NCAP training, test track access, unique equipment, language skills, regional reach…"></textarea>
+        </div>
+      </div>
+
+      <!-- Consent -->
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+        <label class="consent-box">
+          <input type="checkbox" id="consentProfile" required>
+          <span>I agree that my submitted details and writing samples will be used by [Brand] to evaluate my application and, if accepted, to create my public editor profile on the platform.</span>
+        </label>
+        <label class="consent-box">
+          <input type="checkbox" id="consentContact" required>
+          <span>I consent to [Brand] contacting me via email, phone, and WhatsApp regarding this application and future editorial opportunities. I have read the <a href="#">Privacy Policy</a> and <a href="#">Editorial Code of Conduct</a>.</span>
+        </label>
+        <label class="consent-box">
+          <input type="checkbox" id="consentAccuracy">
+          <span>I confirm that all information provided is accurate and my own original work. I understand that misrepresentation will result in immediate rejection or removal from the platform.</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Form footer -->
+    <div class="form-footer">
+      <div class="footer-trust">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Your data is encrypted and never shared with third parties
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Submit application
+      </button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// OTP GATE
+// ═══════════════════════════════════════════════════════════
+(function(){
+'use strict';
+
+var DEMO_OTP = '123456'; // In production: generated server-side, sent via email API
+
+var otpGate    = document.getElementById('otpGate');
+var stepEmail  = document.getElementById('stepEmail');
+var stepOtp    = document.getElementById('stepOtp');
+var emailInput = document.getElementById('otpEmailInput');
+var emailError = document.getElementById('otpEmailError');
+var sendBtn    = document.getElementById('sendOtpBtn');
+var verifyBtn  = document.getElementById('verifyOtpBtn');
+var codeError  = document.getElementById('otpCodeError');
+var emailDisp  = document.getElementById('otpEmailDisplay');
+var resendBtn  = document.getElementById('resendBtn');
+var timerEl    = document.getElementById('otpTimer');
+var changeLink = document.getElementById('changeEmailLink');
+var boxes      = Array.from(document.querySelectorAll('.otp-box'));
+
+var timerInterval = null;
+var timerSecs = 30;
+
+// ── Step indicator ──
+function setStep(n) {
+  var dots  = [document.getElementById('otpDot1'),document.getElementById('otpDot2'),document.getElementById('otpDot3')];
+  var lines = [document.getElementById('otpLine1'),document.getElementById('otpLine2')];
+  dots.forEach(function(d,i){
+    d.className = 'otp-step-dot ' + (i+1 < n ? 'done' : i+1 === n ? 'active' : 'pending');
+  });
+  lines.forEach(function(l,i){
+    l.className = 'otp-step-line' + (i+1 < n ? ' done' : '');
+  });
+}
+
+// ── Send OTP ──
+sendBtn.addEventListener('click', function(){
+  var email = emailInput.value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    emailInput.classList.add('error');
+    emailError.classList.add('show');
+    emailInput.focus();
+    return;
+  }
+  emailInput.classList.remove('error');
+  emailError.classList.remove('show');
+
+  sendBtn.disabled = true;
+  sendBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Sending…';
+
+  // Simulate API call → send OTP
+  setTimeout(function(){
+    emailDisp.textContent = email;
+    stepEmail.style.display = 'none';
+    stepOtp.style.display = '';
+    setStep(2);
+    boxes[0].focus();
+    startTimer();
+    sendBtn.disabled = false;
+    sendBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg> Send verification code';
+  }, 900);
+});
+
+// ── OTP box keyboard wiring ──
+boxes.forEach(function(box, i){
+  box.addEventListener('keydown', function(e){
+    if(e.key === 'Backspace'){
+      if(box.value){
+        box.value = '';
+        box.classList.remove('filled');
+      } else if(i > 0){
+        boxes[i-1].focus();
+        boxes[i-1].value = '';
+        boxes[i-1].classList.remove('filled');
+      }
+      e.preventDefault();
+    } else if(e.key === 'ArrowLeft' && i > 0){
+      boxes[i-1].focus();
+    } else if(e.key === 'ArrowRight' && i < boxes.length-1){
+      boxes[i+1].focus();
+    } else if(e.key === 'Enter'){
+      doVerify();
+    }
+  });
+
+  box.addEventListener('input', function(){
+    var val = box.value.replace(/\D/g,'').slice(-1);
+    box.value = val;
+    box.classList.toggle('filled', !!val);
+    // Remove error state on type
+    boxes.forEach(function(b){ b.classList.remove('error'); });
+    codeError.classList.remove('show');
+    if(val && i < boxes.length-1) boxes[i+1].focus();
+    // Auto-verify when all filled
+    if(boxes.every(function(b){ return b.value; })) doVerify();
+  });
+
+  // Handle paste on any box
+  box.addEventListener('paste', function(e){
+    e.preventDefault();
+    var pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g,'');
+    pasted.slice(0,6).split('').forEach(function(ch, j){
+      if(boxes[j]){ boxes[j].value = ch; boxes[j].classList.add('filled'); }
+    });
+    var next = Math.min(pasted.length, 5);
+    boxes[next].focus();
+    if(pasted.length >= 6) setTimeout(doVerify, 100);
+  });
+});
+
+// ── Verify ──
+verifyBtn.addEventListener('click', doVerify);
+
+function doVerify(){
+  var code = boxes.map(function(b){ return b.value; }).join('');
+  if(code.length < 6){
+    codeError.textContent = 'Please enter all 6 digits.';
+    codeError.classList.add('show');
+    return;
+  }
+
+  verifyBtn.disabled = true;
+  verifyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Verifying…';
+
+  setTimeout(function(){
+    if(code === DEMO_OTP){
+      // Success
+      boxes.forEach(function(b){ b.classList.add('success'); b.classList.remove('error'); });
+      setStep(3);
+      clearInterval(timerInterval);
+
+      setTimeout(function(){
+        var verifiedEmail = emailInput.value.trim();
+        // Pre-fill email in form
+        document.getElementById('email').value = verifiedEmail;
+        document.getElementById('emailVerifiedBadge').style.display = '';
+        // Reveal form
+        otpGate.classList.add('hidden');
+        document.getElementById('mainLayout').style.display = '';
+        window.scrollTo({top:0,behavior:'smooth'});
+      }, 600);
+    } else {
+      // Wrong code
+      boxes.forEach(function(b){ b.classList.add('error'); b.classList.remove('filled'); b.value=''; });
+      boxes[0].focus();
+      codeError.textContent = 'Incorrect code. Please try again.';
+      codeError.classList.add('show');
+      verifyBtn.disabled = false;
+      verifyBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Verify & continue';
+    }
+  }, 700);
+}
+
+// ── Resend timer ──
+function startTimer(){
+  timerSecs = 30;
+  resendBtn.disabled = true;
+  timerEl.style.display = '';
+  clearInterval(timerInterval);
+  timerInterval = setInterval(function(){
+    timerSecs--;
+    timerEl.textContent = 'in ' + timerSecs + 's';
+    if(timerSecs <= 0){
+      clearInterval(timerInterval);
+      resendBtn.disabled = false;
+      timerEl.style.display = 'none';
+    }
+  }, 1000);
+}
+
+resendBtn.addEventListener('click', function(){
+  boxes.forEach(function(b){ b.value=''; b.classList.remove('filled','error','success'); });
+  codeError.classList.remove('show');
+  boxes[0].focus();
+  resendBtn.disabled = true;
+  startTimer();
+  // Simulate resend
+  var flash = document.createElement('div');
+  flash.style.cssText = 'position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#1a8744;color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.15)';
+  flash.textContent = '✓ New code sent to ' + emailInput.value.trim();
+  document.body.appendChild(flash);
+  setTimeout(function(){ flash.remove(); }, 2800);
+});
+
+// ── Change email ──
+changeLink.addEventListener('click', function(){
+  clearInterval(timerInterval);
+  stepOtp.style.display = 'none';
+  stepEmail.style.display = '';
+  boxes.forEach(function(b){ b.value=''; b.classList.remove('filled','error','success'); });
+  codeError.classList.remove('show');
+  setStep(1);
+  emailInput.focus();
+});
+
+// Enter key on email input
+emailInput.addEventListener('keydown', function(e){
+  if(e.key === 'Enter'){ e.preventDefault(); sendBtn.click(); }
+});
+emailInput.addEventListener('input', function(){
+  emailInput.classList.remove('error');
+  emailError.classList.remove('show');
+});
+
+setStep(1);
+
+})();
+
+// ═══════════════════════════════════════════════════════════
+// MAIN FORM
+// ═══════════════════════════════════════════════════════════
+(function(){
+'use strict';
+
+// ── Avatar upload ──
+var avatarFile = document.getElementById('avatarFile');
+var avatarImg  = document.getElementById('avatarImg');
+var avatarIcon = document.querySelector('.avatar-preview-icon');
+avatarFile.addEventListener('change', function(){
+  var file = avatarFile.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    avatarImg.src = e.target.result;
+    avatarImg.style.display = 'block';
+    avatarIcon.style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+});
+
+// Auto-generate initials preview from name
+['firstName','lastName'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', updateInitials);
+});
+function updateInitials(){
+  var f = document.getElementById('firstName').value.trim();
+  var l = document.getElementById('lastName').value.trim();
+  var initials = (f[0]||'')+(l[0]||'');
+  var el = document.getElementById('avatarInitials');
+  if(initials && !avatarImg.src){
+    el.textContent = initials.toUpperCase();
+    el.style.display = 'block';
+    avatarIcon.style.display = 'none';
+  }
+}
+
+// ── Char counters ──
+function wireCharCounter(fieldId, countId, max){
+  var field = document.getElementById(fieldId);
+  var counter = document.getElementById(countId);
+  if(!field||!counter) return;
+  field.addEventListener('input', function(){
+    var len = field.value.length;
+    counter.textContent = len+'/'+max;
+    counter.classList.toggle('warn', len > max * 0.9);
+  });
+}
+wireCharCounter('tagline','taglineCount',100);
+wireCharCounter('bio','bioCount',600);
+
+// ── Chip toggles ──
+function wireChips(containerId){
+  document.querySelectorAll('#'+containerId+' label').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var inp = chip.querySelector('input');
+      setTimeout(function(){ chip.classList.toggle('selected', inp.checked); updateProgress(); }, 0);
+    });
+  });
+}
+wireChips('expertiseGrid');
+wireChips('vehicleChips');
+wireChips('langGrid');
+
+// ── Availability ──
+document.querySelectorAll('.avail-option').forEach(function(opt){
+  opt.addEventListener('click', function(){
+    document.querySelectorAll('.avail-option').forEach(function(o){ o.classList.remove('selected'); });
+    opt.classList.add('selected');
+    updateProgress();
+  });
+});
+
+// ── URL list ──
+var urlList = document.getElementById('urlList');
+var addUrlBtn = document.getElementById('addUrlBtn');
+function refreshDelButtons(){
+  var rows = urlList.querySelectorAll('.url-row');
+  rows.forEach(function(row, i){
+    var del = row.querySelector('.url-del');
+    del.style.visibility = rows.length > 2 ? 'visible' : 'hidden';
+  });
+  addUrlBtn.style.display = rows.length >= 5 ? 'none' : '';
+}
+window.removeUrl = function(btn){
+  btn.closest('.url-row').remove();
+  refreshDelButtons();
+};
+addUrlBtn.addEventListener('click', function(){
+  var row = document.createElement('div');
+  row.className = 'url-row';
+  row.innerHTML = '<input type="url" placeholder="https://..." class="sample-url"><button type="button" class="url-del" onclick="removeUrl(this)">×</button>';
+  urlList.appendChild(row);
+  refreshDelButtons();
+  row.querySelector('input').focus();
+});
+refreshDelButtons();
+
+// ── Min date for start date ──
+var today = new Date().toISOString().split('T')[0];
+document.getElementById('startDate').setAttribute('min', today);
+
+// ── Progress tracker ──
+var STEPS = ['section1','section2','section3','section4','section5','section6'];
+function updateProgress(){
+  var filled = 0;
+  // Section 1
+  if(document.getElementById('firstName').value.trim() &&
+     document.getElementById('lastName').value.trim() &&
+     document.getElementById('email').value.trim() &&
+     document.getElementById('phone').value.trim() &&
+     document.getElementById('tagline').value.trim() &&
+     document.getElementById('bio').value.length >= 40) filled++;
+  // Section 2
+  if(document.getElementById('role').value &&
+     document.getElementById('experience').value) filled++;
+  // Section 3
+  var expertiseChecked = document.querySelectorAll('#expertiseGrid input:checked').length > 0;
+  var vehicleChecked   = document.querySelectorAll('#vehicleChips input:checked').length > 0;
+  var langChecked      = document.querySelectorAll('#langGrid input:checked').length > 0;
+  if(expertiseChecked && vehicleChecked && langChecked) filled++;
+  // Section 4
+  var urls = Array.from(document.querySelectorAll('.sample-url')).filter(function(i){ return i.value.trim(); });
+  if(urls.length >= 2) filled++;
+  // Section 5
+  var hasSocial = ['twitter','linkedin','instagram','youtube'].some(function(id){ return document.getElementById(id).value.trim(); });
+  if(hasSocial) filled++;
+  // Section 6
+  var avail = document.querySelector('.avail-option.selected');
+  var consent1 = document.getElementById('consentProfile').checked;
+  var consent2 = document.getElementById('consentContact').checked;
+  if(avail && consent1 && consent2) filled++;
+
+  var pct = Math.round((filled / 6) * 100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressPct').textContent = pct+'%';
+
+  // Update sidebar steps
+  document.querySelectorAll('.step-item').forEach(function(item, i){
+    var isDone  = i < filled;
+    var isActive = i === filled;
+    item.classList.toggle('done',   isDone);
+    item.classList.toggle('active', isActive && !isDone);
+  });
+}
+
+// Wire all inputs to progress
+document.getElementById('editorForm').addEventListener('input', updateProgress);
+document.getElementById('editorForm').addEventListener('change', updateProgress);
+updateProgress();
+
+// ── Scroll-spy sidebar ──
+var sectionEls = STEPS.map(function(id){ return document.getElementById(id); });
+window.addEventListener('scroll', function(){
+  var scrollY = window.scrollY + 120;
+  var current = 0;
+  sectionEls.forEach(function(el, i){ if(el && el.offsetTop <= scrollY) current = i; });
+  document.querySelectorAll('.step-item').forEach(function(item, i){
+    if(!item.classList.contains('done')) item.classList.toggle('active', i === current);
+  });
+}, {passive:true});
+
+// Sidebar step click → scroll to section
+document.querySelectorAll('.step-item').forEach(function(item){
+  item.addEventListener('click', function(){
+    var step = parseInt(item.dataset.step);
+    var el = document.getElementById('section'+step);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// ── Form submission ──
+document.getElementById('editorForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var valid = true;
+
+  function setErr(id, show){
+    var el = document.getElementById(id);
+    if(el){ el.style.display = show ? 'block' : 'none'; }
+  }
+  function fieldErr(fieldId, condition){
+    var wrap = document.getElementById('f-'+fieldId) || document.getElementById(fieldId)?.closest('.field');
+    if(wrap) wrap.classList.toggle('has-error', !condition);
+    if(!condition) valid = false;
+  }
+
+  // Section 1
+  fieldErr('firstName', document.getElementById('firstName').value.trim());
+  fieldErr('lastName',  document.getElementById('lastName').value.trim());
+  fieldErr('email',     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('email').value));
+  var phone = document.getElementById('phone').value.replace(/\s/g,'');
+  var phoneOk = /^[6-9]\d{9}$/.test(phone);
+  if(!phoneOk){ document.getElementById('phoneError').style.display='block'; valid=false; }
+  else document.getElementById('phoneError').style.display='none';
+  fieldErr('tagline', document.getElementById('tagline').value.trim().length >= 10);
+  fieldErr('bio',     document.getElementById('bio').value.trim().length >= 40);
+
+  // Section 2
+  fieldErr('role',       document.getElementById('role').value);
+  fieldErr('experience', document.getElementById('experience').value);
+
+  // Section 3
+  var expertiseOk = document.querySelectorAll('#expertiseGrid input:checked').length > 0;
+  var vehicleOk   = document.querySelectorAll('#vehicleChips input:checked').length > 0;
+  var langOk      = document.querySelectorAll('#langGrid input:checked').length > 0;
+  setErr('expertiseError', !expertiseOk); if(!expertiseOk) valid=false;
+  setErr('vehicleError',   !vehicleOk);   if(!vehicleOk) valid=false;
+  setErr('langError',      !langOk);      if(!langOk) valid=false;
+
+  // Section 4
+  var validUrls = Array.from(document.querySelectorAll('.sample-url')).filter(function(i){ return i.value.trim().startsWith('http'); });
+  setErr('samplesError', validUrls.length < 2); if(validUrls.length < 2) valid=false;
+
+  // Section 5 — at least one social
+  var socialOk = ['twitter','linkedin','instagram','youtube'].some(function(id){ return document.getElementById(id).value.trim(); });
+  setErr('socialError', !socialOk); if(!socialOk) valid=false;
+
+  // Section 6
+  var availOk = !!document.querySelector('.avail-option.selected');
+  setErr('availError', !availOk); if(!availOk) valid=false;
+
+  if(!document.getElementById('consentProfile').checked ||
+     !document.getElementById('consentContact').checked){
+    alert('Please accept both consent checkboxes to submit.');
+    valid=false;
+  }
+
+  if(!valid){
+    var firstErr = document.querySelector('.has-error, [style*="display: block"][id$="Error"]');
+    if(firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+
+  // Simulate submission
+  var submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Submitting…';
+
+  setTimeout(function(){
+    var appId = 'EDR-' + Date.now().toString(36).toUpperCase().slice(-6);
+    document.getElementById('successEmail').textContent = document.getElementById('email').value;
+    document.getElementById('successId').textContent = appId;
+    document.getElementById('mainLayout').style.display = 'none';
+    document.getElementById('successScreen').classList.add('visible');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }, 1000);
+});
+
+})();
+</script>
+</body>
+</html>

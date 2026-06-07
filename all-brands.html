@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All car brands in India · 2026 brand directory | [Brand]</title>
+<meta name="description" content="Complete directory of every car and bike brand on sale in India in 2026 — 60+ manufacturers from Maruti Suzuki to Rolls-Royce, with model counts and starting prices.">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font-style:normal}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden;width:100%}
+:root{
+  --bg:#ffffff;--bg-alt:#f5f6f8;--surface:#fff;
+  --ink:#1a1410;--ink-soft:#52525b;--ink-faint:#94949c;--line:#e9ebee;
+  --accent:#8b1820;--accent-soft:#f5e6e8;
+  --green:#1a8744;--green-soft:#e3f3ea;
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro","Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro","Helvetica Neue","Segoe UI",system-ui,Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.003em;min-height:100vh;display:flex;flex-direction:column}
+button{font-family:var(--sans);cursor:pointer;border:0;background:0}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* ── Header ── */
+.header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+.header-inner{max-width:1240px;margin:0 auto;padding:0 48px;height:60px;display:flex;align-items:center;gap:24px}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.025em;color:var(--ink)}
+.logo-dot{color:var(--accent)}
+.header-nav{display:flex;gap:0;margin-left:auto}
+.header-nav a{padding:6px 14px;font-size:13px;font-weight:500;color:var(--ink-soft);border-radius:8px;transition:color .15s,background .15s}
+.header-nav a:hover{color:var(--ink);background:var(--bg-alt)}
+.header-nav a.active{color:var(--ink);font-weight:600}
+@media(max-width:768px){.header-inner{padding:0 20px;gap:12px}.header-nav{display:none}}
+
+/* Hero */
+.wrap{max-width:1240px;margin:0 auto;padding:0 48px}
+.hero{padding:48px 0 28px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent)}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,4.4vw,46px);line-height:1.05;letter-spacing:-.025em;color:var(--ink);margin-bottom:14px}
+.hero h1 b{color:var(--accent)}
+.hero p{font-size:16px;color:var(--ink-soft);max-width:680px;line-height:1.55}
+.hero p b{color:var(--ink);font-weight:600}
+
+/* Vehicle type toggle */
+.veh-toggle{display:inline-flex;background:var(--bg-alt);border-radius:100px;padding:4px;margin:24px 0 0;gap:0}
+.veh-toggle button{
+  appearance:none;background:transparent;
+  padding:9px 22px;border-radius:100px;
+  font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink-soft);
+  transition:background .15s,color .15s;
+}
+.veh-toggle button.active{background:var(--ink);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+
+/* Filter strip */
+.filter-strip{
+  padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  position:sticky;top:60px;background:rgba(255,255,255,.98);backdrop-filter:saturate(140%) blur(12px);z-index:40;
+}
+.search-wrap{position:relative;flex:0 0 280px}
+.search-wrap input{
+  width:100%;padding:10px 14px 10px 38px;
+  background:var(--bg-alt);
+  border:1px solid transparent;border-radius:100px;
+  font-family:var(--sans);font-size:13.5px;color:var(--ink);outline:0;
+  transition:border-color .15s,background .15s;
+}
+.search-wrap input::placeholder{color:var(--ink-faint)}
+.search-wrap input:focus{border-color:var(--ink);background:#fff}
+.search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--ink-faint);pointer-events:none}
+
+.cat-pills{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.cat-pill{
+  appearance:none;background:#fff;
+  border:1px solid var(--line);border-radius:100px;
+  padding:8px 14px;
+  font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink-soft);
+  cursor:pointer;
+  transition:background .15s,border-color .15s,color .15s;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.cat-pill:hover{border-color:var(--ink);color:var(--ink)}
+.cat-pill.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.cat-pill-count{
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.04em;
+  color:var(--ink-faint);
+}
+.cat-pill.active .cat-pill-count{color:rgba(255,255,255,.65)}
+
+.sort-wrap{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.sort-wrap select{
+  appearance:none;background:#fff;
+  border:1px solid var(--line);border-radius:100px;
+  padding:8px 28px 8px 12px;
+  font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink);
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%231a1410' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;
+}
+
+/* Count + jump nav */
+.meta-row{padding:18px 0 14px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.count{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.count b{color:var(--ink);font-weight:700}
+.az-nav{display:flex;gap:2px;flex-wrap:wrap}
+.az-nav a{
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;
+  color:var(--ink-faint);border-radius:6px;
+  transition:background .15s,color .15s;
+}
+.az-nav a:hover,.az-nav a.has{color:var(--ink);background:var(--bg-alt)}
+.az-nav a.has:hover{background:var(--ink);color:#fff}
+.az-nav a.empty{color:#d0d2d6;cursor:default;pointer-events:none}
+
+/* Brand grid */
+.brand-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  padding:8px 0 56px;
+}
+.brand-card{
+  display:flex;gap:14px;align-items:center;
+  padding:18px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  cursor:pointer;
+  transition:border-color .15s,box-shadow .15s,transform .15s;
+}
+.brand-card:hover{
+  border-color:var(--ink);
+  box-shadow:0 4px 14px rgba(16,24,40,.06);
+  transform:translateY(-1px);
+}
+.brand-card.hidden{display:none}
+.brand-logo{
+  flex-shrink:0;
+  width:52px;height:52px;
+  border-radius:12px;
+  background:var(--bg-alt);
+  color:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:700;font-size:18px;
+  letter-spacing:-.01em;
+  border:1px solid var(--line);
+}
+.brand-body{flex:1;min-width:0}
+.brand-name{
+  font-family:var(--sans);font-weight:700;font-size:15px;
+  color:var(--ink);letter-spacing:-.005em;margin-bottom:4px;
+  display:flex;align-items:center;gap:8px;
+}
+.brand-name .flag{font-size:13px}
+.brand-meta{
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);
+}
+.brand-meta b{color:var(--ink);font-weight:600}
+.brand-meta-sep{color:var(--ink-faint)}
+.brand-arrow{
+  flex-shrink:0;color:var(--ink-faint);
+  transition:color .15s,transform .15s;
+  align-self:center;
+}
+.brand-card:hover .brand-arrow{color:var(--accent);transform:translateX(2px)}
+
+/* Empty state */
+.empty-state{
+  grid-column:1/-1;
+  padding:60px 24px;text-align:center;
+  color:var(--ink-soft);
+}
+.empty-state b{display:block;font-family:var(--display);font-weight:600;font-size:18px;color:var(--ink);margin-bottom:6px}
+
+/* Footer */
+footer{border-top:1px solid var(--line);background:var(--bg-alt);padding:24px 0;margin-top:auto}
+.ft-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--ink-soft)}
+.ft-inner a{color:var(--ink-soft);transition:color .15s}
+.ft-inner a:hover{color:var(--ink)}
+.ft-links{display:flex;gap:20px;flex-wrap:wrap}
+
+/* Responsive */
+@media (max-width:1100px){
+  .brand-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:900px){
+  .brand-grid{grid-template-columns:repeat(2,1fr)}
+  .filter-strip{position:static;background:transparent;backdrop-filter:none}
+  .search-wrap{flex:0 0 100%}
+  .sort-wrap{flex:0 0 100%;justify-content:space-between}
+}
+@media (max-width:600px){
+  .hdr-inner{padding:14px 20px}
+  .hdr-nav{gap:14px}
+  .hdr-nav a:not(.hdr-cta){display:none}
+  .wrap{padding:0 20px}
+  .hero{padding:32px 0 20px}
+  .brand-grid{grid-template-columns:1fr;gap:10px}
+  .az-nav{display:none}
+  footer{padding:16px 0}
+  .ft-inner{flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="homepage-final.html" class="logo">[Brand]<span class="logo-dot">.</span></a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="homepage-final.html">Cars</a>
+      <a href="bike-homepage-final.html">Bikes</a>
+      <a href="upcoming-page.html">Upcoming</a>
+      <a href="compare-page.html">Compare</a>
+      <a href="all-brands.html" class="active">Brands</a>
+      <a href="editors.html">Editors</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="wrap hero">
+  <div class="eyebrow">Brand directory · 2026</div>
+  <h1>Every brand on sale <b>in India.</b></h1>
+  <p>Browse the complete lineup — from <b>Maruti Suzuki</b> to <b>Rolls-Royce</b>. <span id="brandTotalLine"><b>32 brands</b> · <b>2,400+ models</b> · prices for every city.</span></p>
+
+  <!-- Vehicle type toggle -->
+  <div class="veh-toggle" role="tablist" aria-label="Vehicle type">
+    <button type="button" class="active" data-veh="cars" role="tab" aria-selected="true">Cars</button>
+    <button type="button" data-veh="bikes" role="tab" aria-selected="false">Bikes</button>
+  </div>
+</section>
+
+<!-- Filter strip -->
+<div class="wrap">
+  <div class="filter-strip">
+    <div class="search-wrap">
+      <span class="search-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </span>
+      <input id="brandSearch" type="search" placeholder="Search any brand…" autocomplete="off" aria-label="Search brands">
+    </div>
+
+    <div class="cat-pills" role="tablist" aria-label="Brand category">
+      <button type="button" class="cat-pill active" data-cat="all">All <span class="cat-pill-count" data-count="all">32</span></button>
+      <button type="button" class="cat-pill" data-cat="popular">Popular <span class="cat-pill-count" data-count="popular">10</span></button>
+      <button type="button" class="cat-pill" data-cat="indian">Indian <span class="cat-pill-count" data-count="indian">5</span></button>
+      <button type="button" class="cat-pill" data-cat="luxury">Luxury <span class="cat-pill-count" data-count="luxury">12</span></button>
+      <button type="button" class="cat-pill" data-cat="ev">Electric <span class="cat-pill-count" data-count="ev">8</span></button>
+    </div>
+
+    <div class="sort-wrap">
+      <span>Sort</span>
+      <select id="brandSort" aria-label="Sort brands">
+        <option value="popular">Popular first</option>
+        <option value="az">A → Z</option>
+        <option value="models">Most models</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Count + A-Z nav -->
+  <div class="meta-row">
+    <div class="count"><b id="visibleCount">32</b> brands shown</div>
+    <nav class="az-nav" aria-label="Jump to letter" id="azNav">
+      <!-- Populated by JS -->
+    </nav>
+  </div>
+
+  <!-- Brand grid -->
+  <div class="brand-grid" id="brandGrid">
+    <!-- Populated by JS -->
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="ft-inner">
+      <span>© 2026 [Brand] · All rights reserved</span>
+      <div class="ft-links">
+        <a href="homepage-final.html">Home</a>
+        <a href="news-page.html">News</a>
+        <a href="reviews-page.html">Reviews</a>
+        <a href="editors.html">Editors</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // ─── Data: car brands ───
+  const CAR_BRANDS = [
+    // Mass market — Indian
+    { name: 'Maruti Suzuki',   country: 'India',   flag: '🇮🇳', models: 16, from: '4.27 L', cat: ['indian','popular'], rank: 1 },
+    { name: 'Tata',            country: 'India',   flag: '🇮🇳', models: 12, from: '5.99 L', cat: ['indian','popular','ev'], rank: 2 },
+    { name: 'Mahindra',        country: 'India',   flag: '🇮🇳', models: 11, from: '6.34 L', cat: ['indian','popular','ev'], rank: 3 },
+    // Mass market — Asian
+    { name: 'Hyundai',         country: 'Korea',   flag: '🇰🇷', models: 13, from: '5.92 L', cat: ['popular','ev'], rank: 4 },
+    { name: 'Kia',             country: 'Korea',   flag: '🇰🇷', models: 6,  from: '7.99 L', cat: ['popular','ev'], rank: 5 },
+    { name: 'Toyota',          country: 'Japan',   flag: '🇯🇵', models: 9,  from: '6.66 L', cat: ['popular'], rank: 6 },
+    { name: 'Honda',           country: 'Japan',   flag: '🇯🇵', models: 5,  from: '7.99 L', cat: ['popular'], rank: 7 },
+    { name: 'Nissan',          country: 'Japan',   flag: '🇯🇵', models: 3,  from: '6.49 L' },
+    { name: 'MG',              country: 'UK/China', flag: '🇬🇧', models: 7,  from: '11.48 L', cat: ['ev'] },
+    // European mass-market
+    { name: 'Volkswagen',      country: 'Germany', flag: '🇩🇪', models: 4,  from: '11.56 L' },
+    { name: 'Skoda',           country: 'Czechia', flag: '🇨🇿', models: 4,  from: '11.79 L' },
+    { name: 'Renault',         country: 'France',  flag: '🇫🇷', models: 5,  from: '4.99 L' },
+    { name: 'Citroen',         country: 'France',  flag: '🇫🇷', models: 4,  from: '6.16 L', cat: ['ev'] },
+    { name: 'Jeep',            country: 'USA',     flag: '🇺🇸', models: 3,  from: '21.16 L' },
+    // Indian niche
+    { name: 'Force Motors',    country: 'India',   flag: '🇮🇳', models: 2,  from: '17.92 L', cat: ['indian'] },
+    // Luxury — German
+    { name: 'Mercedes-Benz',   country: 'Germany', flag: '🇩🇪', models: 22, from: '45.00 L', cat: ['luxury','popular','ev'] },
+    { name: 'BMW',             country: 'Germany', flag: '🇩🇪', models: 18, from: '42.50 L', cat: ['luxury','popular','ev'] },
+    { name: 'Audi',            country: 'Germany', flag: '🇩🇪', models: 14, from: '43.46 L', cat: ['luxury','ev'] },
+    { name: 'Porsche',         country: 'Germany', flag: '🇩🇪', models: 7,  from: '96.00 L', cat: ['luxury','ev'] },
+    // Luxury — UK
+    { name: 'Mini',            country: 'UK',      flag: '🇬🇧', models: 4,  from: '38.50 L', cat: ['luxury','ev'] },
+    { name: 'Jaguar',          country: 'UK',      flag: '🇬🇧', models: 4,  from: '72.05 L', cat: ['luxury'] },
+    { name: 'Land Rover',      country: 'UK',      flag: '🇬🇧', models: 8,  from: '67.90 L', cat: ['luxury'] },
+    { name: 'Bentley',         country: 'UK',      flag: '🇬🇧', models: 4,  from: '4.10 Cr', cat: ['luxury'] },
+    { name: 'Rolls-Royce',     country: 'UK',      flag: '🇬🇧', models: 5,  from: '6.95 Cr', cat: ['luxury'] },
+    { name: 'Aston Martin',    country: 'UK',      flag: '🇬🇧', models: 5,  from: '3.30 Cr', cat: ['luxury'] },
+    { name: 'McLaren',         country: 'UK',      flag: '🇬🇧', models: 3,  from: '4.50 Cr', cat: ['luxury'] },
+    // Luxury — Italian
+    { name: 'Ferrari',         country: 'Italy',   flag: '🇮🇹', models: 6,  from: '3.50 Cr', cat: ['luxury'] },
+    { name: 'Lamborghini',     country: 'Italy',   flag: '🇮🇹', models: 4,  from: '3.22 Cr', cat: ['luxury'] },
+    { name: 'Maserati',        country: 'Italy',   flag: '🇮🇹', models: 4,  from: '1.34 Cr', cat: ['luxury'] },
+    // Luxury — Swedish/Japanese
+    { name: 'Volvo',           country: 'Sweden',  flag: '🇸🇪', models: 5,  from: '46.40 L', cat: ['luxury','ev'] },
+    { name: 'Lexus',           country: 'Japan',   flag: '🇯🇵', models: 7,  from: '62.20 L', cat: ['luxury'] },
+    // EV new entrants
+    { name: 'BYD',             country: 'China',   flag: '🇨🇳', models: 4,  from: '24.99 L', cat: ['ev'] },
+  ];
+
+  // ─── Data: bike brands ───
+  const BIKE_BRANDS = [
+    // Mass market — Indian
+    { name: 'Hero MotoCorp',   country: 'India',   flag: '🇮🇳', models: 18, from: '57,400', cat: ['indian','popular'], rank: 1 },
+    { name: 'Honda',           country: 'Japan',   flag: '🇯🇵', models: 16, from: '64,348', cat: ['popular'], rank: 2 },
+    { name: 'TVS',             country: 'India',   flag: '🇮🇳', models: 14, from: '63,500', cat: ['indian','popular','ev'], rank: 3 },
+    { name: 'Bajaj',           country: 'India',   flag: '🇮🇳', models: 12, from: '69,127', cat: ['indian','popular','ev'], rank: 4 },
+    { name: 'Royal Enfield',   country: 'India',   flag: '🇮🇳', models: 13, from: '1.50 L',  cat: ['indian','popular'], rank: 5 },
+    { name: 'Yamaha',          country: 'Japan',   flag: '🇯🇵', models: 10, from: '85,830', cat: ['popular'] },
+    { name: 'Suzuki',          country: 'Japan',   flag: '🇯🇵', models: 9,  from: '77,400', cat: ['popular'] },
+    // Premium
+    { name: 'KTM',             country: 'Austria', flag: '🇦🇹', models: 8,  from: '1.78 L',  cat: ['popular'] },
+    { name: 'BMW Motorrad',    country: 'Germany', flag: '🇩🇪', models: 12, from: '3.45 L',  cat: ['luxury'] },
+    { name: 'Triumph',         country: 'UK',      flag: '🇬🇧', models: 12, from: '2.36 L',  cat: ['luxury'] },
+    { name: 'Kawasaki',        country: 'Japan',   flag: '🇯🇵', models: 14, from: '1.81 L',  cat: ['luxury'] },
+    { name: 'Ducati',          country: 'Italy',   flag: '🇮🇹', models: 14, from: '6.83 L',  cat: ['luxury'] },
+    { name: 'Aprilia',         country: 'Italy',   flag: '🇮🇹', models: 7,  from: '1.30 L',  cat: ['luxury'] },
+    { name: 'Husqvarna',       country: 'Sweden',  flag: '🇸🇪', models: 4,  from: '1.85 L' },
+    { name: 'Benelli',         country: 'Italy',   flag: '🇮🇹', models: 8,  from: '2.65 L' },
+    { name: 'Harley-Davidson', country: 'USA',     flag: '🇺🇸', models: 9,  from: '2.39 L',  cat: ['luxury'] },
+    { name: 'Indian Motorcycle', country: 'USA',   flag: '🇺🇸', models: 7,  from: '14.99 L', cat: ['luxury'] },
+    { name: 'MV Agusta',       country: 'Italy',   flag: '🇮🇹', models: 5,  from: '12.85 L', cat: ['luxury'] },
+    { name: 'Norton',          country: 'UK',      flag: '🇬🇧', models: 3,  from: '12.50 L', cat: ['luxury'] },
+    { name: 'Vespa',           country: 'Italy',   flag: '🇮🇹', models: 6,  from: '1.32 L' },
+    // EV
+    { name: 'Ola Electric',    country: 'India',   flag: '🇮🇳', models: 6,  from: '79,999', cat: ['indian','ev'] },
+    { name: 'Ather',           country: 'India',   flag: '🇮🇳', models: 4,  from: '1.10 L',  cat: ['indian','ev'] },
+    { name: 'Ultraviolette',   country: 'India',   flag: '🇮🇳', models: 2,  from: '2.99 L',  cat: ['indian','ev'] },
+    { name: 'Revolt',          country: 'India',   flag: '🇮🇳', models: 2,  from: '1.38 L',  cat: ['indian','ev'] },
+    { name: 'Hero Vida',       country: 'India',   flag: '🇮🇳', models: 3,  from: '96,000', cat: ['indian','ev'] },
+    { name: 'Bgauss',          country: 'India',   flag: '🇮🇳', models: 4,  from: '74,999', cat: ['indian','ev'] },
+  ];
+
+  // Read URL parameter to optionally land on bikes view
+  const urlParams = new URLSearchParams(window.location.search);
+  let currentVeh = (urlParams.get('type') === 'bikes') ? 'bikes' : 'cars';
+  let currentCat = 'all';
+  let currentSort = 'popular';
+  let currentSearch = '';
+
+  // If landing on bikes, flip the toggle
+  if (currentVeh === 'bikes') {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.veh-toggle button').forEach(b => {
+        b.classList.toggle('active', b.dataset.veh === 'bikes');
+        b.setAttribute('aria-selected', b.dataset.veh === 'bikes' ? 'true' : 'false');
+      });
+    });
+  }
+
+  const $grid = document.getElementById('brandGrid');
+  const $count = document.getElementById('visibleCount');
+  const $az = document.getElementById('azNav');
+  const $search = document.getElementById('brandSearch');
+  const $sort = document.getElementById('brandSort');
+  const $totalLine = document.getElementById('brandTotalLine');
+
+  function dataset() {
+    return currentVeh === 'bikes' ? BIKE_BRANDS : CAR_BRANDS;
+  }
+
+  function brandLink(b) {
+    // For prototype: all brand cards link to the existing brand-page
+    return currentVeh === 'bikes' ? 'bike-brand-page.html' : 'brand-page.html';
+  }
+
+  function initials(name) {
+    // Strip non-letters and pull 1-2 chars for the logo placeholder
+    const clean = name.replace(/[^A-Za-z]/g, ' ').trim();
+    const parts = clean.split(/\s+/);
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+
+  function filterAndSort() {
+    const data = dataset();
+    const q = currentSearch.trim().toLowerCase();
+    let out = data.filter(b => {
+      if (currentCat !== 'all') {
+        if (!b.cat || !b.cat.includes(currentCat)) return false;
+      }
+      if (q && !b.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    if (currentSort === 'popular') {
+      out.sort((a,b) => (a.rank || 999) - (b.rank || 999) || a.name.localeCompare(b.name));
+    } else if (currentSort === 'az') {
+      out.sort((a,b) => a.name.localeCompare(b.name));
+    } else if (currentSort === 'models') {
+      out.sort((a,b) => b.models - a.models);
+    }
+    return out;
+  }
+
+  function renderGrid() {
+    const list = filterAndSort();
+    const href = brandLink();
+    $count.textContent = list.length;
+
+    if (list.length === 0) {
+      $grid.innerHTML = '<div class="empty-state"><b>No brands match your search.</b>Try a different category or clear the search.</div>';
+      return;
+    }
+
+    $grid.innerHTML = list.map(b =>
+      '<a href="' + href + '?brand=' + encodeURIComponent(b.name.toLowerCase()) + '" class="brand-card" data-brand="' + b.name + '">' +
+        '<span class="brand-logo">' + initials(b.name) + '</span>' +
+        '<div class="brand-body">' +
+          '<div class="brand-name">' + b.name + ' <span class="flag" aria-hidden="true">' + b.flag + '</span></div>' +
+          '<div class="brand-meta"><b>' + b.models + '</b> models <span class="brand-meta-sep">·</span> from ₹' + b.from + '</div>' +
+        '</div>' +
+        '<span class="brand-arrow" aria-hidden="true">' +
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
+        '</span>' +
+      '</a>'
+    ).join('');
+  }
+
+  function renderAZ() {
+    const data = dataset();
+    const lettersPresent = new Set(data.map(b => b.name[0].toUpperCase()));
+    const az = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $az.innerHTML = az.split('').map(L => {
+      const has = lettersPresent.has(L);
+      return '<a href="#' + L + '" class="' + (has ? 'has' : 'empty') + '">' + L + '</a>';
+    }).join('');
+  }
+
+  function updateCategoryCounts() {
+    const data = dataset();
+    document.querySelectorAll('.cat-pill-count').forEach(el => {
+      const cat = el.dataset.count;
+      const n = cat === 'all' ? data.length : data.filter(b => b.cat && b.cat.includes(cat)).length;
+      el.textContent = n;
+    });
+  }
+
+  function updateTotalLine() {
+    const data = dataset();
+    const totalModels = data.reduce((sum, b) => sum + b.models, 0);
+    const word = currentVeh === 'bikes' ? 'bike brands' : 'car brands';
+    $totalLine.innerHTML = '<b>' + data.length + ' ' + word + '</b> · <b>' + totalModels.toLocaleString('en-IN') + '+ models</b> · prices for every city.';
+  }
+
+  function refresh() {
+    updateCategoryCounts();
+    updateTotalLine();
+    renderAZ();
+    renderGrid();
+  }
+
+  // ─── Wire up controls ───
+  document.querySelectorAll('.veh-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.veh-toggle button').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      currentVeh = btn.dataset.veh;
+      currentCat = 'all';
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      document.querySelector('.cat-pill[data-cat="all"]').classList.add('active');
+      refresh();
+    });
+  });
+
+  document.querySelectorAll('.cat-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      currentCat = pill.dataset.cat;
+      renderGrid();
+    });
+  });
+
+  $search.addEventListener('input', e => {
+    currentSearch = e.target.value;
+    renderGrid();
+  });
+
+  $sort.addEventListener('change', e => {
+    currentSort = e.target.value;
+    renderGrid();
+  });
+
+  // Initial render
+  refresh();
+})();
+</script>
+
+</body>
+</html>

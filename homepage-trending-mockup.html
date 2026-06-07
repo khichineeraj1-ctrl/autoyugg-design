@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Homepage Mockup — Trending Cars Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #ffffff;
+    --surface:      #ffffff;
+    --ink:          #0d0d0d;
+    --ink-soft:     #555;
+    --ink-faint:    #999;
+    --line:         #e8e6e0;
+    --accent:       #d63b1f;          /* deep auto-red */
+    --accent-soft:  #fce8e3;
+    --green:        #1a8744;
+    --green-soft:   #e3f3ea;
+    --amber:        #b86b00;
+    --amber-soft:   #faecd6;
+    --display:      'Fraunces', 'Times New Roman', serif;
+    --sans:         'Inter Tight', -apple-system, sans-serif;
+    --mono:         'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /* HEADER (placeholder — minimal, just to set homepage context) */
+  /* ═══════════════════════════════════════════════════════════ */
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .logo-dot { color: var(--accent); }
+  .nav { display: flex; gap: 32px; font-size: 14px; font-weight: 500; }
+  .nav a { color: var(--ink-soft); transition: color 0.15s; }
+  .nav a:hover { color: var(--ink); }
+  .header-cta {
+    background: var(--ink);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /* MINI HERO (compressed for context)                           */
+  /* ═══════════════════════════════════════════════════════════ */
+  .hero {
+    background: linear-gradient(180deg, #ffffff 0%, #f0eee8 100%);
+    padding: 56px 48px 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner { max-width: 1240px; margin: 0 auto; }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+  .hero h1 .accent {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .hero-search {
+    display: flex;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 6px;
+    max-width: 640px;
+    margin-top: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .hero-search input {
+    flex: 1;
+    border: 0;
+    padding: 14px 16px;
+    font-family: var(--sans);
+    font-size: 15px;
+    background: transparent;
+    outline: none;
+  }
+  .hero-search button {
+    background: var(--ink);
+    color: white;
+    border: 0;
+    padding: 0 28px;
+    border-radius: 8px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /* TRENDING SECTION ⇣ THE STAR OF THE PAGE                     */
+  /* ═══════════════════════════════════════════════════════════ */
+  .trending {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 80px 48px;
+  }
+
+  .trending-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 32px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+  }
+  .trending-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .trending-eyebrow::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 100px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.85); }
+  }
+  .trending-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: -0.025em;
+    line-height: 1.0;
+  }
+  .trending-title b { font-weight: 600; }
+
+  .trending-meta {
+    text-align: right;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .trending-meta strong { color: var(--ink); font-weight: 600; }
+  .trending-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-bottom: 4px;
+  }
+  .data-source-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+  }
+  .data-source-chip svg { width: 12px; height: 12px; }
+
+  /* ─── Featured 4 cards (top row, larger) ─── */
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  /* ─── Secondary 4 cards (smaller) ─── */
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .car-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .car-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    border-color: #dcdee2;
+  }
+
+  .rank-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 36px;
+    letter-spacing: -0.04em;
+    color: var(--surface);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    line-height: 1;
+  }
+  .rank-badge.top {
+    color: var(--accent);
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+  }
+
+  .trend-pill {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    background: var(--green-soft);
+    color: var(--green);
+    padding: 5px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid rgba(26,135,68,0.15);
+  }
+  .trend-pill.hot {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: rgba(214,59,31,0.15);
+  }
+  .trend-pill.new {
+    background: var(--amber-soft);
+    color: var(--amber);
+    border-color: rgba(184,107,0,0.15);
+  }
+
+  .car-image {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    background: linear-gradient(135deg, #f6f7f9 0%, #eceef1 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .secondary-grid .car-image { aspect-ratio: 4 / 3; }
+
+  .car-image .silhouette {
+    width: 80%;
+    opacity: 0.55;
+    transition: opacity 0.3s, transform 0.4s;
+  }
+  .car-card:hover .silhouette {
+    opacity: 0.8;
+    transform: scale(1.06);
+  }
+  .car-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 70%, transparent 0%, rgba(0,0,0,0.06) 100%);
+    pointer-events: none;
+  }
+
+  .car-body { padding: 18px 18px 20px; }
+  .car-brand {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .car-name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .secondary-grid .car-name { font-size: 17px; }
+
+  .car-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+  }
+  .car-price {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .car-price span { color: var(--ink-faint); font-weight: 400; }
+  .car-volume {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* ─── Sparkline ─── */
+  .sparkline-wrap {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+  }
+  .sparkline { height: 24px; flex: 1; }
+  .sparkline path { fill: none; stroke: var(--green); stroke-width: 1.5; }
+  .sparkline.hot path { stroke: var(--accent); }
+  .sparkline-label { white-space: nowrap; letter-spacing: 0.08em; }
+
+  /* ─── How it works strip ─── */
+  .how-it-works {
+    margin-top: 56px;
+    padding: 32px 36px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+  .how-icon {
+    width: 48px; height: 48px;
+    background: var(--ink);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  .how-content h4 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .how-content p {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .how-content code {
+    font-family: var(--mono);
+    background: #f0eee8;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .how-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+  }
+
+  /* ─── Footer note ─── */
+  .footer {
+    border-top: 1px solid var(--line);
+    margin-top: 80px;
+    padding: 32px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /* RESPONSIVE                                                   */
+  /* ═══════════════════════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .featured-grid, .secondary-grid { grid-template-columns: repeat(2, 1fr); }
+    .trending { padding: 56px 28px; }
+    .header { padding: 14px 24px; }
+    .nav { display: none; }
+  }
+  @media (max-width: 600px) {
+    .featured-grid, .secondary-grid { grid-template-columns: 1fr; }
+    .trending-header { grid-template-columns: 1fr; align-items: start; }
+    .trending-meta { text-align: left; }
+    .trending-meta-row { justify-content: flex-start; }
+    .how-it-works { grid-template-columns: 1fr; gap: 16px; }
+    .hero { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── Header (placeholder branding) ─── -->
+<header class="header">
+  <div class="logo">[Brand]<span class="logo-dot">.</span></div>
+  <nav class="nav">
+    <a href="#">New Cars</a>
+    <a href="#">Used Cars</a>
+    <a href="#">Sell Car</a>
+    <a href="#">Compare</a>
+    <a href="#">News</a>
+  </nav>
+  <a href="#" class="header-cta">Sign in</a>
+</header>
+
+<!-- ─── Mini hero (just for context) ─── -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Find your next<br>car with <span class="accent">confidence.</span></h1>
+    <div class="hero-search">
+      <input type="text" placeholder="Search by brand, model, or budget…" />
+      <button>Explore</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- ⇣ THE TRENDING CARS SECTION ⇣                                -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="trending">
+
+  <div class="trending-header">
+    <div>
+      <div class="trending-eyebrow">Live · Trending now</div>
+      <h2 class="trending-title">What India's<br>searching for <b>this week.</b></h2>
+    </div>
+    <div class="trending-meta">
+      <div class="trending-meta-row">
+        <strong>Updated 14 hours ago</strong>
+      </div>
+      <div class="trending-meta-row">
+        <span class="data-source-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12l4 4L21 4"/></svg>
+          Powered by search demand + on-site signals
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Featured 4 (larger cards, top trending) ─── -->
+  <div class="featured-grid">
+
+    <!-- Card 1 — #1 -->
+    <a href="#" class="car-card">
+      <div class="rank-badge top">01</div>
+      <span class="trend-pill new">NEW LAUNCH</span>
+      <div class="car-image">
+        <svg class="silhouette" viewBox="0 0 200 80" fill="none">
+          <path d="M10 60 Q15 45 35 42 L60 38 Q75 25 105 24 L135 25 Q155 28 165 42 L185 45 Q195 50 192 62 L188 68 L172 68 Q170 55 158 55 Q146 55 144 68 L56 68 Q54 55 42 55 Q30 55 28 68 L14 68 Q9 65 10 60 Z" fill="#1a1a1a"/>
+          <circle cx="42" cy="68" r="8" fill="#1a1a1a"/><circle cx="42" cy="68" r="3" fill="#ffffff"/>
+          <circle cx="158" cy="68" r="8" fill="#1a1a1a"/><circle cx="158" cy="68" r="3" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Mahindra</div>
+        <div class="car-name">Thar Roxx</div>
+        <div class="sparkline-wrap">
+          <svg class="sparkline hot" viewBox="0 0 100 24" preserveAspectRatio="none">
+            <path d="M0,20 L10,19 L20,18 L30,17 L40,16 L50,14 L60,11 L70,8 L80,5 L90,3 L100,2"/>
+          </svg>
+          <span class="sparkline-label">12 MO</span>
+        </div>
+        <div class="car-meta">
+          <div class="car-price">₹12.99 - 20.49 <span>L</span></div>
+          <div class="car-volume">↑ 184% MoM</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2 — #2 -->
+    <a href="#" class="car-card">
+      <div class="rank-badge top">02</div>
+      <span class="trend-pill new">NEW LAUNCH</span>
+      <div class="car-image">
+        <svg class="silhouette" viewBox="0 0 200 80" fill="none">
+          <path d="M10 62 Q14 48 30 44 L55 38 Q68 26 95 25 L125 26 Q150 30 168 44 L186 48 Q194 54 190 64 L186 68 L172 68 Q170 56 158 56 Q146 56 144 68 L56 68 Q54 56 42 56 Q30 56 28 68 L14 68 Q8 66 10 62 Z" fill="#2a2a2a"/>
+          <circle cx="42" cy="68" r="8" fill="#1a1a1a"/><circle cx="42" cy="68" r="3" fill="#ffffff"/>
+          <circle cx="158" cy="68" r="8" fill="#1a1a1a"/><circle cx="158" cy="68" r="3" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Tata</div>
+        <div class="car-name">Curvv EV</div>
+        <div class="sparkline-wrap">
+          <svg class="sparkline hot" viewBox="0 0 100 24" preserveAspectRatio="none">
+            <path d="M0,22 L10,21 L20,20 L30,19 L40,17 L50,15 L60,12 L70,9 L80,6 L90,4 L100,3"/>
+          </svg>
+          <span class="sparkline-label">12 MO</span>
+        </div>
+        <div class="car-meta">
+          <div class="car-price">₹17.49 - 21.99 <span>L</span></div>
+          <div class="car-volume">↑ 142% MoM</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 3 — #3 -->
+    <a href="#" class="car-card">
+      <div class="rank-badge top">03</div>
+      <span class="trend-pill hot">TRENDING</span>
+      <div class="car-image">
+        <svg class="silhouette" viewBox="0 0 200 80" fill="none">
+          <path d="M8 58 Q12 42 32 40 L58 32 Q72 22 100 21 L130 22 Q152 26 168 40 L188 44 Q196 50 192 62 L188 68 L172 68 Q170 56 158 56 Q146 56 144 68 L56 68 Q54 56 42 56 Q30 56 28 68 L14 68 Q6 64 8 58 Z" fill="#1a1a1a"/>
+          <circle cx="42" cy="68" r="8" fill="#1a1a1a"/><circle cx="42" cy="68" r="3" fill="#ffffff"/>
+          <circle cx="158" cy="68" r="8" fill="#1a1a1a"/><circle cx="158" cy="68" r="3" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Mahindra</div>
+        <div class="car-name">XUV 3XO</div>
+        <div class="sparkline-wrap">
+          <svg class="sparkline" viewBox="0 0 100 24" preserveAspectRatio="none">
+            <path d="M0,18 L10,17 L20,18 L30,16 L40,14 L50,13 L60,11 L70,9 L80,8 L90,6 L100,5"/>
+          </svg>
+          <span class="sparkline-label">12 MO</span>
+        </div>
+        <div class="car-meta">
+          <div class="car-price">₹7.99 - 15.49 <span>L</span></div>
+          <div class="car-volume">↑ 87% MoM</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 4 — #4 -->
+    <a href="#" class="car-card">
+      <div class="rank-badge top">04</div>
+      <span class="trend-pill">RISING</span>
+      <div class="car-image">
+        <svg class="silhouette" viewBox="0 0 200 80" fill="none">
+          <path d="M10 60 Q14 46 32 43 L58 36 Q72 24 102 23 L132 24 Q154 28 170 43 L188 46 Q196 52 192 62 L188 68 L172 68 Q170 56 158 56 Q146 56 144 68 L56 68 Q54 56 42 56 Q30 56 28 68 L14 68 Q8 65 10 60 Z" fill="#1a1a1a"/>
+          <circle cx="42" cy="68" r="8" fill="#1a1a1a"/><circle cx="42" cy="68" r="3" fill="#ffffff"/>
+          <circle cx="158" cy="68" r="8" fill="#1a1a1a"/><circle cx="158" cy="68" r="3" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Maruti Suzuki</div>
+        <div class="car-name">Swift</div>
+        <div class="sparkline-wrap">
+          <svg class="sparkline" viewBox="0 0 100 24" preserveAspectRatio="none">
+            <path d="M0,12 L10,13 L20,11 L30,12 L40,10 L50,11 L60,9 L70,8 L80,7 L90,6 L100,5"/>
+          </svg>
+          <span class="sparkline-label">12 MO</span>
+        </div>
+        <div class="car-meta">
+          <div class="car-price">₹6.49 - 9.49 <span>L</span></div>
+          <div class="car-volume">↑ 52% MoM</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ─── Secondary 4 ─── -->
+  <div class="secondary-grid">
+
+    <a href="#" class="car-card">
+      <div class="rank-badge">05</div>
+      <span class="trend-pill">RISING</span>
+      <div class="car-image">
+        <svg class="silhouette" viewBox="0 0 200 80" fill="none">
+          <path d="M10 60 Q14 46 32 43 L58 36 Q72 24 102 23 L132 24 Q154 28 170 43 L188 46 Q196 52 192 62 L188 68 L172 68 Q170 56 158 56 Q146 56 144 68 L56 68 Q54 56 42 56 Q30 56 28 68 L14 68 Q8 65 10 60 Z" fill="#1a1a1a"/>
+          <circle cx="42" cy="68" r="8" fill="#1a1a1a"/><circle cx="42" cy="68" r="3" fill="#ffffff"/>
+          <circle cx="158" cy="68" r="8" fill="#1a1a1a"/><circle cx="158" cy="68" r="3" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Hyundai</div>
+        <div class="car-name">Creta</div>
+        <div class="car-meta">
+          <div class="car-price">₹11.11 - 20.43 <span>L</span></div>
+          <div class="car-volume">↑ 38%</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="#" class="car-card">
+      <div class="rank-badge">06</div>
+      <span class="trend-pill new">NEW</span>
+      <div class="car-image">
+        <svg class="silhouette" viewBox="0 0 200 80" fill="none">
+          <path d="M10 60 Q14 46 32 43 L58 36 Q72 24 102 23 L132 24 Q154 28 170 43 L188 46 Q196 52 192 62 L188 68 L172 68 Q170 56 158 56 Q146 56 144 68 L56 68 Q54 56 42 56 Q30 56 28 68 L14 68 Q8 65 10 60 Z" fill="#1a1a1a"/>
+          <circle cx="42" cy="68" r="8" fill="#1a1a1a"/><circle cx="42" cy="68" r="3" fill="#ffffff"/>
+          <circle cx="158" cy="68" r="8" fill="#1a1a1a"/><circle cx="158" cy="68" r="3" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Mahindra</div>
+        <div class="car-name">BE 6</div>
+        <div class="car-meta">
+          <div class="car-price">₹18.90 - 26.90 <span>L</span></div>
+          <div class="car-volume">↑ 96%</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="#" class="car-card">
+      <div class="rank-badge">07</div>
+      <span class="trend-pill">RISING</span>
+      <div class="car-image">
+        <svg class="silhouette" viewBox="0 0 200 80" fill="none">
+          <path d="M10 60 Q14 46 32 43 L58 36 Q72 24 102 23 L132 24 Q154 28 170 43 L188 46 Q196 52 192 62 L188 68 L172 68 Q170 56 158 56 Q146 56 144 68 L56 68 Q54 56 42 56 Q30 56 28 68 L14 68 Q8 65 10 60 Z" fill="#1a1a1a"/>
+          <circle cx="42" cy="68" r="8" fill="#1a1a1a"/><circle cx="42" cy="68" r="3" fill="#ffffff"/>
+          <circle cx="158" cy="68" r="8" fill="#1a1a1a"/><circle cx="158" cy="68" r="3" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Kia</div>
+        <div class="car-name">Seltos</div>
+        <div class="car-meta">
+          <div class="car-price">₹10.90 - 20.35 <span>L</span></div>
+          <div class="car-volume">↑ 24%</div>
+        </div>
+      </div>
+    </a>
+
+    <a href="#" class="car-card">
+      <div class="rank-badge">08</div>
+      <span class="trend-pill">RISING</span>
+      <div class="car-image">
+        <svg class="silhouette" viewBox="0 0 200 80" fill="none">
+          <path d="M10 60 Q14 46 32 43 L58 36 Q72 24 102 23 L132 24 Q154 28 170 43 L188 46 Q196 52 192 62 L188 68 L172 68 Q170 56 158 56 Q146 56 144 68 L56 68 Q54 56 42 56 Q30 56 28 68 L14 68 Q8 65 10 60 Z" fill="#1a1a1a"/>
+          <circle cx="42" cy="68" r="8" fill="#1a1a1a"/><circle cx="42" cy="68" r="3" fill="#ffffff"/>
+          <circle cx="158" cy="68" r="8" fill="#1a1a1a"/><circle cx="158" cy="68" r="3" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Toyota</div>
+        <div class="car-name">Hyryder</div>
+        <div class="car-meta">
+          <div class="car-price">₹11.34 - 20.19 <span>L</span></div>
+          <div class="car-volume">↑ 18%</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ─── How it works strip ─── -->
+  <div class="how-it-works">
+    <div class="how-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M3 3v18h18"/>
+        <path d="M7 14l4-4 4 4 5-5"/>
+      </svg>
+    </div>
+    <div class="how-content">
+      <h4>How we rank trending cars</h4>
+      <p>
+        Every Monday we pull search demand for ~300 active models from Google
+        Keyword Planner, then blend it with on-site behavior. Score weights:
+        <code>volume 25%</code> · <code>MoM growth 30%</code> ·
+        <code>YoY growth 20%</code> · <code>launch recency 15%</code> ·
+        <code>on-site signals 10%</code>.
+      </p>
+    </div>
+    <a href="#" class="how-link">
+      Methodology →
+    </a>
+  </div>
+
+</section>
+
+<footer class="footer">
+  HOMEPAGE MOCKUP · TRENDING CARS WIDGET · v1.0
+</footer>
+
+</body>
+</html>

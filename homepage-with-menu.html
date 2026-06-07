@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="description" content="Find your next car, bike or commercial vehicle. Compare models, get on-road prices, read expert reviews.">
+<meta name="color-scheme" content="light">
+<title>Homepage — Universe View</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font-style:normal}
+html{-webkit-text-size-adjust:100%}
+:root{
+  --bg:#ffffff;--bg-alt:#f4f1ea;--surface:#fff;
+  --ink:#0d0d0d;--ink-soft:#555;--ink-faint:#999;--line:#e8e6e0;
+  --accent:#d63b1f;--accent-soft:#fce8e3;
+  --green:#1a8744;--green-soft:#e3f3ea;
+  --amber:#b86b00;--amber-soft:#faecd6;
+  --blue:#1e5fb8;--blue-soft:#e3edf9;
+  --display:Georgia,"Times New Roman",ui-serif,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sans);cursor:pointer;border:0;background:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:8px 14px;z-index:1000;font-weight:600;font-size:13px}
+.skip:focus{left:8px;top:8px}
+
+/* ─── Header ─── */
+.header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;contain:layout style}
+.header-top{padding:14px 48px;display:flex;align-items:center;gap:16px}
+.hamburger{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background-color .2s;flex-shrink:0;margin-right:4px}
+.hamburger:hover{background:var(--bg-alt)}
+.hamburger svg{width:22px;height:22px}
+.logo{font-family:var(--display);font-weight:900;font-size:26px;letter-spacing:-.02em}
+.logo-dot{color:var(--accent)}
+.nav{display:flex;gap:32px;font-size:14px;font-weight:500;margin-left:24px;flex:1}
+.nav a{color:var(--ink-soft);transition:color .15s}
+.nav a:hover{color:var(--ink)}
+.cta{background:var(--ink);color:#fff;padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;display:inline-block;margin-left:auto}
+
+.cat-bar{border-top:1px solid var(--line);padding:0 48px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.cat-bar::-webkit-scrollbar{display:none}
+.cat-tab{padding:14px 22px;font-size:14px;font-weight:600;color:var(--ink-faint);border-bottom:2px solid transparent;transition:color .2s,border-color .2s;display:flex;align-items:center;gap:10px;white-space:nowrap;position:relative}
+.cat-tab svg{width:24px;height:24px;flex-shrink:0;transition:transform .25s}
+.cat-tab:hover{color:var(--ink-soft)}
+.cat-tab:hover svg{transform:translateY(-1px)}
+.cat-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
+.cat-tab.active::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--accent)}
+.cat-count{font-family:var(--mono);font-size:11px;color:var(--ink-faint);font-weight:500;margin-left:4px}
+.cat-tab.active .cat-count{color:var(--ink-soft)}
+
+/* ════════════════════════════════════════════════════════ */
+/*  HAMBURGER MENU DRAWER                                    */
+/* ════════════════════════════════════════════════════════ */
+.backdrop{position:fixed;inset:0;background:rgba(13,13,13,.5);opacity:0;visibility:hidden;z-index:200;transition:opacity .25s,visibility .25s;backdrop-filter:blur(2px)}
+.backdrop.open{opacity:1;visibility:visible}
+.menu{position:fixed;top:0;left:0;bottom:0;width:min(440px,100vw);background:var(--surface);z-index:201;transform:translateX(-100%);transition:transform .28s cubic-bezier(.32,.72,.4,1);display:flex;flex-direction:column;box-shadow:0 0 60px rgba(0,0,0,.18)}
+.menu.open{transform:translateX(0)}
+.menu-hd{padding:18px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.menu-hd .logo{font-size:22px}
+.menu-close{width:38px;height:38px;border-radius:100px;display:flex;align-items:center;justify-content:center;color:var(--ink);background:var(--bg-alt);transition:background-color .2s}
+.menu-close:hover{background:var(--line)}
+.menu-close svg{width:18px;height:18px}
+
+/* In-drawer category tabs */
+.m-tabs{display:flex;background:var(--bg-alt);padding:4px;margin:14px 24px 0;border-radius:100px;flex-shrink:0}
+.m-tab{flex:1;padding:9px 14px;border-radius:100px;font-size:13px;font-weight:600;color:var(--ink-soft);transition:background-color .2s,color .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.m-tab svg{width:16px;height:16px}
+.m-tab.active{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+
+/* In-drawer search */
+.m-search{margin:14px 24px 0;flex-shrink:0;position:relative}
+.m-search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--ink-faint);pointer-events:none}
+.m-search input{width:100%;padding:11px 14px 11px 38px;background:var(--bg-alt);border:1px solid transparent;border-radius:100px;font-family:var(--sans);font-size:14px;outline:0;transition:border-color .2s,background-color .2s}
+.m-search input:focus{background:var(--surface);border-color:var(--ink)}
+
+/* Scrollable nav body */
+.m-body{flex:1;overflow-y:auto;padding:8px 24px 24px;-webkit-overflow-scrolling:touch}
+.m-body::-webkit-scrollbar{width:6px}
+.m-body::-webkit-scrollbar-track{background:transparent}
+.m-body::-webkit-scrollbar-thumb{background:var(--line);border-radius:100px}
+
+.m-panel{display:none}
+.m-panel.active{display:block}
+
+.m-sec{padding:18px 0;border-bottom:1px solid var(--line)}
+.m-sec:last-child{border-bottom:0}
+.m-sec h3{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.01em;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+.m-sec h3 a{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid var(--line);padding-bottom:1px}
+.m-sec h3 a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+.m-grp{margin-bottom:14px}
+.m-grp:last-child{margin-bottom:0}
+.m-grp h4{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px}
+.m-grp ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 6px}
+.m-grp li{flex:0 0 auto}
+.m-grp a{display:inline-block;padding:5px 10px;font-size:12.5px;color:var(--ink-soft);background:var(--bg-alt);border-radius:6px;transition:background-color .15s,color .15s}
+.m-grp a:hover{background:var(--ink);color:#fff}
+
+/* Quick links list (vertical, tools/news style) */
+.m-links{list-style:none;display:flex;flex-direction:column;gap:2px}
+.m-links a{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;font-size:13.5px;color:var(--ink);border-radius:8px;transition:background-color .15s;font-weight:500}
+.m-links a:hover{background:var(--bg-alt)}
+.m-links a::after{content:"›";color:var(--ink-faint);font-size:18px;line-height:1}
+
+.m-foot{padding:14px 24px;border-top:1px solid var(--line);background:var(--bg-alt);font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;flex-shrink:0;display:flex;justify-content:space-between;align-items:center}
+.m-foot a{color:var(--ink-soft)}
+.m-foot a:hover{color:var(--ink)}
+
+/* ─── Hero ─── */
+.hero{background:linear-gradient(180deg,#ffffff 0%,#f0eee8 100%);padding:56px 48px 40px;border-bottom:1px solid var(--line);contain:layout style}
+.hero-inner{max-width:1240px;margin:0 auto}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,5vw,60px);line-height:1.05;letter-spacing:-.025em;min-height:130px}
+.hero h1 .accent{font-weight:700;color:var(--accent)}
+.search{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px;max-width:640px;margin-top:24px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.search input{flex:1;border:0;padding:14px 16px;font-family:var(--sans);font-size:15px;background:transparent;outline:0}
+.search button{background:var(--ink);color:#fff;padding:0 28px;border-radius:8px;font-weight:600;font-size:14px}
+
+/* ─── Section ─── */
+.section{padding:64px 0;border-bottom:1px solid var(--line);contain:layout style;content-visibility:auto;contain-intrinsic-size:0 720px}
+.section.alt{background:var(--bg-alt)}
+.section:last-of-type{border-bottom:0}
+.sec-hd{max-width:1240px;margin:0 auto 28px;padding:0 48px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:32px}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.eyebrow.live::before{content:"";width:8px;height:8px;background:var(--accent);border-radius:100px;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+.sec-title{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.5vw,42px);letter-spacing:-.025em;line-height:1.05}
+.sec-title b{font-weight:700}
+.sec-meta{text-align:right;font-size:13px;color:var(--ink-soft);line-height:1.7}
+.sec-meta a{display:inline-flex;align-items:center;gap:4px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px}
+
+/* ─── Carousel ─── */
+.cwrap{position:relative;contain:layout}
+.car{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:8px calc((100vw - 1240px)/2 + 48px);scrollbar-width:none;cursor:grab}
+.car:active{cursor:grabbing}
+.car::-webkit-scrollbar{display:none}
+.cwrap::before,.cwrap::after{content:"";position:absolute;top:0;bottom:0;width:80px;pointer-events:none;z-index:2;transition:opacity .3s}
+.cwrap::before{left:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 100%)}
+.cwrap::after{right:0;background:linear-gradient(270deg,var(--bg) 0%,transparent 100%)}
+.section.alt .cwrap::before{background:linear-gradient(90deg,var(--bg-alt) 0%,transparent 100%)}
+.section.alt .cwrap::after{background:linear-gradient(270deg,var(--bg-alt) 0%,transparent 100%)}
+.cwrap.start::before{opacity:0}
+.cwrap.end::after{opacity:0}
+.ctl{max-width:1240px;margin:24px auto 0;padding:0 48px;display:flex;align-items:center;gap:24px}
+.track{flex:1;height:3px;background:var(--line);border-radius:100px;overflow:hidden;position:relative}
+.fill{position:absolute;top:0;left:0;height:100%;background:var(--ink);border-radius:100px;transition:width .2s,left .2s}
+.pos{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--ink-soft);min-width:60px}
+.pos b{color:var(--ink);font-weight:700}
+.arrows{display:flex;gap:8px}
+.arr{width:44px;height:44px;background:var(--surface);border:1px solid var(--line);border-radius:100px;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background-color .2s,color .2s,border-color .2s,transform .2s}
+.arr:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink);transform:scale(1.05)}
+.arr:disabled{opacity:.3;cursor:not-allowed}
+.arr svg{width:18px;height:18px}
+
+/* ─── Cards (vehicle, body type, brand, comparison, news) ─── */
+.vc{flex:0 0 320px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;display:flex;flex-direction:column;user-select:none;cursor:pointer;contain:layout style paint}
+.vc:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08);border-color:#dcdee2}
+.rk{position:absolute;top:16px;left:16px;z-index:2;font-family:var(--display);font-weight:900;font-size:36px;letter-spacing:-.04em;line-height:1;color:rgba(255,255,255,.95);text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.rk.top{color:var(--accent);text-shadow:none}
+.pill{position:absolute;top:16px;right:16px;z-index:2;padding:5px 10px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.02em;background:var(--green-soft);color:var(--green);border:1px solid rgba(26,135,68,.15)}
+.pill.hot{background:var(--accent-soft);color:var(--accent);border-color:rgba(214,59,31,.15)}
+.pill.new{background:var(--amber-soft);color:var(--amber);border-color:rgba(184,107,0,.15)}
+.pill.offer{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pill.match{background:var(--blue-soft);color:var(--blue);border-color:rgba(30,95,184,.15)}
+.vimg{aspect-ratio:16/10;width:100%;background:linear-gradient(135deg,#f6f7f9 0%,#eceef1 100%);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;pointer-events:none}
+.vimg svg{width:80%;height:auto;opacity:.55;transition:opacity .3s,transform .4s}
+.vc:hover .vimg svg{opacity:.8;transform:scale(1.06)}
+.vimg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,transparent 0%,rgba(0,0,0,.06) 100%)}
+.vbody{padding:18px 18px 20px}
+.vbrand{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+.vname{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.015em;line-height:1.15;margin-bottom:8px}
+.vreason{font-size:12px;color:var(--ink-soft);background:var(--blue-soft);padding:6px 10px;border-radius:6px;display:inline-block;margin-bottom:10px;border:1px solid rgba(30,95,184,.1)}
+.vmeta{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.vprice{font-size:13px;font-weight:600}
+.vstrike{color:var(--ink-faint);font-size:12px;text-decoration:line-through;margin-right:4px}
+.vtag{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-soft)}
+.vstrip{background:var(--ink);color:#fff;padding:10px 18px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.vstrip b{color:var(--accent-soft)}
+.spark{margin-top:12px;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;color:var(--ink-faint)}
+.spark svg{height:22px;flex:1}
+.spark path{fill:none;stroke:var(--green);stroke-width:1.5}
+.spark.hot path{stroke:var(--accent)}
+.bt{flex:0 0 200px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px 20px;transition:transform .25s,background-color .25s,color .25s,border-color .25s;cursor:pointer;user-select:none;display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:180px;contain:layout style}
+.bt:hover{transform:translateY(-4px);background:var(--ink);color:#fff;border-color:var(--ink)}
+.bt-ico{width:64px;height:40px;display:flex;align-items:center;justify-content:center}
+.bt-ico svg{width:100%;height:100%;fill:currentColor;color:var(--ink);transition:color .25s}
+.bt:hover .bt-ico svg{color:#fff}
+.bt-name{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;line-height:1.15}
+.bt-cnt{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-faint);margin-top:auto}
+.bt:hover .bt-cnt{color:rgba(255,255,255,.6)}
+.br{flex:0 0 160px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;user-select:none;padding:18px;contain:layout style}
+.br:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.06);border-color:#dcdee2}
+.br-mark{width:56px;height:56px;background:var(--bg-alt);border-radius:100px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:22px;letter-spacing:-.04em;color:var(--ink);margin-bottom:12px;transition:background-color .25s,color .25s}
+.br:hover .br-mark{background:var(--ink);color:#fff}
+.br-name{font-size:13px;font-weight:600;line-height:1.2}
+.br-cnt{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-faint);margin-top:4px;letter-spacing:.05em}
+.cmp{flex:0 0 380px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;user-select:none;contain:layout style}
+.cmp:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08);border-color:#dcdee2}
+.cmpv{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:linear-gradient(135deg,#f6f7f9 0%,#eceef1 100%);padding:24px 16px}
+.cside{display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
+.cside svg{width:110px;opacity:.65}
+.cnam{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.vs{width:36px;height:36px;background:var(--ink);color:#fff;border-radius:100px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:13px}
+.cmp-bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px}
+.cmp-tt{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.2}
+.cmp-tt b{color:var(--accent);font-weight:700}
+.cmp-mt{display:flex;gap:14px;font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.cmp-mt span{display:flex;align-items:center;gap:4px}
+.cmp-mt b{color:var(--ink);font-weight:700}
+.nw{flex:0 0 340px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;user-select:none;display:flex;flex-direction:column;contain:layout style paint}
+.nw:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08);border-color:#dcdee2}
+.nw-img{aspect-ratio:16/9;background:linear-gradient(135deg,#1a1a1a 0%,#404040 100%);position:relative;overflow:hidden}
+.nw-img::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(214,59,31,.4),transparent 50%),radial-gradient(circle at 20% 80%,rgba(30,95,184,.3),transparent 50%)}
+.nw-tag{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--surface);color:var(--ink);padding:5px 10px;border-radius:4px}
+.nw-bd{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.nw-tt{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.3}
+.nw-mt{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-faint);letter-spacing:.05em}
+
+.ft{border-top:1px solid var(--line);padding:32px 48px;text-align:center;font-size:12px;color:var(--ink-faint);font-family:var(--mono);letter-spacing:.05em}
+
+.fade{transition:opacity .25s ease}
+.fade.fading{opacity:.4}
+
+@media(max-width:1024px){
+  .header-top{padding:14px 20px;gap:12px}
+  .nav{display:none}
+  .cat-bar{padding:0 12px}
+  .cat-tab{padding:14px 16px;font-size:13px}
+  .sec-hd{padding:0 24px}
+  .car{padding:8px 24px}
+  .ctl{padding:0 24px}
+  .vc{flex:0 0 290px}
+  .cmp{flex:0 0 340px}
+  .nw{flex:0 0 300px}
+}
+@media(max-width:600px){
+  .section{padding:48px 0;contain-intrinsic-size:0 600px}
+  .sec-hd{grid-template-columns:1fr;align-items:start;padding:0 20px;margin-bottom:20px;gap:12px}
+  .sec-meta{text-align:left}
+  .car{padding:8px 20px;gap:14px}
+  .cwrap::before,.cwrap::after{width:30px}
+  .vc{flex:0 0 270px}
+  .bt{flex:0 0 160px;min-height:150px}
+  .br{flex:0 0 130px}
+  .cmp{flex:0 0 290px}
+  .nw{flex:0 0 270px}
+  .arrows,.track{display:none}
+  .hero{padding:32px 20px}
+  .hero h1{min-height:0}
+  .ft{padding:24px}
+  .menu{width:100vw}
+  .logo{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to main content</a>
+
+<!-- ═══ SVG defs ═══ -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+<defs>
+  <symbol id="i-car" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 17h-1a1 1 0 0 1-1-1v-3.4a4 4 0 0 1 .4-1.7l1.1-2.4A2 2 0 0 1 6.3 7.4h11.4a2 2 0 0 1 1.8 1.1l1.1 2.4a4 4 0 0 1 .4 1.7V16a1 1 0 0 1-1 1h-1m-14 0a2 2 0 1 0 4 0a2 2 0 0 0-4 0m10 0a2 2 0 1 0 4 0a2 2 0 0 0-4 0M9 17h6M3.5 12h17"/></symbol>
+  <symbol id="i-bike" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5.5 18a3.5 3.5 0 1 0 0-7a3.5 3.5 0 0 0 0 7Zm13 0a3.5 3.5 0 1 0 0-7a3.5 3.5 0 0 0 0 7Zm-13-3.5L9 9h5l3 3.5M14 9l-1.5-3h-2M17 6h2.5l-2 4M9 9l-2-2.5"/></symbol>
+  <symbol id="i-cv" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M2 17V7a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v10m-13 0h13m-13 0a2 2 0 1 0 4 0a2 2 0 0 0-4 0m13 0a2 2 0 1 0 4 0a2 2 0 0 0-4 0m0 0V10h3l3 3v4h-2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M20 20l-3.5-3.5"/></symbol>
+  <symbol id="i-arl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="i-arr" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="s-car" viewBox="0 0 200 80"><path d="M10 60Q14 46 32 43L58 36Q72 24 102 23L132 24Q154 28 170 43L188 46Q196 52 192 62L188 68L172 68Q170 56 158 56Q146 56 144 68L56 68Q54 56 42 56Q30 56 28 68L14 68Q8 65 10 60Z" fill="#1a1a1a"/><circle cx="42" cy="68" r="8" fill="#1a1a1a"/><circle cx="42" cy="68" r="3" fill="#ffffff"/><circle cx="158" cy="68" r="8" fill="#1a1a1a"/><circle cx="158" cy="68" r="3" fill="#ffffff"/></symbol>
+  <symbol id="s-bike" viewBox="0 0 200 100"><circle cx="40" cy="78" r="18" fill="#1a1a1a"/><circle cx="40" cy="78" r="9" fill="#ffffff"/><circle cx="160" cy="78" r="18" fill="#1a1a1a"/><circle cx="160" cy="78" r="9" fill="#ffffff"/><path d="M40 78L80 50L120 50L160 78M90 50L100 32L130 32L130 38L120 50M75 60L70 40L85 40" stroke="#1a1a1a" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M85 50Q100 45 115 50" stroke="#1a1a1a" stroke-width="8" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="s-cv" viewBox="0 0 200 80"><path d="M8 62L8 28L82 28L82 18L132 18L160 32L172 34L188 34L192 38L192 62L184 62Q182 50 168 50Q154 50 152 62L62 62Q60 50 46 50Q32 50 30 62L8 62Z" fill="#1a1a1a"/><rect x="92" y="22" width="14" height="10" fill="#ffffff"/><rect x="112" y="22" width="14" height="10" fill="#ffffff"/><rect x="132" y="24" width="22" height="8" fill="#ffffff"/><circle cx="46" cy="64" r="10" fill="#1a1a1a"/><circle cx="46" cy="64" r="4" fill="#ffffff"/><circle cx="168" cy="64" r="10" fill="#1a1a1a"/><circle cx="168" cy="64" r="4" fill="#ffffff"/></symbol>
+  <symbol id="sp-hot" viewBox="0 0 100 24" preserveAspectRatio="none"><path d="M0,20L10,19L20,18L30,17L40,15L50,13L60,10L70,7L80,5L90,3L100,2"/></symbol>
+  <symbol id="sp-good" viewBox="0 0 100 24" preserveAspectRatio="none"><path d="M0,16L10,15L20,16L30,14L40,13L50,12L60,11L70,9L80,8L90,7L100,6"/></symbol>
+  <symbol id="sp-flat" viewBox="0 0 100 24" preserveAspectRatio="none"><path d="M0,14L10,13L20,14L30,12L40,13L50,12L60,11L70,11L80,10L90,10L100,9"/></symbol>
+  <symbol id="bt-suv" viewBox="0 0 80 40"><path d="M4 32Q4 22 16 20L24 18Q28 8 44 8L62 8Q70 12 72 22L76 24Q78 28 76 32L70 32Q68 26 60 26Q52 26 50 32L26 32Q24 26 16 26Q8 26 6 32Z"/><circle cx="16" cy="32" r="5"/><circle cx="60" cy="32" r="5"/></symbol>
+  <symbol id="bt-hatch" viewBox="0 0 80 40"><path d="M4 32Q4 24 14 22L20 18Q26 12 38 12L52 14Q64 16 70 24L76 26Q78 30 76 32L70 32Q68 26 60 26Q52 26 50 32L26 32Q24 26 16 26Q8 26 6 32Z"/><circle cx="16" cy="32" r="5"/><circle cx="60" cy="32" r="5"/></symbol>
+  <symbol id="bt-sedan" viewBox="0 0 80 40"><path d="M4 32Q4 26 12 24L20 22Q28 14 42 14L58 16Q66 18 70 24L78 26Q80 30 76 32L70 32Q68 26 60 26Q52 26 50 32L26 32Q24 26 16 26Q8 26 6 32Z"/><circle cx="16" cy="32" r="5"/><circle cx="60" cy="32" r="5"/></symbol>
+  <symbol id="bt-muv" viewBox="0 0 80 40"><path d="M4 32L4 22Q8 18 16 16L24 12L60 12Q68 14 72 18L76 22L76 32L70 32Q68 26 60 26Q52 26 50 32L26 32Q24 26 16 26Q8 26 6 32Z"/><circle cx="16" cy="32" r="5"/><circle cx="60" cy="32" r="5"/></symbol>
+  <symbol id="bt-coupe" viewBox="0 0 80 40"><path d="M4 32Q4 28 12 26L18 24Q24 18 36 18L56 22Q66 24 72 28L76 30L76 32L70 32Q68 26 60 26Q52 26 50 32L26 32Q24 26 16 26Q8 26 6 32Z"/><circle cx="16" cy="32" r="5"/><circle cx="60" cy="32" r="5"/></symbol>
+  <symbol id="bt-conv" viewBox="0 0 80 40"><path d="M4 32Q4 28 12 26L20 24Q26 22 42 22L58 22Q66 22 72 26L76 28L76 32L70 32Q68 26 60 26Q52 26 50 32L26 32Q24 26 16 26Q8 26 6 32Z"/><circle cx="16" cy="32" r="5"/><circle cx="60" cy="32" r="5"/></symbol>
+  <symbol id="bt-pickup" viewBox="0 0 80 40"><path d="M4 32L4 22Q8 18 16 18L36 18L36 14L48 14L48 26L78 26L78 32L70 32Q68 26 60 26Q52 26 50 32L26 32Q24 26 16 26Q8 26 6 32Z"/><circle cx="16" cy="32" r="5"/><circle cx="60" cy="32" r="5"/></symbol>
+  <symbol id="bt-ev" viewBox="0 0 80 40"><path d="M4 32Q4 24 14 22L22 18Q28 12 42 12L56 14Q66 16 70 22L76 24Q78 30 76 32L70 32Q68 26 60 26Q52 26 50 32L26 32Q24 26 16 26Q8 26 6 32ZM38 6L34 14L40 14L36 22"/><circle cx="16" cy="32" r="5"/><circle cx="60" cy="32" r="5"/></symbol>
+  <symbol id="bt-cruiser" viewBox="0 0 80 40"><circle cx="16" cy="30" r="8"/><circle cx="64" cy="30" r="8"/><path d="M16 30L34 18L48 18L64 30M36 18L40 12L52 12L52 14L48 18M30 24L28 14L34 14"/></symbol>
+  <symbol id="bt-sports" viewBox="0 0 80 40"><circle cx="16" cy="30" r="8"/><circle cx="64" cy="30" r="8"/><path d="M16 30L36 16L52 16L64 30M38 16L44 8L56 8L56 12L52 16M30 22L26 14L34 14"/></symbol>
+  <symbol id="bt-scooter" viewBox="0 0 80 40"><circle cx="16" cy="30" r="8"/><circle cx="64" cy="30" r="8"/><path d="M16 30L24 22L24 16L32 12L52 12Q60 14 64 30M28 16L44 16"/></symbol>
+  <symbol id="bt-comm" viewBox="0 0 80 40"><circle cx="16" cy="30" r="7"/><circle cx="64" cy="30" r="7"/><path d="M16 30L30 16L42 16L48 18L64 30M32 16L36 10L46 10L46 14M28 24L26 16L32 16"/></symbol>
+  <symbol id="bt-adv" viewBox="0 0 80 40"><circle cx="16" cy="30" r="9"/><circle cx="64" cy="30" r="9"/><path d="M16 30L34 14L52 14L64 30M36 14L42 6L54 6L54 10L52 14M28 22L24 12L34 12"/></symbol>
+  <symbol id="bt-truck" viewBox="0 0 80 40"><path d="M4 30L4 16L36 16L36 10L52 10L62 18L72 18L74 22L74 30L68 30Q66 24 58 24Q50 24 48 30L24 30Q22 24 14 24Q6 24 4 30Z"/><rect x="40" y="14" width="8" height="6"/><circle cx="14" cy="32" r="4"/><circle cx="58" cy="32" r="4"/></symbol>
+  <symbol id="bt-pickup-cv" viewBox="0 0 80 40"><path d="M4 30L4 22Q8 18 16 18L24 12L40 12L46 22L74 22L74 30L68 30Q66 24 58 24Q50 24 48 30L24 30Q22 24 14 24Q6 24 4 30Z"/><circle cx="14" cy="32" r="4"/><circle cx="58" cy="32" r="4"/></symbol>
+  <symbol id="bt-bus" viewBox="0 0 80 40"><path d="M4 30L4 12Q6 8 12 8L68 8Q74 8 76 12L76 30L68 30Q66 24 58 24Q50 24 48 30L26 30Q24 24 16 24Q8 24 6 30Z"/><rect x="10" y="12" width="8" height="6"/><rect x="22" y="12" width="8" height="6"/><rect x="34" y="12" width="8" height="6"/><rect x="46" y="12" width="8" height="6"/><circle cx="14" cy="32" r="4"/><circle cx="58" cy="32" r="4"/></symbol>
+  <symbol id="bt-tipper" viewBox="0 0 80 40"><path d="M4 30L4 18L24 18L24 10L46 14L46 22L74 22L74 30L68 30Q66 24 58 24Q50 24 48 30L24 30Q22 24 14 24Q6 24 4 30Z"/><circle cx="14" cy="32" r="4"/><circle cx="58" cy="32" r="4"/></symbol>
+  <symbol id="bt-off" viewBox="0 0 80 40"><circle cx="16" cy="28" r="10"/><circle cx="64" cy="28" r="10"/><path d="M16 28L34 12L52 12L64 28M36 12L42 4L54 4L54 8L52 12M28 20L24 8L34 8"/></symbol>
+</defs>
+</svg>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- HAMBURGER MEGA-MENU: ALL LINKS HARDCODED FOR MAX SEO         -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="backdrop" id="backdrop" aria-hidden="true"></div>
+<aside class="menu" id="menu" aria-hidden="true" aria-label="Main navigation menu">
+  <div class="menu-hd">
+    <div class="logo">[Brand]<span class="logo-dot">.</span></div>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">
+      <svg aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+
+  <div class="m-tabs" role="tablist" aria-label="Vehicle category">
+    <button class="m-tab active" data-mcat="cars" role="tab" aria-selected="true">
+      <svg aria-hidden="true"><use href="#i-car"/></svg> Cars
+    </button>
+    <button class="m-tab" data-mcat="bikes" role="tab" aria-selected="false">
+      <svg aria-hidden="true"><use href="#i-bike"/></svg> Bikes
+    </button>
+    <button class="m-tab" data-mcat="cv" role="tab" aria-selected="false">
+      <svg aria-hidden="true"><use href="#i-cv"/></svg> Commercial
+    </button>
+  </div>
+
+  <div class="m-search">
+    <svg aria-hidden="true"><use href="#i-search"/></svg>
+    <input type="search" placeholder="Search models, brands, news…" aria-label="Search">
+  </div>
+
+  <div class="m-body">
+
+    <!-- ═══ CARS PANEL ═══ -->
+    <nav class="m-panel active" data-cat="cars" aria-label="Cars navigation">
+      <section class="m-sec">
+        <h3>New Cars <a href="/cars">View all</a></h3>
+        <div class="m-grp">
+          <h4>By Body Type</h4>
+          <ul>
+            <li><a href="/cars/suv">SUV Cars</a></li>
+            <li><a href="/cars/compact-suv">Compact SUVs</a></li>
+            <li><a href="/cars/sub-compact-suv">Sub-Compact SUVs</a></li>
+            <li><a href="/cars/sedan">Sedan Cars</a></li>
+            <li><a href="/cars/hatchback">Hatchback Cars</a></li>
+            <li><a href="/cars/muv">MUV / MPV</a></li>
+            <li><a href="/cars/coupe">Coupe Cars</a></li>
+            <li><a href="/cars/convertible">Convertible Cars</a></li>
+            <li><a href="/cars/pickup">Pickup Trucks</a></li>
+            <li><a href="/cars/luxury">Luxury Cars</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <h4>By Brand</h4>
+          <ul>
+            <li><a href="/cars/maruti-suzuki">Maruti Suzuki</a></li>
+            <li><a href="/cars/hyundai">Hyundai</a></li>
+            <li><a href="/cars/tata">Tata</a></li>
+            <li><a href="/cars/mahindra">Mahindra</a></li>
+            <li><a href="/cars/kia">Kia</a></li>
+            <li><a href="/cars/toyota">Toyota</a></li>
+            <li><a href="/cars/honda">Honda</a></li>
+            <li><a href="/cars/mg">MG</a></li>
+            <li><a href="/cars/skoda">Skoda</a></li>
+            <li><a href="/cars/volkswagen">Volkswagen</a></li>
+            <li><a href="/cars/renault">Renault</a></li>
+            <li><a href="/cars/nissan">Nissan</a></li>
+            <li><a href="/cars/jeep">Jeep</a></li>
+            <li><a href="/cars/citroen">Citroen</a></li>
+            <li><a href="/cars/bmw">BMW</a></li>
+            <li><a href="/cars/mercedes-benz">Mercedes-Benz</a></li>
+            <li><a href="/cars/audi">Audi</a></li>
+            <li><a href="/cars/volvo">Volvo</a></li>
+            <li><a href="/cars/jaguar">Jaguar</a></li>
+            <li><a href="/cars/land-rover">Land Rover</a></li>
+            <li><a href="/cars/porsche">Porsche</a></li>
+            <li><a href="/cars/lexus">Lexus</a></li>
+            <li><a href="/cars/mini">Mini</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <h4>By Budget</h4>
+          <ul>
+            <li><a href="/cars/under-5-lakh">Under ₹5 Lakh</a></li>
+            <li><a href="/cars/5-to-10-lakh">₹5 - 10 Lakh</a></li>
+            <li><a href="/cars/10-to-15-lakh">₹10 - 15 Lakh</a></li>
+            <li><a href="/cars/15-to-20-lakh">₹15 - 20 Lakh</a></li>
+            <li><a href="/cars/20-to-30-lakh">₹20 - 30 Lakh</a></li>
+            <li><a href="/cars/30-to-50-lakh">₹30 - 50 Lakh</a></li>
+            <li><a href="/cars/above-50-lakh">Above ₹50 Lakh</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <h4>By Fuel Type</h4>
+          <ul>
+            <li><a href="/cars/petrol">Petrol Cars</a></li>
+            <li><a href="/cars/diesel">Diesel Cars</a></li>
+            <li><a href="/cars/cng">CNG Cars</a></li>
+            <li><a href="/cars/electric">Electric Cars</a></li>
+            <li><a href="/cars/hybrid">Hybrid Cars</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="m-sec">
+        <h3>Popular Lists <a href="/best-cars">View all</a></h3>
+        <div class="m-grp">
+          <ul>
+            <li><a href="/best-cars/best-suv-in-india">Best SUVs in India</a></li>
+            <li><a href="/best-cars/best-compact-suv">Best Compact SUVs</a></li>
+            <li><a href="/best-cars/best-sedan">Best Sedans</a></li>
+            <li><a href="/best-cars/best-hatchback">Best Hatchbacks</a></li>
+            <li><a href="/best-cars/best-mileage-cars">Best Mileage Cars</a></li>
+            <li><a href="/best-cars/best-electric-cars">Best Electric Cars</a></li>
+            <li><a href="/best-cars/best-7-seater">Best 7-Seater Cars</a></li>
+            <li><a href="/best-cars/best-family-cars">Best Family Cars</a></li>
+            <li><a href="/best-cars/best-diesel-cars">Best Diesel Cars</a></li>
+            <li><a href="/best-cars/best-automatic-cars">Best Automatic Cars</a></li>
+            <li><a href="/best-cars/best-first-cars">Best First Cars</a></li>
+            <li><a href="/cars/upcoming">Upcoming Cars</a></li>
+            <li><a href="/cars/new-launches">New Launches</a></li>
+            <li><a href="/cars/most-popular">Most Popular Cars</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="m-sec">
+        <h3>Used Cars <a href="/used-cars">Browse all</a></h3>
+        <div class="m-grp">
+          <h4>By City</h4>
+          <ul>
+            <li><a href="/used-cars/mumbai">Used Cars in Mumbai</a></li>
+            <li><a href="/used-cars/delhi">Used Cars in Delhi</a></li>
+            <li><a href="/used-cars/bangalore">Used Cars in Bangalore</a></li>
+            <li><a href="/used-cars/hyderabad">Used Cars in Hyderabad</a></li>
+            <li><a href="/used-cars/chennai">Used Cars in Chennai</a></li>
+            <li><a href="/used-cars/pune">Used Cars in Pune</a></li>
+            <li><a href="/used-cars/kolkata">Used Cars in Kolkata</a></li>
+            <li><a href="/used-cars/ahmedabad">Used Cars in Ahmedabad</a></li>
+            <li><a href="/used-cars/jaipur">Used Cars in Jaipur</a></li>
+            <li><a href="/used-cars/lucknow">Used Cars in Lucknow</a></li>
+            <li><a href="/used-cars/chandigarh">Used Cars in Chandigarh</a></li>
+            <li><a href="/used-cars/coimbatore">Used Cars in Coimbatore</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <ul class="m-links">
+            <li><a href="/used-cars/sell">Sell Your Car</a></li>
+            <li><a href="/used-cars/loan">Used Car Loan</a></li>
+            <li><a href="/used-cars/inspection">Doorstep Inspection</a></li>
+            <li><a href="/used-cars/pricing">Free Car Valuation</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="m-sec">
+        <h3>Tools & Calculators</h3>
+        <ul class="m-links">
+          <li><a href="/tools/emi-calculator">EMI Calculator</a></li>
+          <li><a href="/tools/on-road-price">On-Road Price Calculator</a></li>
+          <li><a href="/tools/compare-cars">Compare Cars</a></li>
+          <li><a href="/tools/car-loan">Car Loan</a></li>
+          <li><a href="/tools/car-insurance">Car Insurance</a></li>
+          <li><a href="/tools/fuel-cost">Fuel Cost Calculator</a></li>
+          <li><a href="/tools/dealers">Find Authorized Dealers</a></li>
+          <li><a href="/tools/service-centers">Find Service Centers</a></li>
+        </ul>
+      </section>
+
+      <section class="m-sec">
+        <h3>News & Reviews <a href="/news">Read more</a></h3>
+        <ul class="m-links">
+          <li><a href="/news/latest">Latest Auto News</a></li>
+          <li><a href="/news/launches">New Car Launches</a></li>
+          <li><a href="/reviews/expert">Expert Car Reviews</a></li>
+          <li><a href="/reviews/first-drive">First Drive Reviews</a></li>
+          <li><a href="/reviews/long-term">Long Term Reviews</a></li>
+          <li><a href="/reviews/comparison">Comparison Reviews</a></li>
+          <li><a href="/news/auto-expo">Auto Expo 2026</a></li>
+          <li><a href="/news/policy">Auto Policy & Government News</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <!-- ═══ BIKES PANEL ═══ -->
+    <nav class="m-panel" data-cat="bikes" aria-label="Bikes navigation" hidden>
+      <section class="m-sec">
+        <h3>New Bikes <a href="/bikes">View all</a></h3>
+        <div class="m-grp">
+          <h4>By Body Type</h4>
+          <ul>
+            <li><a href="/bikes/cruiser">Cruiser Bikes</a></li>
+            <li><a href="/bikes/sports">Sports Bikes</a></li>
+            <li><a href="/bikes/commuter">Commuter Bikes</a></li>
+            <li><a href="/bikes/scooter">Scooters</a></li>
+            <li><a href="/bikes/adventure">Adventure Bikes</a></li>
+            <li><a href="/bikes/cafe-racer">Cafe Racers</a></li>
+            <li><a href="/bikes/naked">Naked Bikes</a></li>
+            <li><a href="/bikes/off-road">Off-Road Bikes</a></li>
+            <li><a href="/bikes/tourer">Tourer Bikes</a></li>
+            <li><a href="/bikes/electric">Electric Bikes & Scooters</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <h4>By Brand</h4>
+          <ul>
+            <li><a href="/bikes/hero">Hero MotoCorp</a></li>
+            <li><a href="/bikes/honda">Honda</a></li>
+            <li><a href="/bikes/bajaj">Bajaj</a></li>
+            <li><a href="/bikes/tvs">TVS</a></li>
+            <li><a href="/bikes/royal-enfield">Royal Enfield</a></li>
+            <li><a href="/bikes/yamaha">Yamaha</a></li>
+            <li><a href="/bikes/ktm">KTM</a></li>
+            <li><a href="/bikes/suzuki">Suzuki</a></li>
+            <li><a href="/bikes/jawa">Jawa</a></li>
+            <li><a href="/bikes/yezdi">Yezdi</a></li>
+            <li><a href="/bikes/kawasaki">Kawasaki</a></li>
+            <li><a href="/bikes/bmw">BMW Motorrad</a></li>
+            <li><a href="/bikes/ducati">Ducati</a></li>
+            <li><a href="/bikes/triumph">Triumph</a></li>
+            <li><a href="/bikes/harley-davidson">Harley-Davidson</a></li>
+            <li><a href="/bikes/aprilia">Aprilia</a></li>
+            <li><a href="/bikes/husqvarna">Husqvarna</a></li>
+            <li><a href="/bikes/benelli">Benelli</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <h4>By Budget</h4>
+          <ul>
+            <li><a href="/bikes/under-50000">Under ₹50,000</a></li>
+            <li><a href="/bikes/50000-to-1-lakh">₹50,000 - 1 Lakh</a></li>
+            <li><a href="/bikes/1-to-1.5-lakh">₹1 - 1.5 Lakh</a></li>
+            <li><a href="/bikes/1.5-to-2-lakh">₹1.5 - 2 Lakh</a></li>
+            <li><a href="/bikes/2-to-3-lakh">₹2 - 3 Lakh</a></li>
+            <li><a href="/bikes/above-3-lakh">Above ₹3 Lakh</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <h4>By Engine Size</h4>
+          <ul>
+            <li><a href="/bikes/100cc">100cc Bikes</a></li>
+            <li><a href="/bikes/125cc">125cc Bikes</a></li>
+            <li><a href="/bikes/150cc">150cc Bikes</a></li>
+            <li><a href="/bikes/200cc">200cc Bikes</a></li>
+            <li><a href="/bikes/250cc">250cc Bikes</a></li>
+            <li><a href="/bikes/350cc">350cc Bikes</a></li>
+            <li><a href="/bikes/above-500cc">Above 500cc</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="m-sec">
+        <h3>Popular Lists <a href="/best-bikes">View all</a></h3>
+        <ul>
+          <li class="m-grp" style="display:contents"></li>
+        </ul>
+        <div class="m-grp">
+          <ul>
+            <li><a href="/best-bikes/best-mileage-bikes">Best Mileage Bikes</a></li>
+            <li><a href="/best-bikes/best-cruiser-bikes">Best Cruiser Bikes</a></li>
+            <li><a href="/best-bikes/best-sports-bikes">Best Sports Bikes</a></li>
+            <li><a href="/best-bikes/best-commuter-bikes">Best Commuter Bikes</a></li>
+            <li><a href="/best-bikes/best-scooters">Best Scooters</a></li>
+            <li><a href="/best-bikes/best-adventure-bikes">Best Adventure Bikes</a></li>
+            <li><a href="/best-bikes/best-electric-scooters">Best Electric Scooters</a></li>
+            <li><a href="/best-bikes/best-bikes-under-1-lakh">Best Bikes Under ₹1 Lakh</a></li>
+            <li><a href="/best-bikes/best-bikes-under-1.5-lakh">Best Bikes Under ₹1.5 Lakh</a></li>
+            <li><a href="/best-bikes/best-touring-bikes">Best Touring Bikes</a></li>
+            <li><a href="/bikes/upcoming">Upcoming Bikes</a></li>
+            <li><a href="/bikes/new-launches">Newly Launched Bikes</a></li>
+            <li><a href="/bikes/most-popular">Most Popular Bikes</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="m-sec">
+        <h3>Used Bikes <a href="/used-bikes">Browse all</a></h3>
+        <div class="m-grp">
+          <h4>By City</h4>
+          <ul>
+            <li><a href="/used-bikes/mumbai">Used Bikes in Mumbai</a></li>
+            <li><a href="/used-bikes/delhi">Used Bikes in Delhi</a></li>
+            <li><a href="/used-bikes/bangalore">Used Bikes in Bangalore</a></li>
+            <li><a href="/used-bikes/hyderabad">Used Bikes in Hyderabad</a></li>
+            <li><a href="/used-bikes/chennai">Used Bikes in Chennai</a></li>
+            <li><a href="/used-bikes/pune">Used Bikes in Pune</a></li>
+            <li><a href="/used-bikes/kolkata">Used Bikes in Kolkata</a></li>
+            <li><a href="/used-bikes/ahmedabad">Used Bikes in Ahmedabad</a></li>
+          </ul>
+        </div>
+        <ul class="m-links">
+          <li><a href="/used-bikes/sell">Sell Your Bike</a></li>
+          <li><a href="/used-bikes/valuation">Bike Valuation</a></li>
+          <li><a href="/used-bikes/loan">Used Bike Loan</a></li>
+        </ul>
+      </section>
+
+      <section class="m-sec">
+        <h3>Tools & Calculators</h3>
+        <ul class="m-links">
+          <li><a href="/tools/bike-emi-calculator">Bike EMI Calculator</a></li>
+          <li><a href="/tools/bike-on-road-price">Bike On-Road Price</a></li>
+          <li><a href="/tools/compare-bikes">Compare Bikes</a></li>
+          <li><a href="/tools/bike-loan">Bike Loan</a></li>
+          <li><a href="/tools/bike-insurance">Bike Insurance</a></li>
+          <li><a href="/tools/bike-dealers">Find Bike Dealers</a></li>
+          <li><a href="/tools/bike-service-centers">Find Service Centers</a></li>
+        </ul>
+      </section>
+
+      <section class="m-sec">
+        <h3>News & Reviews <a href="/bike-news">Read more</a></h3>
+        <ul class="m-links">
+          <li><a href="/bike-news/latest">Latest Bike News</a></li>
+          <li><a href="/bike-news/launches">New Bike Launches</a></li>
+          <li><a href="/bike-reviews/expert">Expert Bike Reviews</a></li>
+          <li><a href="/bike-reviews/first-ride">First Ride Reviews</a></li>
+          <li><a href="/bike-reviews/road-test">Road Test Reviews</a></li>
+          <li><a href="/bike-reviews/comparison">Comparison Reviews</a></li>
+          <li><a href="/bike-news/motogp">MotoGP & Racing News</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <!-- ═══ COMMERCIAL VEHICLES PANEL ═══ -->
+    <nav class="m-panel" data-cat="cv" aria-label="Commercial vehicles navigation" hidden>
+      <section class="m-sec">
+        <h3>New Commercial Vehicles <a href="/commercial-vehicles">View all</a></h3>
+        <div class="m-grp">
+          <h4>By Vehicle Type</h4>
+          <ul>
+            <li><a href="/commercial-vehicles/mini-truck">Mini Trucks</a></li>
+            <li><a href="/commercial-vehicles/pickup">Pickup Trucks</a></li>
+            <li><a href="/commercial-vehicles/lcv">Light CVs (LCV)</a></li>
+            <li><a href="/commercial-vehicles/icv">Intermediate CVs (ICV)</a></li>
+            <li><a href="/commercial-vehicles/hcv">Heavy CVs (HCV)</a></li>
+            <li><a href="/commercial-vehicles/tipper">Tippers</a></li>
+            <li><a href="/commercial-vehicles/bus">Buses</a></li>
+            <li><a href="/commercial-vehicles/trailer">Trailer Trucks</a></li>
+            <li><a href="/commercial-vehicles/auto">Auto Rickshaws</a></li>
+            <li><a href="/commercial-vehicles/electric">Electric CVs</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <h4>By Brand</h4>
+          <ul>
+            <li><a href="/commercial-vehicles/tata">Tata Motors</a></li>
+            <li><a href="/commercial-vehicles/mahindra">Mahindra</a></li>
+            <li><a href="/commercial-vehicles/ashok-leyland">Ashok Leyland</a></li>
+            <li><a href="/commercial-vehicles/eicher">Eicher</a></li>
+            <li><a href="/commercial-vehicles/bharat-benz">Bharat Benz</a></li>
+            <li><a href="/commercial-vehicles/volvo">Volvo</a></li>
+            <li><a href="/commercial-vehicles/force">Force Motors</a></li>
+            <li><a href="/commercial-vehicles/sml-isuzu">SML Isuzu</a></li>
+            <li><a href="/commercial-vehicles/scania">Scania</a></li>
+            <li><a href="/commercial-vehicles/maruti">Maruti Suzuki CV</a></li>
+            <li><a href="/commercial-vehicles/isuzu">Isuzu</a></li>
+            <li><a href="/commercial-vehicles/bajaj">Bajaj</a></li>
+            <li><a href="/commercial-vehicles/piaggio">Piaggio</a></li>
+            <li><a href="/commercial-vehicles/atul-auto">Atul Auto</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <h4>By Payload</h4>
+          <ul>
+            <li><a href="/commercial-vehicles/under-1-tonne">Under 1 Tonne</a></li>
+            <li><a href="/commercial-vehicles/1-to-3-tonne">1 - 3 Tonne</a></li>
+            <li><a href="/commercial-vehicles/3-to-7-tonne">3 - 7 Tonne</a></li>
+            <li><a href="/commercial-vehicles/7-to-12-tonne">7 - 12 Tonne</a></li>
+            <li><a href="/commercial-vehicles/above-12-tonne">Above 12 Tonne</a></li>
+          </ul>
+        </div>
+        <div class="m-grp">
+          <h4>By Application</h4>
+          <ul>
+            <li><a href="/commercial-vehicles/cargo">Cargo</a></li>
+            <li><a href="/commercial-vehicles/construction">Construction</a></li>
+            <li><a href="/commercial-vehicles/agriculture">Agriculture</a></li>
+            <li><a href="/commercial-vehicles/passenger">Passenger Transport</a></li>
+            <li><a href="/commercial-vehicles/logistics">Logistics</a></li>
+            <li><a href="/commercial-vehicles/last-mile">Last-Mile Delivery</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="m-sec">
+        <h3>Popular Lists <a href="/best-commercial-vehicles">View all</a></h3>
+        <div class="m-grp">
+          <ul>
+            <li><a href="/best-commercial-vehicles/best-mini-trucks">Best Mini Trucks</a></li>
+            <li><a href="/best-commercial-vehicles/best-pickup-trucks">Best Pickup Trucks</a></li>
+            <li><a href="/best-commercial-vehicles/best-lcv">Best LCVs</a></li>
+            <li><a href="/best-commercial-vehicles/best-buses">Best Buses</a></li>
+            <li><a href="/best-commercial-vehicles/best-tippers">Best Tippers</a></li>
+            <li><a href="/best-commercial-vehicles/best-mileage-trucks">Best Mileage Trucks</a></li>
+            <li><a href="/best-commercial-vehicles/best-electric-cv">Best Electric CVs</a></li>
+            <li><a href="/best-commercial-vehicles/best-cv-under-5-lakh">Best CVs Under ₹5 Lakh</a></li>
+            <li><a href="/commercial-vehicles/upcoming">Upcoming CVs</a></li>
+            <li><a href="/commercial-vehicles/new-launches">New CV Launches</a></li>
+            <li><a href="/commercial-vehicles/most-popular">Most Popular CVs</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="m-sec">
+        <h3>Used Commercial Vehicles <a href="/used-commercial-vehicles">Browse all</a></h3>
+        <div class="m-grp">
+          <h4>By City</h4>
+          <ul>
+            <li><a href="/used-commercial-vehicles/mumbai">Used CVs in Mumbai</a></li>
+            <li><a href="/used-commercial-vehicles/delhi">Used CVs in Delhi</a></li>
+            <li><a href="/used-commercial-vehicles/bangalore">Used CVs in Bangalore</a></li>
+            <li><a href="/used-commercial-vehicles/chennai">Used CVs in Chennai</a></li>
+            <li><a href="/used-commercial-vehicles/hyderabad">Used CVs in Hyderabad</a></li>
+            <li><a href="/used-commercial-vehicles/pune">Used CVs in Pune</a></li>
+            <li><a href="/used-commercial-vehicles/ahmedabad">Used CVs in Ahmedabad</a></li>
+            <li><a href="/used-commercial-vehicles/kolkata">Used CVs in Kolkata</a></li>
+          </ul>
+        </div>
+        <ul class="m-links">
+          <li><a href="/used-commercial-vehicles/sell">Sell Your Commercial Vehicle</a></li>
+          <li><a href="/used-commercial-vehicles/valuation">CV Valuation</a></li>
+          <li><a href="/used-commercial-vehicles/loan">Used CV Loan</a></li>
+        </ul>
+      </section>
+
+      <section class="m-sec">
+        <h3>Tools & Calculators</h3>
+        <ul class="m-links">
+          <li><a href="/tools/cv-emi-calculator">CV EMI Calculator</a></li>
+          <li><a href="/tools/cv-on-road-price">CV On-Road Price</a></li>
+          <li><a href="/tools/compare-commercial-vehicles">Compare Commercial Vehicles</a></li>
+          <li><a href="/tools/cv-loan">CV Loan</a></li>
+          <li><a href="/tools/cv-insurance">CV Insurance</a></li>
+          <li><a href="/tools/tco-calculator">Total Cost of Ownership Calculator</a></li>
+          <li><a href="/tools/cv-fleet">Fleet Management Tools</a></li>
+          <li><a href="/tools/cv-dealers">Find CV Dealers</a></li>
+        </ul>
+      </section>
+
+      <section class="m-sec">
+        <h3>News & Reviews <a href="/cv-news">Read more</a></h3>
+        <ul class="m-links">
+          <li><a href="/cv-news/latest">Latest CV News</a></li>
+          <li><a href="/cv-news/launches">CV Launches</a></li>
+          <li><a href="/cv-reviews/expert">Expert CV Reviews</a></li>
+          <li><a href="/cv-reviews/road-test">Road Test Reviews</a></li>
+          <li><a href="/cv-news/policy">Transport Policy News</a></li>
+          <li><a href="/cv-news/scrappage">Scrappage Policy</a></li>
+          <li><a href="/cv-news/electric">Electric CV News</a></li>
+        </ul>
+      </section>
+    </nav>
+
+  </div>
+
+  <div class="m-foot">
+    <a href="/about">About Us</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/help">Help</a>
+  </div>
+</aside>
+
+<!-- ═══ Header ═══ -->
+<header class="header">
+  <div class="header-top">
+    <button class="hamburger" id="menuOpen" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <svg aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+    <div class="logo">[Brand]<span class="logo-dot">.</span></div>
+    <nav class="nav" aria-label="Primary">
+      <a href="/cars">New</a><a href="/used-cars">Used</a><a href="/sell">Sell</a><a href="/compare">Compare</a><a href="/news">News</a>
+    </nav>
+    <a href="/login" class="cta">Sign in</a>
+  </div>
+
+  <div class="cat-bar" role="tablist" aria-label="Vehicle category">
+    <button class="cat-tab active" data-cat="cars" role="tab" aria-selected="true">
+      <svg aria-hidden="true"><use href="#i-car"/></svg>
+      Cars <span class="cat-count">2,400+</span>
+    </button>
+    <button class="cat-tab" data-cat="bikes" role="tab" aria-selected="false">
+      <svg aria-hidden="true"><use href="#i-bike"/></svg>
+      Bikes <span class="cat-count">1,800+</span>
+    </button>
+    <button class="cat-tab" data-cat="cv" role="tab" aria-selected="false">
+      <svg aria-hidden="true"><use href="#i-cv"/></svg>
+      Commercial <span class="cat-count">600+</span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ Hero ═══ -->
+<section class="hero fade" id="hero">
+  <div class="hero-inner">
+    <h1 id="heroTitle">Find your next<br>car with <span class="accent">confidence.</span></h1>
+    <div class="search">
+      <label for="heroSearch" class="skip">Search vehicles</label>
+      <input type="search" id="heroSearch" placeholder="Search by brand, model, or budget…" />
+      <button>Explore</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Sections ═══ -->
+<main id="main" class="fade">
+  <section class="section" data-section="trending"><div class="sec-hd"><div><div class="eyebrow live">Live · Trending now</div><h2 class="sec-title">What India's<br>searching for <b>this week.</b></h2></div><div class="sec-meta"><div>Updated 14 hours ago</div><div><a href="#">View all 50 →</a></div></div></div><div class="cwrap start"><div class="car" data-render="vehicle"></div></div><div class="ctl"><span class="pos"><b class="cur">01</b> / <span class="tot">08</span></span><div class="track"><div class="fill"></div></div><div class="arrows"><button class="arr prev" aria-label="Previous" disabled><svg aria-hidden="true"><use href="#i-arl"/></svg></button><button class="arr next" aria-label="Next"><svg aria-hidden="true"><use href="#i-arr"/></svg></button></div></div></section>
+  <section class="section alt" data-section="bodyTypes"><div class="sec-hd"><div><div class="eyebrow">Explore by type</div><h2 class="sec-title">Browse by<br><b>body type.</b></h2></div><div class="sec-meta"><div><a href="#">View all body types →</a></div></div></div><div class="cwrap start"><div class="car" data-render="bodyType"></div></div><div class="ctl"><span class="pos"><b class="cur">01</b> / <span class="tot">10</span></span><div class="track"><div class="fill"></div></div><div class="arrows"><button class="arr prev" aria-label="Previous" disabled><svg aria-hidden="true"><use href="#i-arl"/></svg></button><button class="arr next" aria-label="Next"><svg aria-hidden="true"><use href="#i-arr"/></svg></button></div></div></section>
+  <section class="section" data-section="curated"><div class="sec-hd"><div><div class="eyebrow">Personalized · Based on your activity</div><h2 class="sec-title">Curated <b>for you.</b></h2></div><div class="sec-meta"><div>Updated daily</div><div><a href="#">View all →</a></div></div></div><div class="cwrap start"><div class="car" data-render="curated"></div></div><div class="ctl"><span class="pos"><b class="cur">01</b> / <span class="tot">08</span></span><div class="track"><div class="fill"></div></div><div class="arrows"><button class="arr prev" aria-label="Previous" disabled><svg aria-hidden="true"><use href="#i-arl"/></svg></button><button class="arr next" aria-label="Next"><svg aria-hidden="true"><use href="#i-arr"/></svg></button></div></div></section>
+  <section class="section alt" data-section="offers"><div class="sec-hd"><div><div class="eyebrow live">Limited time · Dealer offers</div><h2 class="sec-title">Get <b>offers</b><br>on popular models.</h2></div><div class="sec-meta"><div>Verified by dealers</div><div><a href="#">View all offers →</a></div></div></div><div class="cwrap start"><div class="car" data-render="offer"></div></div><div class="ctl"><span class="pos"><b class="cur">01</b> / <span class="tot">08</span></span><div class="track"><div class="fill"></div></div><div class="arrows"><button class="arr prev" aria-label="Previous" disabled><svg aria-hidden="true"><use href="#i-arl"/></svg></button><button class="arr next" aria-label="Next"><svg aria-hidden="true"><use href="#i-arr"/></svg></button></div></div></section>
+  <section class="section" data-section="brands"><div class="sec-hd"><div><div class="eyebrow">By manufacturer</div><h2 class="sec-title">Browse <b>by brand.</b></h2></div><div class="sec-meta"><div><a href="all-brands.html">View all brands →</a></div></div></div><div class="cwrap start"><div class="car" data-render="brand"></div></div><div class="ctl"><span class="pos"><b class="cur">01</b> / <span class="tot">12</span></span><div class="track"><div class="fill"></div></div><div class="arrows"><button class="arr prev" aria-label="Previous" disabled><svg aria-hidden="true"><use href="#i-arl"/></svg></button><button class="arr next" aria-label="Next"><svg aria-hidden="true"><use href="#i-arr"/></svg></button></div></div></section>
+  <section class="section alt" data-section="comparisons"><div class="sec-hd"><div><div class="eyebrow">Compare & decide</div><h2 class="sec-title">Popular <b>comparisons.</b></h2></div><div class="sec-meta"><div>Most viewed this week</div><div><a href="#">Compare any →</a></div></div></div><div class="cwrap start"><div class="car" data-render="comparison"></div></div><div class="ctl"><span class="pos"><b class="cur">01</b> / <span class="tot">06</span></span><div class="track"><div class="fill"></div></div><div class="arrows"><button class="arr prev" aria-label="Previous" disabled><svg aria-hidden="true"><use href="#i-arl"/></svg></button><button class="arr next" aria-label="Next"><svg aria-hidden="true"><use href="#i-arr"/></svg></button></div></div></section>
+  <section class="section" data-section="news"><div class="sec-hd"><div><div class="eyebrow">From our editors</div><h2 class="sec-title">Latest <b>news.</b></h2></div><div class="sec-meta"><div>Updated hourly</div><div><a href="#">All news →</a></div></div></div><div class="cwrap start"><div class="car" data-render="news"></div></div><div class="ctl"><span class="pos"><b class="cur">01</b> / <span class="tot">06</span></span><div class="track"><div class="fill"></div></div><div class="arrows"><button class="arr prev" aria-label="Previous" disabled><svg aria-hidden="true"><use href="#i-arl"/></svg></button><button class="arr next" aria-label="Next"><svg aria-hidden="true"><use href="#i-arr"/></svg></button></div></div></section>
+</main>
+
+<footer class="ft">HOMEPAGE · UNIVERSE · CARS / BIKES / CV · v4.0 (HAMBURGER MEGA-MENU)</footer>
+
+<script>
+const D={cars:{l:'Cars',hl:'Find your next<br>car with <span class="accent">confidence.</span>',sp:'Search by brand, model, or budget…',sil:'s-car',
+trending:[['Mahindra','Thar Roxx','₹12.99 - 20.49 L','↑ 184% MoM','NEW LAUNCH','new','hot'],['Tata','Curvv EV','₹17.49 - 21.99 L','↑ 142% MoM','NEW LAUNCH','new','hot'],['Mahindra','XUV 3XO','₹7.99 - 15.49 L','↑ 87% MoM','TRENDING','hot','hot'],['Maruti Suzuki','Swift','₹6.49 - 9.49 L','↑ 52% MoM','RISING','','good'],['Mahindra','BE 6','₹18.90 - 26.90 L','↑ 96% MoM','NEW','new','hot'],['Hyundai','Creta','₹11.11 - 20.43 L','↑ 38% MoM','RISING','','good'],['Kia','Seltos','₹10.90 - 20.35 L','↑ 24% MoM','RISING','','good'],['Toyota','Hyryder','₹11.34 - 20.19 L','↑ 18% MoM','RISING','','flat']],
+bodyTypes:[['SUV','42 models','bt-suv'],['Compact SUV','28 models','bt-suv'],['Sub-compact SUV','16 models','bt-hatch'],['Sedan','18 models','bt-sedan'],['Hatchback','15 models','bt-hatch'],['MUV / MPV','12 models','bt-muv'],['Coupe','9 models','bt-coupe'],['Convertible','7 models','bt-conv'],['Pickup','5 models','bt-pickup'],['Electric','21 models','bt-ev']],
+curated:[['Hyundai','Alcazar','₹14.99 - 21.55 L','Based on your Creta search','STRONG MATCH'],['Tata','Harrier','₹15.49 - 26.50 L','You viewed similar SUVs','GOOD MATCH'],['Mahindra','Scorpio N','₹13.99 - 24.54 L','Popular in your budget','POPULAR PICK'],['MG','Hector','₹14.73 - 22.43 L','Based on your activity','GOOD MATCH'],['Skoda','Kushaq','₹10.89 - 19.49 L','You liked European SUVs','GOOD MATCH'],['VW','Taigun','₹11.84 - 19.86 L','Similar to your shortlist','STRONG MATCH'],['Honda','Elevate','₹11.91 - 16.89 L','New launch in your range','POPULAR PICK'],['Nissan','Magnite','₹6.20 - 11.71 L','Top value pick','GOOD MATCH']],
+offers:[['Hyundai','Creta','₹10.46 L','₹11.11 L','₹65,000 OFF','Apr 30'],['Tata','Nexon','₹7.10 L','₹7.99 L','₹89,000 OFF','Apr 28'],['Maruti Suzuki','Brezza','₹8.06 L','₹8.34 L','₹28,000 OFF','Apr 30'],['Honda','Amaze','₹6.55 L','₹7.20 L','₹65,000 OFF','May 5'],['Renault','Kiger','₹5.99 L','₹6.99 L','₹1,00,000 OFF','Apr 30'],['Skoda','Slavia','₹10.78 L','₹11.63 L','₹85,000 OFF','May 2'],['VW','Virtus','₹10.91 L','₹11.56 L','₹65,000 OFF','Apr 30'],['Nissan','Magnite','₹5.49 L','₹6.20 L','₹71,000 OFF','Apr 30']],
+brands:[['M','Maruti Suzuki','17 models'],['H','Hyundai','12 models'],['T','Tata','14 models'],['M','Mahindra','11 models'],['K','Kia','7 models'],['T','Toyota','9 models'],['H','Honda','5 models'],['M','MG','6 models'],['S','Skoda','5 models'],['V','Volkswagen','4 models'],['B','BMW','18 models'],['M','Mercedes-Benz','22 models']],
+comparisons:[['Hyundai','Creta','Kia','Seltos','2.4M','₹0.21 L'],['Mahindra','Thar','Force','Gurkha','1.8M','₹2.50 L'],['Maruti','Swift','Maruti','Baleno','1.5M','₹0.45 L'],['Tata','Nexon','Mahindra','XUV 3XO','1.2M','₹0.10 L'],['Hyundai','Verna','Honda','City','980K','₹0.30 L'],['Toyota','Innova Hycross','Kia','Carens','870K','₹4.20 L']],
+news:[['LAUNCH','Mahindra Thar Roxx 5-door breaks records: 1.76 lakh bookings on day one','Apr 24','4 min'],['REVIEW','Tata Curvv EV first drive review: India\u2019s most refined coupe-EV yet?','Apr 23','8 min'],['POLICY','GST Council reduces tax on EVs to 5%: How much will you save on a Nexon EV?','Apr 22','5 min'],['SCOOP','Spied: Maruti Suzuki Fronx facelift testing on Indian roads, launch by Diwali','Apr 22','3 min'],['COMPARE','Hyundai Creta N Line vs Kia Seltos GT Line: Which sporty SUV wins on value?','Apr 21','7 min'],['AUTO EXPO','Bharat Mobility 2026: Confirmed list of 19 new launches and 32 concept reveals','Apr 20','6 min']]},
+bikes:{l:'Bikes',hl:'Find your next<br>ride with <span class="accent">confidence.</span>',sp:'Search by brand, model, or engine size…',sil:'s-bike',
+trending:[['Royal Enfield','Hunter 350','₹1.50 - 1.75 L','↑ 156% MoM','TRENDING','hot','hot'],['Bajaj','Pulsar NS400Z','₹1.85 - 1.92 L','↑ 201% MoM','NEW LAUNCH','new','hot'],['Royal Enfield','Classic 350','₹1.93 - 2.25 L','↑ 64% MoM','TRENDING','hot','hot'],['Honda','Activa 6G','₹78,800 - 88,300','↑ 22% MoM','RISING','','good'],['TVS','Apache RTR 200','₹1.45 - 1.60 L','↑ 41% MoM','RISING','','good'],['KTM','Duke 390','₹3.13 - 3.20 L','↑ 78% MoM','TRENDING','hot','hot'],['Yamaha','R15 V4','₹1.82 - 1.93 L','↑ 35% MoM','RISING','','good'],['Hero','Splendor Plus','₹78,200 - 84,300','↑ 12% MoM','RISING','','flat']],
+bodyTypes:[['Cruiser','38 models','bt-cruiser'],['Sports','42 models','bt-sports'],['Commuter','52 models','bt-comm'],['Scooter','34 models','bt-scooter'],['Adventure','18 models','bt-adv'],['Cafe Racer','9 models','bt-cruiser'],['Naked','15 models','bt-sports'],['Off-road','7 models','bt-off'],['Electric','24 models','bt-scooter'],['Tourer','11 models','bt-adv']],
+curated:[['Royal Enfield','Bullet 350','₹1.74 - 2.16 L','Based on Classic 350 search','STRONG MATCH'],['Jawa','42 Bobber','₹2.09 - 2.40 L','You like retro cruisers','GOOD MATCH'],['Honda','CB350','₹2.10 - 2.18 L','Similar to your shortlist','STRONG MATCH'],['KTM','Duke 250','₹2.39 L','Sporty, in your budget','GOOD MATCH'],['Yamaha','MT-15','₹1.69 - 1.71 L','Naked alternative to R15','GOOD MATCH'],['TVS','Ronin','₹1.55 - 1.74 L','Cruiser in entry range','POPULAR PICK'],['Bajaj','Dominar 400','₹2.31 L','Touring bike pick','GOOD MATCH'],['Hero','Xpulse 200 4V','₹1.49 L','Adventure value pick','POPULAR PICK']],
+offers:[['Honda','Shine 100','₹62,900','₹66,400','₹3,500 OFF','Apr 30'],['Hero','Xtreme 160R','₹1.20 L','₹1.27 L','₹7,000 OFF','Apr 30'],['TVS','Jupiter','₹73,200','₹78,200','₹5,000 OFF','Apr 28'],['Bajaj','Pulsar 150','₹1.10 L','₹1.16 L','₹6,000 OFF','May 2'],['Suzuki','Access 125','₹83,300','₹87,300','₹4,000 OFF','Apr 30'],['Yamaha','FZ-S V3','₹1.20 L','₹1.27 L','₹7,500 OFF','Apr 30'],['Hero','HF Deluxe','₹58,600','₹62,000','₹3,400 OFF','May 5'],['TVS','Raider 125','₹89,100','₹95,000','₹5,900 OFF','Apr 30']],
+brands:[['H','Hero','24 models'],['H','Honda','22 models'],['B','Bajaj','18 models'],['T','TVS','19 models'],['R','Royal Enfield','14 models'],['Y','Yamaha','11 models'],['K','KTM','9 models'],['S','Suzuki','8 models'],['J','Jawa','5 models'],['K','Kawasaki','12 models'],['B','BMW','14 models'],['D','Ducati','16 models']],
+comparisons:[['Royal Enfield','Classic 350','Royal Enfield','Hunter 350','3.1M','₹40,000'],['Bajaj','Pulsar NS200','TVS','Apache RTR 200','2.0M','₹4,500'],['Honda','Activa 6G','TVS','Jupiter','1.7M','₹5,600'],['KTM','Duke 390','Yamaha','MT-15 V2','1.4M','₹1.43 L'],['Yamaha','R15 V4','Suzuki','Gixxer SF 250','1.1M','₹5,000'],['Hero','Splendor Plus','Honda','Shine 100','920K','₹15,300']],
+news:[['LAUNCH','Bajaj Pulsar NS400Z launched at ₹1.85 lakh: Most affordable 400cc bike in India','Apr 24','5 min'],['SPIED','KTM 990 Duke spotted testing in Pune: India launch by Diwali confirmed','Apr 23','3 min'],['EV','Ola S1 Pro Gen 3 vs Ather 450X: Battle of the flagship electric scooters','Apr 22','7 min'],['REVIEW','Royal Enfield Hunter 350 long-term review: 10,000km later, was it worth it?','Apr 21','9 min'],['NEWS','New Hero Xpulse 250 confirmed: First India-made adventure bike in segment','Apr 20','4 min'],['COMPARE','TVS Apache RTR 310 vs KTM 390 Duke: Performance numbers compared','Apr 19','6 min']]},
+cv:{l:'Commercial',hl:'Find your next<br>workhorse with <span class="accent">confidence.</span>',sp:'Search by brand, payload, or category…',sil:'s-cv',
+trending:[['Tata','Ace EV','₹8.72 - 9.00 L','↑ 245% MoM','NEW LAUNCH','new','hot'],['Mahindra','Bolero Pickup','₹8.30 - 11.30 L','↑ 64% MoM','TRENDING','hot','hot'],['Tata','Intra V70','₹9.60 - 9.95 L','↑ 88% MoM','TRENDING','hot','hot'],['Ashok Leyland','Dost+','₹9.05 - 10.40 L','↑ 42% MoM','RISING','','good'],['Mahindra','Jeeto Plus','₹4.55 - 5.42 L','↑ 38% MoM','RISING','','good'],['Tata','Yodha 2.0','₹9.97 - 10.30 L','↑ 27% MoM','RISING','','good'],['Eicher','Pro 2049','₹13.40 - 14.80 L','↑ 18% MoM','RISING','','flat'],['Bajaj','Maxima X Wonder','₹3.80 - 4.10 L','↑ 14% MoM','RISING','','flat']],
+bodyTypes:[['Mini Truck','14 models','bt-truck'],['Pickup','18 models','bt-pickup-cv'],['LCV (Light)','24 models','bt-truck'],['ICV (Intermediate)','16 models','bt-truck'],['HCV (Heavy)','22 models','bt-truck'],['Tipper','12 models','bt-tipper'],['Bus','19 models','bt-bus'],['Trailer','8 models','bt-truck'],['Auto','11 models','bt-pickup-cv'],['Electric CV','9 models','bt-truck']],
+curated:[['Tata','Ace Gold Petrol','₹4.30 - 4.99 L','Based on mini-truck searches','STRONG MATCH'],['Mahindra','Supro Profit','₹5.84 - 7.19 L','Popular in your segment','POPULAR PICK'],['Mahindra','Bolero Maxx','₹7.93 - 8.52 L','You viewed pickups','STRONG MATCH'],['Tata','407 Gold','₹13.85 - 14.52 L','Higher payload alternative','GOOD MATCH'],['Ashok Leyland','Bada Dost','₹9.05 - 10.40 L','Similar to your shortlist','GOOD MATCH'],['Eicher','Pro 2055H','₹14.80 L','Heavy-duty pick','POPULAR PICK'],['Force','Trax Toofan','₹9.85 - 10.50 L','Passenger CV alternative','GOOD MATCH'],['Mahindra','Treo Zor','₹3.45 L','Electric 3W last-mile pick','STRONG MATCH']],
+offers:[['Tata','Ace Gold','₹4.10 L','₹4.30 L','₹20,000 OFF','Apr 30'],['Mahindra','Jeeto Plus','₹4.30 L','₹4.55 L','₹25,000 OFF','Apr 28'],['Bajaj','Maxima Cargo','₹3.40 L','₹3.55 L','₹15,000 OFF','May 5'],['Tata','Yodha Pickup','₹9.50 L','₹9.97 L','₹47,000 OFF','Apr 30'],['Ashok Leyland','Dost CNG','₹9.45 L','₹9.85 L','₹40,000 OFF','Apr 30'],['Mahindra','Bolero Pickup','₹7.95 L','₹8.30 L','₹35,000 OFF','May 2'],['Tata','Intra V30','₹7.45 L','₹7.85 L','₹40,000 OFF','Apr 30'],['Eicher','Pro 2049','₹13.10 L','₹13.40 L','₹30,000 OFF','Apr 30']],
+brands:[['T','Tata','34 models'],['M','Mahindra','28 models'],['A','Ashok Leyland','22 models'],['E','Eicher','18 models'],['B','Bajaj','7 models'],['F','Force','9 models'],['B','Bharat Benz','15 models'],['V','Volvo','12 models'],['S','SML Isuzu','8 models'],['S','Scania','6 models'],['M','Maruti CV','4 models'],['I','Isuzu','5 models']],
+comparisons:[['Tata','Ace Gold','Mahindra','Jeeto Plus','1.4M','₹25,000'],['Mahindra','Bolero Pickup','Tata','Yodha 2.0','920K','₹1.67 L'],['Tata','Intra V30','Ashok Leyland','Dost+','780K','₹1.20 L'],['Eicher','Pro 2049','Tata','407 Gold','650K','₹0.45 L'],['Tata','Ace EV','Mahindra','Treo Zor','540K','₹5.27 L'],['Bajaj','Maxima Cargo','Mahindra','Alfa Cargo','420K','₹35,000']],
+news:[['LAUNCH','Tata Ace EV crosses 25,000 unit sales: India\u2019s top-selling electric CV','Apr 24','4 min'],['POLICY','New scrappage policy: Operators get up to ₹2.5 lakh incentive on old vehicles','Apr 23','6 min'],['EV','Mahindra unveils ZEO electric LCV: 700kg payload, 140km range, ₹7.52 lakh','Apr 22','5 min'],['REVIEW','Ashok Leyland Bada Dost i3 review: Is the i3 worth the premium over the i2?','Apr 21','8 min'],['NEWS','Eicher Trucks plans 12 new launches by FY27 across LCV and HCV segments','Apr 20','4 min'],['TECH','Why diesel CV operators are switching to CNG: A 3-month TCO breakdown','Apr 19','7 min']]}};
+
+const pillCls=t=>['STRONG MATCH','GOOD MATCH','POPULAR PICK'].includes(t)?'pill match':'pill';
+const sil=id=>`<svg viewBox="0 0 200 80"><use href="#${id}"/></svg>`;
+
+const T={
+  vehicle:(it,i,c)=>{const[b,m,p,g,t,tt,sp]=it;return `<a href="#" class="vc"><div class="rk${i<3?' top':''}">${String(i+1).padStart(2,'0')}</div>${t?`<span class="pill ${tt}">${t}</span>`:''}<div class="vimg">${sil(c.sil)}</div><div class="vbody"><div class="vbrand">${b}</div><div class="vname">${m}</div><div class="spark${sp==='hot'?' hot':''}"><svg><use href="#sp-${sp}"/></svg><span>12 MO</span></div><div class="vmeta"><div class="vprice">${p}</div><div class="vtag">${g}</div></div></div></a>`},
+  bodyType:it=>{const[n,c,ic]=it;return `<a href="#" class="bt"><div class="bt-ico"><svg><use href="#${ic}"/></svg></div><div class="bt-name">${n}</div><div class="bt-cnt">${c}</div></a>`},
+  curated:(it,i,c)=>{const[b,m,p,r,t]=it;return `<a href="#" class="vc"><span class="${pillCls(t)}" style="left:16px;right:auto">${t}</span><div class="vimg">${sil(c.sil)}</div><div class="vbody"><div class="vbrand">${b}</div><div class="vname">${m}</div><div class="vreason">${r}</div><div class="vmeta"><div class="vprice">${p}</div><div class="vtag">View →</div></div></div></a>`},
+  offer:(it,i,c)=>{const[b,m,pn,pw,ol,v]=it;return `<a href="#" class="vc"><span class="pill offer">${ol}</span><div class="vimg">${sil(c.sil)}</div><div class="vbody"><div class="vbrand">${b}</div><div class="vname">${m}</div><div class="vmeta" style="border:0;padding-top:0;margin-top:4px"><div class="vprice"><span class="vstrike">${pw}</span>${pn}</div><div class="vtag">Ends ${v}</div></div></div><div class="vstrip"><span>Dealer offer</span><b>${ol}</b></div></a>`},
+  brand:it=>{const[s,n,c]=it;return `<a href="#" class="br"><div class="br-mark">${s}</div><div class="br-name">${n}</div><div class="br-cnt">${c}</div></a>`},
+  comparison:(it,i,c)=>{const[b1,m1,b2,m2,v,d]=it;return `<a href="#" class="cmp"><div class="cmpv"><div class="cside">${sil(c.sil)}<div class="cnam">${b1}</div></div><div class="vs">VS</div><div class="cside">${sil(c.sil)}<div class="cnam">${b2}</div></div></div><div class="cmp-bd"><div class="cmp-tt">${m1} <b>vs</b> ${m2}</div><div class="cmp-mt"><span><b>${v}</b>·views</span><span>Price gap <b>${d}</b></span></div></div></a>`},
+  news:it=>{const[t,tt,d,r]=it;return `<a href="#" class="nw"><div class="nw-img"><span class="nw-tag">${t}</span></div><div class="nw-bd"><div class="nw-tt">${tt}</div><div class="nw-mt"><span>${d}</span><span>${r} read</span></div></div></a>`}
+};
+const RM={trending:'vehicle',bodyTypes:'bodyType',curated:'curated',offers:'offer',brands:'brand',comparisons:'comparison',news:'news'};
+
+function initCarousel(s){
+  const w=s.querySelector('.cwrap'),c=s.querySelector('.car'),p=s.querySelector('.prev'),n=s.querySelector('.next'),f=s.querySelector('.fill'),cu=s.querySelector('.cur'),tt=s.querySelector('.tot');let raf=0;
+  const cw=()=>{const e=c.children[0];if(!e)return 320;const g=parseInt(getComputedStyle(c).gap)||20;return e.offsetWidth+g};
+  function u(){const m=c.scrollWidth-c.clientWidth,t=c.children.length;tt.textContent=String(t).padStart(2,'0');if(m<=0){f.style.width='100%';f.style.left='0';w.classList.add('start','end');p.disabled=n.disabled=true;return}const pc=c.scrollLeft/m,vr=c.clientWidth/c.scrollWidth;f.style.width=(vr*100)+'%';f.style.left=(pc*(100-vr*100))+'%';cu.textContent=String(Math.min(Math.round(c.scrollLeft/cw())+1,t)).padStart(2,'0');w.classList.toggle('start',c.scrollLeft<=4);w.classList.toggle('end',c.scrollLeft>=m-4);p.disabled=c.scrollLeft<=4;n.disabled=c.scrollLeft>=m-4}
+  const os=()=>{if(raf)return;raf=requestAnimationFrame(()=>{u();raf=0})};
+  p.onclick=()=>c.scrollBy({left:-cw(),behavior:'smooth'});
+  n.onclick=()=>c.scrollBy({left:cw(),behavior:'smooth'});
+  c.addEventListener('scroll',os,{passive:true});
+  let dn=false,sx=0,ss=0,mv=false;
+  c.addEventListener('mousedown',e=>{dn=true;mv=false;sx=e.pageX;ss=c.scrollLeft;c.style.scrollSnapType='none'});
+  ['mouseleave','mouseup'].forEach(ev=>c.addEventListener(ev,()=>{if(dn){dn=false;c.style.scrollSnapType='x mandatory'}}));
+  c.addEventListener('mousemove',e=>{if(!dn)return;const d=e.pageX-sx;if(Math.abs(d)>4)mv=true;c.scrollLeft=ss-d});
+  c.addEventListener('click',e=>{if(mv){e.preventDefault();mv=false}},true);
+  return{u,r:()=>{c.scrollLeft=0;u()}}
+}
+
+const insts=[],sections=document.querySelectorAll('.section');
+
+function renderAll(cat){
+  const d=D[cat];
+  document.getElementById('heroTitle').innerHTML=d.hl;
+  document.getElementById('heroSearch').placeholder=d.sp;
+  const ctx={sil:d.sil};
+  sections.forEach((s,i)=>{
+    const sn=s.dataset.section,items=d[sn]||[],c=s.querySelector('.car');
+    c.innerHTML=items.map((it,j)=>T[RM[sn]](it,j,ctx)).join('');
+    if(insts[i])insts[i].r();
+  });
+}
+
+function switchCategory(cat){
+  const m=document.getElementById('main'),h=document.getElementById('hero');
+  m.classList.add('fading');h.classList.add('fading');
+  setTimeout(()=>{
+    renderAll(cat);
+    m.classList.remove('fading');h.classList.remove('fading');
+  },220);
+  document.querySelectorAll('.cat-tab').forEach(t=>{const on=t.dataset.cat===cat;t.classList.toggle('active',on);t.setAttribute('aria-selected',on)});
+  // Sync the menu's internal tabs too
+  document.querySelectorAll('.m-tab').forEach(t=>{const on=t.dataset.mcat===cat;t.classList.toggle('active',on);t.setAttribute('aria-selected',on)});
+  document.querySelectorAll('.m-panel').forEach(pn=>{const on=pn.dataset.cat===cat;pn.classList.toggle('active',on);if(on){pn.removeAttribute('hidden')}else{pn.setAttribute('hidden','')}});
+}
+
+sections.forEach(s=>insts.push(initCarousel(s)));
+document.querySelectorAll('.cat-tab').forEach(t=>t.addEventListener('click',()=>switchCategory(t.dataset.cat)));
+
+// ═══ Hamburger menu controller ═══
+const menu=document.getElementById('menu'),backdrop=document.getElementById('backdrop'),btnOpen=document.getElementById('menuOpen'),btnClose=document.getElementById('menuClose');
+let lastFocus=null;
+
+function openMenu(){
+  lastFocus=document.activeElement;
+  menu.classList.add('open');backdrop.classList.add('open');
+  menu.setAttribute('aria-hidden','false');backdrop.setAttribute('aria-hidden','false');
+  btnOpen.setAttribute('aria-expanded','true');
+  document.body.classList.add('menu-open');
+  // Focus first interactive element after animation starts
+  setTimeout(()=>btnClose.focus(),50);
+}
+
+function closeMenu(){
+  menu.classList.remove('open');backdrop.classList.remove('open');
+  menu.setAttribute('aria-hidden','true');backdrop.setAttribute('aria-hidden','true');
+  btnOpen.setAttribute('aria-expanded','false');
+  document.body.classList.remove('menu-open');
+  if(lastFocus)lastFocus.focus();
+}
+
+btnOpen.addEventListener('click',openMenu);
+btnClose.addEventListener('click',closeMenu);
+backdrop.addEventListener('click',closeMenu);
+
+// ESC to close + simple focus trap
+document.addEventListener('keydown',e=>{
+  if(!menu.classList.contains('open'))return;
+  if(e.key==='Escape'){closeMenu();return}
+  if(e.key==='Tab'){
+    const f=menu.querySelectorAll('button:not([hidden]),a:not([hidden]),input:not([hidden])');
+    const visible=Array.from(f).filter(el=>el.offsetParent!==null);
+    if(!visible.length)return;
+    const first=visible[0],last=visible[visible.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  }
+});
+
+// In-drawer category tabs sync to homepage
+document.querySelectorAll('.m-tab').forEach(t=>t.addEventListener('click',()=>switchCategory(t.dataset.mcat)));
+
+renderAll('cars');
+</script>
+</body>
+</html>

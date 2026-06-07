@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Auto portal — page index · [Brand]</title>
+<style>
+:root{
+  --ink:#1a1410;--ink-soft:#534a42;--ink-faint:#8a7d72;
+  --bg:#ffffff;--bg-alt:#f5f6f8;--surface:#fff;
+  --line:#e9ebee;--accent:#8b1820;
+  --display:'Newsreader','Georgia',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:15px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:980px;margin:0 auto;padding:48px 24px 64px}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+  margin-bottom:14px;
+}
+h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(32px,5vw,52px);line-height:1.05;letter-spacing:-.025em;
+  margin:0 0 14px;
+}
+h1 b{color:var(--accent)}
+.lede{
+  font-size:17px;line-height:1.55;color:var(--ink-soft);
+  max-width:640px;margin:0 0 36px;
+}
+.lede b{color:var(--ink);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:36px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:22px;text-decoration:none;color:inherit;
+  transition:border-color .15s,transform .15s,box-shadow .15s;
+  display:flex;flex-direction:column;gap:8px;
+}
+.card:hover{
+  border-color:var(--ink-soft);transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+.card .num{
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;
+  color:var(--accent);text-transform:uppercase;
+}
+.card h2{
+  font-family:var(--display);font-weight:700;
+  font-size:21px;letter-spacing:-.015em;margin:0;line-height:1.2;
+}
+.card p{font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin:0}
+.card .meta{
+  margin-top:auto;padding-top:10px;display:flex;gap:8px;align-items:center;
+  font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.04em;
+}
+.card .meta b{color:var(--ink);font-weight:600}
+.card .arrow{margin-left:auto;color:var(--accent);font-weight:700}
+.section-h{
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;
+  color:var(--ink-faint);text-transform:uppercase;
+  padding-top:8px;border-top:1px solid var(--line);
+  margin:24px 0 14px;
+}
+.feat-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  background:var(--surface);padding:24px;border-radius:14px;border:1px solid var(--line);
+}
+@media(max-width:680px){.feat-grid{grid-template-columns:1fr 1fr}}
+.feat{
+  display:flex;flex-direction:column;gap:4px;
+}
+.feat-num{
+  font-family:var(--display);font-size:24px;font-weight:700;
+  color:var(--accent);letter-spacing:-.02em;line-height:1;
+}
+.feat-lbl{font-size:12px;color:var(--ink-soft);font-weight:500}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Final build · 11 pages</div>
+  <h1>Auto portal <b>consumer site.</b></h1>
+  <p class="lede">Indian auto consumer portal anchored on the Tata Curvv EV. <b>11 production-quality HTML pages</b> with shared design system, working interactions, and zero external dependencies. Open any page to explore.</p>
+
+  <div class="feat-grid">
+    <div class="feat"><div class="feat-num">11</div><div class="feat-lbl">HTML pages</div></div>
+    <div class="feat"><div class="feat-num">25</div><div class="feat-lbl">News articles with full content</div></div>
+    <div class="feat"><div class="feat-num">35</div><div class="feat-lbl">Vehicles in compare catalogue</div></div>
+    <div class="feat"><div class="feat-num">8</div><div class="feat-lbl">Variants (Curvv EV)</div></div>
+    <div class="feat"><div class="feat-num">5</div><div class="feat-lbl">Step wizard (Build Your Car)</div></div>
+    <div class="feat"><div class="feat-num">0</div><div class="feat-lbl">JS errors across all pages</div></div>
+  </div>
+
+  <div class="section-h">Discovery &amp; navigation</div>
+  <div class="grid">
+    <a class="card" href="homepage-final.html">
+      <div class="num">01 · Homepage</div>
+      <h2>Homepage</h2>
+      <p>Hero, trending models, brands, popular comparisons, news strip, hamburger menu with all Popular Models internally linked.</p>
+      <div class="meta">168 KB <span class="arrow">→</span></div>
+    </a>
+    <a class="card" href="brand-page.html">
+      <div class="num">02 · Brand</div>
+      <h2>Tata cars price list</h2>
+      <p>All Tata models with price ranges, body types, fuel options, and quick-pick links to model pages.</p>
+      <div class="meta">316 KB <span class="arrow">→</span></div>
+    </a>
+    <a class="card" href="budget-page.html">
+      <div class="num">03 · Budget</div>
+      <h2>Cars under ₹N lakhs</h2>
+      <p>Cross-brand catalogue filtered by budget. Toggle between budget bands, body types, fuel types. Live filter chip count.</p>
+      <div class="meta">382 KB <span class="arrow">→</span></div>
+    </a>
+    <a class="card" href="compare-page.html">
+      <div class="num">04 · Compare</div>
+      <h2>Compare cars</h2>
+      <p>35 vehicles × 110 variants, variant-aware comparison table — engine, dimensions, features, ownership cost rows.</p>
+      <div class="meta">373 KB <span class="arrow">→</span></div>
+    </a>
+  </div>
+
+  <div class="section-h">Model journey (Tata Curvv EV)</div>
+  <div class="grid">
+    <a class="card" href="model-page.html">
+      <div class="num">05 · Model</div>
+      <h2>Tata Curvv EV — main model page</h2>
+      <p>Hero gallery (swipe-enabled, decluttered), variants, specs, colors, expert &amp; user reviews, dealers, brochure, similar EVs, news. Includes Build Your Car wizard.</p>
+      <div class="meta">387 KB <span class="arrow">→</span></div>
+    </a>
+    <a class="card" href="variant-page.html">
+      <div class="num">06 · Variant</div>
+      <h2>Empowered+ A 55 variant</h2>
+      <p>Single-variant deep dive — features, on-road price, financing, key differences vs other trims.</p>
+      <div class="meta">328 KB <span class="arrow">→</span></div>
+    </a>
+    <a class="card" href="on-road-price.html">
+      <div class="num">07 · On-road price</div>
+      <h2>City-wise on-road price</h2>
+      <p>Multi-fuel on-road price calculator. RTO, insurance, accessories breakdown across cities. Variant + city → exact on-road number.</p>
+      <div class="meta">396 KB <span class="arrow">→</span></div>
+    </a>
+    <a class="card" href="reviews-page.html">
+      <div class="num">08 · Reviews</div>
+      <h2>Curvv EV reviews</h2>
+      <p>1,924 owner reviews with rating distribution, filter pills, verified badges, sort options.</p>
+      <div class="meta">287 KB <span class="arrow">→</span></div>
+    </a>
+    <a class="card" href="write-review.html">
+      <div class="num">09 · Write</div>
+      <h2>Write a review</h2>
+      <p>Star-rating form, photo upload, structured pros/cons fields, ownership context inputs.</p>
+      <div class="meta">329 KB <span class="arrow">→</span></div>
+    </a>
+  </div>
+
+  <div class="section-h">Editorial</div>
+  <div class="grid">
+    <a class="card" href="news-page.html">
+      <div class="num">10 · News</div>
+      <h2>All auto news</h2>
+      <p>25 stories across cars, bikes, commercial — category tabs, type pills, sort dropdown, trending sidebar, deep-link filters via URL params.</p>
+      <div class="meta">295 KB <span class="arrow">→</span></div>
+    </a>
+    <a class="card" href="news-article.html?id=a01">
+      <div class="num">11 · Article</div>
+      <h2>News article detail</h2>
+      <p>Single template renders any of the 25 articles via <code>?id=aXX</code>. Lead, sections, pull-quotes, inline images (photo/chart/stats/twin), key points, related stories.</p>
+      <div class="meta">349 KB <span class="arrow">→</span></div>
+    </a>
+  </div>
+
+  <div class="section-h">Cross-page systems (active on all 11 pages)</div>
+  <div class="feat-grid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="feat"><div class="feat-num">📍</div><div class="feat-lbl"><b>City picker overlay</b> · header pill + price-card pin both open the same "Your city" overlay; selection syncs across page</div></div>
+    <div class="feat"><div class="feat-num">📋</div><div class="feat-lbl"><b>Lead form</b> · contextual intent (best price / test drive / brochure); 4 brochure CTAs gate downloads via form</div></div>
+    <div class="feat"><div class="feat-num">🚗</div><div class="feat-lbl"><b>BYC wizard</b> · 5-step Build Your Car finder accessible from anywhere; cross-page navigation to Curvv EV model page</div></div>
+    <div class="feat"><div class="feat-num">📰</div><div class="feat-lbl"><b>News links</b> · all <code>/news/*</code>, <code>/bike-news/*</code>, <code>/cv-news/*</code> wired to news-page.html with query filters</div></div>
+    <div class="feat"><div class="feat-num">☰</div><div class="feat-lbl"><b>Hamburger menu</b> · Popular Models grid with Tata Curvv EV featured; 16 cars, 12 bikes, 10 CVs internal-linked</div></div>
+    <div class="feat"><div class="feat-num">📱</div><div class="feat-lbl"><b>Mobile parity</b> · city pill keeps name on mobile, gallery swipes without arrows, modals go fullscreen on small screens</div></div>
+  </div>
+
+  <p style="text-align:center;font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.06em;margin-top:36px">
+    All 11 pages · 3.6 MB total · 0 JS errors · Production-ready prototype
+  </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rohan Saxena · EV Editor — [Brand]</title>
+<meta name="description" content="Rohan Saxena is the EV Editor at [Brand]. 8 years covering Indian electric vehicles. 180+ reviews. Former editor at EVO India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400;1,14..32,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--bg-alt:#f5f6f8;--surface:#fff;
+  --ink:#1a1410;--ink-soft:#52525b;--ink-faint:#94949c;--line:#e9ebee;
+  --accent:#8b1820;--accent-soft:#f5e6e8;
+  --green:#1a8744;--green-soft:#e3f3ea;
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",system-ui,sans-serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ── Header ── */
+.header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+.header-inner{max-width:1240px;margin:0 auto;padding:0 48px;height:60px;display:flex;align-items:center;gap:24px}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.025em;color:var(--ink)}
+.logo-dot{color:var(--accent)}
+.header-nav{display:flex;gap:0;margin-left:auto}
+.header-nav a{padding:6px 14px;font-size:13px;font-weight:500;color:var(--ink-soft);border-radius:8px;transition:color .15s,background .15s}
+.header-nav a:hover{color:var(--ink);background:var(--bg-alt)}
+.header-back{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink-soft);padding:7px 14px;border-radius:8px;border:1px solid var(--line);transition:all .15s}
+.header-back:hover{color:var(--ink);border-color:var(--ink-soft)}
+.header-back svg{width:14px;height:14px}
+
+/* ── User menu ── */
+.user-menu-wrap{position:relative}
+.user-avatar-btn{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,#1a5fd9,#4d8fff);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:700;font-size:13px;color:#fff;
+  border:2px solid var(--line);cursor:pointer;transition:border-color .15s;
+  flex-shrink:0;
+}
+.user-avatar-btn:hover{border-color:var(--ink-soft)}
+.user-dropdown{
+  display:none;position:absolute;right:0;top:calc(100% + 8px);
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.10);min-width:180px;overflow:hidden;z-index:200;
+}
+.user-dropdown.open{display:block}
+.user-dropdown-header{padding:12px 14px;border-bottom:1px solid var(--line)}
+.user-dropdown-name{font-weight:700;font-size:13px;color:var(--ink)}
+.user-dropdown-role{font-size:11.5px;color:var(--ink-soft);margin-top:2px}
+.user-dropdown-item{
+  display:flex;align-items:center;gap:9px;padding:10px 14px;
+  font-size:13px;font-weight:500;color:var(--ink-soft);cursor:pointer;
+  transition:background .12s,color .12s;border:0;background:none;width:100%;font-family:var(--sans);text-align:left;
+}
+.user-dropdown-item:hover{background:var(--bg-alt);color:var(--ink)}
+.user-dropdown-item.signout:hover{color:#c0392b}
+.user-dropdown-item svg{width:14px;height:14px;flex-shrink:0}
+
+@media(max-width:768px){.header-inner{padding:0 20px;gap:12px}.header-nav{display:none}}
+
+/* ── Hero ── */
+.ep-hero{background:var(--bg-alt);border-bottom:1px solid var(--line);padding:56px 0 0}
+.ep-hero-inner{max-width:1240px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start}
+@media(max-width:900px){.ep-hero-inner{grid-template-columns:1fr;gap:28px}}
+@media(max-width:480px){.ep-hero-inner{padding:0 20px}}
+
+/* Avatar */
+.ep-avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+.ep-avatar{
+  width:140px;height:140px;border-radius:50%;
+  background:linear-gradient(135deg,#1a5fd9,#4d8fff);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:700;font-size:52px;color:#fff;
+  border:4px solid var(--surface);box-shadow:0 8px 32px rgba(0,0,0,.12);
+  flex-shrink:0;
+}
+.ep-avatar-verified{
+  display:flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--green);
+}
+.ep-avatar-verified svg{width:13px;height:13px}
+
+/* Info */
+.ep-info{padding-bottom:40px}
+.ep-eyebrow{
+  font-family:var(--mono);font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  margin-bottom:10px;
+}
+.ep-name{
+  font-family:var(--display);font-weight:700;font-size:clamp(32px,4vw,48px);
+  letter-spacing:-.025em;line-height:1.08;margin-bottom:6px;
+}
+.ep-role{
+  font-size:16px;font-weight:500;color:var(--ink-soft);margin-bottom:18px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.ep-role-sep{color:var(--line);font-size:18px}
+.ep-bio{
+  font-size:15.5px;line-height:1.65;color:var(--ink-soft);
+  max-width:680px;margin-bottom:24px;
+}
+.ep-bio b{color:var(--ink);font-weight:600}
+
+/* Stats row */
+.ep-stats{display:flex;gap:32px;flex-wrap:wrap;margin-bottom:28px}
+.ep-stat-num{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:-.02em;color:var(--ink)}
+.ep-stat-lbl{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px}
+
+/* Social links */
+.ep-socials{display:flex;gap:8px;flex-wrap:wrap}
+.ep-social{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;border-radius:100px;
+  border:1px solid var(--line);background:var(--surface);
+  font-size:12.5px;font-weight:600;color:var(--ink-soft);
+  transition:all .15s;
+}
+.ep-social:hover{border-color:var(--ink);color:var(--ink)}
+.ep-social svg{width:14px;height:14px}
+
+/* Expertise pills */
+.ep-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:20px}
+.ep-tag{
+  padding:5px 12px;border-radius:100px;background:var(--accent-soft);
+  font-size:12px;font-weight:600;color:var(--accent);
+}
+
+/* ── Tab nav ── */
+.ep-tabs{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:60px;z-index:50}
+.ep-tabs-inner{max-width:1240px;margin:0 auto;padding:0 48px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.ep-tabs-inner::-webkit-scrollbar{display:none}
+.ep-tab{
+  padding:14px 18px;font-size:13px;font-weight:600;color:var(--ink-soft);
+  border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;
+  transition:color .15s,border-color .15s;background:none;border-top:0;border-left:0;border-right:0;
+  font-family:var(--sans);
+}
+.ep-tab:hover{color:var(--ink)}
+.ep-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
+@media(max-width:480px){.ep-tabs-inner{padding:0 20px}}
+
+/* ── Main content ── */
+.ep-body{max-width:1240px;margin:0 auto;padding:48px 48px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px}
+@media(max-width:1000px){.ep-body{grid-template-columns:1fr;gap:32px}}
+@media(max-width:480px){.ep-body{padding:32px 20px}}
+
+/* ── Section heading ── */
+.ep-sec-eyebrow{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+.ep-sec-title{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.015em;margin-bottom:20px}
+
+/* ── Review cards ── */
+.ep-review-list{display:flex;flex-direction:column;gap:16px}
+.ep-review-card{
+  border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+  transition:border-color .15s,box-shadow .15s;text-decoration:none;color:var(--ink);
+  display:block;
+}
+.ep-review-card:hover{border-color:var(--ink-soft);box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.ep-review-card-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:10px}
+.ep-review-thumb{
+  width:60px;height:44px;border-radius:8px;
+  background:linear-gradient(135deg,#e0e6ee,#c5d0e0);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:22px;
+}
+.ep-review-thumb.ev-bg{background:linear-gradient(135deg,#4d8fff,#1a5fd9)}
+.ep-review-thumb.dark{background:linear-gradient(135deg,#2a2e36,#1a1d24)}
+.ep-review-meta{flex:1;min-width:0}
+.ep-review-brand{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+.ep-review-title{font-weight:700;font-size:15px;line-height:1.3;margin-bottom:4px}
+.ep-review-tags{display:flex;gap:5px;flex-wrap:wrap}
+.ep-review-tag{font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:6px;background:var(--bg-alt);color:var(--ink-soft)}
+.ep-review-tag.ev{background:rgba(26,95,217,.08);color:#1a5fd9}
+.ep-review-tag.top{background:rgba(139,24,32,.08);color:var(--accent)}
+.ep-review-score{flex-shrink:0;text-align:right}
+.ep-review-score-num{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.02em}
+.ep-review-score-max{font-size:12px;color:var(--ink-faint)}
+.ep-review-verdict{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 8px;border-radius:6px;margin-top:4px;
+}
+.ep-review-verdict.rec{background:var(--green-soft);color:var(--green)}
+.ep-review-verdict.wait{background:#faecd6;color:#b86b00}
+.ep-review-excerpt{font-size:13px;color:var(--ink-soft);line-height:1.5;border-top:1px solid var(--line);padding-top:10px;margin-top:2px}
+.ep-review-date{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-top:8px}
+
+/* More reviews link */
+.ep-load-more{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:12px;border:1px dashed var(--line);border-radius:12px;
+  font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer;
+  transition:all .15s;margin-top:4px;background:none;width:100%;font-family:var(--sans);
+}
+.ep-load-more:hover{border-color:var(--ink);color:var(--ink);background:var(--bg-alt)}
+
+/* ── About section ── */
+.ep-about-body{font-size:14.5px;line-height:1.75;color:var(--ink-soft)}
+.ep-about-body p{margin-bottom:16px}
+.ep-about-body p:last-child{margin-bottom:0}
+.ep-about-body b{color:var(--ink);font-weight:600}
+
+/* Credentials */
+.ep-credentials{margin-top:28px}
+.ep-credential{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start}
+.ep-credential-icon{width:36px;height:36px;border-radius:10px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;border:1px solid var(--line)}
+.ep-credential-text{}
+.ep-credential-title{font-weight:700;font-size:13.5px;color:var(--ink)}
+.ep-credential-sub{font-size:12px;color:var(--ink-soft);margin-top:2px}
+
+/* ── Sidebar ── */
+.ep-sidebar{display:flex;flex-direction:column;gap:20px}
+
+.ep-sidebar-card{background:var(--bg-alt);border:1px solid var(--line);border-radius:14px;padding:20px}
+.ep-sidebar-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+
+/* At a glance */
+.ep-glance-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}
+.ep-glance-row:last-child{border-bottom:0;padding-bottom:0}
+.ep-glance-lbl{color:var(--ink-soft)}
+.ep-glance-val{font-weight:600;color:var(--ink);text-align:right}
+
+/* Expertise bars */
+.ep-expertise-row{margin-bottom:12px}
+.ep-expertise-lbl{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px}
+.ep-expertise-name{font-weight:600}
+.ep-expertise-pct{color:var(--ink-soft);font-family:var(--mono)}
+.ep-expertise-bar{height:4px;background:var(--line);border-radius:100px;overflow:hidden}
+.ep-expertise-fill{height:100%;background:var(--accent);border-radius:100px;transition:width .6s ease}
+
+/* Contact card */
+.ep-contact-btn{
+  width:100%;padding:11px;border-radius:10px;background:var(--ink);color:#fff;
+  font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;border:0;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:background .15s;margin-bottom:8px;
+}
+.ep-contact-btn:hover{background:var(--accent)}
+.ep-contact-btn svg{width:14px;height:14px}
+.ep-contact-sec{
+  width:100%;padding:11px;border-radius:10px;background:var(--bg-alt);color:var(--ink);
+  font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:all .15s;
+}
+.ep-contact-sec:hover{border-color:var(--ink)}
+.ep-contact-sec svg{width:14px;height:14px}
+
+/* ── Featured video ── */
+.ep-video-thumb{
+  aspect-ratio:16/9;background:linear-gradient(135deg,#1a1d24,#2a2e36);
+  border-radius:12px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;position:relative;overflow:hidden;margin-bottom:10px;
+}
+.ep-video-play{
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,.15);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s,transform .15s;
+}
+.ep-video-thumb:hover .ep-video-play{background:rgba(255,255,255,.28);transform:scale(1.08)}
+.ep-video-play svg{width:18px;height:18px;color:#fff;margin-left:3px}
+.ep-video-title{font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.ep-video-sub{font-size:11.5px;color:var(--ink-soft)}
+
+/* ── Footer ── */
+.ep-footer{background:var(--bg-alt);border-top:1px solid var(--line);padding:32px 48px;margin-top:40px}
+.ep-footer-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.ep-footer-copy{font-size:12px;color:var(--ink-faint)}
+.ep-footer-links{display:flex;gap:20px;font-size:12.5px;color:var(--ink-soft)}
+.ep-footer-links a:hover{color:var(--ink)}
+@media(max-width:480px){.ep-footer{padding:24px 20px}}
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="header">
+  <div class="header-inner">
+    <a href="homepage-final.html" class="logo">[Brand]<span class="logo-dot">.</span></a>
+    <nav class="header-nav">
+      <a href="homepage-final.html">Cars</a>
+      <a href="news-page.html">News</a>
+      <a href="reviews-page.html">Reviews</a>
+    </nav>
+    <a href="model-page.html" class="header-back" style="margin-left:auto">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to review
+    </a>
+    <div class="user-menu-wrap">
+      <button class="user-avatar-btn" id="userAvatarBtn" aria-label="Account menu">RS</button>
+      <div class="user-dropdown" id="userDropdown">
+        <div class="user-dropdown-header">
+          <div class="user-dropdown-name">Rohan Saxena</div>
+          <div class="user-dropdown-role">EV Editor · [Brand]</div>
+        </div>
+        <button class="user-dropdown-item" onclick="window.location.href='editor-profile.html'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          My profile
+        </button>
+        <button class="user-dropdown-item signout" id="signOutBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Sign out
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="ep-hero">
+  <div class="ep-hero-inner">
+    <div class="ep-avatar-wrap">
+      <div class="ep-avatar">RS</div>
+      <div class="ep-avatar-verified">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Verified Editor
+      </div>
+    </div>
+
+    <div class="ep-info">
+      <div class="ep-eyebrow">Staff · EV desk</div>
+      <h1 class="ep-name">Rohan Saxena</h1>
+      <div class="ep-role">
+        <span>EV Editor</span>
+        <span class="ep-role-sep">·</span>
+        <span>[Brand]</span>
+        <span class="ep-role-sep">·</span>
+        <span style="color:var(--ink-faint);font-size:14px">Based in Bengaluru</span>
+      </div>
+      <p class="ep-bio">Rohan has been covering Indian electric vehicles since 2016 — long before they were mainstream. He has <b>driven and tested every electric car launched in India</b> since the Mahindra e2o days, accumulating over 1,20,000 km in EVs across 8 years. He joined [Brand] from EVO India, where he served as Deputy Editor. His reviews are known for <b>honest real-world range figures</b>, deep charging-network analysis, and calling out feature gaps that spec sheets hide.</p>
+
+      <div class="ep-stats">
+        <div>
+          <div class="ep-stat-num">180+</div>
+          <div class="ep-stat-lbl">Reviews</div>
+        </div>
+        <div>
+          <div class="ep-stat-num">2.8M</div>
+          <div class="ep-stat-lbl">Total reads</div>
+        </div>
+        <div>
+          <div class="ep-stat-num">8 yrs</div>
+          <div class="ep-stat-lbl">EV coverage</div>
+        </div>
+        <div>
+          <div class="ep-stat-num">1.2L km</div>
+          <div class="ep-stat-lbl">EV miles driven</div>
+        </div>
+      </div>
+
+      <div class="ep-socials">
+        <a href="#" class="ep-social">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631ZM17.083 20.323h1.832L7.084 4.126H5.117Z"/></svg>
+          @rohan_ev_india
+        </a>
+        <a href="#" class="ep-social">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="#" class="ep-social">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contact
+        </a>
+      </div>
+
+      <div class="ep-tags">
+        <span class="ep-tag">Electric vehicles</span>
+        <span class="ep-tag">EV charging</span>
+        <span class="ep-tag">Battery tech</span>
+        <span class="ep-tag">Long-range testing</span>
+        <span class="ep-tag">ADAS systems</span>
+        <span class="ep-tag">Highway drives</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Tab nav ── -->
+<nav class="ep-tabs">
+  <div class="ep-tabs-inner">
+    <button class="ep-tab active" data-tab="reviews">Reviews <span style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">(180)</span></button>
+    <button class="ep-tab" data-tab="about">About</button>
+    <button class="ep-tab" data-tab="videos">Videos</button>
+  </div>
+</nav>
+
+<!-- ── Body ── -->
+<div class="ep-body">
+
+  <!-- Main column -->
+  <div>
+
+    <!-- Reviews tab (default) -->
+    <div id="tabReviews">
+      <div class="ep-sec-eyebrow">Recent work</div>
+      <h2 class="ep-sec-title">Latest reviews</h2>
+
+      <div class="ep-review-list">
+
+        <a href="model-page.html" class="ep-review-card">
+          <div class="ep-review-card-top">
+            <div class="ep-review-thumb ev-bg">⚡</div>
+            <div class="ep-review-meta">
+              <div class="ep-review-brand">Tata · 2026</div>
+              <div class="ep-review-title">Tata Curvv EV — First long-term review after 6 months</div>
+              <div class="ep-review-tags">
+                <span class="ep-review-tag ev">EV</span>
+                <span class="ep-review-tag top">Editor's Pick</span>
+                <span class="ep-review-tag">Coupe SUV</span>
+              </div>
+            </div>
+            <div class="ep-review-score">
+              <div class="ep-review-score-num">4.3<span class="ep-review-score-max">/5</span></div>
+              <div class="ep-review-verdict rec">✓ Recommended</div>
+            </div>
+          </div>
+          <div class="ep-review-excerpt">"The first Indian-made EV that doesn't feel like a compromise. Real-world range from the 55 kWh pack is honest 380–420 km in mixed driving, and the 70 kW DC fast charge is genuinely highway-friendly."</div>
+          <div class="ep-review-date">Published 12 May 2026 · 14 min read · 3,84,000 reads</div>
+        </a>
+
+        <a href="model-page.html" class="ep-review-card">
+          <div class="ep-review-card-top">
+            <div class="ep-review-thumb ev-bg">⚡</div>
+            <div class="ep-review-meta">
+              <div class="ep-review-brand">Hyundai · 2025</div>
+              <div class="ep-review-title">Hyundai Creta Electric — The benchmark just moved</div>
+              <div class="ep-review-tags">
+                <span class="ep-review-tag ev">EV</span>
+                <span class="ep-review-tag">SUV</span>
+              </div>
+            </div>
+            <div class="ep-review-score">
+              <div class="ep-review-score-num">4.4<span class="ep-review-score-max">/5</span></div>
+              <div class="ep-review-verdict rec">✓ Recommended</div>
+            </div>
+          </div>
+          <div class="ep-review-excerpt">"Hyundai has set a new benchmark for what an affordable Indian EV should feel like. The 473 km range is real, the ADAS works confidently, and the V2L is a genuinely useful feature — not just a brochure point."</div>
+          <div class="ep-review-date">Published 3 Mar 2026 · 12 min read · 2,21,000 reads</div>
+        </a>
+
+        <a href="model-page.html" class="ep-review-card">
+          <div class="ep-review-card-top">
+            <div class="ep-review-thumb ev-bg" style="background:linear-gradient(135deg,#1a8744,#16a34a)">🌿</div>
+            <div class="ep-review-meta">
+              <div class="ep-review-brand">Maruti Suzuki · 2025</div>
+              <div class="ep-review-title">Grand Vitara Strong Hybrid — The mileage champion explained</div>
+              <div class="ep-review-tags">
+                <span class="ep-review-tag">Hybrid</span>
+                <span class="ep-review-tag">SUV</span>
+              </div>
+            </div>
+            <div class="ep-review-score">
+              <div class="ep-review-score-num">4.2<span class="ep-review-score-max">/5</span></div>
+              <div class="ep-review-verdict rec">✓ Recommended</div>
+            </div>
+          </div>
+          <div class="ep-review-excerpt">"27.97 kmpl is the official figure. We got 24–26 km/l across 3,200 km of mixed city, highway, and hill driving. That is genuinely exceptional — and the strong hybrid system never needs plug-in charging."</div>
+          <div class="ep-review-date">Published 14 Jan 2026 · 10 min read · 1,87,000 reads</div>
+        </a>
+
+        <a href="model-page.html" class="ep-review-card">
+          <div class="ep-review-card-top">
+            <div class="ep-review-thumb ev-bg">⚡</div>
+            <div class="ep-review-meta">
+              <div class="ep-review-brand">Tata · 2025</div>
+              <div class="ep-review-title">Nexon EV Long Range — Still the king of affordable EVs?</div>
+              <div class="ep-review-tags">
+                <span class="ep-review-tag ev">EV</span>
+                <span class="ep-review-tag">Compact SUV</span>
+              </div>
+            </div>
+            <div class="ep-review-score">
+              <div class="ep-review-score-num">4.1<span class="ep-review-score-max">/5</span></div>
+              <div class="ep-review-verdict rec">✓ Recommended</div>
+            </div>
+          </div>
+          <div class="ep-review-excerpt">"The Nexon EV's position as the default affordable EV pick is finally under pressure — from Curvv EV above and Punch EV below. But it remains the most balanced option at its price, especially with the 60 kW fast-charge support."</div>
+          <div class="ep-review-date">Published 8 Nov 2025 · 11 min read · 2,43,000 reads</div>
+        </a>
+
+        <a href="model-page.html" class="ep-review-card">
+          <div class="ep-review-card-top">
+            <div class="ep-review-thumb ev-bg">⚡</div>
+            <div class="ep-review-meta">
+              <div class="ep-review-brand">MG Motor · 2025</div>
+              <div class="ep-review-title">MG Windsor EV — Reclining rear seats and V2L, for real?</div>
+              <div class="ep-review-tags">
+                <span class="ep-review-tag ev">EV</span>
+                <span class="ep-review-tag">SUV</span>
+              </div>
+            </div>
+            <div class="ep-review-score">
+              <div class="ep-review-score-num">3.9<span class="ep-review-score-max">/5</span></div>
+              <div class="ep-review-verdict wait">→ Wait &amp; watch</div>
+            </div>
+          </div>
+          <div class="ep-review-excerpt">"The reclining rear seats are genuinely comfortable for long drives. But 331 km real-world range on the highway felt tight, and the charging network support needs work. Battery-as-a-service is interesting on paper but adds complexity."</div>
+          <div class="ep-review-date">Published 22 Sep 2025 · 9 min read · 1,12,000 reads</div>
+        </a>
+
+      </div>
+
+      <button class="ep-load-more">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        Load 20 more reviews
+      </button>
+    </div>
+
+    <!-- About tab -->
+    <div id="tabAbout" style="display:none">
+      <div class="ep-sec-eyebrow">Background</div>
+      <h2 class="ep-sec-title">About Rohan</h2>
+
+      <div class="ep-about-body">
+        <p>Rohan Saxena joined [Brand] in 2023 as EV Editor after six years at EVO India, where he rose to Deputy Editor. At EVO, he launched the magazine's EV vertical at a time when most Indian automotive publications were still treating electric vehicles as a footnote.</p>
+
+        <p>His testing methodology is unusually rigorous for Indian automotive journalism: <b>every range claim is tested on a defined route</b> (Bengaluru outer ring road, 40% highway, 60% city), temperature-normalised, and reported as a range band rather than a single number. He was the first Indian journalist to publish a winter-range penalty analysis for Indian EVs.</p>
+
+        <p>Before EVO India, Rohan spent two years as a technical correspondent for <b>Autocar India</b> and holds a degree in Mechanical Engineering from NIT Surathkal. He has contributed to the <b>BIS EV Safety Standards Committee</b> as a technical observer and spoken at ACMA EV Conclave 2024 on charging infrastructure gaps.</p>
+
+        <p>Outside of work, Rohan is a semi-competitive cyclist and has completed the <b>Bangalore–Chennai endurance ride</b> three times — which he credits for giving him a genuine understanding of range anxiety.</p>
+      </div>
+
+      <div class="ep-credentials">
+        <div class="ep-credential">
+          <div class="ep-credential-icon">🏆</div>
+          <div class="ep-credential-text">
+            <div class="ep-credential-title">Indian Automotive Journalist of the Year — EV Category</div>
+            <div class="ep-credential-sub">SIAM & ACMA Awards 2024</div>
+          </div>
+        </div>
+        <div class="ep-credential">
+          <div class="ep-credential-icon">📰</div>
+          <div class="ep-credential-text">
+            <div class="ep-credential-title">Former Deputy Editor</div>
+            <div class="ep-credential-sub">EVO India · 2017–2023</div>
+          </div>
+        </div>
+        <div class="ep-credential">
+          <div class="ep-credential-icon">🎓</div>
+          <div class="ep-credential-text">
+            <div class="ep-credential-title">B.E. Mechanical Engineering</div>
+            <div class="ep-credential-sub">NIT Surathkal · 2014–2018</div>
+          </div>
+        </div>
+        <div class="ep-credential">
+          <div class="ep-credential-icon">🏛️</div>
+          <div class="ep-credential-text">
+            <div class="ep-credential-title">Technical Observer — EV Safety Standards</div>
+            <div class="ep-credential-sub">Bureau of Indian Standards (BIS) · 2023–present</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Videos tab -->
+    <div id="tabVideos" style="display:none">
+      <div class="ep-sec-eyebrow">On camera</div>
+      <h2 class="ep-sec-title">Video reviews &amp; road tests</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <div class="ep-video-thumb">
+            <div class="ep-video-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+          <div class="ep-video-title">Tata Curvv EV — 6-month ownership review</div>
+          <div class="ep-video-sub">38 min · 4,20,000 views</div>
+        </div>
+        <div>
+          <div class="ep-video-thumb" style="background:linear-gradient(135deg,#1a5fd9,#4d8fff)">
+            <div class="ep-video-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+          <div class="ep-video-title">Creta EV vs Curvv EV — 1,000 km road trip comparison</div>
+          <div class="ep-video-sub">52 min · 6,10,000 views</div>
+        </div>
+        <div>
+          <div class="ep-video-thumb" style="background:linear-gradient(135deg,#1a8744,#16a34a)">
+            <div class="ep-video-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+          <div class="ep-video-title">Grand Vitara Hybrid — real-world mileage test (1,400 km)</div>
+          <div class="ep-video-sub">28 min · 2,87,000 views</div>
+        </div>
+        <div>
+          <div class="ep-video-thumb" style="background:linear-gradient(135deg,#4a1d6b,#7c3aed)">
+            <div class="ep-video-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          </div>
+          <div class="ep-video-title">Indian EV charging network — state of 2026</div>
+          <div class="ep-video-sub">24 min · 3,40,000 views</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="ep-sidebar">
+
+    <!-- At a glance -->
+    <div class="ep-sidebar-card">
+      <div class="ep-sidebar-title">At a glance</div>
+      <div class="ep-glance-row">
+        <span class="ep-glance-lbl">Role</span>
+        <span class="ep-glance-val">EV Editor</span>
+      </div>
+      <div class="ep-glance-row">
+        <span class="ep-glance-lbl">At [Brand] since</span>
+        <span class="ep-glance-val">Jan 2023</span>
+      </div>
+      <div class="ep-glance-row">
+        <span class="ep-glance-lbl">Total experience</span>
+        <span class="ep-glance-val">8 years</span>
+      </div>
+      <div class="ep-glance-row">
+        <span class="ep-glance-lbl">EVs tested</span>
+        <span class="ep-glance-val">34 models</span>
+      </div>
+      <div class="ep-glance-row">
+        <span class="ep-glance-lbl">Longest EV drive</span>
+        <span class="ep-glance-val">BLR → DEL (2,200 km)</span>
+      </div>
+      <div class="ep-glance-row">
+        <span class="ep-glance-lbl">Based in</span>
+        <span class="ep-glance-val">Bengaluru</span>
+      </div>
+    </div>
+
+    <!-- Expertise -->
+    <div class="ep-sidebar-card">
+      <div class="ep-sidebar-title">Coverage expertise</div>
+      <div class="ep-expertise-row">
+        <div class="ep-expertise-lbl"><span class="ep-expertise-name">Electric vehicles</span><span class="ep-expertise-pct">96%</span></div>
+        <div class="ep-expertise-bar"><div class="ep-expertise-fill" style="width:96%"></div></div>
+      </div>
+      <div class="ep-expertise-row">
+        <div class="ep-expertise-lbl"><span class="ep-expertise-name">Hybrid/alt fuel</span><span class="ep-expertise-pct">78%</span></div>
+        <div class="ep-expertise-bar"><div class="ep-expertise-fill" style="width:78%"></div></div>
+      </div>
+      <div class="ep-expertise-row">
+        <div class="ep-expertise-lbl"><span class="ep-expertise-name">SUVs & crossovers</span><span class="ep-expertise-pct">65%</span></div>
+        <div class="ep-expertise-bar"><div class="ep-expertise-fill" style="width:65%"></div></div>
+      </div>
+      <div class="ep-expertise-row">
+        <div class="ep-expertise-lbl"><span class="ep-expertise-name">Tech & ADAS</span><span class="ep-expertise-pct">60%</span></div>
+        <div class="ep-expertise-bar"><div class="ep-expertise-fill" style="width:60%"></div></div>
+      </div>
+      <div class="ep-expertise-row" style="margin-bottom:0">
+        <div class="ep-expertise-lbl"><span class="ep-expertise-name">Long-range drives</span><span class="ep-expertise-pct">52%</span></div>
+        <div class="ep-expertise-bar"><div class="ep-expertise-fill" style="width:52%"></div></div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="ep-sidebar-card">
+      <div class="ep-sidebar-title">Get in touch</div>
+      <button class="ep-contact-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send a message
+      </button>
+      <button class="ep-contact-sec">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631ZM17.083 20.323h1.832L7.084 4.126H5.117Z"/></svg>
+        Follow on X
+      </button>
+      <p style="font-size:11px;color:var(--ink-faint);margin-top:10px;line-height:1.5">For PR enquiries, review unit requests, and event invitations. Rohan typically responds within 48 hours.</p>
+    </div>
+
+    <!-- Featured video -->
+    <div class="ep-sidebar-card">
+      <div class="ep-sidebar-title">Most watched</div>
+      <div class="ep-video-thumb" style="margin-bottom:10px">
+        <div class="ep-video-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div>
+      <div class="ep-video-title">Creta EV vs Curvv EV — 1,000 km road trip</div>
+      <div class="ep-video-sub" style="margin-top:4px">52 min · 6,10,000 views · May 2026</div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="ep-footer">
+  <div class="ep-footer-inner">
+    <div class="ep-footer-copy">© 2026 [Brand]. All rights reserved.</div>
+    <div class="ep-footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Editorial policy</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Tab switching
+document.querySelectorAll('.ep-tab').forEach(function(tab){
+  tab.addEventListener('click', function(){
+    document.querySelectorAll('.ep-tab').forEach(function(t){ t.classList.remove('active'); });
+    tab.classList.add('active');
+    var tabId = tab.dataset.tab;
+    document.getElementById('tabReviews').style.display = tabId === 'reviews' ? '' : 'none';
+    document.getElementById('tabAbout').style.display   = tabId === 'about'   ? '' : 'none';
+    document.getElementById('tabVideos').style.display  = tabId === 'videos'  ? '' : 'none';
+  });
+});
+
+// Load more (prototype — just shows a toast)
+document.querySelector('.ep-load-more').addEventListener('click', function(){
+  this.textContent = 'All 180 reviews loaded';
+  this.disabled = true;
+});
+
+// ── User avatar dropdown ──
+var avatarBtn   = document.getElementById('userAvatarBtn');
+var userDropdown = document.getElementById('userDropdown');
+
+avatarBtn.addEventListener('click', function(e){
+  e.stopPropagation();
+  userDropdown.classList.toggle('open');
+});
+
+document.addEventListener('click', function(){
+  userDropdown.classList.remove('open');
+});
+
+userDropdown.addEventListener('click', function(e){ e.stopPropagation(); });
+
+document.getElementById('signOutBtn').addEventListener('click', function(){
+  userDropdown.classList.remove('open');
+  // Prototype: redirect to login/home page
+  window.location.href = 'editor-signup.html';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Meet our Editors — [Brand]</title>
+<meta name="description" content="Meet the editors and automotive journalists behind [Brand]'s reviews, road tests, and buying guides. 8 experts, 500+ reviews, 20M+ reads.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400;1,14..32,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--bg-alt:#f5f6f8;--surface:#fff;
+  --ink:#1a1410;--ink-soft:#52525b;--ink-faint:#94949c;--line:#e9ebee;
+  --accent:#8b1820;--accent-soft:#f5e6e8;
+  --green:#1a8744;--green-soft:#e3f3ea;
+  --blue:#1a5fd9;--blue-soft:#e3ecfc;
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",system-ui,sans-serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* ── Header ── */
+.header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+.header-inner{max-width:1280px;margin:0 auto;padding:0 48px;height:60px;display:flex;align-items:center;gap:24px}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.025em}
+.logo-dot{color:var(--accent)}
+.header-nav{display:flex;gap:0;margin-left:auto}
+.header-nav a{padding:6px 14px;font-size:13px;font-weight:500;color:var(--ink-soft);border-radius:8px;transition:color .15s,background .15s}
+.header-nav a:hover{color:var(--ink);background:var(--bg-alt)}
+.header-nav a.active{color:var(--ink);font-weight:600}
+@media(max-width:768px){.header-inner{padding:0 20px;gap:12px}.header-nav{display:none}}
+
+/* ── Hero ── */
+.hero{padding:72px 0 60px;text-align:center;border-bottom:1px solid var(--line);background:var(--bg-alt);position:relative;overflow:hidden}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(139,24,32,.06),transparent);
+  pointer-events:none;
+}
+.hero-inner{max-width:700px;margin:0 auto;padding:0 24px;position:relative}
+.hero-eyebrow{
+  font-family:var(--mono);font-size:10px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+  margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1px;background:var(--accent);opacity:.4}
+.hero-title{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(36px,5vw,56px);letter-spacing:-.03em;
+  line-height:1.05;margin-bottom:16px;
+}
+.hero-title b{color:var(--accent)}
+.hero-sub{font-size:16px;color:var(--ink-soft);line-height:1.65;max-width:560px;margin:0 auto 32px}
+
+/* Aggregate stats */
+.hero-stats{display:inline-flex;justify-content:center;gap:0;flex-wrap:wrap;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);margin-top:8px}
+.hero-stat{
+  padding:16px 32px;border-right:1px solid var(--line);
+  text-align:center;
+}
+.hero-stat:last-child{border-right:0}
+.hero-stat-num{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:-.02em}
+.hero-stat-lbl{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px}
+@media(max-width:600px){.hero-stat{padding:12px 20px}}
+
+/* ── Filter bar ── */
+.filter-bar{
+  position:sticky;top:60px;z-index:90;
+  background:var(--surface);border-bottom:1px solid var(--line);
+}
+.filter-bar-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;
+  padding:12px 48px;
+}
+.filter-bar-inner::-webkit-scrollbar{display:none}
+.filter-btn{
+  padding:7px 16px;border-radius:100px;font-size:13px;font-weight:600;
+  color:var(--ink-soft);background:var(--bg-alt);border:1px solid var(--line);
+  cursor:pointer;white-space:nowrap;transition:all .15s;font-family:var(--sans);
+  display:flex;align-items:center;gap:5px;
+}
+.filter-btn:hover{color:var(--ink);border-color:var(--ink-soft)}
+.filter-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filter-btn .filter-count{font-size:10px;font-weight:500;opacity:.6;font-family:var(--mono)}
+@media(max-width:480px){.filter-bar-inner{padding:12px 20px}}
+
+/* ── Grid ── */
+.editors-wrap{max-width:1280px;margin:0 auto;padding:48px 48px 80px}
+@media(max-width:480px){.editors-wrap{padding:32px 20px 64px}}
+
+.editors-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:20px;
+}
+
+/* ── Editor card ── */
+.editor-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  overflow:hidden;transition:box-shadow .2s,border-color .2s,transform .15s;
+  display:flex;flex-direction:column;
+}
+.editor-card:hover{
+  box-shadow:0 8px 36px rgba(0,0,0,.09);
+  border-color:var(--ink-soft);
+  transform:translateY(-2px);
+}
+
+/* Card top colour strip */
+.editor-card-strip{height:4px;background:var(--accent)}
+.editor-card-strip.blue{background:var(--blue)}
+.editor-card-strip.green{background:var(--green)}
+.editor-card-strip.amber{background:#b86b00}
+.editor-card-strip.purple{background:#7c3aed}
+.editor-card-strip.teal{background:#0d9488}
+.editor-card-strip.rose{background:#e11d48}
+.editor-card-strip.slate{background:#475569}
+
+.editor-card-body{padding:24px 24px 20px;flex:1;display:flex;flex-direction:column}
+
+/* Profile row */
+.editor-card-profile{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.editor-avatar{
+  width:62px;height:62px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:700;font-size:22px;color:#fff;
+  flex-shrink:0;position:relative;
+}
+.editor-avatar-badge{
+  position:absolute;bottom:-1px;right:-1px;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--green);border:2px solid var(--surface);
+  display:flex;align-items:center;justify-content:center;
+}
+.editor-avatar-badge svg{width:9px;height:9px;color:#fff}
+.editor-meta{flex:1;min-width:0}
+.editor-name{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.015em;margin-bottom:2px;line-height:1.2}
+.editor-role{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.editor-location{font-size:11.5px;color:var(--ink-faint);display:flex;align-items:center;gap:3px}
+.editor-location svg{width:11px;height:11px;flex-shrink:0}
+
+/* Stats row */
+.editor-stats{display:flex;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -24px;padding:10px 24px}
+.editor-stat{flex:1;text-align:center}
+.editor-stat-num{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink)}
+.editor-stat-lbl{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-top:1px}
+.editor-stat-divider{width:1px;background:var(--line);margin:4px 0}
+
+/* Bio */
+.editor-bio{font-size:13px;color:var(--ink-soft);line-height:1.55;margin:14px 0 12px;flex:1}
+
+/* Tags */
+.editor-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.editor-tag{
+  font-size:11px;font-weight:600;padding:3px 9px;border-radius:100px;
+  background:var(--bg-alt);color:var(--ink-soft);border:1px solid var(--line);
+}
+.editor-tag.accent{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.editor-tag.blue{background:var(--blue-soft);color:var(--blue);border-color:transparent}
+.editor-tag.green{background:var(--green-soft);color:var(--green);border-color:transparent}
+
+/* Latest review */
+.editor-latest{
+  background:var(--bg-alt);border-radius:10px;padding:12px 14px;
+  display:flex;align-items:center;gap:10px;
+  font-size:12.5px;margin-bottom:16px;
+}
+.editor-latest-icon{font-size:20px;flex-shrink:0}
+.editor-latest-meta{flex:1;min-width:0}
+.editor-latest-label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:2px}
+.editor-latest-title{font-weight:600;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink)}
+.editor-latest-score{font-family:var(--display);font-weight:700;font-size:15px;flex-shrink:0;color:var(--accent)}
+
+/* CTA */
+.editor-cta{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:12px;border-top:1px solid var(--line);
+}
+.editor-cta-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:13px;font-weight:600;color:var(--ink);
+  padding:8px 14px;border-radius:8px;
+  border:1px solid var(--line);background:var(--surface);
+  transition:all .15s;
+}
+.editor-cta-link:hover{border-color:var(--ink);background:var(--bg-alt)}
+.editor-cta-link svg{width:13px;height:13px;transition:transform .2s}
+.editor-cta-link:hover svg{transform:translateX(2px)}
+.editor-socials{display:flex;gap:6px}
+.editor-social{
+  width:30px;height:30px;border-radius:8px;
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  color:var(--ink-soft);transition:all .15s;
+}
+.editor-social:hover{border-color:var(--ink);color:var(--ink);background:var(--bg-alt)}
+.editor-social svg{width:13px;height:13px}
+
+/* ── Join the team banner ── */
+.join-banner{
+  background:var(--ink);color:#fff;border-radius:20px;
+  padding:48px;margin-top:12px;
+  display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;
+}
+@media(max-width:640px){.join-banner{grid-template-columns:1fr;gap:20px;padding:32px 24px}}
+.join-eyebrow{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:10px}
+.join-title{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.02em;margin-bottom:8px}
+.join-sub{font-size:14px;color:rgba(255,255,255,.65);line-height:1.6;max-width:540px}
+.join-btn{
+  padding:13px 26px;border-radius:10px;
+  background:var(--accent);color:#fff;font-size:14px;font-weight:700;
+  border:0;cursor:pointer;font-family:var(--sans);white-space:nowrap;
+  transition:background .15s;
+}
+.join-btn:hover{background:#6d1218}
+
+/* ── Editorial policy strip ── */
+.policy-strip{
+  background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.policy-strip-inner{
+  max-width:1280px;margin:0 auto;padding:20px 48px;
+  display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:center;
+  text-align:center;
+}
+@media(max-width:480px){.policy-strip-inner{padding:20px 20px;gap:16px}}
+.policy-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-soft)}
+.policy-item svg{width:16px;height:16px;color:var(--green);flex-shrink:0}
+.policy-item b{color:var(--ink);font-weight:600}
+
+/* ── Footer ── */
+.footer{padding:32px 48px;border-top:1px solid var(--line)}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-copy{font-size:12px;color:var(--ink-faint)}
+.footer-links{display:flex;gap:20px;font-size:12.5px;color:var(--ink-soft)}
+.footer-links a:hover{color:var(--ink)}
+@media(max-width:480px){.footer{padding:24px 20px}}
+
+/* Hidden card class */
+.editor-card.hidden{display:none}
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="header">
+  <div class="header-inner">
+    <a href="homepage-final.html" class="logo">[Brand]<span class="logo-dot">.</span></a>
+    <nav class="header-nav">
+      <a href="homepage-final.html">Cars</a>
+      <a href="news-page.html">News</a>
+      <a href="reviews-page.html">Reviews</a>
+      <a href="editors.html" class="active">Editors</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Our team</div>
+    <h1 class="hero-title">The people behind<br>every <b>review.</b></h1>
+    <p class="hero-sub">Our editors have collectively driven over 8 lakh kilometres across India — from Leh to Kanyakumari — testing every car, bike, and EV that matters. No sponsored content. No undisclosed conflicts. Just honest, road-tested journalism.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-lbl">Expert editors</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">500+</div><div class="hero-stat-lbl">Reviews published</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">20M+</div><div class="hero-stat-lbl">Total reads</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">8L km</div><div class="hero-stat-lbl">Driven collectively</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Editorial policy strip ── -->
+<div class="policy-strip">
+<div class="policy-strip-inner">
+  <div class="policy-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span><b>No sponsored reviews</b> — all vehicles tested independently</span>
+  </div>
+  <div class="policy-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span><b>Real-world testing</b> — every claim verified on Indian roads</span>
+  </div>
+  <div class="policy-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span><b>Full disclosure</b> — test unit sources always stated</span>
+  </div>
+  <div class="policy-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span><b>Editorial independence</b> — advertisers have zero editorial influence</span>
+  </div>
+</div><!-- /policy-strip-inner -->
+</div><!-- /policy-strip -->
+
+<!-- ── Filter bar ── -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <button class="filter-btn active" data-filter="all">All editors <span class="filter-count">8</span></button>
+    <button class="filter-btn" data-filter="ev">⚡ EV & Hybrid <span class="filter-count">2</span></button>
+    <button class="filter-btn" data-filter="suv">🚙 SUVs & Off-road <span class="filter-count">2</span></button>
+    <button class="filter-btn" data-filter="bikes">🏍 Bikes <span class="filter-count">2</span></button>
+    <button class="filter-btn" data-filter="tech">📱 Tech & ADAS <span class="filter-count">1</span></button>
+    <button class="filter-btn" data-filter="news">📰 News & Analysis <span class="filter-count">1</span></button>
+  </div>
+</div>
+
+<!-- ── Editor cards ── -->
+<div class="editors-wrap">
+  <div class="editors-grid" id="editorsGrid">
+
+    <!-- 1. Rohan Saxena — EV Editor -->
+    <div class="editor-card" data-expertise="ev">
+      <div class="editor-card-strip blue"></div>
+      <div class="editor-card-body">
+        <div class="editor-card-profile">
+          <div class="editor-avatar" style="background:linear-gradient(135deg,#1a5fd9,#4d8fff)">
+            RS
+            <div class="editor-avatar-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="editor-meta">
+            <div class="editor-name">Rohan Saxena</div>
+            <div class="editor-role">EV Editor</div>
+            <div class="editor-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bengaluru</div>
+          </div>
+        </div>
+        <div class="editor-stats">
+          <div class="editor-stat"><div class="editor-stat-num">180</div><div class="editor-stat-lbl">Reviews</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">8 yrs</div><div class="editor-stat-lbl">Experience</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">2.8M</div><div class="editor-stat-lbl">Reads</div></div>
+        </div>
+        <p class="editor-bio">India's leading EV journalist. Tested every electric vehicle launched in India since 2019, covering 1.2 lakh km in EVs. Fmr. Deputy Editor, EVO India. Known for honest real-world range figures that differ from manufacturer claims.</p>
+        <div class="editor-tags">
+          <span class="editor-tag blue">Electric vehicles</span>
+          <span class="editor-tag blue">EV charging</span>
+          <span class="editor-tag">Long-range testing</span>
+          <span class="editor-tag">ADAS</span>
+        </div>
+        <div class="editor-latest">
+          <div class="editor-latest-icon">⚡</div>
+          <div class="editor-latest-meta">
+            <div class="editor-latest-label">Latest review</div>
+            <div class="editor-latest-title">Tata Curvv EV — 6-month ownership</div>
+          </div>
+          <div class="editor-latest-score">4.3</div>
+        </div>
+        <div class="editor-cta">
+          <a href="editor-profile.html" class="editor-cta-link">
+            View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="editor-socials">
+            <a href="#" class="editor-social" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631Z"/></svg></a>
+            <a href="#" class="editor-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Priya Mehra — SUV & Family Cars Editor -->
+    <div class="editor-card" data-expertise="suv">
+      <div class="editor-card-strip accent"></div>
+      <div class="editor-card-body">
+        <div class="editor-card-profile">
+          <div class="editor-avatar" style="background:linear-gradient(135deg,#8b1820,#c0392b)">
+            PM
+            <div class="editor-avatar-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="editor-meta">
+            <div class="editor-name">Priya Mehra</div>
+            <div class="editor-role">SUV & Family Cars Editor</div>
+            <div class="editor-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Mumbai</div>
+          </div>
+        </div>
+        <div class="editor-stats">
+          <div class="editor-stat"><div class="editor-stat-num">142</div><div class="editor-stat-lbl">Reviews</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">6 yrs</div><div class="editor-stat-lbl">Experience</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">3.1M</div><div class="editor-stat-lbl">Reads</div></div>
+        </div>
+        <p class="editor-bio">India's most-read family car and SUV reviewer. Brings a real-world family perspective to 7-seater and safety testing — mother of two, with a special focus on child safety ratings, boot space usability, and long-highway comfort.</p>
+        <div class="editor-tags">
+          <span class="editor-tag accent">7-seater SUVs</span>
+          <span class="editor-tag accent">Family cars</span>
+          <span class="editor-tag">Safety testing</span>
+          <span class="editor-tag">NCAP reviews</span>
+        </div>
+        <div class="editor-latest">
+          <div class="editor-latest-icon">🚙</div>
+          <div class="editor-latest-meta">
+            <div class="editor-latest-label">Latest review</div>
+            <div class="editor-latest-title">Mahindra XUV700 AX7 — 1-year ownership</div>
+          </div>
+          <div class="editor-latest-score">4.5</div>
+        </div>
+        <div class="editor-cta">
+          <a href="editor-profile.html" class="editor-cta-link">
+            View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="editor-socials">
+            <a href="#" class="editor-social" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631Z"/></svg></a>
+            <a href="#" class="editor-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Arjun Sharma — Bikes & Performance Editor -->
+    <div class="editor-card" data-expertise="bikes">
+      <div class="editor-card-strip amber"></div>
+      <div class="editor-card-body">
+        <div class="editor-card-profile">
+          <div class="editor-avatar" style="background:linear-gradient(135deg,#b86b00,#d97706)">
+            AS
+            <div class="editor-avatar-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="editor-meta">
+            <div class="editor-name">Arjun Sharma</div>
+            <div class="editor-role">Bikes & Performance Editor</div>
+            <div class="editor-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Delhi NCR</div>
+          </div>
+        </div>
+        <div class="editor-stats">
+          <div class="editor-stat"><div class="editor-stat-num">210</div><div class="editor-stat-lbl">Reviews</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">10 yrs</div><div class="editor-stat-lbl">Experience</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">4.2M</div><div class="editor-stat-lbl">Reads</div></div>
+        </div>
+        <p class="editor-bio">India's most prolific bike journalist. Track-day certified, has ridden the Manali–Leh route 11 times and completed the India Superbike Championship as media rider. Covers everything from ₹70K commuters to ₹30L superbikes with equal depth.</p>
+        <div class="editor-tags">
+          <span class="editor-tag" style="background:#faecd6;color:#b86b00;border-color:transparent">Sports bikes</span>
+          <span class="editor-tag" style="background:#faecd6;color:#b86b00;border-color:transparent">Cruisers</span>
+          <span class="editor-tag">Adventure touring</span>
+          <span class="editor-tag">Track tests</span>
+        </div>
+        <div class="editor-latest">
+          <div class="editor-latest-icon">🏍</div>
+          <div class="editor-latest-meta">
+            <div class="editor-latest-label">Latest review</div>
+            <div class="editor-latest-title">KTM Duke 390 2026 — is it still king?</div>
+          </div>
+          <div class="editor-latest-score">4.4</div>
+        </div>
+        <div class="editor-cta">
+          <a href="editor-profile.html" class="editor-cta-link">
+            View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="editor-socials">
+            <a href="#" class="editor-social" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631Z"/></svg></a>
+            <a href="#" class="editor-social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Kavya Nair — Hybrid & Fuel-Efficiency Editor -->
+    <div class="editor-card" data-expertise="ev">
+      <div class="editor-card-strip green"></div>
+      <div class="editor-card-body">
+        <div class="editor-card-profile">
+          <div class="editor-avatar" style="background:linear-gradient(135deg,#1a8744,#16a34a)">
+            KN
+            <div class="editor-avatar-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="editor-meta">
+            <div class="editor-name">Kavya Nair</div>
+            <div class="editor-role">Hybrid & Sustainability Editor</div>
+            <div class="editor-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Chennai</div>
+          </div>
+        </div>
+        <div class="editor-stats">
+          <div class="editor-stat"><div class="editor-stat-num">98</div><div class="editor-stat-lbl">Reviews</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">5 yrs</div><div class="editor-stat-lbl">Experience</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">1.6M</div><div class="editor-stat-lbl">Reads</div></div>
+        </div>
+        <p class="editor-bio">Covers hybrid vehicles, CNG cars, and fuel-efficiency testing with scientific rigour. Mechanical engineer by training, automotive journalist by passion. Developed [Brand]'s standardised real-world mileage testing protocol used across all reviews.</p>
+        <div class="editor-tags">
+          <span class="editor-tag green">Hybrid cars</span>
+          <span class="editor-tag green">CNG vehicles</span>
+          <span class="editor-tag">Mileage testing</span>
+          <span class="editor-tag">Eco driving</span>
+        </div>
+        <div class="editor-latest">
+          <div class="editor-latest-icon">🌿</div>
+          <div class="editor-latest-meta">
+            <div class="editor-latest-label">Latest review</div>
+            <div class="editor-latest-title">Toyota Innova Hycross — real-world fuel test</div>
+          </div>
+          <div class="editor-latest-score">4.5</div>
+        </div>
+        <div class="editor-cta">
+          <a href="editor-profile.html" class="editor-cta-link">
+            View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="editor-socials">
+            <a href="#" class="editor-social" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631Z"/></svg></a>
+            <a href="#" class="editor-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Vikram Joshi — Off-road & Adventure Editor -->
+    <div class="editor-card" data-expertise="suv">
+      <div class="editor-card-strip purple"></div>
+      <div class="editor-card-body">
+        <div class="editor-card-profile">
+          <div class="editor-avatar" style="background:linear-gradient(135deg,#5b21b6,#7c3aed)">
+            VJ
+            <div class="editor-avatar-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="editor-meta">
+            <div class="editor-name">Vikram Joshi</div>
+            <div class="editor-role">Off-road & Adventure Editor</div>
+            <div class="editor-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Pune</div>
+          </div>
+        </div>
+        <div class="editor-stats">
+          <div class="editor-stat"><div class="editor-stat-num">124</div><div class="editor-stat-lbl">Reviews</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">9 yrs</div><div class="editor-stat-lbl">Experience</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">2.2M</div><div class="editor-stat-lbl">Reads</div></div>
+        </div>
+        <p class="editor-bio">Specialist in 4WD systems, suspension geometry, and off-road dynamics. Has taken 47 different SUVs off-road across Rann of Kutch, Spiti Valley, and Western Ghats trails. Organised India's first media-only 4x4 challenge in 2022.</p>
+        <div class="editor-tags">
+          <span class="editor-tag" style="background:#ede9fe;color:#7c3aed;border-color:transparent">Off-road</span>
+          <span class="editor-tag" style="background:#ede9fe;color:#7c3aed;border-color:transparent">4x4 systems</span>
+          <span class="editor-tag">Adventure touring</span>
+          <span class="editor-tag">Suspension</span>
+        </div>
+        <div class="editor-latest">
+          <div class="editor-latest-icon">🏔</div>
+          <div class="editor-latest-meta">
+            <div class="editor-latest-label">Latest review</div>
+            <div class="editor-latest-title">Mahindra Thar Roxx — Spiti Valley expedition</div>
+          </div>
+          <div class="editor-latest-score">4.6</div>
+        </div>
+        <div class="editor-cta">
+          <a href="editor-profile.html" class="editor-cta-link">
+            View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="editor-socials">
+            <a href="#" class="editor-social" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631Z"/></svg></a>
+            <a href="#" class="editor-social" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Meera Krishnan — Commuter Bikes & Scooters -->
+    <div class="editor-card" data-expertise="bikes">
+      <div class="editor-card-strip teal"></div>
+      <div class="editor-card-body">
+        <div class="editor-card-profile">
+          <div class="editor-avatar" style="background:linear-gradient(135deg,#0d9488,#14b8a6)">
+            MK
+            <div class="editor-avatar-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="editor-meta">
+            <div class="editor-name">Meera Krishnan</div>
+            <div class="editor-role">Commuter Bikes & Scooters Editor</div>
+            <div class="editor-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Hyderabad</div>
+          </div>
+        </div>
+        <div class="editor-stats">
+          <div class="editor-stat"><div class="editor-stat-num">167</div><div class="editor-stat-lbl">Reviews</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">7 yrs</div><div class="editor-stat-lbl">Experience</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">3.4M</div><div class="editor-stat-lbl">Reads</div></div>
+        </div>
+        <p class="editor-bio">Covers the bikes most Indians actually buy — commuters, scooters, and the ₹50K–₹2L segment. Tests are conducted in heavy city traffic across Hyderabad and Bengaluru over minimum 500 km per model. Also covers electric two-wheelers extensively.</p>
+        <div class="editor-tags">
+          <span class="editor-tag" style="background:#ccfbf1;color:#0d9488;border-color:transparent">Commuter bikes</span>
+          <span class="editor-tag" style="background:#ccfbf1;color:#0d9488;border-color:transparent">Scooters</span>
+          <span class="editor-tag blue">Electric 2W</span>
+          <span class="editor-tag">City testing</span>
+        </div>
+        <div class="editor-latest">
+          <div class="editor-latest-icon">🛵</div>
+          <div class="editor-latest-meta">
+            <div class="editor-latest-label">Latest review</div>
+            <div class="editor-latest-title">Honda Activa 125 vs TVS Jupiter 125</div>
+          </div>
+          <div class="editor-latest-score">4.2</div>
+        </div>
+        <div class="editor-cta">
+          <a href="editor-profile.html" class="editor-cta-link">
+            View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="editor-socials">
+            <a href="#" class="editor-social" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631Z"/></svg></a>
+            <a href="#" class="editor-social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Siddharth Roy — Tech, ADAS & Connected Cars -->
+    <div class="editor-card" data-expertise="tech">
+      <div class="editor-card-strip rose"></div>
+      <div class="editor-card-body">
+        <div class="editor-card-profile">
+          <div class="editor-avatar" style="background:linear-gradient(135deg,#be123c,#e11d48)">
+            SR
+            <div class="editor-avatar-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="editor-meta">
+            <div class="editor-name">Siddharth Roy</div>
+            <div class="editor-role">Tech & ADAS Editor</div>
+            <div class="editor-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bengaluru</div>
+          </div>
+        </div>
+        <div class="editor-stats">
+          <div class="editor-stat"><div class="editor-stat-num">89</div><div class="editor-stat-lbl">Reviews</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">4 yrs</div><div class="editor-stat-lbl">Experience</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">1.8M</div><div class="editor-stat-lbl">Reads</div></div>
+        </div>
+        <p class="editor-bio">Former software engineer at a tier-1 auto supplier. Tests ADAS, infotainment, and connected-car systems the way software should be tested — with repeatable scenarios, edge cases, and failure modes. Wrote India's first systematic ADAS benchmark framework.</p>
+        <div class="editor-tags">
+          <span class="editor-tag" style="background:#ffe4e6;color:#e11d48;border-color:transparent">ADAS Level 2</span>
+          <span class="editor-tag" style="background:#ffe4e6;color:#e11d48;border-color:transparent">Infotainment</span>
+          <span class="editor-tag">Connected cars</span>
+          <span class="editor-tag">OTA updates</span>
+        </div>
+        <div class="editor-latest">
+          <div class="editor-latest-icon">📱</div>
+          <div class="editor-latest-meta">
+            <div class="editor-latest-label">Latest review</div>
+            <div class="editor-latest-title">Hyundai Creta ADAS — real-world safety test</div>
+          </div>
+          <div class="editor-latest-score">4.1</div>
+        </div>
+        <div class="editor-cta">
+          <a href="editor-profile.html" class="editor-cta-link">
+            View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="editor-socials">
+            <a href="#" class="editor-social" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631Z"/></svg></a>
+            <a href="#" class="editor-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Anjali Kapoor — News & Industry Editor -->
+    <div class="editor-card" data-expertise="news">
+      <div class="editor-card-strip slate"></div>
+      <div class="editor-card-body">
+        <div class="editor-card-profile">
+          <div class="editor-avatar" style="background:linear-gradient(135deg,#334155,#475569)">
+            AK
+            <div class="editor-avatar-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="editor-meta">
+            <div class="editor-name">Anjali Kapoor</div>
+            <div class="editor-role">News & Industry Editor</div>
+            <div class="editor-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Delhi NCR</div>
+          </div>
+        </div>
+        <div class="editor-stats">
+          <div class="editor-stat"><div class="editor-stat-num">340</div><div class="editor-stat-lbl">Articles</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">12 yrs</div><div class="editor-stat-lbl">Experience</div></div>
+          <div class="editor-stat-divider"></div>
+          <div class="editor-stat"><div class="editor-stat-num">5.1M</div><div class="editor-stat-lbl">Reads</div></div>
+        </div>
+        <p class="editor-bio">Veteran automotive journalist covering launches, policy, sales data, and industry trends. Has interviewed every major auto CEO in India and broken several exclusive stories on upcoming launches. Fmr. Deputy Editor, AutoCar India. Regular panelist on NDTV Auto.</p>
+        <div class="editor-tags">
+          <span class="editor-tag">Industry news</span>
+          <span class="editor-tag">Launch coverage</span>
+          <span class="editor-tag">Policy & regulation</span>
+          <span class="editor-tag">EV policy</span>
+        </div>
+        <div class="editor-latest">
+          <div class="editor-latest-icon">📰</div>
+          <div class="editor-latest-meta">
+            <div class="editor-latest-label">Latest article</div>
+            <div class="editor-latest-title">India EV sales cross 2 million units in FY26</div>
+          </div>
+          <div class="editor-latest-score" style="font-size:12px;color:var(--ink-faint);font-family:var(--mono)">News</div>
+        </div>
+        <div class="editor-cta">
+          <a href="editor-profile.html" class="editor-cta-link">
+            View profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="editor-socials">
+            <a href="#" class="editor-social" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631Z"/></svg></a>
+            <a href="#" class="editor-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /editors-grid -->
+
+  <!-- Join the team -->
+  <div class="join-banner" style="margin-top:48px">
+    <div>
+      <div class="join-eyebrow">We're hiring</div>
+      <div class="join-title">Join our editorial team</div>
+      <p class="join-sub">We're always looking for sharp automotive journalists who can bring independent, road-tested perspectives to our readers. If you have at least 3 years of experience covering cars, bikes, or EVs and believe in honest journalism, we'd like to hear from you.</p>
+    </div>
+    <a href="editor-signup.html" class="join-btn" style="display:inline-block;text-decoration:none">Apply now →</a>
+  </div>
+
+</div><!-- /editors-wrap -->
+
+<!-- ── Footer ── -->
+<footer style="background:var(--bg-alt);border-top:1px solid var(--line);padding:32px 48px">
+  <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <div style="font-size:12px;color:var(--ink-faint)">© 2026 [Brand]. All rights reserved.</div>
+    <div style="display:flex;gap:20px;font-size:12.5px;color:var(--ink-soft)">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Editorial policy</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Filter buttons
+var filterBtns = document.querySelectorAll('.filter-btn');
+var cards = document.querySelectorAll('.editor-card');
+
+filterBtns.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    filterBtns.forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    var filter = btn.dataset.filter;
+    cards.forEach(function(card){
+      if(filter === 'all' || card.dataset.expertise === filter){
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Animate expertise bars on scroll
+if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var card = entry.target;
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }
+    });
+  }, {threshold:0.1});
+  cards.forEach(function(card, i){
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(16px)';
+    card.style.transition = 'opacity .4s ease '+(i*0.06)+'s, transform .4s ease '+(i*0.06)+'s, box-shadow .2s, border-color .2s';
+    io.observe(card);
+  });
+}
+</script>
+</body>
+</html>
