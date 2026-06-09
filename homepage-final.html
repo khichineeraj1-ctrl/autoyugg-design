@@ -978,7 +978,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 .byc-card-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .byc-card-opt{padding:8px 10px;background:var(--bg-alt);border:1px solid transparent;border-radius:8px;font-size:11px;font-weight:600;color:var(--ink-soft);text-align:center;transition:all .15s}
 .byc-card-opt.selected{background:var(--ink);color:#fff}
-.byc-card-opt svg{width:14px;height:14px;display:block;margin:0 auto 4px;color:currentColor}
+.byc-card-opt svg{width:32px;height:18px;display:block;margin:0 auto 5px;color:currentColor}
 .byc-card-opts.list{grid-template-columns:1fr;gap:5px}
 .byc-card-opts.list .byc-card-opt{display:flex;align-items:center;justify-content:space-between;text-align:left;padding:7px 10px;font-size:11px}
 .byc-card-opts.list .byc-card-opt span{font-family:var(--mono);font-weight:500;font-size:9px;color:var(--ink-faint)}
@@ -1182,6 +1182,12 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 }
 .bw-opt.radio .bw-opt-tick{border-radius:100px}
 .bw-opt-emoji{font-size:18px;line-height:1;flex-shrink:0}
+.bw-opt-car-icon{flex-shrink:0;width:56px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);transition:color .12s}
+.bw-opt-car-icon svg{width:56px;height:32px}
+.bw-opt.selected .bw-opt-car-icon{color:var(--accent)}
+.bw-opt-car-img{flex-shrink:0;width:72px;height:42px;object-fit:contain;object-position:center;border-radius:4px;transition:opacity .15s}
+.bw-opt:not(.selected) .bw-opt-car-img{opacity:.8}
+.bw-opt.selected .bw-opt-car-img{opacity:1}
 .bw-opt-body{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
 .bw-opt-sub{
   font-size:11.5px;
@@ -3572,8 +3578,8 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
               <div class="byc-card-step"><span class="byc-card-step-num">3</span> Body type</div>
               <div class="byc-card-q">What body type fits your needs?</div>
               <div class="byc-card-opts">
-                <div class="byc-card-opt"><svg width="16" height="16"><use href="#i-car"/></svg>Hatchback</div>
-                <div class="byc-card-opt selected"><svg width="16" height="16"><use href="#i-car"/></svg>SUV</div>
+                <div class="byc-card-opt"><svg viewBox="0 0 96 56" width="32" height="18"><use href="#bt-hatch"/></svg>Hatchback</div>
+                <div class="byc-card-opt selected"><svg viewBox="0 0 96 56" width="32" height="18"><use href="#bt-suv"/></svg>SUV</div>
               </div>
             </div>
 
@@ -5544,12 +5550,12 @@ renderAll('cars');
       type:'multi',
       max:99,
       options:[
-        {key:'Hatchback',   label:'Hatchback',   emoji:'🚗', sub:'Compact, easy to park'},
-        {key:'Sedan',       label:'Sedan',       emoji:'🚙', sub:'Premium, smooth ride'},
-        {key:'Compact SUV', label:'Compact SUV', emoji:'🚙', sub:'Sub-4m, good in city'},
-        {key:'SUV',         label:'SUV',         emoji:'🚙', sub:'Spacious, road presence'},
-        {key:'MUV / MPV',   label:'MUV / MPV',   emoji:'🚐', sub:'7-8 seater, family use'},
-        {key:'Coupe',       label:'Coupe',       emoji:'🏎️', sub:'Sleek, sporty stance'},
+        {key:'Hatchback',   label:'Hatchback',   img:'https://imgd.aeplcdn.com/664x374/n/cw/ec/159099/swift-exterior-right-front-three-quarter-31.png',   sub:'Compact, easy to park'},
+        {key:'Sedan',       label:'Sedan',       img:'https://imgd.aeplcdn.com/664x374/n/cw/ec/219846/city-facelift-exterior-right-front-three-quarter-24.jpeg', sub:'Premium, smooth ride'},
+        {key:'Compact SUV', label:'Compact SUV', img:'https://imgd.aeplcdn.com/664x374/n/cw/ec/106815/creta-exterior-right-front-three-quarter-6.png',   sub:'Sub-4m, good in city'},
+        {key:'SUV',         label:'SUV',         img:'https://imgd.aeplcdn.com/664x374/n/cw/ec/205104/xuv-7xo-exterior-right-front-three-quarter-547.png', sub:'Spacious, road presence'},
+        {key:'MUV / MPV',   label:'MUV / MPV',   img:'https://imgd.aeplcdn.com/664x374/n/cw/ec/115777/ertiga-exterior-right-front-three-quarter-10.png',   sub:'7-8 seater, family use'},
+        {key:'Coupe',       label:'Coupe',       img:'https://imgd.aeplcdn.com/664x374/n/cw/ec/139651/curvv-exterior-right-front-three-quarter-16.png',     sub:'Sleek, sporty stance'},
       ],
     },
     {
@@ -5750,8 +5756,13 @@ renderAll('cars');
           const sel = isMulti
             ? state[stateKey].includes(o.key)
             : state[stateKey] === o.key;
+          const iconHtml = o.img
+            ? `<img class="bw-opt-car-img" src="${o.img}" alt="${o.label}" loading="lazy">`
+            : o.svgId
+            ? `<span class="bw-opt-car-icon"><svg viewBox="0 0 96 56" aria-hidden="true"><use href="#${o.svgId}"/></svg></span>`
+            : `<span class="bw-opt-emoji">${o.emoji}</span>`;
           return `<button class="bw-opt ${sel?'selected':''} ${isMulti?'':'radio'}" data-key="${o.key}">
-            <span class="bw-opt-emoji">${o.emoji}</span>
+            ${iconHtml}
             <span class="bw-opt-body">
               <span>${o.label}</span>
               <span class="bw-opt-sub">${o.sub}</span>
