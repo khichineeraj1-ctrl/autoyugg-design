@@ -37,7 +37,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* Hero */
 .wrap{max-width:1240px;margin:0 auto;padding:0 48px}
 .hero{padding:48px 0 28px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
 .eyebrow::before{content:"";width:18px;height:1px;background:var(--accent)}
 .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,4.4vw,46px);line-height:1.05;letter-spacing:-.025em;color:var(--ink);margin-bottom:14px}
 .hero h1 b{color:var(--accent)}
@@ -90,7 +90,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 }
 .cat-pill.active .cat-pill-count{color:rgba(255,255,255,.65)}
 
-.sort-wrap{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.sort-wrap{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint)}
 .sort-wrap select{
   appearance:none;background:#fff;
   border:1px solid var(--line);border-radius:100px;
@@ -103,7 +103,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 /* Count + jump nav */
 .meta-row{padding:18px 0 14px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.count{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.count{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
 .count b{color:var(--ink);font-weight:700}
 .az-nav{display:flex;gap:2px;flex-wrap:wrap}
 .az-nav a{
@@ -119,55 +119,78 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* Brand grid */
 .brand-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
   padding:8px 0 56px;
 }
 .brand-card{
-  display:flex;gap:14px;align-items:center;
-  padding:18px;
+  display:flex;flex-direction:column;gap:0;
+  padding:28px 24px 22px;
   background:var(--surface);
   border:1px solid var(--line);
-  border-radius:14px;
+  border-radius:18px;
   cursor:pointer;
-  transition:border-color .15s,box-shadow .15s,transform .15s;
+  transition:border-color .18s,box-shadow .18s,transform .18s;
+  position:relative;overflow:hidden;
+}
+.brand-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(139,24,32,.03),transparent 60%);
+  opacity:0;transition:opacity .18s;pointer-events:none;
 }
 .brand-card:hover{
-  border-color:var(--ink);
-  box-shadow:0 4px 14px rgba(16,24,40,.06);
-  transform:translateY(-1px);
+  border-color:var(--accent);
+  box-shadow:0 8px 28px rgba(16,24,40,.09);
+  transform:translateY(-2px);
 }
+.brand-card:hover::after{opacity:1}
 .brand-card.hidden{display:none}
+.brand-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
 .brand-logo{
   flex-shrink:0;
-  width:52px;height:52px;
-  border-radius:12px;
+  width:72px;height:72px;
+  border-radius:16px;
   background:var(--bg-alt);
   color:var(--ink);
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--display);font-weight:700;font-size:18px;
+  font-family:var(--display);font-weight:700;font-size:24px;
   letter-spacing:-.01em;
   border:1px solid var(--line);
 }
+.brand-flag{font-size:22px;margin-top:4px}
 .brand-body{flex:1;min-width:0}
 .brand-name{
-  font-family:var(--sans);font-weight:700;font-size:15px;
-  color:var(--ink);letter-spacing:-.005em;margin-bottom:4px;
-  display:flex;align-items:center;gap:8px;
+  font-family:var(--display);font-weight:700;font-size:19px;
+  color:var(--ink);letter-spacing:-.02em;margin-bottom:6px;
+  line-height:1.15;
 }
-.brand-name .flag{font-size:13px}
-.brand-meta{
-  display:flex;align-items:center;gap:6px;
-  font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);
+.brand-country{
+  font-family:var(--sans);font-size:10.5px;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);
+  margin-bottom:16px;
 }
-.brand-meta b{color:var(--ink);font-weight:600}
-.brand-meta-sep{color:var(--ink-faint)}
+.brand-stats{display:flex;gap:20px}
+.brand-stat-val{
+  font-family:var(--display);font-weight:700;font-size:20px;
+  letter-spacing:-.02em;color:var(--ink);line-height:1;
+}
+.brand-stat-lbl{
+  font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);
+  margin-top:3px;
+}
+.brand-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:16px;border-top:1px solid var(--line);margin-top:16px;
+}
+.brand-from{font-size:13px;color:var(--ink-soft)}
+.brand-from b{color:var(--ink);font-weight:600}
 .brand-arrow{
-  flex-shrink:0;color:var(--ink-faint);
+  display:flex;align-items:center;gap:5px;
+  font-size:12.5px;font-weight:600;color:var(--ink-faint);
   transition:color .15s,transform .15s;
-  align-self:center;
 }
-.brand-card:hover .brand-arrow{color:var(--accent);transform:translateX(2px)}
+.brand-card:hover .brand-arrow{color:var(--accent);transform:translateX(3px)}
 
 /* Empty state */
 .empty-state{
@@ -186,7 +209,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-alt);padding:24px 0;
 
 /* Responsive */
 @media (max-width:1100px){
-  .brand-grid{grid-template-columns:repeat(3,1fr)}
+  .brand-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:900px){
   .brand-grid{grid-template-columns:repeat(2,1fr)}
@@ -200,7 +223,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-alt);padding:24px 0;
   .hdr-nav a:not(.hdr-cta){display:none}
   .wrap{padding:0 20px}
   .hero{padding:32px 0 20px}
-  .brand-grid{grid-template-columns:1fr;gap:10px}
+  .brand-grid{grid-template-columns:1fr;gap:12px}
   .az-nav{display:none}
   footer{padding:16px 0}
   .ft-inner{flex-direction:column;align-items:flex-start;gap:12px}
@@ -449,14 +472,23 @@ footer{border-top:1px solid var(--line);background:var(--bg-alt);padding:24px 0;
 
     $grid.innerHTML = list.map(b =>
       '<a href="' + href + '?brand=' + encodeURIComponent(b.name.toLowerCase()) + '" class="brand-card" data-brand="' + b.name + '">' +
-        '<span class="brand-logo">' + initials(b.name) + '</span>' +
-        '<div class="brand-body">' +
-          '<div class="brand-name">' + b.name + ' <span class="flag" aria-hidden="true">' + b.flag + '</span></div>' +
-          '<div class="brand-meta"><b>' + b.models + '</b> models <span class="brand-meta-sep">·</span> from ₹' + b.from + '</div>' +
+        '<div class="brand-card-top">' +
+          '<span class="brand-logo">' + initials(b.name) + '</span>' +
+          '<span class="brand-flag" aria-hidden="true">' + b.flag + '</span>' +
         '</div>' +
-        '<span class="brand-arrow" aria-hidden="true">' +
-          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
-        '</span>' +
+        '<div class="brand-body">' +
+          '<div class="brand-name">' + b.name + '</div>' +
+          '<div class="brand-country">' + b.country + '</div>' +
+          '<div class="brand-stats">' +
+            '<div><div class="brand-stat-val">' + b.models + '</div><div class="brand-stat-lbl">Models</div></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="brand-card-footer">' +
+          '<span class="brand-from">From <b>₹' + b.from + '</b></span>' +
+          '<span class="brand-arrow">View all' +
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
+          '</span>' +
+        '</div>' +
       '</a>'
     ).join('');
   }
