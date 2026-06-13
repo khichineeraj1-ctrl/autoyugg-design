@@ -1565,6 +1565,20 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 .bt:hover .bt-ico svg{
   color:var(--accent);
 }
+.bt-ico-img{
+  width:100%;
+  height:100%;
+  max-width:120px;
+  max-height:60px;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  transition:opacity .2s,transform .2s;
+}
+.bt:hover .bt-ico-img{
+  opacity:.85;
+  transform:scale(1.05);
+}
 
 /* Top news strip — update content in the HTML below */
 .gst-strip{
@@ -3224,7 +3238,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- LOCATION OVERLAY — picks user's city for personalized data    -->
 <!-- ═══════════════════════════════════════════════════════════ -->
-<div class="lo" id="locationOverlay" role="dialog" aria-label="Choose your city" aria-hidden="true">
+<div class="lo" id="locationOverlay" role="dialog" aria-label="Choose your city" aria-hidden="true" inert>
   <div class="lo-inner">
     <div class="lo-hd">
       <h2>Your <b>city</b></h2>
@@ -3270,7 +3284,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 <!-- GLOBAL SEARCH OVERLAY (used on every page across the site)   -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div class="so-bd" id="soBackdrop" aria-hidden="true"></div>
-<div class="so" id="searchOverlay" role="dialog" aria-label="Search vehicles" aria-hidden="true">
+<div class="so" id="searchOverlay" role="dialog" aria-label="Search vehicles" aria-hidden="true" inert>
   <div class="so-inner">
     <div class="so-hd">
       <h2>Search <b>vehicles, brands, news</b></h2>
@@ -3351,7 +3365,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 <!-- HAMBURGER MEGA-MENU: ALL LINKS HARDCODED FOR MAX SEO         -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div class="backdrop" id="backdrop" aria-hidden="true"></div>
-<aside class="menu" id="menu" aria-hidden="true" aria-label="Main navigation menu">
+<aside class="menu" id="menu" aria-hidden="true" aria-label="Main navigation menu" inert>
   <div class="menu-hd">
     <div class="logo">[Brand]<span class="logo-dot">.</span></div>
     <button class="menu-close" id="menuClose" aria-label="Close menu">
@@ -3466,12 +3480,12 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
     <h1 id="heroTitle">Find your next<br>car with <span class="accent">confidence.</span></h1>
     <div class="search-bd" id="heroSearchBd"></div>
     <div class="search-wrap" id="heroSearchWrap">
-      <div class="search-box" id="heroSearchBox" role="combobox" aria-expanded="false" aria-owns="heroDropdown" aria-haspopup="listbox">
+      <div class="search-box" id="heroSearchBox">
         <label for="heroSearch" class="skip">Search vehicles</label>
         <span class="search-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </span>
-        <input type="search" id="heroSearch" class="search-input" placeholder="Search by brand, model, or budget…" autocomplete="off" aria-autocomplete="list" aria-controls="heroDropdown" />
+        <input type="search" id="heroSearch" class="search-input" placeholder="Search by brand, model, or budget…" autocomplete="off" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="list" aria-controls="heroDropdown" />
         <button class="search-voice" id="heroVoice" type="button" aria-label="Voice search" title="Search by voice">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
         </button>
@@ -4322,7 +4336,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
   </div>
   <div class="calc-body">
     <div class="calc-row">
-      <label>
+      <label for="emiAmt">
         <span>Loan amount</span>
         <span class="calc-val">₹<span id="emiAmtVal">10,00,000</span></span>
       </label>
@@ -4332,7 +4346,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 
     <div class="calc-row-grid">
       <div class="calc-row">
-        <label>
+        <label for="emiRate">
           <span>Interest rate</span>
           <span class="calc-val"><span id="emiRateVal">9.5</span>%</span>
         </label>
@@ -4340,7 +4354,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
         <div class="calc-row-mini"><span>6%</span><span>18%</span></div>
       </div>
       <div class="calc-row">
-        <label>
+        <label for="emiTen">
           <span>Tenure</span>
           <span class="calc-val"><span id="emiTenVal">5</span> yrs</span>
         </label>
@@ -4379,7 +4393,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
   </div>
   <div class="calc-body">
     <div class="calc-row">
-      <label>
+      <label for="fuelKm">
         <span>Distance driven daily</span>
         <span class="calc-val"><span id="fuelKmVal">50</span> km</span>
       </label>
@@ -4389,7 +4403,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 
     <div class="calc-row-grid">
       <div class="calc-row">
-        <label>
+        <label for="fuelMileage">
           <span>Vehicle mileage</span>
           <span class="calc-val"><span id="fuelMileageVal">15</span> kmpl</span>
         </label>
@@ -4397,7 +4411,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
         <div class="calc-row-mini"><span>5 kmpl</span><span>40 kmpl</span></div>
       </div>
       <div class="calc-row">
-        <label>
+        <label for="fuelPrice">
           <span>Fuel price</span>
           <span class="calc-val">₹<span id="fuelPriceVal">104</span>/L</span>
         </label>
@@ -4432,16 +4446,16 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
   <div class="calc-hd"><div class="calc-title">EV vs Petrol — Lifetime Savings</div><button class="calc-close" onclick="closeEvSavingsCalc()">✕</button></div>
   <div class="calc-body">
     <div class="calc-row">
-      <label><span>Monthly distance</span><span class="calc-val"><span id="evKmVal">1,500</span> km</span></label>
+      <label for="evKm"><span>Monthly distance</span><span class="calc-val"><span id="evKmVal">1,500</span> km</span></label>
       <input type="range" id="evKm" min="300" max="6000" step="100" value="1500">
     </div>
     <div class="calc-row-grid">
       <div class="calc-row">
-        <label><span>Petrol mileage</span><span class="calc-val"><span id="evPetMileVal">15</span> kmpl</span></label>
+        <label for="evPetMile"><span>Petrol mileage</span><span class="calc-val"><span id="evPetMileVal">15</span> kmpl</span></label>
         <input type="range" id="evPetMile" min="8" max="25" step="0.5" value="15">
       </div>
       <div class="calc-row">
-        <label><span>EV efficiency</span><span class="calc-val"><span id="evEvEffVal">6.5</span> km/kWh</span></label>
+        <label for="evEvEff"><span>EV efficiency</span><span class="calc-val"><span id="evEvEffVal">6.5</span> km/kWh</span></label>
         <input type="range" id="evEvEff" min="4" max="10" step="0.1" value="6.5">
       </div>
     </div>
@@ -4462,11 +4476,11 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
   <div class="calc-hd"><div class="calc-title">Resale Value Predictor</div><button class="calc-close" onclick="closeResaleCalc()">✕</button></div>
   <div class="calc-body">
     <div class="calc-row">
-      <label><span>Ex-showroom price</span><span class="calc-val">₹<span id="resPriceVal">15,00,000</span></span></label>
+      <label for="resPrice"><span>Ex-showroom price</span><span class="calc-val">₹<span id="resPriceVal">15,00,000</span></span></label>
       <input type="range" id="resPrice" min="300000" max="5000000" step="50000" value="1500000">
     </div>
     <div class="calc-row">
-      <label><span>Annual kilometers</span><span class="calc-val"><span id="resKmVal">15,000</span> km</span></label>
+      <label for="resKm"><span>Annual kilometers</span><span class="calc-val"><span id="resKmVal">15,000</span> km</span></label>
       <input type="range" id="resKm" min="3000" max="40000" step="1000" value="15000">
     </div>
     <div class="calc-output">
@@ -4723,7 +4737,7 @@ const D={cars:{l:'Cars',hl:'Find your next<br>car with <span class="accent">conf
 trending:[['Mahindra','Thar Roxx','₹12.99 - 20.49 L','↑ 184% MoM','NEW LAUNCH','new','hot'],['Tata','Curvv EV','₹17.49 - 21.99 L','↑ 142% MoM','NEW LAUNCH','new','hot'],['Mahindra','XUV 3XO','₹7.99 - 15.49 L','↑ 87% MoM','TRENDING','hot','hot'],['Maruti Suzuki','Swift','₹6.49 - 9.49 L','↑ 52% MoM','RISING','','good'],['Mahindra','BE 6','₹18.90 - 26.90 L','↑ 96% MoM','NEW','new','hot'],['Hyundai','Creta','₹11.11 - 20.43 L','↑ 38% MoM','RISING','','good'],['Kia','Seltos','₹10.90 - 20.35 L','↑ 24% MoM','RISING','','good'],['Toyota','Hyryder','₹11.34 - 20.19 L','↑ 18% MoM','RISING','','flat']],
 newlyLaunched:[['Tata','Sierra ICE','₹16.00 - 22.00 L','5 days ago','FRESH'],['BYD','Sealion 7','₹54.00 L','14 days ago','FRESH'],['Volkswagen','Tayron','₹47.00 L','29 days ago','FRESH'],['Maruti Suzuki','eVitara','₹17.99 - 22.49 L','42 days ago','LATEST'],['Maruti Suzuki','Grand Vitara facelift','₹11.42 - 20.55 L','54 days ago','LATEST'],['Mahindra','XEV 9e','₹21.90 - 30.50 L','79 days ago','LATEST'],['Skoda','Kylaq','₹7.89 - 14.40 L','89 days ago','RECENT'],['Hyundai','Creta Electric','₹17.99 - 23.50 L','62 days ago','LATEST']],
 upcoming:[['Mahindra','XEV 7e','₹15.00 - 22.00 L*','Jun 2026','BOOKING OPEN'],['Tata','Avinya','₹40.00 - 50.00 L*','Aug 2026','REVEALED'],['Hyundai','Venue Hybrid','₹9.50 - 13.50 L*','Jul 2026','TEASED'],['Maruti Suzuki','eGrand Vitara','₹17.00 - 23.00 L*','Sep 2026','UPCOMING'],['Renault','Kiger Facelift','₹6.50 - 11.50 L*','Jun 2026','UPCOMING'],['Honda','Elevate Hybrid','₹13.50 - 17.50 L*','Aug 2026','TEASED'],['Citroen','Aircross EV','₹15.00 - 19.00 L*','Jul 2026','REVEALED'],['Toyota','Urban Cruiser EV','₹13.00 - 17.00 L*','Aug 2026','UPCOMING']],
-bodyTypes:[['SUV','42 models','bt-suv'],['Compact SUV','28 models','bt-csuv'],['Sub-compact SUV','16 models','bt-scsuv'],['Sedan','18 models','bt-sedan'],['Hatchback','15 models','bt-hatch'],['MUV / MPV','12 models','bt-muv'],['Coupe','9 models','bt-coupe'],['Convertible','7 models','bt-conv'],['Pickup','5 models','bt-pickup'],['Electric','21 models','bt-ev']],
+bodyTypes:[['SUV','42 models','https://imgd.aeplcdn.com/664x374/n/cw/ec/205104/xuv-7xo-exterior-right-front-three-quarter-547.png'],['Compact SUV','28 models','https://imgd.aeplcdn.com/664x374/n/cw/ec/106815/creta-exterior-right-front-three-quarter-6.png'],['Sub-compact SUV','16 models','https://imgd.aeplcdn.com/664x374/n/cw/ec/107543/brezza-exterior-right-front-three-quarter-14.png'],['Sedan','18 models','https://imgd.aeplcdn.com/664x374/n/cw/ec/219846/city-facelift-exterior-right-front-three-quarter-24.jpeg'],['Hatchback','15 models','https://imgd.aeplcdn.com/664x374/n/cw/ec/159099/swift-exterior-right-front-three-quarter-31.png'],['MUV / MPV','12 models','https://imgd.aeplcdn.com/664x374/n/cw/ec/115777/ertiga-exterior-right-front-three-quarter-10.png'],['Coupe','9 models','https://imgd.aeplcdn.com/664x374/n/cw/ec/139651/curvv-exterior-right-front-three-quarter-16.png'],['Convertible','7 models','bt-conv'],['Pickup','5 models','bt-pickup'],['Electric','21 models','https://imgd.aeplcdn.com/664x374/n/cw/ec/149123/nexon-ev-exterior-right-front-three-quarter-80.png']],
 curated:[['Hyundai','Alcazar','₹14.99 - 21.55 L','Based on your Creta search','STRONG MATCH'],['Tata','Harrier','₹15.49 - 26.50 L','You viewed similar SUVs','GOOD MATCH'],['Mahindra','Scorpio N','₹13.99 - 24.54 L','Popular in your budget','POPULAR PICK'],['MG','Hector','₹14.73 - 22.43 L','Based on your activity','GOOD MATCH'],['Skoda','Kushaq','₹10.89 - 19.49 L','You liked European SUVs','GOOD MATCH'],['VW','Taigun','₹11.84 - 19.86 L','Similar to your shortlist','STRONG MATCH'],['Honda','Elevate','₹11.91 - 16.89 L','New launch in your range','POPULAR PICK'],['Nissan','Magnite','₹6.20 - 11.71 L','Top value pick','GOOD MATCH']],
 offers:[['Hyundai','Creta','₹10.46 L','₹11.11 L','₹65,000 OFF','Apr 30'],['Tata','Nexon','₹7.10 L','₹7.99 L','₹89,000 OFF','Apr 28'],['Maruti Suzuki','Brezza','₹8.06 L','₹8.34 L','₹28,000 OFF','Apr 30'],['Honda','Amaze','₹6.55 L','₹7.20 L','₹65,000 OFF','May 5'],['Renault','Kiger','₹5.99 L','₹6.99 L','₹1,00,000 OFF','Apr 30'],['Skoda','Slavia','₹10.78 L','₹11.63 L','₹85,000 OFF','May 2'],['VW','Virtus','₹10.91 L','₹11.56 L','₹65,000 OFF','Apr 30'],['Nissan','Magnite','₹5.49 L','₹6.20 L','₹71,000 OFF','Apr 30']],
 brands:[['M','Maruti Suzuki','17 models'],['H','Hyundai','12 models'],['T','Tata','14 models'],['M','Mahindra','11 models'],['K','Kia','7 models'],['T','Toyota','9 models'],['H','Honda','5 models'],['M','MG','6 models'],['S','Skoda','5 models'],['V','Volkswagen','4 models'],['B','BMW','18 models'],['M','Mercedes-Benz','22 models']],
@@ -4755,7 +4769,7 @@ const sil=id=>`<svg width="16" height="16" viewBox="0 0 200 80"><use href="#${id
 
 const T={
   vehicle:(it,i,c)=>{const[b,m,p,g,t,tt,sp]=it;return `<a href="#" class="vc"><div class="rk${i<3?' top':''}">${String(i+1).padStart(2,'0')}</div>${t?`<span class="pill ${tt}">${t}</span>`:''}<div class="vimg">${sil(c.sil)}</div><div class="vbody"><div class="vbrand">${b}</div><div class="vname">${m}</div><div class="spark${sp==='hot'?' hot':''}"><svg width="16" height="16"><use href="#sp-${sp}"/></svg><span>12 MO · ${g}</span></div><div class="vmeta"><div class="vprice">${p}</div><span class="vcta">View<span class="vcta-arr">→</span></span></div></div></a>`},
-  bodyType:it=>{const[n,c,ic]=it;return `<a href="#" class="bt"><div class="bt-ico"><svg viewBox="0 0 96 56" preserveAspectRatio="xMidYMid meet"><use href="#${ic}"/></svg></div><div class="bt-name">${n}</div><div class="bt-cnt">${c}</div></a>`},
+  bodyType:it=>{const[n,c,ic]=it;const ico=ic.startsWith('http')?`<img src="${ic}" alt="${n}" loading="lazy" class="bt-ico-img">`:`<svg viewBox="0 0 96 56" preserveAspectRatio="xMidYMid meet"><use href="#${ic}"/></svg>`;return `<a href="#" class="bt"><div class="bt-ico">${ico}</div><div class="bt-name">${n}</div><div class="bt-cnt">${c}</div></a>`},
   curated:(it,i,c)=>{const[b,m,p,r,t]=it;return `<a href="#" class="vc"><span class="${pillCls(t)}" style="left:16px;right:auto">${t}</span><div class="vimg">${sil(c.sil)}</div><div class="vbody"><div class="vbrand">${b}</div><div class="vname">${m}</div><div class="vreason">${r}</div><div class="vmeta"><div class="vprice">${p}</div><span class="vcta">View<span class="vcta-arr">→</span></span></div></div></a>`},
   offer:(it,i,c)=>{const[b,m,pn,pw,ol,v]=it;return `<a href="#" class="vc" onclick="event.preventDefault();window.openLeadForm&&window.openLeadForm('offer','${b} ${m}')"><span class="pill offer">${ol}</span><div class="vimg">${sil(c.sil)}</div><div class="vbody"><div class="vbrand">${b}</div><div class="vname">${m}</div><div class="vsub">Ends <b>${v}</b></div><div class="vmeta"><div class="vprice"><span class="vstrike">${pw}</span>${pn}</div><span class="vcta">Get offer<span class="vcta-arr">→</span></span></div></div><div class="vstrip"><span>Dealer offer</span><b>${ol}</b></div></a>`},
   brand:it=>{const[s,n,c]=it;return `<a href="#" class="br"><div class="br-mark">${s}</div><div class="br-name">${n}</div><div class="br-cnt">${c}</div></a>`},
@@ -4989,7 +5003,7 @@ function mkIcon(item){
     drop.classList.add('open');
     box.classList.add('active');
     bd.classList.add('open');
-    box.setAttribute('aria-expanded','true');
+    inp.setAttribute('aria-expanded','true');
     renderRecents();
     renderTrending();
     showDefault();
@@ -5001,7 +5015,7 @@ function mkIcon(item){
     drop.classList.remove('open');
     box.classList.remove('active');
     bd.classList.remove('open');
-    box.setAttribute('aria-expanded','false');
+    inp.setAttribute('aria-expanded','false');
     hlIdx=-1;
   }
 
@@ -5108,14 +5122,14 @@ let soLastFocus=null;
 function openSearch(){
   soLastFocus=document.activeElement;
   so.classList.add('open');soBd.classList.add('open');
-  so.setAttribute('aria-hidden','false');soBd.setAttribute('aria-hidden','false');
+  so.setAttribute('aria-hidden','false');so.removeAttribute('inert');soBd.setAttribute('aria-hidden','false');
   document.body.classList.add('menu-open');
   setTimeout(()=>soInput.focus(),100);
   soRenderRecents();
 }
 function closeSearch(){
   so.classList.remove('open');soBd.classList.remove('open');
-  so.setAttribute('aria-hidden','true');soBd.setAttribute('aria-hidden','true');
+  so.setAttribute('aria-hidden','true');so.setAttribute('inert','');soBd.setAttribute('aria-hidden','true');
   document.body.classList.remove('menu-open');
   if(soLastFocus)soLastFocus.focus();
 }
@@ -5354,8 +5368,8 @@ function renderCityList(filter=''){
 renderCityList();
 
 let loLastFocus=null;
-function openLocation(){loLastFocus=document.activeElement;lo.classList.add('open');soBd.classList.add('open');lo.setAttribute('aria-hidden','false');soBd.setAttribute('aria-hidden','false');document.body.classList.add('menu-open');setTimeout(()=>loFilter.focus(),100)}
-function closeLocation(){lo.classList.remove('open');soBd.classList.remove('open');lo.setAttribute('aria-hidden','true');soBd.setAttribute('aria-hidden','true');document.body.classList.remove('menu-open');loStatus.classList.remove('show','error');loStatus.textContent='';if(loLastFocus)loLastFocus.focus()}
+function openLocation(){loLastFocus=document.activeElement;lo.classList.add('open');soBd.classList.add('open');lo.setAttribute('aria-hidden','false');lo.removeAttribute('inert');soBd.setAttribute('aria-hidden','false');document.body.classList.add('menu-open');setTimeout(()=>loFilter.focus(),100)}
+function closeLocation(){lo.classList.remove('open');soBd.classList.remove('open');lo.setAttribute('aria-hidden','true');lo.setAttribute('inert','');soBd.setAttribute('aria-hidden','true');document.body.classList.remove('menu-open');loStatus.classList.remove('show','error');loStatus.textContent='';if(loLastFocus)loLastFocus.focus()}
 
 loOpen.addEventListener('click',openLocation);
 loClose.addEventListener('click',closeLocation);
@@ -5411,7 +5425,7 @@ let lastFocus=null;
 function openMenu(){
   lastFocus=document.activeElement;
   menu.classList.add('open');backdrop.classList.add('open');
-  menu.setAttribute('aria-hidden','false');backdrop.setAttribute('aria-hidden','false');
+  menu.setAttribute('aria-hidden','false');menu.removeAttribute('inert');backdrop.setAttribute('aria-hidden','false');
   btnOpen.setAttribute('aria-expanded','true');
   document.body.classList.add('menu-open');
   // Focus first interactive element after animation starts
@@ -5420,7 +5434,7 @@ function openMenu(){
 
 function closeMenu(){
   menu.classList.remove('open');backdrop.classList.remove('open');
-  menu.setAttribute('aria-hidden','true');backdrop.setAttribute('aria-hidden','true');
+  menu.setAttribute('aria-hidden','true');menu.setAttribute('inert','');backdrop.setAttribute('aria-hidden','true');
   btnOpen.setAttribute('aria-expanded','false');
   document.body.classList.remove('menu-open');
   if(lastFocus)lastFocus.focus();
@@ -5453,7 +5467,7 @@ renderAll('cars');
 <!-- BYC WIZARD MODAL                                              -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div class="bw-bd" id="bwBackdrop" aria-hidden="true"></div>
-<div class="bw-modal" id="bwModal" role="dialog" aria-modal="true" aria-labelledby="bwQ" aria-hidden="true">
+<div class="bw-modal" id="bwModal" role="dialog" aria-modal="true" aria-labelledby="bwQ" aria-hidden="true" inert>
   <div class="bw-hd">
     <span class="bw-step-num"><b id="bwStepNum">1</b> of <span id="bwStepTotal">5</span></span>
     <div class="bw-progress"><div class="bw-progress-fill" id="bwProgressFill"></div></div>
@@ -5675,7 +5689,7 @@ renderAll('cars');
     bd.classList.add('open');
     modal.classList.add('open');
     bd.setAttribute('aria-hidden','false');
-    modal.setAttribute('aria-hidden','false');
+    modal.setAttribute('aria-hidden','false');modal.removeAttribute('inert');
     document.body.style.overflow = 'hidden';
     render();
   }
@@ -5683,7 +5697,7 @@ renderAll('cars');
     bd.classList.remove('open');
     modal.classList.remove('open');
     bd.setAttribute('aria-hidden','true');
-    modal.setAttribute('aria-hidden','true');
+    modal.setAttribute('aria-hidden','true');modal.setAttribute('inert','');
     document.body.style.overflow = '';
   }
 
@@ -6046,8 +6060,8 @@ renderAll('cars');
       </div>
 
       <div class="td-row" style="margin-bottom:16px">
-        <label>Preferred time slot</label>
-        <div class="td-slots" role="radiogroup">
+        <label id="tdSlotLabel">Preferred time slot</label>
+        <div class="td-slots" role="radiogroup" aria-labelledby="tdSlotLabel">
           <label class="td-slot"><input type="radio" name="tdSlot" value="10-12" required><span class="td-slot-check"></span><span class="td-slot-label">10 AM – 12 PM</span></label>
           <label class="td-slot"><input type="radio" name="tdSlot" value="12-14"><span class="td-slot-check"></span><span class="td-slot-label">12 PM – 2 PM</span></label>
           <label class="td-slot"><input type="radio" name="tdSlot" value="14-16"><span class="td-slot-check"></span><span class="td-slot-label">2 PM – 4 PM</span></label>
@@ -6057,8 +6071,8 @@ renderAll('cars');
       </div>
 
       <div class="td-row" style="margin-bottom:6px">
-        <label>Where would you like the test drive?</label>
-        <div class="td-pickup-grid">
+        <label id="tdPickupLabel">Where would you like the test drive?</label>
+        <div class="td-pickup-grid" role="radiogroup" aria-labelledby="tdPickupLabel">
           <label class="td-pickup-card">
             <input type="radio" name="tdPickup" value="home" checked>
             <span class="td-pickup-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
@@ -6782,7 +6796,7 @@ const TD_DEALER_LOCALITIES = {
   <span class="ai-fab-badge">AI</span>
 </button>
 
-<div class="ai-panel" id="aiPanel" role="dialog" aria-label="AI car assistant" aria-hidden="true">
+<div class="ai-panel" id="aiPanel" role="dialog" aria-label="AI car assistant" aria-hidden="true" inert>
   <div class="ai-hd">
     <div class="ai-hd-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg></div>
     <div class="ai-hd-info">
@@ -6801,7 +6815,7 @@ const TD_DEALER_LOCALITIES = {
     <button class="ai-sug">Which variant of Creta to buy?</button>
   </div>
   <div class="ai-input-row">
-    <input class="ai-input" id="aiInput" type="text" placeholder="Ask anything about cars…" autocomplete="off" maxlength="600">
+    <input class="ai-input" id="aiInput" type="text" placeholder="Ask anything about cars…" autocomplete="off" maxlength="600" aria-label="Ask the AI car assistant">
     <button class="ai-send" id="aiSend" disabled aria-label="Send"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg></button>
   </div>
 </div>
@@ -7110,8 +7124,8 @@ document.querySelectorAll('.ai-sug').forEach(function(btn){ btn.addEventListener
 
 // Open/close
 var fab=document.getElementById('aiFab'), panel=document.getElementById('aiPanel'), closeB=document.getElementById('aiClose');
-function openP(){panel.classList.add('open');panel.setAttribute('aria-hidden','false');fab.setAttribute('aria-expanded','true');setTimeout(function(){input.focus();},200);}
-function closeP(){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');fab.setAttribute('aria-expanded','false');fab.focus();}
+function openP(){panel.classList.add('open');panel.setAttribute('aria-hidden','false');panel.removeAttribute('inert');fab.setAttribute('aria-expanded','true');setTimeout(function(){input.focus();},200);}
+function closeP(){panel.classList.remove('open');panel.setAttribute('aria-hidden','true');panel.setAttribute('inert','');fab.setAttribute('aria-expanded','false');fab.focus();}
 fab.addEventListener('click',function(){ panel.classList.contains('open')?closeP():openP(); });
 closeB.addEventListener('click',closeP);
 document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&panel.classList.contains('open'))closeP(); });
