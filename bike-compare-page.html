@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0d0d0d">
 <meta name="description" content="Compare bikes side-by-side. Get on-road prices, specs, mileage, safety ratings, features, and colors for any 2-4 bikes. Make the right buying decision in minutes.">
@@ -24,7 +26,9 @@
 <link rel="manifest" href="/site.webmanifest">
 
 <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
-<meta property="og:type" content="product">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@autoyugg">
+  <meta property="og:type" content="product">
 <meta property="og:title" content="Compare Bikes — Side-by-Side Specs &amp; Prices">
 <meta property="og:description" content="India's most stylish 350cc modern roadster. 3 variants from ₹17.49 to ₹21.99 lakh. Compare specs, see colors, get on-road price for your city.">
 <meta property="og:url" content="https://www.example.com/compare/">
@@ -100,7 +104,7 @@
     "worstRating": "1"
   },
   "name": "India's most complete roadster motorcycle — by a wide margin",
-  "reviewBody": "The Hunter 350 is the first Indian-made EV that doesn't feel like a compromise. Real-world range from the 349 cc pack is honest 380-420 km in mixed driving, the 70 kW fuel tank capacity is genuinely fast, and the cabin tech finally matches what Hyundai and Kia have been doing.",
+  "reviewBody": "The Hunter 350 is the best modern roadster Royal Enfield makes. Real-world mileage from the 349 cc engine is an honest 36-40 kmpl in mixed riding, the Tripper pod navigation is genuinely useful, and the build quality finally matches what Japanese bikes have been doing.",
   "author": {
     "@type": "Person",
     "name": "Rohan Saxena",
@@ -156,7 +160,7 @@
       "name": "How long does the Hunter 350 take to charge?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On a 70 kW Fuel capacityr (Metro Dapper+ variants), 10-80% takes about 13L tank. The 13L tank option takes around 56 minutes. AC home charging at 7.2 kW wallbox: 8 hours full."
+        "text": "The Hunter 350 has a 13-litre fuel tank. At a petrol pump, a full fill takes under 5 minutes. At 36-40 kmpl real-world efficiency, one full tank gives you approximately 468-520 km of riding range."
       }
     },
     {
@@ -164,7 +168,7 @@
       "name": "Which Hunter 350 variant should I buy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For most buyers, Metro Rebel (₹1.74 L ex-showroom) hits the sweet spot — full 36.2 kmpl range, 13L tank charging, panoramic sunroof, and Tripper pod. If you need ABS + Slipper clutch, Tripper Nav, and ventilated seats, jump to Metro Dapper (₹1.74 L)."
+        "text": "For most buyers, Metro Rebel (₹1.74 L ex-showroom) hits the sweet spot — full 349cc engine, Tripper pod navigation, dual-channel ABS, and the classic roadster look. If you need ABS + Slipper clutch, Tripper Nav, and USB charging, step up to Metro Dapper (₹1.99 L)."
       }
     },
     {
@@ -188,7 +192,7 @@
       "name": "How does the Hunter 350 compare to MG ZS EV and BYD Atto 3?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Hunter 350 undercuts MG ZS EV (₹18.99-25.21 L) and BYD Atto 3 (₹24.99-33.99 L) on price while offering competitive range. Hunter 350's advantages: ABS+Slipper standard on top variants, panoramic sunroof, Tripper Nav, lower service costs, wider Royal Enfield service network."
+        "text": "The Hunter 350 undercuts Honda CB300R (₹3.02 L) and Bajaj Dominar 400 (₹2.37 L) on price while offering comparable performance. Hunter 350's advantages: ABS+Slipper standard on top variants, Tripper Nav, lower service costs, wider Royal Enfield service network across India."
       }
     }
   ]
@@ -254,7 +258,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 .hd-loc-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hd-loc-bikeet{width:10px;height:10px;color:var(--ink-faint);flex-shrink:0}
 .logo{font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:-.025em}
-.logo-yugg{background:linear-gradient(90deg,#f97316,#ec4899,#8b5cf6,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.logo-yugg{background:linear-gradient(90deg,#c2570a,#be185d,#6d28d9,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .logo-dot{color:var(--accent)}
 .nav{display:flex;gap:32px;font-size:14px;font-weight:500;margin-left:24px;flex:1}
 .nav a{color:var(--ink-soft);transition:color .15s}
@@ -1385,8 +1389,15 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 .cmp-vh-price .from{font-family:var(--sans);font-size:9px;color:var(--ink-faint);font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-right:3px}
 
 /* Section group header in table */
-.cmp-tbl tr.section-row td{padding:18px 16px 8px;background:var(--surface);border-bottom:0;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
-.cmp-tbl tr.section-row td .section-meta{display:block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:3px;line-height:1.45;letter-spacing:0}
+.cmp-tbl tr.section-row td{padding:14px 16px;background:var(--surface);border-bottom:1px solid var(--line);font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;user-select:none}
+.cmp-tbl tr.section-row td:hover{background:var(--bg-alt)}
+.cmp-tbl tr.section-row .sec-inner{display:flex;align-items:center;justify-content:space-between}
+.cmp-tbl tr.section-row .sec-label{color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.cmp-tbl tr.section-row .sec-count{font-family:var(--sans);font-size:11px;font-weight:500;color:var(--ink-faint);margin-left:6px}
+.cmp-tbl tr.section-row .sec-chevron{width:16px;height:16px;transition:transform .2s;color:var(--ink-soft)}
+.cmp-tbl tr.section-row.collapsed .sec-chevron{transform:rotate(-90deg)}
+.cmp-tbl tr.data-row{transition:opacity .15s}
+.cmp-tbl tr.data-row.hidden{display:none}
 
 /* Verdict section */
 .cmp-verdict{padding:48px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-alt)}
@@ -3047,7 +3058,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
   font-family:var(--display,'Playfair Display', serif);
   font-size:24px;font-weight:700;color:#fff;letter-spacing:-.01em;
 }
-.ft-lean-brand .ft-logo .logo-yugg{background:linear-gradient(90deg,#f97316,#ec4899,#8b5cf6,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ft-lean-brand .ft-logo .logo-yugg{background:linear-gradient(90deg,#c2570a,#be185d,#6d28d9,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .ft-lean-brand p{font-size:13px;color:#94949c;line-height:1.6;margin:0;max-width:280px}
 .ft-lean-social{display:flex;gap:10px;margin-top:8px}
 .ft-lean-social a{
@@ -3090,12 +3101,12 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 
 
 /* CLS fix — reserve space for JS-rendered comparison table to prevent layout shift */
-.cmp-tbl-wrap{ min-height:2900px; }
+.cmp-tbl-wrap{ min-height:0; }
 .cmp-verdict-grid{ min-height:230px; }
 .cmp-actions-grid{ min-height:200px; }
 
 @media (max-width:768px){
-  .cmp-tbl-wrap{ min-height:2600px; }
+  .cmp-tbl-wrap{ min-height:0; }
   .cmp-verdict-grid{ min-height:585px; }
   .cmp-actions-grid{ min-height:290px; }
 }
@@ -3279,9 +3290,9 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
         <a href="/best-bikes/best-mileage-bikes">Best mileage bikes</a>
         <a href="/best-bikes/best-7-seater">Best 7 seater bikes</a>
         <a href="/best-bikes/best-electric-bikes">Best electric bikes</a>
-        <a href="/bikes/maruti-suzuki/swift">Maruti Swift</a>
-        <a href="/bikes/hyundai/creta">Hyundai Creta</a>
-        <a href="/bikes/mahindra/thar-roxx">Mahindra Thar Roxx</a>
+        <a href="/bikes/hero/splendor-plus">Hero Splendor Plus</a>
+        <a href="/bikes/royal-enfield/classic-350">Royal Enfield Classic 350</a>
+        <a href="/bikes/bajaj/pulsar-ns400z">Bajaj Pulsar NS400Z</a>
         <a href="/bikes/royal-enfield/hunter-350">Royal Enfield Hunter 350</a>
         <a href="/bikes/royal-enfield/classic-350">Royal Enfield Classic 350</a>
         <a href="/bikes/honda/activa-6g">Honda Activa 6G</a>
@@ -4156,7 +4167,7 @@ const D={bikes:{l:'Bikes',hl:'Find your next<br>bike with <span class="accent">c
 trending:[['Mahindra','Thar Roxx','₹12.99 - 20.49 L','↑ 184% MoM','NEW LAUNCH','new','hot'],['Royal Enfield','Hunter 350','₹17.49 - 21.99 L','↑ 142% MoM','NEW LAUNCH','new','hot'],['Mahindra','XUV 3XO','₹7.99 - 15.49 L','↑ 87% MoM','TRENDING','hot','hot'],['Maruti Suzuki','Swift','₹6.49 - 9.49 L','↑ 52% MoM','RISING','','good'],['Mahindra','BE 6','₹18.90 - 26.90 L','↑ 96% MoM','NEW','new','hot'],['Hyundai','Creta','₹11.11 - 20.43 L','↑ 38% MoM','RISING','','good'],['Kia','Seltos','₹10.90 - 20.35 L','↑ 24% MoM','RISING','','good'],['Toyota','Hyryder','₹11.34 - 20.19 L','↑ 18% MoM','RISING','','flat']],
 newlyLaunched:[['Royal Enfield','Sierra ICE','₹16.00 - 22.00 L','5 days ago','FRESH'],['BYD','Sealion 7','₹54.00 L','14 days ago','FRESH'],['Volkswagen','Tayron','₹47.00 L','29 days ago','FRESH'],['Maruti Suzuki','eVitara','₹17.99 - 22.49 L','42 days ago','LATEST'],['Maruti Suzuki','Grand Vitara facelift','₹11.42 - 20.55 L','54 days ago','LATEST'],['Mahindra','XEV 9e','₹21.90 - 30.50 L','79 days ago','LATEST'],['Skoda','Kylaq','₹7.89 - 14.40 L','89 days ago','RECENT'],['Hyundai','Creta Electric','₹17.99 - 23.50 L','62 days ago','LATEST']],
 upcoming:[['Mahindra','XEV 7e','₹15.00 - 22.00 L*','Jun 2026','BOOKING OPEN'],['Royal Enfield','Avinya','₹40.00 - 50.00 L*','Aug 2026','REVEALED'],['Hyundai','Venue Hybrid','₹9.50 - 13.50 L*','Jul 2026','TEASED'],['Maruti Suzuki','eGrand Vitara','₹17.00 - 23.00 L*','Sep 2026','UPCOMING'],['Renault','Kiger Facelift','₹6.50 - 11.50 L*','Jun 2026','UPCOMING'],['Honda','Elevate Hybrid','₹13.50 - 17.50 L*','Aug 2026','TEASED'],['Citroen','Aircross EV','₹15.00 - 19.00 L*','Jul 2026','REVEALED'],['Toyota','Urban Cruiser EV','₹13.00 - 17.00 L*','Aug 2026','UPCOMING']],
-bodyTypes:[['SUV','42 models','bt-suv'],['Naked','28 models','bt-suv'],['Sub-compact SUV','16 models','bt-hatch'],['Cruiser','18 models','bt-sedan'],['Commuter','15 models','bt-hatch'],['Scooter','12 models','bt-muv'],['Sport','9 models','bt-coupe'],['Convertible','7 models','bt-conv'],['Pickup','5 models','bt-pickup'],['Petrol','21 models','bt-ev']],
+bodyTypes:[['Sports Bike','42 models','bt-sports'],['Scooter','95 models','bt-scooter'],['Cruiser','38 models','bt-cruiser'],['Commuter','120 models','bt-comm'],['Street Bike','85 models','bt-sports'],['Super Bike','18 models','bt-sports'],['Cafe Racer','22 models','bt-cruiser'],['Scrambler','14 models','bt-adv'],['Adventure','28 models','bt-adv'],['Moped','32 models','bt-comm'],['Tourer','11 models','bt-tourer'],['Maxi Scooter','9 models','bt-scooter']],
 curated:[['Hyundai','Alcazar','₹14.99 - 21.55 L','Based on your Creta search','STRONG MATCH'],['Royal Enfield','Himalayan 450','₹15.49 - 26.50 L','You viewed similar SUVs','GOOD MATCH'],['Mahindra','Scorpio N','₹13.99 - 24.54 L','Popular in your budget','POPULAR PICK'],['MG','Hector','₹14.73 - 22.43 L','Based on your activity','GOOD MATCH'],['Skoda','Kushaq','₹10.89 - 19.49 L','You liked European SUVs','GOOD MATCH'],['VW','Taigun','₹11.84 - 19.86 L','Similar to your shortlist','STRONG MATCH'],['Honda','Elevate','₹11.91 - 16.89 L','New launch in your range','POPULAR PICK'],['Nissan','Magnite','₹6.20 - 11.71 L','Top value pick','GOOD MATCH']],
 offers:[['Hyundai','Creta','₹10.46 L','₹11.11 L','₹65,000 OFF','Apr 30'],['Royal Enfield','Meteor 350','₹7.10 L','₹7.99 L','₹89,000 OFF','Apr 28'],['Maruti Suzuki','Brezza','₹8.06 L','₹8.34 L','₹28,000 OFF','Apr 30'],['Honda','Amaze','₹6.55 L','₹7.20 L','₹65,000 OFF','May 5'],['Renault','Kiger','₹5.99 L','₹6.99 L','₹1,00,000 OFF','Apr 30'],['Skoda','Slavia','₹10.78 L','₹11.63 L','₹85,000 OFF','May 2'],['VW','Virtus','₹10.91 L','₹11.56 L','₹65,000 OFF','Apr 30'],['Nissan','Magnite','₹5.49 L','₹6.20 L','₹71,000 OFF','Apr 30']],
 brands:[['M','Maruti Suzuki','17 models'],['H','Hyundai','12 models'],['T','Royal Enfield','14 models'],['M','Mahindra','11 models'],['K','Kia','7 models'],['T','Toyota','9 models'],['H','Honda','5 models'],['M','MG','6 models'],['S','Skoda','5 models'],['V','Volkswagen','4 models'],['B','BMW','18 models'],['M','Mercedes-Benz','22 models']],
@@ -4166,7 +4177,7 @@ bikes:{l:'Bikes',hl:'Find your next<br>ride with <span class="accent">confidence
 trending:[['Royal Enfield','Hunter 350','₹1.50 - 1.75 L','↑ 156% MoM','TRENDING','hot','hot'],['Bajaj','Pulsar NS400Z','₹1.85 - 1.92 L','↑ 201% MoM','NEW LAUNCH','new','hot'],['Royal Enfield','Classic 350','₹1.93 - 2.25 L','↑ 64% MoM','TRENDING','hot','hot'],['Honda','Activa 6G','₹78,800 - 88,300','↑ 22% MoM','RISING','','good'],['TVS','Apache RTR 200','₹1.45 - 1.60 L','↑ 41% MoM','RISING','','good'],['KTM','Duke 390','₹3.13 - 3.20 L','↑ 78% MoM','TRENDING','hot','hot'],['Yamaha','R15 V4','₹1.82 - 1.93 L','↑ 35% MoM','RISING','','good'],['Hero','Splendor Plus','₹78,200 - 84,300','↑ 12% MoM','RISING','','flat']],
 newlyLaunched:[['Triumph','Speed 400','₹2.40 L','12 days ago','FRESH'],['Bajaj','Pulsar NS400Z','₹1.85 L','24 days ago','FRESH'],['Yamaha','MT-15 V3','₹1.78 L','35 days ago','LATEST'],['Hero','Karizma XMR 250','₹2.00 L','42 days ago','LATEST'],['Royal Enfield','Goan Classic 350','₹2.39 L','58 days ago','LATEST'],['Suzuki','V-Strom 800DE','₹10.30 L','67 days ago','LATEST'],['Honda','SP125 Pro','₹91,500','78 days ago','RECENT'],['KTM','390 Adventure X','₹3.30 L','85 days ago','RECENT']],
 upcoming:[['Royal Enfield','Bear 650','₹3.50 L*','Jun 2026','BOOKING OPEN'],['Honda','CB350 Hornet','₹2.40 L*','Jul 2026','TEASED'],['Yamaha','MT-09','₹10.50 L*','Aug 2026','REVEALED'],['KTM','990 Duke','₹11.50 L*','Jul 2026','UPCOMING'],['Bajaj','Chetak Premium','₹1.25 L*','Jun 2026','UPCOMING'],['Hero','Karizma SF','₹2.20 L*','Aug 2026','TEASED'],['TVS','Apache RR 310','₹3.10 L*','Sep 2026','UPCOMING'],['Triumph','Trident 660','₹8.50 L*','Jul 2026','REVEALED']],
-bodyTypes:[['Cruiser','38 models','bt-cruiser'],['Sports','42 models','bt-sports'],['Commuter','52 models','bt-comm'],['Scooter','34 models','bt-scooter'],['Adventure','18 models','bt-adv'],['Cafe Racer','9 models','bt-cruiser'],['Naked','15 models','bt-sports'],['Off-road','7 models','bt-off'],['Petrol','24 models','bt-scooter'],['Tourer','11 models','bt-adv']],
+bodyTypes:[['Scooter','95 models','bt-scooter'],['Maxi Scooter','9 models','bt-scooter'],['Moped','32 models','bt-comm'],['Electric Scooter','24 models','bt-ebike'],['Sports Scooter','8 models','bt-sports'],['Commuter','120 models','bt-comm'],['Cruiser','38 models','bt-cruiser'],['Cafe Racer','22 models','bt-cruiser'],['Adventure','28 models','bt-adv'],['Tourer','11 models','bt-tourer'],['Street Bike','85 models','bt-sports'],['Super Bike','18 models','bt-sports']],
 curated:[['Royal Enfield','Bullet 350','₹1.74 - 2.16 L','Based on Classic 350 search','STRONG MATCH'],['Jawa','42 Bobber','₹2.09 - 2.40 L','You like retro cruisers','GOOD MATCH'],['Honda','CB350','₹2.10 - 2.18 L','Similar to your shortlist','STRONG MATCH'],['KTM','Duke 250','₹2.39 L','Sporty, in your budget','GOOD MATCH'],['Yamaha','MT-15','₹1.69 - 1.71 L','Naked alternative to R15','GOOD MATCH'],['TVS','Ronin','₹1.55 - 1.74 L','Cruiser in entry range','POPULAR PICK'],['Bajaj','Dominar 400','₹2.31 L','Touring bike pick','GOOD MATCH'],['Hero','Xpulse 200 4V','₹1.49 L','Adventure value pick','POPULAR PICK']],
 offers:[['Honda','Shine 100','₹62,900','₹66,400','₹3,500 OFF','Apr 30'],['Hero','Xtreme 160R','₹1.20 L','₹1.27 L','₹7,000 OFF','Apr 30'],['TVS','Jupiter','₹73,200','₹78,200','₹5,000 OFF','Apr 28'],['Bajaj','Pulsar 150','₹1.10 L','₹1.16 L','₹6,000 OFF','May 2'],['Suzuki','Access 125','₹83,300','₹87,300','₹4,000 OFF','Apr 30'],['Yamaha','FZ-S V3','₹1.20 L','₹1.27 L','₹7,500 OFF','Apr 30'],['Hero','HF Deluxe','₹58,600','₹62,000','₹3,400 OFF','May 5'],['TVS','Raider 125','₹89,100','₹95,000','₹5,900 OFF','Apr 30']],
 brands:[['H','Hero','24 models'],['H','Honda','22 models'],['B','Bajaj','18 models'],['T','TVS','19 models'],['R','Royal Enfield','14 models'],['Y','Yamaha','11 models'],['K','KTM','9 models'],['S','Suzuki','8 models'],['J','Jawa','5 models'],['K','Kawasaki','12 models'],['B','BMW','14 models'],['D','Ducati','16 models']],
@@ -4461,236 +4472,100 @@ loDetect.addEventListener('click',()=>{
     // would come from a /api/vehicles endpoint keyed by slug.
     const CMP_VEHICLES = [
       // ──── Royal Enfield ────
-      { slug:'royal-enfield-nexon', brand:'Royal Enfield', name:'Meteor 350', bodyType:'Naked', bodyKey:'suv', isEV:false, fuels:['Petrol','Diesel','CNG'],
-        priceMin:800000, priceMax:1539000, rating:4.6, ncap:5, mileage:'17.4 km/L', mileageNum:17.4,
-        engine:'1.2L Turbo Petrol', power:'120 PS', powerNum:120, torque:'170 Nm', torqueNum:170,
-        transmission:'6-MT / 7-DCT', driveType:'FWD', fuelTank:'44 L',
-        length:3995, width:1804, height:1620, wheelbase:2498, groundClearance:209, bootSpace:382,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:false, sunroof:true,
-        infotainment:'10.25" touchscreen', wirelessConn:true, ventilated:true, cruise:false,
-        connectedBike:true, kerbWeight:1280, warranty:'2y/75K km', colors:7,
-        why:'Best-in-class safety + multiple fuel options' },
-      { slug:'royal-enfield-curvv', brand:'Royal Enfield', name:'Hunter', bodyType:'roadster', bodyKey:'suv', isEV:false, fuels:['Petrol','Diesel'],
-        priceMin:999000, priceMax:1949000, rating:4.5, ncap:5, mileage:'18.0 km/L', mileageNum:18.0,
-        engine:'1.2L Turbo / 1.5L Diesel', power:'125 PS', powerNum:125, torque:'225 Nm', torqueNum:225,
-        transmission:'6-MT / 7-DCT', driveType:'FWD', fuelTank:'45 L',
-        length:4308, width:1810, height:1630, wheelbase:2560, groundClearance:200, bootSpace:500,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'12.3" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1380, warranty:'2y/75K km', colors:6,
-        why:'ABS + premium roadster styling at sub-₹20L' },
-      { slug:'royal-enfield-hunter-350', brand:'Royal Enfield', name:'Hunter 350', bodyType:'roadster', bodyKey:'suv', isEV:true, fuels:['Petrol'],
-        priceMin:1749000, priceMax:2199000, rating:4.5, ncap:5, mileage:'36.2 kmpl range', mileageNum:65,
-        engine:'349cc engine · PMS motor', power:'167 PS', powerNum:167, torque:'27 Nm', torqueNum:215,
-        transmission:'Single-speed auto', driveType:'FWD', fuelTank:'349 cc',
-        length:4308, width:1810, height:1637, wheelbase:2560, groundClearance:190, bootSpace:500,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'12.3" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1660, warranty:'2y/75K km + 8y/160K km battery', colors:7,
-        why:'Best EV range in segment + ABS + Tripper Nav charging' },
-      { slug:'royal-enfield-punch', brand:'Royal Enfield', name:'Bullet 350', bodyType:'Micro-SUV', bodyKey:'suv', isEV:false, fuels:['Petrol','CNG'],
-        priceMin:614000, priceMax:1019000, rating:4.6, ncap:5, mileage:'18.8 km/L', mileageNum:18.8,
-        engine:'1.2L Petrol', power:'88 PS', powerNum:88, torque:'115 Nm', torqueNum:115,
-        transmission:'5-MT / 5-AMT', driveType:'FWD', fuelTank:'37 L',
-        length:3827, width:1742, height:1615, wheelbase:2445, groundClearance:187, bootSpace:366,
-        seats:5, airbags:6, abs:true, esc:false, hillHold:false, adas:false, sunroof:false,
-        infotainment:'7" touchscreen', wirelessConn:false, ventilated:false, cruise:false,
-        connectedBike:true, kerbWeight:1063, warranty:'2y/75K km', colors:5,
-        why:'Most affordable 5★ NCAP bike with city-friendly size' },
-      { slug:'royal-enfield-altroz', brand:'Royal Enfield', name:'Continental GT 650', bodyType:'Commuter', bodyKey:'hatchback', isEV:false, fuels:['Petrol','Diesel','CNG'],
-        priceMin:665000, priceMax:1119000, rating:4.5, ncap:5, mileage:'19.3 km/L', mileageNum:19.3,
-        engine:'1.2L Petrol / 1.5L Diesel', power:'90 PS', powerNum:90, torque:'200 Nm', torqueNum:200,
-        transmission:'5-MT / 7-DCT', driveType:'FWD', fuelTank:'37 L',
-        length:3990, width:1755, height:1523, wheelbase:2501, groundClearance:165, bootSpace:345,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:false, adas:false, sunroof:true,
-        infotainment:'7" touchscreen', wirelessConn:false, ventilated:false, cruise:false,
-        connectedBike:true, kerbWeight:1180, warranty:'2y/75K km', colors:6,
-        why:'Premium hatchback with diesel option + 5★ safety' },
-
-      // ──── Hyundai ────
-      { slug:'hyundai-creta', brand:'Hyundai', name:'Creta', bodyType:'Mid-size SUV', bodyKey:'suv', isEV:false, fuels:['Petrol','Diesel'],
-        priceMin:1100000, priceMax:2030000, rating:4.5, ncap:3, mileage:'17.0 km/L', mileageNum:17.0,
-        engine:'1.5L NA / 1.5L Turbo / 1.5L Diesel', power:'160 PS', powerNum:160, torque:'253 Nm', torqueNum:253,
-        transmission:'6-MT / 7-DCT / 6-AT / IVT', driveType:'FWD', fuelTank:'50 L',
-        length:4330, width:1790, height:1635, wheelbase:2610, groundClearance:190, bootSpace:433,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'10.25" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1370, warranty:'3y/100K km', colors:9,
-        why:'Best resale value SUV + Level 2 ABS' },
-      { slug:'hyundai-venue', brand:'Hyundai', name:'Venue', bodyType:'Naked', bodyKey:'suv', isEV:false, fuels:['Petrol','Diesel'],
-        priceMin:799000, priceMax:1393000, rating:4.4, ncap:3, mileage:'17.5 km/L', mileageNum:17.5,
-        engine:'1.2L / 1.0L Turbo / 1.5L Diesel', power:'120 PS', powerNum:120, torque:'172 Nm', torqueNum:172,
-        transmission:'5-MT / 6-MT / 7-DCT', driveType:'FWD', fuelTank:'45 L',
-        length:3995, width:1770, height:1605, wheelbase:2500, groundClearance:190, bootSpace:350,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:false, sunroof:true,
-        infotainment:'8" touchscreen', wirelessConn:true, ventilated:false, cruise:false,
-        connectedBike:true, kerbWeight:1190, warranty:'3y/100K km', colors:6,
-        why:'Compact + DCT auto + diesel option' },
-      { slug:'hyundai-i20', brand:'Hyundai', name:'i20', bodyType:'Commuter', bodyKey:'hatchback', isEV:false, fuels:['Petrol'],
-        priceMin:730000, priceMax:1117000, rating:4.3, ncap:3, mileage:'19.65 km/L', mileageNum:19.65,
-        engine:'1.2L NA / 1.0L Turbo', power:'120 PS', powerNum:120, torque:'172 Nm', torqueNum:172,
-        transmission:'5-MT / IVT / 7-DCT', driveType:'FWD', fuelTank:'37 L',
-        length:3995, width:1775, height:1505, wheelbase:2580, groundClearance:170, bootSpace:311,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:false, adas:false, sunroof:true,
-        infotainment:'10.25" touchscreen', wirelessConn:true, ventilated:false, cruise:false,
-        connectedBike:true, kerbWeight:1085, warranty:'3y/100K km', colors:7,
-        why:'Premium hatch with biggest infotainment in class' },
-      { slug:'hyundai-creta-ev', brand:'Hyundai', name:'Creta Electric', bodyType:'Mid-size SUV', bodyKey:'suv', isEV:true, fuels:['Petrol'],
-        priceMin:1799000, priceMax:2389000, rating:4.4, ncap:3, mileage:'473 km range', mileageNum:60,
-        engine:'51.4 kWh battery · PMS motor', power:'171 PS', powerNum:171, torque:'255 Nm', torqueNum:255,
-        transmission:'Single-speed auto', driveType:'FWD', fuelTank:'51.4 kWh',
-        length:4340, width:1790, height:1635, wheelbase:2610, groundClearance:190, bootSpace:433,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'10.25" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1700, warranty:'3y/unlimited + 8y/160K km battery', colors:7,
-        why:'Best refinement in EV class + premium feature loadout' },
-
-      // ──── Maruti Suzuki ────
-      { slug:'maruti-brezza', brand:'Maruti', name:'Brezza', bodyType:'Naked', bodyKey:'suv', isEV:false, fuels:['Petrol','CNG'],
-        priceMin:850000, priceMax:1429000, rating:4.4, ncap:4, mileage:'19.8 km/L', mileageNum:19.8,
-        engine:'1.5L K15C Smart Hybrid', power:'103 PS', powerNum:103, torque:'137 Nm', torqueNum:137,
-        transmission:'5-MT / 6-AT', driveType:'FWD', fuelTank:'48 L',
-        length:3995, width:1790, height:1685, wheelbase:2500, groundClearance:198, bootSpace:328,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:false, sunroof:true,
-        infotainment:'9" touchscreen', wirelessConn:true, ventilated:false, cruise:true,
-        connectedBike:true, kerbWeight:1150, warranty:'2y/40K km', colors:8,
-        why:'Best fuel efficiency + Maruti service network' },
-      { slug:'maruti-grand-vitara', brand:'Maruti', name:'Grand Vitara', bodyType:'Mid-size SUV', bodyKey:'suv', isEV:false, fuels:['Petrol','Hybrid'],
-        priceMin:1099000, priceMax:2099000, rating:4.4, ncap:0, mileage:'27.97 km/L', mileageNum:27.97,
-        engine:'1.5L Strong Hybrid', power:'116 PS', powerNum:116, torque:'141 Nm', torqueNum:141,
-        transmission:'5-MT / 6-AT / e-CVT', driveType:'FWD/AWD', fuelTank:'45 L',
-        length:4345, width:1795, height:1645, wheelbase:2600, groundClearance:208, bootSpace:373,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:false, sunroof:true,
-        infotainment:'9" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1320, warranty:'3y/100K km + 8y/160K km hybrid', colors:9,
-        why:'Best mileage SUV in India · strong hybrid' },
-      { slug:'maruti-baleno', brand:'Maruti', name:'Baleno', bodyType:'Commuter', bodyKey:'hatchback', isEV:false, fuels:['Petrol','CNG'],
-        priceMin:660000, priceMax:976000, rating:4.3, ncap:0, mileage:'22.94 km/L', mileageNum:22.94,
-        engine:'1.2L K12N DualJet', power:'90 PS', powerNum:90, torque:'113 Nm', torqueNum:113,
-        transmission:'5-MT / 5-AMT', driveType:'FWD', fuelTank:'37 L',
-        length:3990, width:1745, height:1500, wheelbase:2520, groundClearance:170, bootSpace:318,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:false, adas:false, sunroof:false,
-        infotainment:'9" touchscreen', wirelessConn:true, ventilated:false, cruise:true,
-        connectedBike:true, kerbWeight:920, warranty:'2y/40K km', colors:6,
-        why:'Best-selling premium hatchback · low cost of ownership' },
-      { slug:'maruti-swift', brand:'Maruti', name:'Swift', bodyType:'Commuter', bodyKey:'hatchback', isEV:false, fuels:['Petrol','CNG'],
-        priceMin:649000, priceMax:1009000, rating:4.4, ncap:1, mileage:'24.8 km/L', mileageNum:24.8,
-        engine:'1.2L Z12E Petrol', power:'82 PS', powerNum:82, torque:'112 Nm', torqueNum:112,
-        transmission:'5-MT / 5-AMT', driveType:'FWD', fuelTank:'37 L',
-        length:3860, width:1735, height:1520, wheelbase:2450, groundClearance:170, bootSpace:265,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:false, adas:false, sunroof:false,
-        infotainment:'9" touchscreen', wirelessConn:true, ventilated:false, cruise:false,
-        connectedBike:true, kerbWeight:920, warranty:'2y/40K km', colors:5,
-        why:'Iconic city hatchback · highest fuel efficiency' },
-
-      // ──── Mahindra ────
-      { slug:'mahindra-xuv-700', brand:'Mahindra', name:'XUV700', bodyType:'Mid-size SUV', bodyKey:'suv', isEV:false, fuels:['Petrol','Diesel'],
-        priceMin:1399000, priceMax:2675000, rating:4.6, ncap:5, mileage:'15.4 km/L', mileageNum:15.4,
-        engine:'2.0L Turbo Petrol / 2.2L Diesel', power:'200 PS', powerNum:200, torque:'380 Nm', torqueNum:380,
-        transmission:'6-MT / 6-AT', driveType:'FWD/AWD', fuelTank:'60 L',
-        length:4695, width:1890, height:1755, wheelbase:2750, groundClearance:200, bootSpace:240,
-        seats:7, airbags:7, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'Dual 10.25" displays', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1820, warranty:'3y/unlimited km', colors:6,
-        why:'Most powerful + 7 seats + ABS + AWD option' },
-      { slug:'mahindra-thar', brand:'Mahindra', name:'Thar', bodyType:'Off-road SUV', bodyKey:'suv', isEV:false, fuels:['Petrol','Diesel'],
-        priceMin:1149000, priceMax:1749000, rating:4.5, ncap:4, mileage:'15.2 km/L', mileageNum:15.2,
-        engine:'2.0L Turbo / 2.2L Diesel', power:'152 PS', powerNum:152, torque:'330 Nm', torqueNum:330,
-        transmission:'6-MT / 6-AT', driveType:'4WD', fuelTank:'57 L',
-        length:3985, width:1855, height:1844, wheelbase:2450, groundClearance:226, bootSpace:0,
-        seats:4, airbags:6, abs:true, esc:true, hillHold:true, adas:false, sunroof:false,
-        infotainment:'7" touchscreen', wirelessConn:false, ventilated:false, cruise:true,
-        connectedBike:false, kerbWeight:1858, warranty:'3y/100K km', colors:5,
-        why:'Only true off-road 4WD in segment + iconic styling' },
-      { slug:'mahindra-xuv-3xo', brand:'Mahindra', name:'XUV 3XO', bodyType:'Naked', bodyKey:'suv', isEV:false, fuels:['Petrol','Diesel'],
-        priceMin:799000, priceMax:1549000, rating:4.5, ncap:5, mileage:'18.9 km/L', mileageNum:18.9,
-        engine:'1.2L Turbo / 1.5L Diesel', power:'130 PS', powerNum:130, torque:'230 Nm', torqueNum:230,
-        transmission:'6-MT / 6-AT', driveType:'FWD', fuelTank:'42 L',
-        length:3990, width:1821, height:1647, wheelbase:2500, groundClearance:201, bootSpace:364,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'Dual 10.25" displays', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1290, warranty:'3y/unlimited km', colors:7,
-        why:'Loaded with features + ABS at sub-₹15L' },
-
-      // ──── Kia ────
-      { slug:'kia-seltos', brand:'Kia', name:'Seltos', bodyType:'Mid-size SUV', bodyKey:'suv', isEV:false, fuels:['Petrol','Diesel'],
-        priceMin:1090000, priceMax:2030000, rating:4.4, ncap:3, mileage:'17.7 km/L', mileageNum:17.7,
-        engine:'1.5L NA / 1.5L Turbo / 1.5L Diesel', power:'160 PS', powerNum:160, torque:'253 Nm', torqueNum:253,
-        transmission:'6-MT / 7-DCT / 6-AT / IVT', driveType:'FWD', fuelTank:'50 L',
-        length:4365, width:1800, height:1645, wheelbase:2610, groundClearance:190, bootSpace:433,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'10.25" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1320, warranty:'3y/unlimited km', colors:8,
-        why:'Best feature loadout in class + multiple powertrains' },
-      { slug:'kia-sonet', brand:'Kia', name:'Sonet', bodyType:'Naked', bodyKey:'suv', isEV:false, fuels:['Petrol','Diesel'],
-        priceMin:799000, priceMax:1579000, rating:4.4, ncap:3, mileage:'18.4 km/L', mileageNum:18.4,
-        engine:'1.2L NA / 1.0L Turbo / 1.5L Diesel', power:'120 PS', powerNum:120, torque:'172 Nm', torqueNum:172,
-        transmission:'5-MT / 6-MT / 7-DCT / 6-AT', driveType:'FWD', fuelTank:'45 L',
-        length:3995, width:1790, height:1642, wheelbase:2500, groundClearance:198, bootSpace:392,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'10.25" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1170, warranty:'3y/unlimited km', colors:6,
-        why:'Most powertrain options + Level 1 ABS' },
+      { slug:'royal-enfield-hunter-350', brand:'Royal Enfield', name:'Hunter 350', bodyType:'Naked / Roadster', bodyKey:'naked', isEV:false, fuels:['Petrol'],
+        priceMin:149900, priceMax:174900, rating:4.5, mileage:'36–40 kmpl', mileageNum:38,
+        engine:'349cc J-series, SOHC', power:'20.2 PS', powerNum:20.2, torque:'27 Nm', torqueNum:27,
+        transmission:'6-speed manual', driveType:'Chain', fuelTank:'13 L',
+        length:2058, width:800, height:1055, wheelbase:1370, groundClearance:150, seatHeight:790,
+        abs:'Dual-channel', connectedBike:true, kerbWeight:181, warranty:'2y/unlimited km', colors:8,
+        why:'Best-looking 350cc roadster · Tripper Nav · dual-channel ABS' },
+      { slug:'royal-enfield-meteor-350', brand:'Royal Enfield', name:'Meteor 350', bodyType:'Cruiser', bodyKey:'cruiser', isEV:false, fuels:['Petrol'],
+        priceMin:214990, priceMax:253990, rating:4.6, mileage:'36–42 kmpl', mileageNum:39,
+        engine:'349cc J-series, SOHC', power:'20.2 PS', powerNum:20.2, torque:'27 Nm', torqueNum:27,
+        transmission:'6-speed manual', driveType:'Chain', fuelTank:'15 L',
+        length:2160, width:855, height:1090, wheelbase:1500, groundClearance:170, seatHeight:765,
+        abs:'Dual-channel', connectedBike:true, kerbWeight:191, warranty:'2y/unlimited km', colors:9,
+        why:'Most comfortable long-distance cruiser in 350cc class' },
+      { slug:'royal-enfield-classic-350', brand:'Royal Enfield', name:'Classic 350', bodyType:'Classic / Retro', bodyKey:'classic', isEV:false, fuels:['Petrol'],
+        priceMin:193990, priceMax:227990, rating:4.5, mileage:'35–40 kmpl', mileageNum:37,
+        engine:'349cc J-series, SOHC', power:'20.2 PS', powerNum:20.2, torque:'27 Nm', torqueNum:27,
+        transmission:'6-speed manual', driveType:'Chain', fuelTank:'13 L',
+        length:2145, width:785, height:1090, wheelbase:1390, groundClearance:135, seatHeight:805,
+        abs:'Dual-channel', connectedBike:true, kerbWeight:195, warranty:'2y/unlimited km', colors:11,
+        why:'Iconic retro styling · widest colour range in segment' },
+      { slug:'royal-enfield-bullet-350', brand:'Royal Enfield', name:'Bullet 350', bodyType:'Classic / Retro', bodyKey:'classic', isEV:false, fuels:['Petrol'],
+        priceMin:174990, priceMax:193990, rating:4.4, mileage:'38–43 kmpl', mileageNum:40,
+        engine:'349cc J-series, SOHC', power:'20.4 PS', powerNum:20.4, torque:'27 Nm', torqueNum:27,
+        transmission:'5-speed manual', driveType:'Chain', fuelTank:'13 L',
+        length:2095, width:795, height:1100, wheelbase:1390, groundClearance:164, seatHeight:820,
+        abs:'Single-channel', connectedBike:false, kerbWeight:191, warranty:'2y/unlimited km', colors:5,
+        why:'Most fuel-efficient in lineup · classic thumper character' },
+      { slug:'royal-enfield-super-meteor-650', brand:'Royal Enfield', name:'Super Meteor 650', bodyType:'Cruiser', bodyKey:'cruiser', isEV:false, fuels:['Petrol'],
+        priceMin:349900, priceMax:374900, rating:4.7, mileage:'28–32 kmpl', mileageNum:30,
+        engine:'648cc parallel twin, DOHC', power:'47 PS', powerNum:47, torque:'52.3 Nm', torqueNum:52.3,
+        transmission:'6-speed manual', driveType:'Chain', fuelTank:'15.7 L',
+        length:2260, width:900, height:1110, wheelbase:1530, groundClearance:135, seatHeight:745,
+        abs:'Dual-channel', connectedBike:true, kerbWeight:241, warranty:'2y/unlimited km', colors:6,
+        why:'Smoothest parallel-twin cruiser · lowest seat height in 650 class' },
 
       // ──── Honda ────
-      { slug:'honda-elevate', brand:'Honda', name:'Elevate', bodyType:'Mid-size SUV', bodyKey:'suv', isEV:false, fuels:['Petrol'],
-        priceMin:1149000, priceMax:1660000, rating:4.3, ncap:5, mileage:'15.31 km/L', mileageNum:15.31,
-        engine:'1.5L i-VTEC Petrol', power:'121 PS', powerNum:121, torque:'145 Nm', torqueNum:145,
-        transmission:'6-MT / CVT', driveType:'FWD', fuelTank:'40 L',
-        length:4312, width:1790, height:1650, wheelbase:2650, groundClearance:220, bootSpace:458,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'10.25" touchscreen', wirelessConn:true, ventilated:false, cruise:true,
-        connectedBike:true, kerbWeight:1252, warranty:'3y/unlimited km', colors:5,
-        why:'Highest ground clearance + Honda Sensing ABS' },
-      { slug:'honda-amaze', brand:'Honda', name:'Amaze', bodyType:'Cruiser', bodyKey:'sedan', isEV:false, fuels:['Petrol'],
-        priceMin:799000, priceMax:1099000, rating:4.2, ncap:0, mileage:'18.65 km/L', mileageNum:18.65,
-        engine:'1.2L i-VTEC Petrol', power:'90 PS', powerNum:90, torque:'110 Nm', torqueNum:110,
-        transmission:'5-MT / CVT', driveType:'FWD', fuelTank:'35 L',
-        length:3995, width:1695, height:1498, wheelbase:2470, groundClearance:170, bootSpace:420,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:false,
-        infotainment:'8" touchscreen', wirelessConn:true, ventilated:false, cruise:true,
-        connectedBike:true, kerbWeight:1010, warranty:'3y/unlimited km', colors:5,
-        why:'Most affordable sedan with ABS' },
-      { slug:'honda-city', brand:'Honda', name:'City', bodyType:'Cruiser', bodyKey:'sedan', isEV:false, fuels:['Petrol','Hybrid'],
-        priceMin:1199000, priceMax:2055000, rating:4.4, ncap:5, mileage:'27.13 km/L', mileageNum:27.13,
-        engine:'1.5L i-VTEC / e:HEV Hybrid', power:'126 PS', powerNum:126, torque:'253 Nm', torqueNum:253,
-        transmission:'6-MT / CVT / e-CVT', driveType:'FWD', fuelTank:'40 L',
-        length:4549, width:1748, height:1489, wheelbase:2600, groundClearance:165, bootSpace:506,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'8" touchscreen', wirelessConn:true, ventilated:false, cruise:true,
-        connectedBike:true, kerbWeight:1153, warranty:'3y/unlimited km', colors:5,
-        why:'Largest sedan + strong hybrid + 5★ NCAP' },
+      { slug:'honda-cb350-hness', brand:'Honda', name:"H'Ness CB350", bodyType:'Classic / Retro', bodyKey:'classic', isEV:false, fuels:['Petrol'],
+        priceMin:209900, priceMax:227400, rating:4.5, mileage:'40–45 kmpl', mileageNum:42,
+        engine:'348.36cc single, SOHC', power:'21.07 PS', powerNum:21.07, torque:'30 Nm', torqueNum:30,
+        transmission:'5-speed manual', driveType:'Chain', fuelTank:'15 L',
+        length:2187, width:800, height:1107, wheelbase:1441, groundClearance:166, seatHeight:800,
+        abs:'Dual-channel', connectedBike:true, kerbWeight:182, warranty:'3y/unlimited km', colors:5,
+        why:'Best mileage in class · Honda reliability · longest warranty' },
+      { slug:'honda-cb300r', brand:'Honda', name:'CB300R', bodyType:'Naked / Roadster', bodyKey:'naked', isEV:false, fuels:['Petrol'],
+        priceMin:302900, priceMax:302900, rating:4.3, mileage:'32–36 kmpl', mileageNum:34,
+        engine:'286cc single, DOHC', power:'30.97 PS', powerNum:30.97, torque:'27.5 Nm', torqueNum:27.5,
+        transmission:'6-speed manual', driveType:'Chain', fuelTank:'10 L',
+        length:2025, width:780, height:1030, wheelbase:1353, groundClearance:143, seatHeight:800,
+        abs:'Single-channel', connectedBike:false, kerbWeight:147, warranty:'2y/unlimited km', colors:3,
+        why:'Lightest naked in segment · premium Neo Sports Café styling' },
 
-      // ──── Toyota ────
-      { slug:'toyota-innova-hycross', brand:'Toyota', name:'Innova Hycross', bodyType:'MPV', bodyKey:'mpv', isEV:false, fuels:['Petrol','Hybrid'],
-        priceMin:1900000, priceMax:3055000, rating:4.5, ncap:0, mileage:'23.24 km/L', mileageNum:23.24,
-        engine:'2.0L Petrol / 2.0L Strong Hybrid', power:'186 PS', powerNum:186, torque:'205 Nm', torqueNum:205,
-        transmission:'CVT / e-CVT', driveType:'FWD', fuelTank:'52 L',
-        length:4755, width:1850, height:1795, wheelbase:2850, groundClearance:185, bootSpace:300,
-        seats:7, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'10.1" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1750, warranty:'3y/100K km + 8y/160K km hybrid', colors:6,
-        why:'Best 7-seater MPV with strong hybrid + Toyota reliability' },
-      { slug:'toyota-hyryder', brand:'Toyota', name:'Urban Cruiser Hyryder', bodyType:'Mid-size SUV', bodyKey:'suv', isEV:false, fuels:['Petrol','Hybrid','CNG'],
-        priceMin:1129000, priceMax:2049000, rating:4.4, ncap:0, mileage:'27.97 km/L', mileageNum:27.97,
-        engine:'1.5L Strong Hybrid', power:'116 PS', powerNum:116, torque:'141 Nm', torqueNum:141,
-        transmission:'5-MT / 6-AT / e-CVT', driveType:'FWD/AWD', fuelTank:'45 L',
-        length:4365, width:1795, height:1645, wheelbase:2600, groundClearance:208, bootSpace:373,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:false, sunroof:true,
-        infotainment:'9" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1320, warranty:'3y/100K km + 8y/160K km hybrid', colors:8,
-        why:'Top-rated mileage + AWD option + Toyota network' },
+      // ──── Bajaj ────
+      { slug:'bajaj-dominar-400', brand:'Bajaj', name:'Dominar 400', bodyType:'Sport / Tourer', bodyKey:'sport', isEV:false, fuels:['Petrol'],
+        priceMin:234990, priceMax:242490, rating:4.4, mileage:'28–33 kmpl', mileageNum:30,
+        engine:'373.3cc single, DOHC', power:'40 PS', powerNum:40, torque:'35 Nm', torqueNum:35,
+        transmission:'6-speed manual', driveType:'Chain', fuelTank:'13 L',
+        length:2155, width:838, height:1112, wheelbase:1453, groundClearance:163, seatHeight:800,
+        abs:'Dual-channel', connectedBike:true, kerbWeight:182, warranty:'2y/unlimited km', colors:4,
+        why:'Most powerful sub-₹2.5L bike · slipper clutch · touring ready' },
+      { slug:'bajaj-pulsar-ns400z', brand:'Bajaj', name:'Pulsar NS400Z', bodyType:'Naked / Roadster', bodyKey:'naked', isEV:false, fuels:['Petrol'],
+        priceMin:187990, priceMax:199990, rating:4.5, mileage:'28–33 kmpl', mileageNum:31,
+        engine:'373.3cc single, DOHC', power:'40 PS', powerNum:40, torque:'35 Nm', torqueNum:35,
+        transmission:'6-speed manual', driveType:'Chain', fuelTank:'14 L',
+        length:2050, width:815, height:1095, wheelbase:1375, groundClearance:165, seatHeight:805,
+        abs:'Dual-channel', connectedBike:true, kerbWeight:174, warranty:'2y/unlimited km', colors:3,
+        why:'Highest power under ₹2L · TFT display · slipper clutch' },
 
-      // ──── MG ────
-      { slug:'mg-windsor-ev', brand:'MG', name:'Windsor EV', bodyType:'Crossover EV', bodyKey:'suv', isEV:true, fuels:['Petrol'],
-        priceMin:1399000, priceMax:1799000, rating:4.4, ncap:0, mileage:'331 km range', mileageNum:50,
-        engine:'38 kWh battery', power:'136 PS', powerNum:136, torque:'200 Nm', torqueNum:200,
-        transmission:'Single-speed auto', driveType:'FWD', fuelTank:'38 kWh',
-        length:4295, width:1850, height:1677, wheelbase:2700, groundClearance:186, bootSpace:579,
-        seats:5, airbags:6, abs:true, esc:true, hillHold:true, adas:true, sunroof:true,
-        infotainment:'15.6" touchscreen', wirelessConn:true, ventilated:true, cruise:true,
-        connectedBike:true, kerbWeight:1500, warranty:'5y/unlimited km + battery as a service', colors:5,
-        why:'BaaS pricing makes EV ownership accessible · biggest screen' },
+      // ──── KTM ────
+      { slug:'ktm-duke-390', brand:'KTM', name:'Duke 390', bodyType:'Naked / Roadster', bodyKey:'naked', isEV:false, fuels:['Petrol'],
+        priceMin:320000, priceMax:320000, rating:4.5, mileage:'27–32 kmpl', mileageNum:29,
+        engine:'398.7cc single, DOHC', power:'46 PS', powerNum:46, torque:'39 Nm', torqueNum:39,
+        transmission:'6-speed manual', driveType:'Chain', fuelTank:'13.4 L',
+        length:2000, width:827, height:1090, wheelbase:1367, groundClearance:185, seatHeight:830,
+        abs:'Cornering ABS', connectedBike:true, kerbWeight:163, warranty:'2y/unlimited km', colors:2,
+        why:'Lightest in class · cornering ABS · most track-focused' },
+
+      // ──── Yamaha ────
+      { slug:'yamaha-fz-x', brand:'Yamaha', name:'FZ-X', bodyType:'Naked / Roadster', bodyKey:'naked', isEV:false, fuels:['Petrol'],
+        priceMin:132900, priceMax:134900, rating:4.3, mileage:'40–45 kmpl', mileageNum:42,
+        engine:'149cc single, SOHC', power:'12.4 PS', powerNum:12.4, torque:'13.3 Nm', torqueNum:13.3,
+        transmission:'5-speed manual', driveType:'Chain', fuelTank:'10 L',
+        length:2010, width:785, height:1085, wheelbase:1330, groundClearance:167, seatHeight:795,
+        abs:'Single-channel', connectedBike:true, kerbWeight:139, warranty:'2y/unlimited km', colors:4,
+        why:'Most fuel-efficient · connected Bluetooth cluster · city agility' },
+
+      // ──── TVS ────
+      { slug:'tvs-ronin', brand:'TVS', name:'Ronin', bodyType:'Naked / Roadster', bodyKey:'naked', isEV:false, fuels:['Petrol'],
+        priceMin:149990, priceMax:180990, rating:4.4, mileage:'35–40 kmpl', mileageNum:37,
+        engine:'225.9cc single, SOHC', power:'20.4 PS', powerNum:20.4, torque:'19.93 Nm', torqueNum:19.93,
+        transmission:'5-speed manual', driveType:'Chain', fuelTank:'14 L',
+        length:2077, width:854, height:1080, wheelbase:1382, groundClearance:181, seatHeight:810,
+        abs:'Dual-channel', connectedBike:true, kerbWeight:160, warranty:'2y/unlimited km', colors:7,
+        why:'Most stylish in segment · SmartXonnect app · versatile riding modes' },
     ];
 
     // ─── Slug index for O(1) lookup ───
@@ -4897,47 +4772,120 @@ loDetect.addEventListener('click',()=>{
       { section: 'pricing', label: 'Pricing', meta: 'Ex-showroom price range across all variants' },
       { label: 'Ex-showroom price', sub: 'From the cheapest variant', key: 'priceMin', format: 'lakh', betterWhen: 'lower' },
       { label: 'Top variant price', sub: 'Most loaded variant', key: 'priceMax', format: 'lakh', betterWhen: null },
-      { label: 'On-road price (city)', sub: 'Includes RTO + insurance + others', key: '_orpEstimate', format: 'lakh', betterWhen: 'lower' },
+      { label: 'On-road price (city)', sub: 'Includes RTO + insurance + handling', key: '_orpEstimate', format: 'lakh', betterWhen: 'lower' },
 
-      { section: 'powertrain', label: 'Powertrain', meta: 'Engine, transmission, and fuel options' },
-      { label: 'Fuel options', key: 'fuels', format: 'fuels', betterWhen: null },
-      { label: 'Engine / battery', key: 'engine', format: 'text', betterWhen: null },
-      { label: 'Power', sub: 'Maximum power output', key: 'powerNum', display: 'power', format: 'text', betterWhen: 'higher' },
-      { label: 'Torque', sub: 'Peak torque', key: 'torqueNum', display: 'torque', format: 'text', betterWhen: 'higher' },
+      { section: 'power_performance', label: 'Power and Performance', meta: 'Engine, output, and performance specs' },
+      { label: 'Displacement', key: 'engine', format: 'text', betterWhen: null },
+      { label: 'Max Power', key: 'powerNum', display: 'power', format: 'text', betterWhen: 'higher' },
+      { label: 'Max Torque', key: 'torqueNum', display: 'torque', format: 'text', betterWhen: 'higher' },
+      { label: 'Top Speed', key: 'topSpeed', format: 'text', betterWhen: 'higher' },
+      { label: 'Mileage - Owner Reported', key: 'mileageNum', display: 'mileage', format: 'text', betterWhen: 'higher' },
       { label: 'Transmission', key: 'transmission', format: 'text', betterWhen: null },
-      { label: 'Drive type', key: 'driveType', format: 'text', betterWhen: null },
-      { label: 'Mileage / range', sub: 'Real-world claimed', key: 'mileageNum', display: 'mileage', format: 'text', betterWhen: 'higher' },
-      { label: 'Fuel tank / battery', key: 'fuelTank', format: 'text', betterWhen: null },
+      { label: 'Transmission Type', key: 'driveType', format: 'text', betterWhen: null },
+      { label: 'Gear Shifting Pattern', key: 'gearPattern', format: 'text', betterWhen: null },
+      { label: 'Clutch', key: 'clutch', format: 'text', betterWhen: null },
+      { label: 'Riding Range', key: 'ridingRange', format: 'text', betterWhen: 'higher' },
+      { label: 'Riding Modes', key: 'ridingModes', format: 'text', betterWhen: null },
+      { label: 'Engine Type', key: 'engineType', format: 'text', betterWhen: null },
+      { label: 'Bore x Stroke', key: 'boreStroke', format: 'text', betterWhen: null },
+      { label: 'Compression Ratio', key: 'compressionRatio', format: 'text', betterWhen: null },
+      { label: 'Spark Plugs', key: 'sparkPlugs', format: 'text', betterWhen: null },
+      { label: 'Battery', key: 'battery', format: 'text', betterWhen: null },
+      { label: 'Emission Standard', key: 'emissionStandard', format: 'text', betterWhen: null },
+      { label: 'Fuel Type', key: 'fuels', format: 'fuels', betterWhen: null },
 
-      { section: 'dimensions', label: 'Dimensions', meta: 'Size, capacity, ground clearance' },
-      { label: 'Length', key: 'length', format: 'mm', betterWhen: null },
-      { label: 'Width', key: 'width', format: 'mm', betterWhen: null },
-      { label: 'Height', key: 'height', format: 'mm', betterWhen: null },
-      { label: 'Wheelbase', sub: 'Cabin space proxy', key: 'wheelbase', format: 'mm', betterWhen: 'higher' },
+      { section: 'brakes', label: 'Brakes', meta: 'Braking system and ABS type' },
+      { label: 'Front brake', key: 'frontBrake', format: 'text', betterWhen: null },
+      { label: 'Rear brake', key: 'rearBrake', format: 'text', betterWhen: null },
+      { label: 'ABS type', sub: 'Single / Dual-channel / Cornering', key: 'absType', format: 'text', betterWhen: null },
+      { label: 'Slipper clutch', key: 'slipperClutch', format: 'bool', betterWhen: 'true' },
+
+      { section: 'wheels', label: 'Wheels', meta: 'Tyre size and wheel type' },
+      { label: 'Front tyre', key: 'frontTyre', format: 'text', betterWhen: null },
+      { label: 'Rear tyre', key: 'rearTyre', format: 'text', betterWhen: null },
+      { label: 'Wheel type', sub: 'Alloy / Spoke', key: 'wheelType', format: 'text', betterWhen: null },
+
+      { section: 'suspension_chassis', label: 'Suspension & Chassis', meta: 'Ride quality and handling geometry' },
+      { label: 'Front suspension', key: 'frontSuspension', format: 'text', betterWhen: null },
+      { label: 'Rear suspension', key: 'rearSuspension', format: 'text', betterWhen: null },
       { label: 'Ground clearance', key: 'groundClearance', format: 'mm', betterWhen: 'higher' },
-      { label: 'Boot space', key: 'bootSpace', format: 'L', betterWhen: 'higher' },
-      { label: 'Seating capacity', key: 'seats', format: 'seats', betterWhen: 'higher' },
-      { label: 'Kerb weight', key: 'kerbWeight', format: 'kg', betterWhen: null },
+      { label: 'Wheelbase', key: 'wheelbase', format: 'mm', betterWhen: null },
+      { label: 'Seat height', sub: 'Rider ergonomics', key: 'seatHeight', format: 'mm', betterWhen: null },
+      { label: 'Kerb weight', key: 'kerbWeight', format: 'kg', betterWhen: 'lower' },
 
-      { section: 'safety', label: 'Safety', meta: 'NCAP rating, airbags, electronic aids' },
-      { label: 'Global NCAP rating', sub: 'Out of 5 stars', key: 'ncap', format: 'stars', betterWhen: 'higher' },
-      { label: 'Airbags', key: 'airbags', format: 'count', betterWhen: 'higher' },
-      { label: 'ABS with EBD', key: 'abs', format: 'bool', betterWhen: 'true' },
-      { label: 'Electronic Stability Control', key: 'esc', format: 'bool', betterWhen: 'true' },
-      { label: 'Hill-hold assist', key: 'hillHold', format: 'bool', betterWhen: 'true' },
-      { label: 'ABS', sub: 'Lane assist, AEB, adaptive cruise', key: 'adas', format: 'bool', betterWhen: 'true' },
+      { section: 'design_styling', label: 'Design and Styling', meta: 'Dimensions, weight, and ergonomics' },
+      { label: 'Kerb Weight', key: 'kerbWeight', format: 'kg', betterWhen: 'lower' },
+      { label: 'Seat Height', key: 'seatHeight', format: 'mm', betterWhen: null },
+      { label: 'Seat Length', key: 'seatLength', format: 'mm', betterWhen: null },
+      { label: 'Ground Clearance', key: 'groundClearance', format: 'mm', betterWhen: 'higher' },
+      { label: 'Fuel Tank Capacity', key: 'fuelTank', format: 'text', betterWhen: 'higher' },
+      { label: 'Reserve Fuel Capacity', key: 'reserveFuel', format: 'text', betterWhen: null },
+      { label: 'Overall Dimensions (LxWxH)', key: 'dimensions', format: 'text', betterWhen: null },
+      { label: 'Wheelbase', key: 'wheelbase', format: 'mm', betterWhen: null },
 
-      { section: 'features', label: 'Features &amp; tech', meta: 'Comfort and convenience features' },
-      { label: 'LED', key: 'sunroof', format: 'bool', betterWhen: 'true' },
-      { label: 'Infotainment', key: 'infotainment', format: 'text', betterWhen: null },
-      { label: 'Wireless Apple BikePlay/Android Auto', key: 'wirelessConn', format: 'bool', betterWhen: 'true' },
-      { label: 'Ventilated front seats', key: 'ventilated', format: 'bool', betterWhen: 'true' },
-      { label: 'Cruise control', key: 'cruise', format: 'bool', betterWhen: 'true' },
-      { label: 'Connected bike tech', key: 'connectedBike', format: 'bool', betterWhen: 'true' },
+      { section: 'instrument_cluster', label: 'Instrument Cluster', meta: 'Display, connectivity, and indicators' },
+      { label: 'Instrument Console', key: 'instrumentType', format: 'text', betterWhen: null },
+      { label: 'Mobile Phone Connectivity', key: 'bluetooth', format: 'bool', betterWhen: 'true' },
+      { label: 'GPS & Navigation', key: 'navigationPod', format: 'bool', betterWhen: 'true' },
+      { label: 'Average Fuel Consumption', key: 'avgFuelConsumption', format: 'bool', betterWhen: 'true' },
+      { label: 'Real Time Mileage Indicator', key: 'realtimeMileage', format: 'bool', betterWhen: 'true' },
+      { label: 'Speedometer', key: 'speedometer', format: 'bool', betterWhen: 'true' },
+      { label: 'Odometer', key: 'odometer', format: 'bool', betterWhen: 'true' },
+      { label: 'Fuel Gauge', key: 'fuelGauge', format: 'bool', betterWhen: 'true' },
+      { label: 'Distance to Empty', key: 'distanceToEmpty', format: 'bool', betterWhen: 'true' },
+      { label: 'Voice Assist', key: 'voiceAssist', format: 'bool', betterWhen: 'true' },
+      { label: 'Tripmeter', key: 'tripmeter', format: 'bool', betterWhen: 'true' },
+      { label: 'Tachometer', key: 'tachometer', format: 'bool', betterWhen: 'true' },
+      { label: 'Stand Alarm', key: 'standAlarm', format: 'bool', betterWhen: 'true' },
+      { label: 'Gear Indicator', key: 'gearIndicator', format: 'bool', betterWhen: 'true' },
+      { label: 'Gear Shift Light', key: 'gearShiftLight', format: 'bool', betterWhen: 'true' },
+      { label: 'Low Battery Indicator', key: 'lowBatteryIndicator', format: 'bool', betterWhen: 'true' },
+      { label: 'Low Fuel Indicator', key: 'lowFuelIndicator', format: 'bool', betterWhen: 'true' },
+      { label: 'Low Oil Indicator', key: 'lowOilIndicator', format: 'bool', betterWhen: 'true' },
+      { label: 'Service Reminder Indicator', key: 'serviceReminder', format: 'bool', betterWhen: 'true' },
+      { label: 'Hazard Warning Indicator', key: 'hazardWarning', format: 'bool', betterWhen: 'true' },
+      { label: 'High Beam Indicator', key: 'highBeamIndicator', format: 'bool', betterWhen: 'true' },
+      { label: 'Engine Temperature Indicator', key: 'engineTempIndicator', format: 'bool', betterWhen: 'true' },
+      { label: 'Malfunction Indicator', key: 'malfunctionIndicator', format: 'bool', betterWhen: 'true' },
+      { label: 'Average Speed', key: 'avgSpeed', format: 'bool', betterWhen: 'true' },
+      { label: 'OTA Updates', key: 'otaUpdates', format: 'bool', betterWhen: 'true' },
+      { label: 'Call/SMS Alerts', key: 'callSmsAlerts', format: 'bool', betterWhen: 'true' },
+      { label: 'Clock', key: 'clock', format: 'bool', betterWhen: 'true' },
 
-      { section: 'ownership', label: 'Ownership', meta: 'Warranty and customer ratings' },
+      { section: 'safety_feat', label: 'Safety', meta: 'Braking, electronic aids, and protective features' },
+      { label: 'Saree Guard', key: 'sareeGuard', format: 'bool', betterWhen: 'true' },
+      { label: 'Quickshifter', key: 'quickshifter', format: 'bool', betterWhen: 'true' },
+      { label: 'Traction Control', key: 'tractionControl', format: 'bool', betterWhen: 'true' },
+      { label: 'Cruise Control', key: 'cruise', format: 'bool', betterWhen: 'true' },
+      { label: 'Side Stand Engine/Motor Cut-off', key: 'sideStandCutoff', format: 'bool', betterWhen: 'true' },
+      { label: 'Silencer Cover', key: 'silencerCover', format: 'bool', betterWhen: 'true' },
+      { label: 'Kill Switch', key: 'killSwitch', format: 'bool', betterWhen: 'true' },
+
+      { section: 'convenience', label: 'Convenience', meta: 'Comfort, connectivity, and utility features' },
+      { label: 'Vehicle Location Tracking', key: 'locationTracking', format: 'bool', betterWhen: 'true' },
+      { label: 'USB Charging Port', key: 'usbCharge', format: 'bool', betterWhen: 'true' },
+      { label: 'Keyless Lock/Unlock', key: 'keylessLock', format: 'bool', betterWhen: 'true' },
+      { label: 'Start Type', key: 'startType', format: 'text', betterWhen: null },
+      { label: 'Automatic Start Stop', key: 'autoStartStop', format: 'bool', betterWhen: 'true' },
+      { label: 'Ride by Wire', key: 'rideByWire', format: 'bool', betterWhen: 'true' },
+      { label: 'Tyre Pressure Monitoring System', key: 'tpms', format: 'bool', betterWhen: 'true' },
+      { label: 'Silent Start', key: 'silentStart', format: 'bool', betterWhen: 'true' },
+      { label: 'Heated Grip', key: 'heatedGrip', format: 'bool', betterWhen: 'true' },
+
+      { section: 'lights', label: 'Lights', meta: 'Lighting technology across the bike' },
+      { label: 'Headlight type', key: 'headlightType', format: 'text', betterWhen: null },
+      { label: 'Tail light type', key: 'tailLightType', format: 'text', betterWhen: null },
+      { label: 'Turn signal type', key: 'turnSignalType', format: 'text', betterWhen: null },
+
+      { section: 'seating_storage', label: 'Seating Comfort and Storage', meta: 'Ergonomics and luggage capacity' },
+      { label: 'Pillion grab rail', key: 'pillionGrabRail', format: 'bool', betterWhen: 'true' },
+      { label: 'Pillion footrest', key: 'pillionFootrest', format: 'bool', betterWhen: 'true' },
+      { label: 'Under-seat storage', key: 'underSeatStorage', format: 'text', betterWhen: null },
+      { label: 'Saree / leg guard', key: 'sareeGuard', format: 'bool', betterWhen: 'true' },
+
+      { section: 'ownership', label: 'Manufacturer Warranty', meta: 'Warranty coverage and service schedule' },
       { label: 'Warranty', key: 'warranty', format: 'text', betterWhen: null },
-      { label: 'Color options', key: 'colors', format: 'count', betterWhen: 'higher' },
+      { label: 'Service interval', key: 'serviceInterval', format: 'text', betterWhen: null },
       { label: 'Owner rating', sub: 'Verified owner reviews', key: 'rating', format: 'rating', betterWhen: 'higher' },
     ];
 
@@ -5192,18 +5140,37 @@ loDetect.addEventListener('click',()=>{
       });
       html += '</tr></thead><tbody>';
 
-      // Spec rows grouped by section
+      // Spec rows grouped by section — collapsible
+      const DEFAULT_OPEN = ['pricing','power_performance'];
+      let currentSection = null;
+      let rowsInSection = 0;
+
+      // First pass: count rows per section
+      const sectionCounts = {};
+      let curSec = null;
+      CMP_ROWS.forEach(row => {
+        if (row.section) { curSec = row.section; sectionCounts[curSec] = 0; }
+        else if (curSec) sectionCounts[curSec]++;
+      });
+
       CMP_ROWS.forEach(row => {
         if (row.section) {
-          // Section header row — spans all columns
-          html += '<tr class="section-row"><td colspan="5">' + row.label +
-            (row.meta ? '<span class="section-meta">' + row.meta + '</span>' : '') +
-            '</td></tr>';
+          currentSection = row.section;
+          const isOpen = DEFAULT_OPEN.includes(row.section);
+          const count = sectionCounts[row.section] || 0;
+          const chevronSvg = '<svg class="sec-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>';
+          html += '<tr class="section-row' + (isOpen ? '' : ' collapsed') + '" data-sec="' + row.section + '" onclick="toggleSection(this)">' +
+            '<td colspan="5"><div class="sec-inner">' +
+              '<span><span class="sec-label">' + row.label + '</span>' +
+              '<span class="sec-count">' + count + ' specs</span></span>' +
+              chevronSvg +
+            '</div></td></tr>';
           return;
         }
 
+        const isOpen = DEFAULT_OPEN.includes(currentSection);
         const bestSlots = findBestSlots(row, slotVehicles);
-        html += '<tr>';
+        html += '<tr class="data-row' + (isOpen ? '' : ' hidden') + '" data-sec="' + currentSection + '">';
         html += '<td class="label-cell">' + row.label + (row.sub ? '<small>' + row.sub + '</small>' : '') + '</td>';
         slotVehicles.forEach((v, i) => {
           const isBest = bestSlots.includes(i);
@@ -5218,6 +5185,14 @@ loDetect.addEventListener('click',()=>{
       html += '</tbody>';
       tbl.innerHTML = html;
     }
+
+    window.toggleSection = function(headerRow) {
+      const sec = headerRow.dataset.sec;
+      const isCollapsed = headerRow.classList.toggle('collapsed');
+      document.querySelectorAll('#cmpTable tr.data-row[data-sec="' + sec + '"]').forEach(r => {
+        r.classList.toggle('hidden', isCollapsed);
+      });
+    };
 
     // ─── Verdict — pick winners across categories ───
     function renderVerdict() {
@@ -6408,25 +6383,25 @@ renderAll('bikes');
 (function(){
   // ─── Bike catalogue with priority scores (1-10 per attribute) ───
   const CARS = [
-    {brand:'Royal Enfield',      name:'Hunter 350',         body:'SUV',         fuel:'Petrol', priceLow:17.49, priceHigh:21.99, range:9, safety:9, boot:6, performance:7, comfort:8, tech:9, brandRep:7, resale:8, seating:5, kmFit:'mixed',   img:'',     range_str:'585 km'},
-    {brand:'Royal Enfield',      name:'Meteor 350 EV',         body:'Naked', fuel:'Petrol', priceLow:14.49, priceHigh:19.49, range:7, safety:9, boot:7, performance:6, comfort:7, tech:8, brandRep:7, resale:8, seating:5, kmFit:'commute', img:'',     range_str:'465 km'},
-    {brand:'Mahindra',  name:'BE 6',             body:'SUV',         fuel:'Petrol', priceLow:18.90, priceHigh:26.90, range:10,safety:8, boot:7, performance:9, comfort:8, tech:8, brandRep:7, resale:7, seating:5, kmFit:'highway', img:'',     range_str:'682 km'},
-    {brand:'MG',        name:'ZS EV',            body:'SUV',         fuel:'Petrol', priceLow:18.50, priceHigh:24.18, range:8, safety:7, boot:7, performance:7, comfort:7, tech:7, brandRep:6, resale:6, seating:5, kmFit:'commute', img:'',     range_str:'461 km'},
-    {brand:'Hyundai',   name:'Creta Electric',   body:'SUV',         fuel:'Petrol', priceLow:17.99, priceHigh:23.50, range:8, safety:8, boot:8, performance:7, comfort:9, tech:9, brandRep:9, resale:8, seating:5, kmFit:'mixed',   img:'',     range_str:'473 km'},
-    {brand:'BYD',       name:'Atto 3',           body:'SUV',         fuel:'Petrol', priceLow:24.99, priceHigh:33.99, range:9, safety:8, boot:8, performance:8, comfort:8, tech:8, brandRep:6, resale:6, seating:5, kmFit:'highway', img:'',     range_str:'521 km'},
-    {brand:'Mahindra',  name:'XUV400 EV',        body:'Naked', fuel:'Petrol', priceLow:15.49, priceHigh:19.39, range:8, safety:8, boot:8, performance:7, comfort:7, tech:7, brandRep:7, resale:7, seating:5, kmFit:'commute', img:'',     range_str:'456 km'},
-    {brand:'Royal Enfield',      name:'Bullet 350 EV',         body:'Naked', fuel:'Petrol', priceLow:11.00, priceHigh:14.40, range:6, safety:9, boot:6, performance:5, comfort:6, tech:7, brandRep:7, resale:7, seating:5, kmFit:'commute', img:'',     range_str:'315 km'},
+    {brand:'Royal Enfield',      name:'Hunter 350',         body:'Street Bike',         fuel:'Petrol', priceLow:17.49, priceHigh:21.99, range:9, safety:9, boot:6, performance:7, comfort:8, tech:9, brandRep:7, resale:8, seating:5, kmFit:'mixed',   img:'',     range_str:'585 km'},
+    {brand:'Royal Enfield',      name:'Meteor 350 EV',         body:'Street Bike', fuel:'Petrol', priceLow:14.49, priceHigh:19.49, range:7, safety:9, boot:7, performance:6, comfort:7, tech:8, brandRep:7, resale:8, seating:5, kmFit:'commute', img:'',     range_str:'465 km'},
+    {brand:'Mahindra',  name:'BE 6',             body:'Street Bike',         fuel:'Petrol', priceLow:18.90, priceHigh:26.90, range:10,safety:8, boot:7, performance:9, comfort:8, tech:8, brandRep:7, resale:7, seating:5, kmFit:'highway', img:'',     range_str:'682 km'},
+    {brand:'MG',        name:'ZS EV',            body:'Street Bike',         fuel:'Petrol', priceLow:18.50, priceHigh:24.18, range:8, safety:7, boot:7, performance:7, comfort:7, tech:7, brandRep:6, resale:6, seating:5, kmFit:'commute', img:'',     range_str:'461 km'},
+    {brand:'Hyundai',   name:'Creta Electric',   body:'Street Bike',         fuel:'Petrol', priceLow:17.99, priceHigh:23.50, range:8, safety:8, boot:8, performance:7, comfort:9, tech:9, brandRep:9, resale:8, seating:5, kmFit:'mixed',   img:'',     range_str:'473 km'},
+    {brand:'BYD',       name:'Atto 3',           body:'Street Bike',         fuel:'Petrol', priceLow:24.99, priceHigh:33.99, range:9, safety:8, boot:8, performance:8, comfort:8, tech:8, brandRep:6, resale:6, seating:5, kmFit:'highway', img:'',     range_str:'521 km'},
+    {brand:'Mahindra',  name:'XUV400 EV',        body:'Street Bike', fuel:'Petrol', priceLow:15.49, priceHigh:19.39, range:8, safety:8, boot:8, performance:7, comfort:7, tech:7, brandRep:7, resale:7, seating:5, kmFit:'commute', img:'',     range_str:'456 km'},
+    {brand:'Royal Enfield',      name:'Bullet 350 EV',         body:'Street Bike', fuel:'Petrol', priceLow:11.00, priceHigh:14.40, range:6, safety:9, boot:6, performance:5, comfort:6, tech:7, brandRep:7, resale:7, seating:5, kmFit:'commute', img:'',     range_str:'315 km'},
     {brand:'Citroen',   name:'eC3',              body:'Commuter',   fuel:'Petrol', priceLow:12.84, priceHigh:15.05, range:6, safety:6, boot:5, performance:5, comfort:6, tech:6, brandRep:5, resale:5, seating:5, kmFit:'commute', img:'',     range_str:'320 km'},
-    {brand:'Royal Enfield',      name:'Himalayan 450',          body:'SUV',         fuel:'Diesel',   priceLow:15.49, priceHigh:26.50, range:8, safety:9, boot:9, performance:8, comfort:8, tech:8, brandRep:7, resale:8, seating:5, kmFit:'mixed',   img:'ice',  range_str:'17.2 kmpl'},
-    {brand:'Mahindra',  name:'XUV700',           body:'SUV',         fuel:'Diesel',   priceLow:14.18, priceHigh:26.99, range:8, safety:9, boot:9, performance:8, comfort:8, tech:8, brandRep:7, resale:8, seating:7, kmFit:'highway', img:'dark', range_str:'16.1 kmpl'},
-    {brand:'Maruti',    name:'Grand Vitara',     body:'SUV',         fuel:'Hybrid',   priceLow:11.42, priceHigh:20.20, range:9, safety:7, boot:7, performance:6, comfort:7, tech:7, brandRep:9, resale:9, seating:5, kmFit:'mixed',   img:'warm', range_str:'27.97 kmpl'},
-    {brand:'Hyundai',   name:'Creta',            body:'SUV',         fuel:'Petrol',   priceLow:11.11, priceHigh:20.45, range:7, safety:7, boot:7, performance:7, comfort:8, tech:8, brandRep:9, resale:8, seating:5, kmFit:'mixed',   img:'ice',  range_str:'17.4 kmpl'},
-    {brand:'Skoda',     name:'Kushaq',           body:'SUV',         fuel:'Petrol',   priceLow:10.89, priceHigh:19.49, range:7, safety:9, boot:7, performance:8, comfort:7, tech:7, brandRep:7, resale:6, seating:5, kmFit:'mixed',   img:'ice',  range_str:'19.3 kmpl'},
-    {brand:'Toyota',    name:'Hyryder',          body:'SUV',         fuel:'Hybrid',   priceLow:11.34, priceHigh:20.19, range:9, safety:7, boot:7, performance:6, comfort:8, tech:7, brandRep:9, resale:9, seating:5, kmFit:'mixed',   img:'warm', range_str:'27.97 kmpl'},
-    {brand:'Mahindra',  name:'Scorpio-N',        body:'SUV',         fuel:'Diesel',   priceLow:13.99, priceHigh:24.69, range:7, safety:8, boot:8, performance:8, comfort:7, tech:7, brandRep:7, resale:8, seating:7, kmFit:'highway', img:'dark', range_str:'14.9 kmpl'},
-    {brand:'Kia',       name:'Seltos',           body:'SUV',         fuel:'Petrol',   priceLow:10.90, priceHigh:20.30, range:7, safety:8, boot:7, performance:7, comfort:8, tech:9, brandRep:8, resale:7, seating:5, kmFit:'mixed',   img:'ice',  range_str:'17.0 kmpl'},
-    {brand:'Maruti',    name:'Brezza',           body:'Naked', fuel:'Petrol',   priceLow:8.34,  priceHigh:14.16, range:8, safety:6, boot:6, performance:5, comfort:6, tech:6, brandRep:9, resale:9, seating:5, kmFit:'commute', img:'ice',  range_str:'17.4 kmpl'},
-    {brand:'Mahindra',  name:'XUV 3XO',          body:'Naked', fuel:'Petrol',   priceLow:7.99,  priceHigh:15.49, range:7, safety:8, boot:6, performance:7, comfort:7, tech:8, brandRep:7, resale:7, seating:5, kmFit:'mixed',   img:'ice',  range_str:'18.9 kmpl'},
+    {brand:'Royal Enfield',      name:'Himalayan 450',          body:'Street Bike',         fuel:'Petrol',   priceLow:15.49, priceHigh:26.50, range:8, safety:9, boot:9, performance:8, comfort:8, tech:8, brandRep:7, resale:8, seating:5, kmFit:'mixed',   img:'ice',  range_str:'17.2 kmpl'},
+    {brand:'Mahindra',  name:'XUV700',           body:'Street Bike',         fuel:'Petrol',   priceLow:14.18, priceHigh:26.99, range:8, safety:9, boot:9, performance:8, comfort:8, tech:8, brandRep:7, resale:8, seating:7, kmFit:'highway', img:'dark', range_str:'16.1 kmpl'},
+    {brand:'Maruti',    name:'Grand Vitara',     body:'Street Bike',         fuel:'Petrol',   priceLow:11.42, priceHigh:20.20, range:9, safety:7, boot:7, performance:6, comfort:7, tech:7, brandRep:9, resale:9, seating:5, kmFit:'mixed',   img:'warm', range_str:'27.97 kmpl'},
+    {brand:'Hyundai',   name:'Creta',            body:'Street Bike',         fuel:'Petrol',   priceLow:11.11, priceHigh:20.45, range:7, safety:7, boot:7, performance:7, comfort:8, tech:8, brandRep:9, resale:8, seating:5, kmFit:'mixed',   img:'ice',  range_str:'17.4 kmpl'},
+    {brand:'Skoda',     name:'Kushaq',           body:'Street Bike',         fuel:'Petrol',   priceLow:10.89, priceHigh:19.49, range:7, safety:9, boot:7, performance:8, comfort:7, tech:7, brandRep:7, resale:6, seating:5, kmFit:'mixed',   img:'ice',  range_str:'19.3 kmpl'},
+    {brand:'Toyota',    name:'Hyryder',          body:'Street Bike',         fuel:'Petrol',   priceLow:11.34, priceHigh:20.19, range:9, safety:7, boot:7, performance:6, comfort:8, tech:7, brandRep:9, resale:9, seating:5, kmFit:'mixed',   img:'warm', range_str:'27.97 kmpl'},
+    {brand:'Mahindra',  name:'Scorpio-N',        body:'Street Bike',         fuel:'Petrol',   priceLow:13.99, priceHigh:24.69, range:7, safety:8, boot:8, performance:8, comfort:7, tech:7, brandRep:7, resale:8, seating:7, kmFit:'highway', img:'dark', range_str:'14.9 kmpl'},
+    {brand:'Kia',       name:'Seltos',           body:'Street Bike',         fuel:'Petrol',   priceLow:10.90, priceHigh:20.30, range:7, safety:8, boot:7, performance:7, comfort:8, tech:9, brandRep:8, resale:7, seating:5, kmFit:'mixed',   img:'ice',  range_str:'17.0 kmpl'},
+    {brand:'Maruti',    name:'Brezza',           body:'Street Bike', fuel:'Petrol',   priceLow:8.34,  priceHigh:14.16, range:8, safety:6, boot:6, performance:5, comfort:6, tech:6, brandRep:9, resale:9, seating:5, kmFit:'commute', img:'ice',  range_str:'17.4 kmpl'},
+    {brand:'Mahindra',  name:'XUV 3XO',          body:'Street Bike', fuel:'Petrol',   priceLow:7.99,  priceHigh:15.49, range:7, safety:8, boot:6, performance:7, comfort:7, tech:8, brandRep:7, resale:7, seating:5, kmFit:'mixed',   img:'ice',  range_str:'18.9 kmpl'},
     {brand:'BYD',       name:'Seal',             body:'Cruiser',       fuel:'Petrol', priceLow:41.00, priceHigh:53.00, range:10,safety:9, boot:7, performance:10,comfort:9, tech:9, brandRep:6, resale:5, seating:5, kmFit:'highway', img:'',     range_str:'650 km'},
   ];
 
@@ -6478,12 +6453,18 @@ renderAll('bikes');
       type:'multi',
       max:99,
       options:[
-        {key:'Commuter',   label:'Commuter',   emoji:'🚗', sub:'Compact, easy to park'},
-        {key:'Cruiser',       label:'Cruiser',       emoji:'🚙', sub:'Premium, smooth ride'},
-        {key:'Naked', label:'Naked', emoji:'🚙', sub:'Sub-4m, good in city'},
-        {key:'SUV',         label:'SUV',         emoji:'🚙', sub:'Spacious, road presence'},
-        {key:'Scooter',   label:'Scooter',   emoji:'🚐', sub:'7-8 seater, family use'},
-        {key:'Sport',       label:'Sport',       emoji:'🏎️', sub:'Sleek, sporty stance'},
+        {key:'Sports Bike', label:'Sports Bike', emoji:'🏎️', sub:'Track-focused, aggressive lean'},
+        {key:'Scooter',     label:'Scooter',     emoji:'🛵', sub:'Automatic, easy city ride'},
+        {key:'Cruiser',     label:'Cruiser',     emoji:'🏍️', sub:'Long rides, relaxed posture'},
+        {key:'Commuter',    label:'Commuter',    emoji:'🛵', sub:'City errands, fuel-efficient'},
+        {key:'Street Bike', label:'Street Bike', emoji:'🏍️', sub:'Agile, upright, city-friendly'},
+        {key:'Super Bike',  label:'Super Bike',  emoji:'🏁', sub:'High-performance, 600cc+'},
+        {key:'Cafe Racer',  label:'Cafe Racer',  emoji:'☕', sub:'Retro-styled, low handlebar'},
+        {key:'Scrambler',   label:'Scrambler',   emoji:'🏔️', sub:'Urban + light off-road'},
+        {key:'Adventure',   label:'Adventure',   emoji:'🧭', sub:'Off-road + highway touring'},
+        {key:'Moped',       label:'Moped',       emoji:'🛵', sub:'Step-through, ultra light'},
+        {key:'Tourer',      label:'Tourer',      emoji:'🗺️', sub:'Long-distance highway cruising'},
+        {key:'Maxi Scooter',label:'Maxi Scooter',emoji:'🛵', sub:'Premium automatic, highway-ready'},
       ],
     },
     {
@@ -6495,11 +6476,9 @@ renderAll('bikes');
       skippable:true,
       max:99,
       options:[
-        {key:'Petrol', label:'Petrol',  emoji:'⚡', sub:'Lowest running cost'},
-        {key:'Petrol',   label:'Petrol',    emoji:'⛽', sub:'Easy refuelling everywhere'},
-        {key:'Diesel',   label:'Diesel',    emoji:'⛽', sub:'Best for long distances'},
-        {key:'Hybrid',   label:'Hybrid',    emoji:'🌱', sub:'Mileage + flexibility'},
-        {key:'CNG',      label:'CNG',       emoji:'💨', sub:'Cheapest fuel cost'},
+        {key:'Petrol',   label:'Petrol',   emoji:'⛽', sub:'Easy refuelling everywhere'},
+        {key:'Electric', label:'Electric',  emoji:'⚡', sub:'Zero fuel cost, eco-friendly'},
+        {key:'CNG',      label:'CNG',       emoji:'💨', sub:'Lower running cost than petrol'},
       ],
     },
     {
@@ -6798,7 +6777,7 @@ renderAll('bikes');
     if(state.bodyTypes.length) summary.push(state.bodyTypes.join(', '));
     if(state.fuelTypes.length) summary.push(state.fuelTypes.join(', '));
 
-    const fuelClass = (f)=>({Electric:'ev', Diesel:'diesel', Petrol:'petrol', Hybrid:'hybrid', CNG:'petrol'}[f] || '');
+    const fuelClass = (f)=>({Electric:'ev', Petrol:'petrol', CNG:'petrol'}[f] || '');
 
     body.innerHTML = `
       <div class="bw-eyebrow">YOUR MATCHES · TOP ${top.length}</div>
