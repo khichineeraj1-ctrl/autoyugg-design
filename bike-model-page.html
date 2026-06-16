@@ -4841,12 +4841,30 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 .vt-footnote a:hover{text-decoration:underline}
 
 @media(max-width:900px){
-  .vt-rail{grid-template-columns:repeat(5,240px)}
+  .vt-rail{grid-template-columns:repeat(5,220px)}
   .vt-head{flex-direction:column;align-items:flex-start}
   .vt-head-meta{align-items:flex-start}
 }
 @media(max-width:600px){
-  .vt-rail{grid-template-columns:repeat(5,220px);gap:10px}
+  /* Compact card layout on mobile */
+  .vt-rail{grid-template-columns:repeat(5,170px);gap:8px;padding-bottom:12px}
+  .vt-card{border-radius:12px}
+  .vt-card-top{padding:12px 12px 10px;gap:4px}
+  .vt-badge{font-size:9.5px;padding:2px 7px}
+  .vt-card-name{font-size:13px;margin-top:1px}
+  .vt-card-price{font-size:18px}
+  .vt-card-emi{font-size:10.5px}
+  .vt-specs{padding:10px 12px;gap:7px}
+  .vt-spec-lbl{font-size:10px}
+  .vt-spec-val{font-size:11.5px}
+  .vt-feat-dots{padding:0 12px 10px;gap:4px}
+  .vt-dot{font-size:9px;padding:2px 6px}
+  .vt-swatches{padding:0 12px 12px;gap:4px}
+  .vt-swatch{width:14px;height:14px}
+  .vt-card-ctas{padding:0 12px 12px;gap:5px;flex-direction:row}
+  .vt-cta-primary{padding:8px 6px;font-size:11.5px;border-radius:8px;flex:1}
+  .vt-cta-ghost{padding:7px 6px;font-size:11px;border-radius:8px;flex:1}
+  .vt-head .mp-h2{font-size:clamp(20px,5vw,28px)}
 }
 </style>
 <script>

@@ -904,7 +904,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 .mh-img-count{position:absolute;bottom:12px;right:12px;background:rgba(13,13,13,.32);color:rgba(255,255,255,.78);font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.04em;padding:3px 8px;border-radius:100px;display:inline-flex;align-items:center;z-index:2;backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .25s}
 .mh-gallery:hover .mh-img-count{opacity:.7}
 .mh-img-count svg{display:none}
-.mh-img-360{display:none}
+.mh-img-360{display:flex;align-items:center;gap:5px;position:absolute;top:12px;right:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);color:#fff;border:none;border-radius:20px;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:.03em;cursor:pointer;z-index:3}
 
 
 
@@ -4117,16 +4117,16 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
         <!-- Headline stats -->
         <div class="vp-headstats">
           <div class="vp-hs">
-            <div class="vp-hs-lbl">claimed mileage</div>
-            <div class="vp-hs-val">502<span> km</span></div>
+            <div class="vp-hs-lbl">Fuel efficiency</div>
+            <div class="vp-hs-val">36.2<span> kmpl</span></div>
           </div>
           <div class="vp-hs">
-            <div class="vp-hs-lbl">Battery</div>
-            <div class="vp-hs-val">55<span> kWh</span></div>
+            <div class="vp-hs-lbl">Max power</div>
+            <div class="vp-hs-val">20.4<span> bhp</span></div>
           </div>
           <div class="vp-hs">
-            <div class="vp-hs-lbl">Fuel capacity</div>
-            <div class="vp-hs-val">40<span> min</span></div>
+            <div class="vp-hs-lbl">Fuel tank</div>
+            <div class="vp-hs-val">13<span> L</span></div>
           </div>
           <div class="vp-hs">
             <div class="vp-hs-lbl">0–60 km/h</div>
@@ -4336,7 +4336,7 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
           </div>
           <div class="vp-hl">
             <div class="vp-hl-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg></div>
-            <div><b>12.3" infotainment</b><span>Wireless BikePlay + Android Auto</span></div>
+            <div><b>Tripper navigation pod</b><span>Turn-by-turn GPS via Google Maps</span></div>
           </div>
           <div class="vp-hl">
             <div class="vp-hl-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg></div>
@@ -4358,63 +4358,63 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
         <div class="mp-eyebrow">What's included</div>
         <h2>Features in <b>Metro Rebel.</b></h2>
       </div>
-      <div class="vp-features-count"><b>42</b> features included · <b>5</b> reserved for higher variants</div>
+      <div class="vp-features-count"><b>30</b> features included · <b>1</b> reserved for higher variant</div>
     </div>
 
     <!-- Tab navigation by feature group -->
     <div class="vp-feat-tabs" role="tablist">
-      <button class="vp-feat-tab active" data-tab="all" role="tab" aria-selected="true">All <span class="num">47</span></button>
-      <button class="vp-feat-tab" data-tab="ev" role="tab">EV &amp; Charging <span class="num">8</span></button>
-      <button class="vp-feat-tab" data-tab="safety" role="tab">Safety <span class="num">10</span></button>
-      <button class="vp-feat-tab" data-tab="comfort" role="tab">Comfort <span class="num">12</span></button>
-      <button class="vp-feat-tab" data-tab="tech" role="tab">Tech &amp; Audio <span class="num">10</span></button>
-      <button class="vp-feat-tab" data-tab="exterior" role="tab">Exterior <span class="num">7</span></button>
+      <button class="vp-feat-tab active" data-tab="all" role="tab" aria-selected="true">All <span class="num">30</span></button>
+      <button class="vp-feat-tab" data-tab="ev" role="tab">Engine &amp; Power <span class="num">6</span></button>
+      <button class="vp-feat-tab" data-tab="safety" role="tab">Safety <span class="num">7</span></button>
+      <button class="vp-feat-tab" data-tab="comfort" role="tab">Comfort <span class="num">7</span></button>
+      <button class="vp-feat-tab" data-tab="tech" role="tab">Tech &amp; Connected <span class="num">6</span></button>
+      <button class="vp-feat-tab" data-tab="exterior" role="tab">Exterior <span class="num">4</span></button>
     </div>
 
     <!-- Feature bikeds grid (data-group used by JS to filter) -->
     <div class="vp-feat-grid">
 
-      <!-- EV & Charging -->
+      <!-- Engine & Power -->
       <div class="vp-feat-biked" data-group="ev">
-        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-batt"/></svg></div>
+        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">349 cc LFP battery</div>
-          <div class="vp-feat-biked-desc">8-year / 1.6 lakh km warranty</div>
+          <div class="vp-feat-biked-title">349 cc J-series engine</div>
+          <div class="vp-feat-biked-desc">Air-cooled, single-cylinder, 4-stroke</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="ev">
-        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-charge"/></svg></div>
+        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Tripper navigation pod</div>
-          <div class="vp-feat-biked-desc">10–80% in just 13L tank</div>
+          <div class="vp-feat-biked-title">20.4 bhp max power</div>
+          <div class="vp-feat-biked-desc">Peak at 6,100 rpm · 27 Nm torque</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="ev">
         <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-range"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">36.2 kmpl range</div>
-          <div class="vp-feat-biked-desc">380–420 km real-world</div>
+          <div class="vp-feat-biked-title">36.2 kmpl fuel efficiency</div>
+          <div class="vp-feat-biked-desc">ARAI certified · 380–420 km per tank</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="ev">
-        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
+        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-gear"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">3 drive modes</div>
-          <div class="vp-feat-biked-desc">Eco / City / Sport</div>
+          <div class="vp-feat-biked-title">5-speed gearbox</div>
+          <div class="vp-feat-biked-desc">Smooth cable-operated clutch</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="ev">
-        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-charge"/></svg></div>
+        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-batt"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">3-level regen braking</div>
-          <div class="vp-feat-biked-desc">Paddle-shifter adjustable</div>
+          <div class="vp-feat-biked-title">13 L fuel tank</div>
+          <div class="vp-feat-biked-desc">Long-distance cruising range</div>
         </div>
       </div>
       <div class="vp-feat-biked missing" data-group="ev">
-        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
+        <div class="vp-feat-biked-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-charge"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Tripper Nav (Vehicle-to-Load)</div>
-          <div class="vp-feat-biked-desc">3.3 kW external power</div>
+          <div class="vp-feat-biked-title">USB-C charging port</div>
+          <div class="vp-feat-biked-desc">Not on base trim — Metro Rebel only</div>
         </div>
       </div>
 
@@ -4423,49 +4423,49 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
         <div class="vp-feat-biked-icon safe"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg></div>
         <div class="vp-feat-biked-text">
           <div class="vp-feat-biked-title">Dual-channel ABS</div>
-          <div class="vp-feat-biked-desc">Front, side, curtain</div>
+          <div class="vp-feat-biked-desc">With rear lift-off protection</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="safety">
         <div class="vp-feat-biked-icon safe"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Electronic Stability Program</div>
-          <div class="vp-feat-biked-desc">Standard, not optional</div>
+          <div class="vp-feat-biked-title">Slipper &amp; assist clutch</div>
+          <div class="vp-feat-biked-desc">Prevents rear-wheel hop on downshifts</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="safety">
         <div class="vp-feat-biked-icon safe"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">5-star Global NCAP</div>
-          <div class="vp-feat-biked-desc">Crash-tested rating</div>
+          <div class="vp-feat-biked-title">Tyre pressure monitoring</div>
+          <div class="vp-feat-biked-desc">Real-time TPMS display</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="safety">
         <div class="vp-feat-biked-icon safe"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Hill hold &amp; descent</div>
-          <div class="vp-feat-biked-desc">Auto-hold on inclines</div>
+          <div class="vp-feat-biked-title">Side-stand engine cutoff</div>
+          <div class="vp-feat-biked-desc">Prevents accidental ride with stand down</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="safety">
-        <div class="vp-feat-biked-icon safe"><svg width="16" height="16" aria-hidden="true"><use href="#i-cam"/></svg></div>
+        <div class="vp-feat-biked-icon safe"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Reversing camera</div>
-          <div class="vp-feat-biked-desc">Standard with guidelines</div>
+          <div class="vp-feat-biked-title">Front &amp; rear disc brakes</div>
+          <div class="vp-feat-biked-desc">300 mm front · 270 mm rear</div>
+        </div>
+      </div>
+      <div class="vp-feat-biked" data-group="safety">
+        <div class="vp-feat-biked-icon safe"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg></div>
+        <div class="vp-feat-biked-text">
+          <div class="vp-feat-biked-title">Kill switch</div>
+          <div class="vp-feat-biked-desc">Emergency engine cutoff on handlebar</div>
         </div>
       </div>
       <div class="vp-feat-biked missing" data-group="safety">
         <div class="vp-feat-biked-icon safe"><svg width="16" height="16" aria-hidden="true"><use href="#i-target"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">ABS + Slipper clutch</div>
-          <div class="vp-feat-biked-desc">Auto emergency brake, lane keep</div>
-        </div>
-      </div>
-      <div class="vp-feat-biked missing" data-group="safety">
-        <div class="vp-feat-biked-icon safe"><svg width="16" height="16" aria-hidden="true"><use href="#i-cam"/></svg></div>
-        <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">360° surround camera</div>
-          <div class="vp-feat-biked-desc">Bird's-eye parking view</div>
+          <div class="vp-feat-biked-title">Cornering ABS</div>
+          <div class="vp-feat-biked-desc">Not available on Hunter 350</div>
         </div>
       </div>
 
@@ -4473,50 +4473,50 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
       <div class="vp-feat-biked" data-group="comfort">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-seat"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Dual-channel ABS</div>
-          <div class="vp-feat-biked-desc">Voice-activated open/close</div>
-        </div>
-      </div>
-      <div class="vp-feat-biked" data-group="comfort">
-        <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-gear"/></svg></div>
-        <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Dual-zone climate</div>
-          <div class="vp-feat-biked-desc">Driver / passenger separate</div>
+          <div class="vp-feat-biked-title">Upright riding position</div>
+          <div class="vp-feat-biked-desc">Flat wide handlebar, relaxed posture</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="comfort">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-seat"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">6-way power driver seat</div>
-          <div class="vp-feat-biked-desc">With memory function</div>
+          <div class="vp-feat-biked-title">790 mm seat height</div>
+          <div class="vp-feat-biked-desc">Accessible for most riders · well-padded</div>
+        </div>
+      </div>
+      <div class="vp-feat-biked" data-group="comfort">
+        <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-charge"/></svg></div>
+        <div class="vp-feat-biked-text">
+          <div class="vp-feat-biked-title">USB-C charging port</div>
+          <div class="vp-feat-biked-desc">5V/2A · keep devices charged on the go</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="comfort">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Wireless phone charging</div>
-          <div class="vp-feat-biked-desc">15W Qi pad on console</div>
+          <div class="vp-feat-biked-title">Electric start</div>
+          <div class="vp-feat-biked-desc">Reliable single-press ignition</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="comfort">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-gear"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Adaptive cruise control</div>
-          <div class="vp-feat-biked-desc">Speed + distance hold</div>
+          <div class="vp-feat-biked-title">Light clutch action</div>
+          <div class="vp-feat-biked-desc">Slipper &amp; assist clutch reduces fatigue</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="comfort">
-        <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
+        <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-gear"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Push-button start</div>
-          <div class="vp-feat-biked-desc">Smart key entry</div>
+          <div class="vp-feat-biked-title">Tripper navigation pod</div>
+          <div class="vp-feat-biked-desc">Turn-by-turn GPS · Google Maps synced</div>
         </div>
       </div>
       <div class="vp-feat-biked missing" data-group="comfort">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-seat"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Ventilated front seats</div>
-          <div class="vp-feat-biked-desc">Cooling ventilation</div>
+          <div class="vp-feat-biked-title">Heated grips</div>
+          <div class="vp-feat-biked-desc">Not available on Hunter 350</div>
         </div>
       </div>
 
@@ -4524,43 +4524,43 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
       <div class="vp-feat-biked" data-group="tech">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-cam"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">12.3" infotainment</div>
-          <div class="vp-feat-biked-desc">Harman with Alexa built-in</div>
-        </div>
-      </div>
-      <div class="vp-feat-biked" data-group="tech">
-        <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-gear"/></svg></div>
-        <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">10.25" digital cluster</div>
-          <div class="vp-feat-biked-desc">Customizable themes</div>
-        </div>
-      </div>
-      <div class="vp-feat-biked" data-group="tech">
-        <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
-        <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Slipper clutch</div>
-          <div class="vp-feat-biked-desc">Premium sound system</div>
+          <div class="vp-feat-biked-title">iRA 2.0 connected tech</div>
+          <div class="vp-feat-biked-desc">60+ connected features via app</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="tech">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-cam"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Wireless BikePlay</div>
-          <div class="vp-feat-biked-desc">+ Wireless Android Auto</div>
+          <div class="vp-feat-biked-title">Semi-digital instrument cluster</div>
+          <div class="vp-feat-biked-desc">Analog speedo + digital info console</div>
+        </div>
+      </div>
+      <div class="vp-feat-biked" data-group="tech">
+        <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-gear"/></svg></div>
+        <div class="vp-feat-biked-text">
+          <div class="vp-feat-biked-title">Bluetooth connectivity</div>
+          <div class="vp-feat-biked-desc">Call &amp; SMS alerts on cluster</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="tech">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">iRA 2.0 connected bike</div>
-          <div class="vp-feat-biked-desc">60+ features, OTA-updated</div>
+          <div class="vp-feat-biked-title">Turn-by-turn navigation</div>
+          <div class="vp-feat-biked-desc">Tripper pod · Google Maps on instrument</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="tech">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-charge"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">OTA updates</div>
-          <div class="vp-feat-biked-desc">Firmware over the air</div>
+          <div class="vp-feat-biked-title">OTA firmware updates</div>
+          <div class="vp-feat-biked-desc">Features improve over time wirelessly</div>
+        </div>
+      </div>
+      <div class="vp-feat-biked" data-group="tech">
+        <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-cam"/></svg></div>
+        <div class="vp-feat-biked-text">
+          <div class="vp-feat-biked-title">Vehicle location tracking</div>
+          <div class="vp-feat-biked-desc">Find my bike via Royal Enfield app</div>
         </div>
       </div>
 
@@ -4575,22 +4575,22 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
       <div class="vp-feat-biked" data-group="exterior">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">18" alloy wheels</div>
-          <div class="vp-feat-biked-desc">Aero-optimised design</div>
+          <div class="vp-feat-biked-title">17" alloy wheels</div>
+          <div class="vp-feat-biked-desc">Sporty multi-spoke design</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="exterior">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-cam"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Connected LED tail bar</div>
-          <div class="vp-feat-biked-desc">Distinctive light signature</div>
+          <div class="vp-feat-biked-title">LED taillight</div>
+          <div class="vp-feat-biked-desc">Distinctive circular light signature</div>
         </div>
       </div>
       <div class="vp-feat-biked" data-group="exterior">
         <div class="vp-feat-biked-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-gear"/></svg></div>
         <div class="vp-feat-biked-text">
-          <div class="vp-feat-biked-title">Flush door handles</div>
-          <div class="vp-feat-biked-desc">Auto pop-out on approach</div>
+          <div class="vp-feat-biked-title">Retro round headlight</div>
+          <div class="vp-feat-biked-desc">Classic RE design · LED bulb</div>
         </div>
       </div>
 
@@ -4616,19 +4616,19 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
       <div class="vp-specs-group open">
         <div class="vp-specs-group-hd">
           <div class="vp-specs-group-icon ev"><svg width="16" height="16" aria-hidden="true"><use href="#i-batt"/></svg></div>
-          <div class="vp-specs-group-name">Battery &amp; Charging</div>
+          <div class="vp-specs-group-name">Engine &amp; Fuel</div>
           <div class="vp-specs-group-count">8 specs</div>
           <div class="vp-specs-group-toggle">+</div>
         </div>
         <div class="vp-specs-group-body">
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Battery capacity</div><div class="vp-specs-row-val">349 cc</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Battery type</div><div class="vp-specs-row-val">Lithium-ion (LFP)</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">claimed certified range</div><div class="vp-specs-row-val">36.2 kmpl</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Real-world range (mixed)</div><div class="vp-specs-row-val">380–420 km</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">fuel tank capacity</div><div class="vp-specs-row-val">70 kW</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">DC charging time (10–80%)</div><div class="vp-specs-row-val">13L tank</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">AC charging (7.2 kW)</div><div class="vp-specs-row-val">8 hr (full)</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Warranty</div><div class="vp-specs-row-val">8 yr / 1.6 L km</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Engine displacement</div><div class="vp-specs-row-val">349 cc</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Engine type</div><div class="vp-specs-row-val">Air-cooled, 4-stroke, single-cylinder</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Fuel efficiency (ARAI)</div><div class="vp-specs-row-val">36.2 kmpl</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Real-world mileage</div><div class="vp-specs-row-val">380–420 km per tank</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Fuel tank capacity</div><div class="vp-specs-row-val">13 L</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Reserve fuel capacity</div><div class="vp-specs-row-val">2.5 L</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Engine oil capacity</div><div class="vp-specs-row-val">1.5 L (10W50)</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Manufacturer warranty</div><div class="vp-specs-row-val">2 yr / unlimited km</div></div>
         </div>
       </div>
 
@@ -4636,17 +4636,17 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
       <div class="vp-specs-group">
         <div class="vp-specs-group-hd">
           <div class="vp-specs-group-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-power"/></svg></div>
-          <div class="vp-specs-group-name">Motor &amp; Performance</div>
+          <div class="vp-specs-group-name">Engine &amp; Performance</div>
           <div class="vp-specs-group-count">6 specs</div>
           <div class="vp-specs-group-toggle">+</div>
         </div>
         <div class="vp-specs-group-body">
           <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Power</div><div class="vp-specs-row-val">20.4 bhp</div></div>
           <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Peak torque</div><div class="vp-specs-row-val">27 Nm</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Drivetrain</div><div class="vp-specs-row-val">Single-motor RWD</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">0–60 km/h</div><div class="vp-specs-row-val">8.6 sec</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Top speed</div><div class="vp-specs-row-val">160 km/h (limited)</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Drive modes</div><div class="vp-specs-row-val">Eco / City / Sport</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Drive type</div><div class="vp-specs-row-val">Chain drive</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Gearbox</div><div class="vp-specs-row-val">5-speed constant mesh</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Top speed</div><div class="vp-specs-row-val">~114 km/h</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Emission standard</div><div class="vp-specs-row-val">BS6 Phase 2 (OBD2)</div></div>
         </div>
       </div>
 
@@ -4659,14 +4659,14 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
           <div class="vp-specs-group-toggle">+</div>
         </div>
         <div class="vp-specs-group-body">
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Length</div><div class="vp-specs-row-val">4,310 mm</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Width</div><div class="vp-specs-row-val">1,810 mm</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Height</div><div class="vp-specs-row-val">1,630 mm</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Wheelbase</div><div class="vp-specs-row-val">2,560 mm</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Ground clearance</div><div class="vp-specs-row-val">186 mm</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Boot space</div><div class="vp-specs-row-val">500 L</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Seating capacity</div><div class="vp-specs-row-val">5</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Kerb weight</div><div class="vp-specs-row-val">1,720 kg</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Length</div><div class="vp-specs-row-val">2,040 mm</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Width</div><div class="vp-specs-row-val">800 mm</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Height</div><div class="vp-specs-row-val">1,065 mm</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Wheelbase</div><div class="vp-specs-row-val">1,338 mm</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Ground clearance</div><div class="vp-specs-row-val">150 mm</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Seat height</div><div class="vp-specs-row-val">790 mm</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Seating capacity</div><div class="vp-specs-row-val">2 (rider + pillion)</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Kerb weight</div><div class="vp-specs-row-val">181 kg</div></div>
         </div>
       </div>
 
@@ -4675,20 +4675,18 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
         <div class="vp-specs-group-hd">
           <div class="vp-specs-group-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-target"/></svg></div>
           <div class="vp-specs-group-name">Safety</div>
-          <div class="vp-specs-group-count">10 features</div>
+          <div class="vp-specs-group-count">8 features</div>
           <div class="vp-specs-group-toggle">+</div>
         </div>
         <div class="vp-specs-group-body">
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Airbags</div><div class="vp-specs-row-val">6 (front, side, curtain)</div></div>
           <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">ABS with EBD</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Electronic Stability Program</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Hill hold &amp; descent</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Slipper &amp; assist clutch</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Side-stand engine cutoff</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
           <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Rear lift-off protection (ABS)</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
           <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Tyre pressure monitoring</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Reversing camera</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg> Standard</span></div></div>
-          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">360° surround camera</div><div class="vp-specs-row-val"><span class="no">Metro Dapper+ only</span></div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Front disc brake</div><div class="vp-specs-row-val">300 mm</div></div>
           <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">ABS + Slipper clutch</div><div class="vp-specs-row-val"><span class="no">Metro Dapper+ only</span></div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Global NCAP rating</div><div class="vp-specs-row-val">5 stars</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Rear disc brake</div><div class="vp-specs-row-val">270 mm</div></div>
         </div>
       </div>
 
@@ -4697,18 +4695,16 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
         <div class="vp-specs-group-hd">
           <div class="vp-specs-group-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-seat"/></svg></div>
           <div class="vp-specs-group-name">Comfort &amp; Convenience</div>
-          <div class="vp-specs-group-count">12 features</div>
+          <div class="vp-specs-group-count">6 features</div>
           <div class="vp-specs-group-toggle">+</div>
         </div>
         <div class="vp-specs-group-body">
           <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Tripper navigation pod</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Automatic climate control</div><div class="vp-specs-row-val">Dual-zone</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Seat height</div><div class="vp-specs-row-val">790 mm</div></div>
           <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Cruise control</div><div class="vp-specs-row-val">Adaptive (lower)</div></div>
-          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Ventilated front seats</div><div class="vp-specs-row-val"><span class="no">Metro Dapper+ only</span></div></div>
-          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Power-adjust driver seat</div><div class="vp-specs-row-val">6-way + memory</div></div>
           <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Wireless phone charging</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
           <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Push-button start</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
-          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Auto-dim IRVM</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
+          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Pillion footpegs</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
         </div>
       </div>
 
@@ -4717,18 +4713,17 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
         <div class="vp-specs-group-hd">
           <div class="vp-specs-group-icon"><svg width="16" height="16" aria-hidden="true"><use href="#i-cam"/></svg></div>
           <div class="vp-specs-group-name">Tech &amp; Infotainment</div>
-          <div class="vp-specs-group-count">10 features</div>
+          <div class="vp-specs-group-count">7 features</div>
           <div class="vp-specs-group-toggle">+</div>
         </div>
         <div class="vp-specs-group-body">
-          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Touchscreen</div><div class="vp-specs-row-val">12.3" with Harman</div></div>
-          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Digital instrument cluster</div><div class="vp-specs-row-val">10.25"</div></div>
+          <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">Instrument cluster</div><div class="vp-specs-row-val">Semi-digital (analog + LCD)</div></div>
           <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Tripper navigation pod</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
-          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Wireless Android Auto</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
+          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Bluetooth connectivity</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
           <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">USB-C charging port</div><div class="vp-specs-row-val">Yes, 5V/2A</div></div>
           <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Connected bike tech</div><div class="vp-specs-row-val">iRA 2.0 (60+ features)</div></div>
           <div class="vp-specs-row" data-vs="same"><div class="vp-specs-row-key">OTA updates</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
-          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Voice assistant</div><div class="vp-specs-row-val">Alexa built-in</div></div>
+          <div class="vp-specs-row" data-vs="diff"><div class="vp-specs-row-key">Call &amp; SMS alerts</div><div class="vp-specs-row-val"><span class="yes"><svg width="16" height="16"><use href="#i-check"/></svg></span></div></div>
         </div>
       </div>
     </div>
@@ -4776,7 +4771,7 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
           <div class="vp-comp-feat add">All Metro Rebel Lite features</div>
           <div class="vp-comp-feat add">LED tail light + hazard lamp</div>
           <div class="vp-comp-feat add">9-spoke alloy wheels (optional)</div>
-          <div class="vp-comp-feat add">12.3" infotainment</div>
+          <div class="vp-comp-feat add">Tripper navigation pod</div>
           <div class="vp-comp-feat add">Wireless charging + BikePlay</div>
           <div class="vp-comp-feat add">Power driver seat (6-way)</div>
         </div>
@@ -4885,7 +4880,7 @@ window.__EMI_DEFAULT_VARIANT_IDX = 1;
       </div>
       <div class="vp-color">
         <div class="vp-color-chip" style="background:#737876"></div>
-        <div class="vp-color-name">Rebel Red</div>
+        <div class="vp-color-name">Gunmetal Grey</div>
         <div class="vp-color-extra">Standard</div>
       </div>
       <div class="vp-color">
@@ -5552,10 +5547,10 @@ trending:[['Royal Enfield','Hunter 350','₹1.50 - 1.75 L','↑ 156% MoM','NEW L
 newlyLaunched:[['Triumph','Speed 400','₹2.40 L','12 days ago','FRESH'],['Bajaj','Pulsar NS400Z','₹1.85 L','24 days ago','FRESH'],['Yamaha','MT-15 V3','₹1.78 L','35 days ago','LATEST'],['Hero','Karizma XMR 250','₹2.00 L','42 days ago','LATEST'],['Royal Enfield','Goan Classic 350','₹2.39 L','58 days ago','LATEST'],['Suzuki','V-Strom 800DE','₹10.30 L','67 days ago','LATEST'],['Honda','SP125 Pro','₹91,500','78 days ago','RECENT'],['KTM','390 Adventure X','₹3.30 L','85 days ago','RECENT']],
 upcoming:[['Royal Enfield','Guerrilla 450','₹2.39 L*','Jun 2026','BOOKING OPEN'],['Royal Enfield','Bear 650','₹3.50 L*','Aug 2026','REVEALED'],['Honda','CBR 500R','₹5.00 L*','Jul 2026','TEASED'],['Bajaj','Pulsar 250F','₹1.75 L*','Jul 2026','UPCOMING'],['KTM','Duke 250 2026','₹2.00 L*','Aug 2026','UPCOMING'],['Kawasaki','Z300','₹3.50 L*','Sep 2026','TEASED'],['Yamaha','FZ25 V4','₹1.85 L*','Aug 2026','REVEALED'],['TVS','Ronin 310','₹2.10 L*','Sep 2026','UPCOMING']],
 bodyTypes:[['Sports Bike','42 models','bt-sports'],['Scooter','95 models','bt-scooter'],['Cruiser','38 models','bt-cruiser'],['Commuter','120 models','bt-comm'],['Street Bike','85 models','bt-sports'],['Super Bike','18 models','bt-sports'],['Cafe Racer','22 models','bt-cruiser'],['Scrambler','14 models','bt-adv'],['Adventure','28 models','bt-adv'],['Moped','32 models','bt-comm'],['Tourer','11 models','bt-tourer'],['Maxi Scooter','9 models','bt-scooter']],
-curated:[['Royal Enfield','Meteor 350','₹2.14 - 2.53 L','Based on Hunter 350 search','STRONG MATCH'],['Honda','H'Ness CB350','₹2.10 - 2.27 L','Similar classic style','GOOD MATCH'],['Jawa','42 Bobber','₹2.09 - 2.40 L','You like retro cruisers','GOOD MATCH'],['KTM','Duke 250','₹2.39 L','Sporty, in your budget','GOOD MATCH'],['Yamaha','MT-15','₹1.69 - 1.71 L','Naked alternative','GOOD MATCH'],['TVS','Ronin','₹1.55 - 1.74 L','Cruiser in entry range','POPULAR PICK'],['Bajaj','Dominar 400','₹2.31 L','Touring bike pick','GOOD MATCH'],['Hero','Xpulse 200 4V','₹1.49 L','Adventure value pick','POPULAR PICK']],
-offers:[['Royal Enfield','Meteor 350','₹2.09 L','₹2.14 L','₹5,000 OFF','Apr 30'],['Honda','H'Ness CB350','₹2.04 L','₹2.10 L','₹6,000 OFF','Apr 28'],['TVS','Ronin','₹1.50 L','₹1.55 L','₹5,000 OFF','Apr 30'],['Bajaj','Dominar 400','₹2.29 L','₹2.34 L','₹5,000 OFF','May 5'],['Hero','Karizma XMR','₹1.84 L','₹1.88 L','₹4,000 OFF','Apr 30'],['Royal Enfield','Classic 350','₹1.90 L','₹1.93 L','₹3,000 OFF','May 2'],['Yamaha','R15 V4','₹1.79 L','₹1.82 L','₹3,000 OFF','Apr 30'],['KTM','Duke 200','₹1.90 L','₹1.94 L','₹4,000 OFF','Apr 30']],
+curated:[['Royal Enfield','Meteor 350','₹2.14 - 2.53 L','Based on Hunter 350 search','STRONG MATCH'],['Honda','H’Ness CB350','₹2.10 - 2.27 L','Similar classic style','GOOD MATCH'],['Jawa','42 Bobber','₹2.09 - 2.40 L','You like retro cruisers','GOOD MATCH'],['KTM','Duke 250','₹2.39 L','Sporty, in your budget','GOOD MATCH'],['Yamaha','MT-15','₹1.69 - 1.71 L','Naked alternative','GOOD MATCH'],['TVS','Ronin','₹1.55 - 1.74 L','Cruiser in entry range','POPULAR PICK'],['Bajaj','Dominar 400','₹2.31 L','Touring bike pick','GOOD MATCH'],['Hero','Xpulse 200 4V','₹1.49 L','Adventure value pick','POPULAR PICK']],
+offers:[['Royal Enfield','Meteor 350','₹2.09 L','₹2.14 L','₹5,000 OFF','Apr 30'],['Honda','H’Ness CB350','₹2.04 L','₹2.10 L','₹6,000 OFF','Apr 28'],['TVS','Ronin','₹1.50 L','₹1.55 L','₹5,000 OFF','Apr 30'],['Bajaj','Dominar 400','₹2.29 L','₹2.34 L','₹5,000 OFF','May 5'],['Hero','Karizma XMR','₹1.84 L','₹1.88 L','₹4,000 OFF','Apr 30'],['Royal Enfield','Classic 350','₹1.90 L','₹1.93 L','₹3,000 OFF','May 2'],['Yamaha','R15 V4','₹1.79 L','₹1.82 L','₹3,000 OFF','Apr 30'],['KTM','Duke 200','₹1.90 L','₹1.94 L','₹4,000 OFF','Apr 30']],
 brands:[['R','Royal Enfield','18 models'],['H','Honda','14 models'],['B','Bajaj','16 models'],['T','TVS','12 models'],['Y','Yamaha','10 models'],['K','KTM','8 models'],['H','Hero','15 models'],['S','Suzuki','9 models'],['K','Kawasaki','6 models'],['T','Triumph','5 models'],['J','Jawa','4 models'],['H','Harley-Davidson','3 models']],
-comparisons:[['Royal Enfield','Meteor 350','Honda',"H'Ness CB350",'2.1M','₹4,000'],['Royal Enfield','Hunter 350','Bajaj','Dominar 400','1.8M','₹56,000'],['KTM','Duke 390','Yamaha','MT-15','1.5M','₹1.30 L'],['TVS','Apache RTR 200','Bajaj','NS200','1.2M','₹5,000'],['Honda','Activa 6G','TVS','Jupiter','980K','₹2,000'],['Royal Enfield','Classic 350','Jawa','42 Bobber','870K','₹21,000']],
+comparisons:[['Royal Enfield','Meteor 350','Honda',"H’Ness CB350",'2.1M','₹4,000'],['Royal Enfield','Hunter 350','Bajaj','Dominar 400','1.8M','₹56,000'],['KTM','Duke 390','Yamaha','MT-15','1.5M','₹1.30 L'],['TVS','Apache RTR 200','Bajaj','NS200','1.2M','₹5,000'],['Honda','Activa 6G','TVS','Jupiter','980K','₹2,000'],['Royal Enfield','Classic 350','Jawa','42 Bobber','870K','₹21,000']],
 news:[['LAUNCH','Royal Enfield Guerrilla 450 bookings: 45,000 in 48 hours — RE fastest ever','Apr 24','4 min'],['REVIEW','Bajaj Pulsar NS400Z first ride: The naked king India waited for','Apr 23','8 min'],['POLICY','GST Council may cut tax on sub-125cc bikes — what riders should know','Apr 22','5 min'],['SCOOP','Spied: Honda CBR 500R testing in India, launch by festive season?','Apr 22','3 min'],['COMPARE','Royal Enfield Meteor 350 vs Honda H\'Ness CB350: Which cruiser wins on value?','Apr 21','7 min'],['AUTO EXPO','Bharat Mobility 2026: 14 new bike launches confirmed across segments','Apr 20','6 min']]},
 bikes:{l:'Bikes',hl:'Find your next<br>ride with <span class="accent">confidence.</span>',sp:'Search by brand, model, or engine size…',sil:'s-bike',
 trending:[['Royal Enfield','Hunter 350','₹1.50 - 1.75 L','↑ 156% MoM','TRENDING','hot','hot'],['Bajaj','Pulsar NS400Z','₹1.85 - 1.92 L','↑ 201% MoM','NEW LAUNCH','new','hot'],['Royal Enfield','Classic 350','₹1.93 - 2.25 L','↑ 64% MoM','TRENDING','hot','hot'],['Honda','Activa 6G','₹78,800 - 88,300','↑ 22% MoM','RISING','','good'],['TVS','Apache RTR 200','₹1.45 - 1.60 L','↑ 41% MoM','RISING','','good'],['KTM','Duke 390','₹3.13 - 3.20 L','↑ 78% MoM','TRENDING','hot','hot'],['Yamaha','R15 V4','₹1.82 - 1.93 L','↑ 35% MoM','RISING','','good'],['Hero','Splendor Plus','₹78,200 - 84,300','↑ 12% MoM','RISING','','flat']],
@@ -5917,6 +5912,20 @@ loDetect.addEventListener('click',()=>{
       setCity(city,onroad);
     });
   });
+
+
+  // ─── 360° View button ───
+  var btn360 = document.querySelector('.mh-img-360');
+  if(btn360){
+    btn360.addEventListener('click', function(){
+      var gallery = document.querySelector('.mh-gallery');
+      if(gallery){ gallery.scrollIntoView({behavior:'smooth',block:'center'}); }
+      // Flash the gallery to signal 360 is not yet available
+      var imgs = document.querySelectorAll('.mh-thumb');
+      imgs.forEach(function(img){ img.style.outline='2px solid var(--accent)'; });
+      setTimeout(function(){ imgs.forEach(function(img){ img.style.outline=''; }); }, 1200);
+    });
+  }
 
   // ─── Variant page: features tab filter ───
   document.querySelectorAll('.vp-feat-tab').forEach(t=>{
@@ -6666,7 +6675,7 @@ renderAll('bikes');
     {brand:'KTM',           name:'Duke 250',        body:'Street Bike',    fuel:'Petrol', priceLow:2.39, priceHigh:2.45, mileage:7, safety:8, handling:9, performance:8, comfort:6, tech:8, brandRep:8, resale:7, kmFit:'mixed',   img:'', range_str:'28-32 kmpl'},
     {brand:'Yamaha',        name:'R15 V4',          body:'Sports Bike',    fuel:'Petrol', priceLow:1.82, priceHigh:1.93, mileage:8, safety:8, handling:9, performance:8, comfort:6, tech:8, brandRep:8, resale:8, kmFit:'mixed',   img:'ice', range_str:'40-45 kmpl'},
     {brand:'Yamaha',        name:'MT-15 V2',        body:'Street Bike',    fuel:'Petrol', priceLow:1.67, priceHigh:1.71, mileage:8, safety:7, handling:9, performance:7, comfort:7, tech:7, brandRep:8, resale:7, kmFit:'commute', img:'', range_str:'40-45 kmpl'},
-    {brand:'Honda',         name:"H'Ness CB350",    body:'Cruiser',  fuel:'Petrol', priceLow:2.10, priceHigh:2.27, mileage:8, safety:8, handling:7, performance:7, comfort:8, tech:8, brandRep:9, resale:8, kmFit:'mixed',   img:'warm', range_str:'40-45 kmpl'},
+    {brand:'Honda',         name:"H’Ness CB350",    body:'Cruiser',  fuel:'Petrol', priceLow:2.10, priceHigh:2.27, mileage:8, safety:8, handling:7, performance:7, comfort:8, tech:8, brandRep:9, resale:8, kmFit:'mixed',   img:'warm', range_str:'40-45 kmpl'},
     {brand:'Honda',         name:'CB300R',          body:'Street Bike',    fuel:'Petrol', priceLow:3.07, priceHigh:3.10, mileage:7, safety:8, handling:8, performance:7, comfort:7, tech:7, brandRep:9, resale:7, kmFit:'mixed',   img:'', range_str:'35-38 kmpl'},
     {brand:'TVS',           name:'Apache RTR 200',  body:'Street Bike',    fuel:'Petrol', priceLow:1.45, priceHigh:1.60, mileage:8, safety:8, handling:8, performance:7, comfort:7, tech:7, brandRep:8, resale:7, kmFit:'commute', img:'', range_str:'40-44 kmpl'},
     {brand:'TVS',           name:'Ronin',           body:'Cruiser',  fuel:'Petrol', priceLow:1.55, priceHigh:1.74, mileage:8, safety:7, handling:8, performance:6, comfort:8, tech:7, brandRep:8, resale:7, kmFit:'mixed',   img:'warm', range_str:'42-46 kmpl'},
@@ -7205,7 +7214,7 @@ renderAll('bikes');
 </script>
 <script>
   (function variantRouting(){
-    var VARIANTS = {"retro-factory": {"name": "Metro Rebel Lite 45", "battery": "349 cc", "range": "36 kmpl", "price": "\u20b917.49 L", "feats": "Base trim"}, "retro-factory-plus": {"name": "Metro Rebel+ 45", "battery": "349 cc", "range": "36 kmpl", "price": "\u20b918.49 L", "feats": "With Tripper Nav"}, "metro-rebel": {"name": "Metro Dapper+ 45", "battery": "349 cc", "range": "36 kmpl", "price": "\u20b919.49 L", "feats": "ABS+Slipper + Tripper Nav"}, "metro-rebel-lite": {"name": "Metro Rebel Lite", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b918.99 L", "feats": "Long range base"}, "metro-rebel": {"name": "Metro Rebel", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b919.99 L", "feats": "Tripper Nav + ABS + USB-C"}, "metro-dapper": {"name": "Metro Dapper", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b920.99 L", "feats": "Top trim \u00b7 ABS \u00b7 Tripper Nav"}, "metro-dapper-plus": {"name": "Metro Dapper Plus", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b921.49 L", "feats": "Pro \u00b7 JBL 9-spkr \u00b7 360\u00b0 cam"}, "metro-dapper-special": {"name": "Metro Dapper Special", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b921.99 L", "feats": "Stealth black edition"}};
+    var VARIANTS = {"retro-factory": {"name": "Metro Rebel Lite 45", "battery": "349 cc", "range": "36 kmpl", "price": "\u20b917.49 L", "feats": "Base trim"}, "retro-factory-plus": {"name": "Metro Rebel+ 45", "battery": "349 cc", "range": "36 kmpl", "price": "\u20b918.49 L", "feats": "With Tripper Nav"}, "metro-rebel-v1": {"name": "Metro Dapper+ 45", "battery": "349 cc", "range": "36 kmpl", "price": "\u20b919.49 L", "feats": "ABS+Slipper + Tripper Nav"}, "metro-rebel-lite": {"name": "Metro Rebel Lite", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b918.99 L", "feats": "Long range base"}, "metro-rebel": {"name": "Metro Rebel", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b919.99 L", "feats": "Tripper Nav + ABS + USB-C"}, "metro-dapper": {"name": "Metro Dapper", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b920.99 L", "feats": "Top trim \u00b7 ABS \u00b7 Tripper Nav"}, "metro-dapper-plus": {"name": "Metro Dapper Plus", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b921.49 L", "feats": "Pro \u00b7 JBL 9-spkr \u00b7 360\u00b0 cam"}, "metro-dapper-special": {"name": "Metro Dapper Special", "battery": "349 cc", "range": "36.2 kmpl", "price": "\u20b921.99 L", "feats": "Stealth black edition"}};
     var qs = new URLSearchParams(window.location.search);
     var slug = qs.get('variant') || 'metro-rebel';
     var DEFAULT_SLUG = 'metro-rebel';
