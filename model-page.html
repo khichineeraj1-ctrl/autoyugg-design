@@ -333,7 +333,7 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 .hd-loc-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hd-loc-caret{width:10px;height:10px;color:var(--ink-faint);flex-shrink:0}
 .logo{font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:-.025em}
-.logo-yugg{background:linear-gradient(90deg,#f97316,#ec4899,#8b5cf6,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.logo-yugg{background:linear-gradient(90deg,#c2570a,#be185d,#6d28d9,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .logo-dot{color:var(--accent)}
 .nav{display:flex;gap:32px;font-size:14px;font-weight:500;margin-left:24px;flex:1}
 .nav a{color:var(--ink-soft);transition:color .15s}
@@ -840,6 +840,56 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 .mp-wrap{max-width:1240px;margin:0 auto;padding:0 48px}
 .mp-section{padding:64px 0;border-bottom:1px solid var(--line)}
 .mp-section.alt{background:var(--bg-alt)}
+
+/* ── Contextual intent pills ── */
+.ctx-pill{
+  display:flex;align-items:center;gap:14px;
+  background:#fff;
+  border:1.5px solid rgba(139,24,32,.18);
+  border-left:4px solid var(--accent);
+  border-radius:12px;
+  padding:14px 18px;
+  margin:0 auto 0;
+  max-width:860px;
+  box-shadow:0 2px 12px rgba(139,24,32,.07);
+  transform:translateY(18px);opacity:0;
+  transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .45s ease;
+  position:relative;
+}
+.ctx-pill.visible{transform:translateY(0);opacity:1}
+.ctx-pill-icon{
+  flex-shrink:0;
+  width:38px;height:38px;
+  background:rgba(139,24,32,.07);
+  border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);
+}
+.ctx-pill-body{flex:1;min-width:0}
+.ctx-pill-label{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+.ctx-pill-text{font-size:14px;font-weight:500;color:var(--ink);line-height:1.4}
+.ctx-pill-text span{color:var(--ink-soft);font-weight:400}
+.ctx-pill-cta{
+  flex-shrink:0;
+  background:var(--accent);color:#fff;
+  border:none;border-radius:8px;
+  padding:9px 18px;font-size:13px;font-weight:600;
+  cursor:pointer;white-space:nowrap;
+  transition:background .2s,transform .15s;
+}
+.ctx-pill-cta:hover{background:#6e1018;transform:translateY(-1px)}
+.ctx-pill-dismiss{
+  position:absolute;top:8px;right:10px;
+  background:none;border:none;cursor:pointer;
+  color:var(--ink-soft);font-size:16px;line-height:1;padding:2px 4px;
+  opacity:.5;transition:opacity .2s;
+}
+.ctx-pill-dismiss:hover{opacity:1}
+.ctx-pill-wrap{padding:20px 24px 0;max-width:860px;margin:0 auto}
+@media(max-width:600px){
+  .ctx-pill{flex-wrap:wrap;gap:10px}
+  .ctx-pill-cta{width:100%}
+}
 .mp-h2{font-family:var(--display);font-weight:600;font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-.02em;margin-bottom:8px}
 .mp-h2 b{font-weight:700}
 .mp-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
@@ -4657,7 +4707,7 @@ a.review-author:hover{opacity:.8}
   font-family:var(--display,'Playfair Display', serif);
   font-size:24px;font-weight:700;color:#fff;letter-spacing:-.01em;
 }
-.ft-lean-brand .ft-logo .logo-yugg{background:linear-gradient(90deg,#f97316,#ec4899,#8b5cf6,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ft-lean-brand .ft-logo .logo-yugg{background:linear-gradient(90deg,#c2570a,#be185d,#6d28d9,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .ft-lean-brand p{font-size:13px;color:#94949c;line-height:1.6;margin:0;max-width:280px}
 .ft-lean-social{display:flex;gap:10px;margin-top:8px}
 .ft-lean-social a{
@@ -6091,6 +6141,21 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
   </div>
 </section>
 
+<!-- CTX PILL: after variants -->
+<div class="ctx-pill-wrap" id="ctxPillVariant">
+  <div class="ctx-pill" data-pill="variant">
+    <button class="ctx-pill-dismiss" aria-label="Dismiss" onclick="ctxDismiss('ctxPillVariant')">×</button>
+    <div class="ctx-pill-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    </div>
+    <div class="ctx-pill-body">
+      <div class="ctx-pill-label">Variant selected</div>
+      <div class="ctx-pill-text" id="ctxPillVariantText">Get the exact on-road price for <span id="ctxActiveVariant">Accomplished+ 55</span> in your city</div>
+    </div>
+    <button class="ctx-pill-cta" onclick="openLeadForm('price','Tata Curvv EV – ' + (document.getElementById('ctxActiveVariant')||{textContent:''}).textContent)">Get price →</button>
+  </div>
+</div>
+
 <section class="mp-section" id="variant-picker" style="background:linear-gradient(135deg,var(--bg-alt) 0%,#fff 100%)">
   <div class="mp-wrap">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
@@ -6211,6 +6276,21 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
   </div>
 </section>
 
+<!-- CTX PILL: after colors -->
+<div class="ctx-pill-wrap" id="ctxPillColor">
+  <div class="ctx-pill" data-pill="color">
+    <button class="ctx-pill-dismiss" aria-label="Dismiss" onclick="ctxDismiss('ctxPillColor')">×</button>
+    <div class="ctx-pill-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    </div>
+    <div class="ctx-pill-body">
+      <div class="ctx-pill-label">Checking availability</div>
+      <div class="ctx-pill-text">Is <span id="ctxActiveColor">Pristine White</span> in stock near you? Check with a dealer now</div>
+    </div>
+    <button class="ctx-pill-cta" onclick="openLeadForm('connectDealer','Tata Curvv EV – ' + (document.getElementById('ctxActiveColor')||{textContent:''}).textContent)">Check stock →</button>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- EXPERT REVIEW                                                 -->
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -6230,6 +6310,21 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
     </div>
   </div>
 </section>
+
+<!-- CTX PILL: after specs -->
+<div class="ctx-pill-wrap" id="ctxPillSpecs">
+  <div class="ctx-pill" data-pill="specs">
+    <button class="ctx-pill-dismiss" aria-label="Dismiss" onclick="ctxDismiss('ctxPillSpecs')">×</button>
+    <div class="ctx-pill-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    </div>
+    <div class="ctx-pill-body">
+      <div class="ctx-pill-label">EV Suitability check</div>
+      <div class="ctx-pill-text">330 km real-world range — <span>does this fit your daily commute? Chat with an EV advisor</span></div>
+    </div>
+    <button class="ctx-pill-cta" onclick="openLeadForm('loan','Tata Curvv EV')">Talk to EV advisor →</button>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- SMART NOTABLE FEATURES                                        -->
@@ -6396,6 +6491,21 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
   </div>
 </section>
 
+<!-- CTX PILL: after expert review -->
+<div class="ctx-pill-wrap" id="ctxPillReview">
+  <div class="ctx-pill" data-pill="review">
+    <button class="ctx-pill-dismiss" aria-label="Dismiss" onclick="ctxDismiss('ctxPillReview')">×</button>
+    <div class="ctx-pill-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    </div>
+    <div class="ctx-pill-body">
+      <div class="ctx-pill-label">Ready to experience it?</div>
+      <div class="ctx-pill-text">Experts rate it 8.4/10 — <span>book a test drive and feel it yourself, free home pickup</span></div>
+    </div>
+    <button class="ctx-pill-cta" onclick="openTestDriveBooking('Tata Curvv EV','')">Book test drive →</button>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- USER REVIEWS                                                  -->
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -6515,6 +6625,21 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
         </div>
       </div>
     </section>
+
+<!-- CTX PILL: after user reviews -->
+<div class="ctx-pill-wrap" id="ctxPillOwners">
+  <div class="ctx-pill" data-pill="owners">
+    <button class="ctx-pill-dismiss" aria-label="Dismiss" onclick="ctxDismiss('ctxPillOwners')">×</button>
+    <div class="ctx-pill-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div class="ctx-pill-body">
+      <div class="ctx-pill-label">2,400+ Curvv EV owners</div>
+      <div class="ctx-pill-text">They all started with a test drive — <span>join them, free home pickup available</span></div>
+    </div>
+    <button class="ctx-pill-cta" onclick="openTestDriveBooking('Tata Curvv EV','')">Book my test drive →</button>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- DOWNLOAD BROCHURE                                            -->
@@ -10561,6 +10686,96 @@ window.submitNativeTd = function(e){
           item.classList.toggle('hidden', cat !== 'all' && item.dataset.cat !== cat);
         });
       });
+    });
+  })();
+
+  /* ── Contextual intent pills ── */
+  (function(){
+    // Dismissed pills persist in sessionStorage
+    var DISMISSED_KEY = 'ctxPillsDismissed';
+    function getDismissed(){ try{ return JSON.parse(sessionStorage.getItem(DISMISSED_KEY)||'[]'); }catch(e){ return []; } }
+    function setDismissed(arr){ try{ sessionStorage.setItem(DISMISSED_KEY, JSON.stringify(arr)); }catch(e){} }
+
+    window.ctxDismiss = function(wrapId){
+      var el = document.getElementById(wrapId);
+      if(!el) return;
+      el.style.transition = 'opacity .3s ease, max-height .4s ease';
+      el.style.opacity = '0';
+      el.style.overflow = 'hidden';
+      el.style.maxHeight = el.offsetHeight + 'px';
+      requestAnimationFrame(function(){ el.style.maxHeight = '0'; el.style.padding = '0'; });
+      setTimeout(function(){ el.style.display = 'none'; }, 420);
+      var d = getDismissed(); d.push(wrapId); setDismissed(d);
+    };
+
+    // Hide already-dismissed pills immediately
+    getDismissed().forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.style.display = 'none';
+    });
+
+    // IntersectionObserver: slide pills in when they enter viewport
+    var pillWraps = document.querySelectorAll('.ctx-pill-wrap');
+    if('IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            var pill = entry.target.querySelector('.ctx-pill');
+            if(pill) setTimeout(function(){ pill.classList.add('visible'); }, 120);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      pillWraps.forEach(function(w){ obs.observe(w); });
+    } else {
+      // Fallback: show all immediately
+      document.querySelectorAll('.ctx-pill').forEach(function(p){ p.classList.add('visible'); });
+    }
+
+    // Sync active variant name into pill
+    function syncVariantPill(){
+      var nameEl = document.getElementById('cfgName') || document.getElementById('cfgExploreVariantName');
+      var pillEl = document.getElementById('ctxActiveVariant');
+      if(nameEl && pillEl) pillEl.textContent = nameEl.textContent.trim();
+    }
+    syncVariantPill();
+    // Re-sync when variant changes (observe cfgName text changes)
+    var cfgName = document.getElementById('cfgName');
+    if(cfgName && 'MutationObserver' in window){
+      new MutationObserver(syncVariantPill).observe(cfgName, {childList:true, subtree:true, characterData:true});
+    }
+
+    // Sync active color name into pill
+    function syncColorPill(){
+      var nameEl = document.getElementById('colorName');
+      var pillEl = document.getElementById('ctxActiveColor');
+      if(nameEl && pillEl){
+        // colorName may contain a <span> — grab only first text node
+        var txt = Array.from(nameEl.childNodes).filter(function(n){ return n.nodeType===3; }).map(function(n){ return n.textContent.trim(); }).join('');
+        if(txt) pillEl.textContent = txt;
+      }
+    }
+    syncColorPill();
+    var colorNameEl = document.getElementById('colorName');
+    if(colorNameEl && 'MutationObserver' in window){
+      new MutationObserver(syncColorPill).observe(colorNameEl, {childList:true, subtree:true, characterData:true});
+    }
+
+    // 90-second idle: if user hasn't opened a lead form, nudge via review pill CTA label
+    var idleTimer = setTimeout(function(){
+      var pill = document.getElementById('ctxPillReview');
+      if(!pill || pill.style.display === 'none') return;
+      var lbl = pill.querySelector('.ctx-pill-label');
+      if(lbl) lbl.textContent = 'Still deciding?';
+      var txt = pill.querySelector('.ctx-pill-text');
+      if(txt) txt.innerHTML = 'Most buyers book a test drive before deciding — <span>free pickup, no obligation</span>';
+    }, 90000);
+
+    // Cancel idle nudge if they open any lead form
+    document.addEventListener('click', function(e){
+      if(e.target && (e.target.classList.contains('ctx-pill-cta') || e.target.closest('.lf-overlay') || e.target.closest('#tdModal'))){
+        clearTimeout(idleTimer);
+      }
     });
   })();
 </script>
