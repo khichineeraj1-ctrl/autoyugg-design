@@ -4793,11 +4793,20 @@ button{font-family:var(--sans);cursor:pointer;border:0;background:0}
 .vt-change-city{font-size:12px;color:var(--accent);font-weight:600;text-decoration:none}
 .vt-change-city:hover{text-decoration:underline}
 
-.vt-rail{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.vt-rail-wrap{position:relative}
+.vt-nav{position:absolute;top:50%;transform:translateY(-60%);z-index:4;background:var(--surface);border:1px solid var(--line);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:opacity .2s,box-shadow .2s;color:var(--ink)}
+.vt-nav:hover{box-shadow:0 4px 16px rgba(0,0,0,.14)}
+.vt-nav.vt-prev{left:-18px}
+.vt-nav.vt-next{right:-18px}
+.vt-nav:disabled,.vt-nav[disabled]{opacity:0;pointer-events:none}
+@media(max-width:600px){.vt-nav{display:none}}
+
+.vt-rail{display:flex;flex-direction:row;gap:14px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.vt-rail::-webkit-scrollbar{display:none}
 .vt-rail::-webkit-scrollbar{height:4px}
 .vt-rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px}
 
-.vt-card{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;display:flex;flex-direction:column;gap:0;overflow:hidden;transition:box-shadow .2s,border-color .2s;min-width:200px}
+.vt-card{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;display:flex;flex-direction:column;gap:0;overflow:hidden;transition:box-shadow .2s,border-color .2s;flex:0 0 230px;width:230px;scroll-snap-align:start}
 .vt-card:hover{box-shadow:0 4px 24px rgba(0,0,0,.08);border-color:#c8c4bc}
 .vt-card.popular{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
 
@@ -5476,6 +5485,13 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
     </div>
 
     <!-- Variant card rail -->
+    <div class="vt-rail-wrap">
+      <button class="vt-nav vt-prev" id="vtPrev" aria-label="Scroll left" disabled>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="vt-nav vt-next" id="vtNext" aria-label="Scroll right">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     <div class="vt-rail" id="vtRail">
 
       <!-- V1: Base -->
@@ -5644,6 +5660,7 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
       </div>
 
     </div><!-- /vt-rail -->
+    </div><!-- /vt-rail-wrap -->
 
     <p class="vt-footnote">Prices ex-showroom Delhi · <a href="bike-on-road-price.html">Get on-road price for your city →</a></p>
   </div>
@@ -9928,5 +9945,27 @@ window.submitNativeTd = function(e){
 };
 </script>
 
+<script>
+// ─── Variant rail scroll nav ───
+(function(){
+  var rail = document.getElementById('vtRail');
+  var prev = document.getElementById('vtPrev');
+  var next = document.getElementById('vtNext');
+  if(!rail||!prev||!next) return;
+  function updateNav(){
+    prev.disabled = rail.scrollLeft <= 4;
+    next.disabled = rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 4;
+  }
+  prev.addEventListener('click', function(){ rail.scrollBy({left:-260,behavior:'smooth'}); });
+  next.addEventListener('click', function(){ rail.scrollBy({left:260,behavior:'smooth'}); });
+  rail.addEventListener('scroll', updateNav, {passive:true});
+  // Show next arrow only if content overflows
+  updateNav();
+  if(rail.scrollWidth <= rail.clientWidth) {
+    prev.style.display = 'none';
+    next.style.display = 'none';
+  }
+})();
+</script>
 </body>
 </html>
