@@ -5664,6 +5664,33 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
 
     <p class="vt-footnote">Prices ex-showroom Delhi · <a href="bike-on-road-price.html">Get on-road price for your city →</a></p>
   </div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SMART VARIANT PICKER ENTRY POINT                              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="mp-section" id="variant-picker" style="background:linear-gradient(135deg,var(--bg-alt) 0%,#fff 100%)">
+  <div class="mp-wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0">
+        <div class="mp-eyebrow" style="margin-bottom:10px">Smart variant picker</div>
+        <h2 style="font-family:var(--display);font-weight:700;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.02em;line-height:1.15;color:var(--ink);margin-bottom:8px">Not sure which variant to pick?</h2>
+        <p style="font-size:14px;color:var(--ink-soft);line-height:1.6;max-width:480px;margin-bottom:0">Answer 5 quick questions — budget, mileage, connectivity, brakes, usage — and we&rsquo;ll match you to the right Hunter 350 variant in under 2 minutes.</p>
+        <div style="display:flex;align-items:center;gap:20px;margin-top:16px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>5 quick questions</div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Personalised match</div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-soft)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Takes under 2 min</div>
+        </div>
+      </div>
+      <div style="flex-shrink:0">
+        <button id="openVariantPicker" onclick="window.openVariantWizard && window.openVariantWizard('fresh')" style="display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:0;padding:14px 24px;border-radius:100px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;transition:background .15s,transform .15s" onmouseover="this.style.background='#6b1218';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--accent)';this.style.transform='none'">
+          Find my variant
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 </section>
 
 
@@ -9036,6 +9063,8 @@ renderAll('bikes');
   bd.addEventListener('click', close);
   closeBtn.addEventListener('click', close);
   document.addEventListener('keydown', e=>{ if(e.key === 'Escape' && modal.classList.contains('open')) close(); });
+
+  window.openVariantWizard = open;
 
   // ─── Wire BYC section CTAs ───
   document.querySelectorAll('.byc-cta-row .byc-btn').forEach(btn=>{
