@@ -6404,7 +6404,7 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
                 <div class="byc-biked-budget-handle l"></div>
                 <div class="byc-biked-budget-handle r"></div>
               </div>
-              <div class="byc-biked-budget-vals"><span>₹15 L</span><span>₹22 L</span></div>
+              <div class="byc-biked-budget-vals"><span>₹1.5 L</span><span>₹2.2 L</span></div>
             </div>
           </div>
 
@@ -8878,8 +8878,8 @@ renderAll('bikes');
   const state = {
     step: 0,                    // current step index
     priorities: [],             // up to 3 selected
-    budgetMin: 12,              // ₹L
-    budgetMax: 25,              // ₹L
+    budgetMin: 1,               // ₹L
+    budgetMax: 3,               // ₹L
     bodyTypes: [],              // selected body types
     fuelTypes: [],              // selected fuel types (empty = any)
     kmFit: null,                // 'commute' | 'mixed' | 'highway' | null (skipped)
@@ -8911,8 +8911,8 @@ renderAll('bikes');
       q:'What is your <b>budget</b>?',
       help:'Drag the handles to set your ex-showroom range. We allow some overlap on either side.',
       type:'slider',
-      min:5,
-      max:60,
+      min:0.8,
+      max:5,
     },
     {
       id:'bodyTypes',
@@ -8922,7 +8922,7 @@ renderAll('bikes');
       type:'multi',
       max:99,
       options:[
-        {key:'Sports Bike', label:'Sports Bike', emoji:'🏎️', sub:'Track-focused, aggressive lean'},
+        {key:'Sports Bike', label:'Sports Bike', emoji:'🏍️', sub:'Track-focused, aggressive lean'},
         {key:'Scooter',     label:'Scooter',     emoji:'🛵', sub:'Automatic, easy city ride'},
         {key:'Cruiser',     label:'Cruiser',     emoji:'🏍️', sub:'Long rides, relaxed posture'},
         {key:'Commuter',    label:'Commuter',    emoji:'🛵', sub:'City errands, fuel-efficient'},
@@ -8973,7 +8973,7 @@ renderAll('bikes');
       s.priorities.forEach(p=>{ priorityScore += bike[p] || 0; });
       priorityScore = priorityScore / s.priorities.length;
     } else {
-      const keys = ['range','safety','boot','performance','comfort','tech','brandRep','resale'];
+      const keys = ['mileage','safety','handling','performance','comfort','tech','brandRep','resale'];
       priorityScore = keys.reduce((sum,k)=>sum + bike[k], 0) / keys.length;
     }
     let kmBonus = 0;
@@ -9068,10 +9068,10 @@ renderAll('bikes');
   function open(presetMode){
     if(presetMode === 'compare'){
       // "Compare with similar EVs" — pre-select Hunter 350-style filters
-      state.priorities = ['range','safety','tech'];
-      state.budgetMin = 15;
-      state.budgetMax = 25;
-      state.bodyTypes = ['SUV', 'Naked'];
+      state.priorities = ['safety','tech','handling'];
+      state.budgetMin = 1.5;
+      state.budgetMax = 2.2;
+      state.bodyTypes = ['Street Bike','Cruiser'];
       state.fuelTypes = ['Petrol'];
       state.kmFit = 'mixed';
       state.step = TOTAL_STEPS; // jump straight to results
@@ -9079,8 +9079,8 @@ renderAll('bikes');
       // Reset state for fresh wizard
       state.step = 0;
       state.priorities = [];
-      state.budgetMin = 12;
-      state.budgetMax = 25;
+      state.budgetMin = 1;
+      state.budgetMax = 3;
       state.bodyTypes = [];
       state.fuelTypes = [];
       state.kmFit = null;
@@ -9221,31 +9221,31 @@ renderAll('bikes');
         </div>
         <div class="bw-slider-marks">
           <span>₹${s.min} L</span>
-          <span>₹${Math.round((s.min+s.max)/2)} L</span>
+          <span>₹${Math.round((s.min+s.max)/2*10)/10} L</span>
           <span>₹${s.max} L</span>
         </div>
       </div>
       <div class="bw-preset-h">Or pick a range</div>
       <div class="bw-presets">
-        <button class="bw-preset" type="button" data-min="5" data-max="10">
-          <div class="bw-preset-label">Under ₹10 L</div>
-          <div class="bw-preset-range">₹5 - 10 Lakh</div>
-          <span class="bw-preset-tag">Commuters · Entry sedans</span>
+        <button class="bw-preset" type="button" data-min="0.8" data-max="1.2">
+          <div class="bw-preset-label">Under ₹1.2 L</div>
+          <div class="bw-preset-range">₹80K – 1.2 L</div>
+          <span class="bw-preset-tag">Scooters · Entry commuters</span>
         </button>
-        <button class="bw-preset" type="button" data-min="10" data-max="15">
-          <div class="bw-preset-label">₹10 - 15 L</div>
+        <button class="bw-preset" type="button" data-min="1.2" data-max="1.8">
+          <div class="bw-preset-label">₹1.2 – 1.8 L</div>
           <div class="bw-preset-range">Sweet spot</div>
-          <span class="bw-preset-tag">Nakeds · Cruisers</span>
+          <span class="bw-preset-tag">Commuters · Street bikes</span>
         </button>
-        <button class="bw-preset" type="button" data-min="15" data-max="25">
-          <div class="bw-preset-label">₹15 - 25 L</div>
-          <div class="bw-preset-range">Premium picks</div>
-          <span class="bw-preset-tag">SUVs · Hunter 350</span>
+        <button class="bw-preset" type="button" data-min="1.8" data-max="2.5">
+          <div class="bw-preset-label">₹1.8 – 2.5 L</div>
+          <div class="bw-preset-range">Performance picks</div>
+          <span class="bw-preset-tag">Hunter 350 · Cruisers · Nakeds</span>
         </button>
-        <button class="bw-preset" type="button" data-min="25" data-max="60">
-          <div class="bw-preset-label">₹25 L+</div>
-          <div class="bw-preset-range">Luxury & EV flagships</div>
-          <span class="bw-preset-tag">Top-tier</span>
+        <button class="bw-preset" type="button" data-min="2.5" data-max="5">
+          <div class="bw-preset-label">₹2.5 L+</div>
+          <div class="bw-preset-range">Premium & Super bikes</div>
+          <span class="bw-preset-tag">Speed 400 · Interceptor · Duke 390</span>
         </button>
       </div>
     `;
@@ -9277,12 +9277,12 @@ renderAll('bikes');
         const x = (e.touches ? e.touches[0].clientX : e.clientX);
         const r = rail.getBoundingClientRect();
         const ratio = Math.max(0, Math.min(1, (x - r.left) / r.width));
-        let val = Math.round(s.min + ratio * (s.max - s.min));
+        let val = Math.round((s.min + ratio * (s.max - s.min)) * 10) / 10;
         if(isLeft){
-          val = Math.min(val, state.budgetMax - 1);
+          val = Math.min(val, Math.round((state.budgetMax - 0.1)*10)/10);
           state.budgetMin = Math.max(s.min, val);
         } else {
-          val = Math.max(val, state.budgetMin + 1);
+          val = Math.max(val, Math.round((state.budgetMin + 0.1)*10)/10);
           state.budgetMax = Math.min(s.max, val);
         }
         update();
@@ -9302,8 +9302,8 @@ renderAll('bikes');
     const presets = document.querySelectorAll('.bw-preset');
     function syncPresetActive(){
       presets.forEach(p => {
-        const min = parseInt(p.dataset.min, 10);
-        const max = parseInt(p.dataset.max, 10);
+        const min = parseFloat(p.dataset.min);
+        const max = parseFloat(p.dataset.max);
         p.classList.toggle('active', state.budgetMin === min && state.budgetMax === max);
       });
     }
