@@ -1721,12 +1721,44 @@ a.logo:hover{opacity:.85}
   margin-bottom:24px;
 }
 
-.cu-grid{
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:20px;
+.cu-arrows{display:flex;gap:8px;flex-shrink:0}
+.cu-arr{
+  width:42px;height:42px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:100px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink);cursor:pointer;
+  transition:background-color .2s,color .2s,border-color .2s,transform .2s,opacity .2s;
 }
+.cu-arr:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink);transform:scale(1.05)}
+.cu-arr:disabled{opacity:.3;cursor:not-allowed}
+.cu-arr svg{width:17px;height:17px}
+.cu-rail-wrap{position:relative}
+.cu-rail-wrap::before,.cu-rail-wrap::after{
+  content:"";position:absolute;top:0;bottom:0;width:56px;
+  pointer-events:none;z-index:2;transition:opacity .25s;
+}
+.cu-rail-wrap::before{left:-1px;background:linear-gradient(90deg,var(--surface) 20%,transparent 100%)}
+.cu-rail-wrap::after{right:-1px;background:linear-gradient(270deg,var(--surface) 20%,transparent 100%)}
+.cu-rail-wrap.at-start::before{opacity:0}
+.cu-rail-wrap.at-end::after{opacity:0}
+.cu-grid{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:4px 2px;
+  margin:-4px -2px;
+}
+.cu-grid::-webkit-scrollbar{display:none}
 .cu-card{
+  flex:0 0 288px;
+  scroll-snap-align:start;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:14px;
@@ -1874,14 +1906,14 @@ a.logo:hover{opacity:.85}
 .cu-view-all:hover{text-decoration:underline}
 
 @media(max-width:980px){
-  .cu-grid{grid-template-columns:repeat(2, 1fr)}
+  .cu-arrows{display:none}
 }
 @media(max-width:600px){
   .cu-section{padding:48px 0}
-  .cu-grid{grid-template-columns:1fr;gap:14px}
+  .cu-grid{gap:14px}
+  .cu-rail-wrap::before,.cu-rail-wrap::after{width:28px}
   .cu-tab{font-size:12.5px;padding:8px 14px}
-  .cu-card{flex-direction:row;align-items:stretch}
-  .cu-card-img{width:120px;height:auto;min-height:110px;flex-shrink:0;padding:14px;background:var(--bg-alt)}
+  .cu-card{flex:0 0 240px}
   .cu-card-body{padding:12px 14px}
   .cu-card-name{font-size:16px}
   .cu-feat-pill{top:8px;left:8px;font-size:8.5px;padding:3px 7px}
@@ -1925,12 +1957,44 @@ a.logo:hover{opacity:.85}
   gap:24px;
   flex-wrap:wrap;
 }
-.tools-grid{
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:16px;
+.tools-rail-wrap{position:relative}
+.tools-rail-wrap::before,.tools-rail-wrap::after{
+  content:"";position:absolute;top:0;bottom:0;width:56px;
+  pointer-events:none;z-index:2;transition:opacity .25s;
 }
+.tools-rail-wrap::before{left:-1px;background:linear-gradient(90deg,var(--bg-alt) 20%,transparent 100%)}
+.tools-rail-wrap::after{right:-1px;background:linear-gradient(270deg,var(--bg-alt) 20%,transparent 100%)}
+.tools-rail-wrap.at-start::before{opacity:0}
+.tools-rail-wrap.at-end::after{opacity:0}
+.tools-grid{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:4px 2px;
+  margin:-4px -2px;
+}
+.tools-grid::-webkit-scrollbar{display:none}
+.tools-arrows{display:flex;gap:8px;flex-shrink:0}
+.tools-arr{
+  width:42px;height:42px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:100px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink);cursor:pointer;
+  transition:background-color .2s,color .2s,border-color .2s,transform .2s,opacity .2s;
+}
+.tools-arr:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink);transform:scale(1.05)}
+.tools-arr:disabled{opacity:.3;cursor:not-allowed}
+.tools-arr svg{width:17px;height:17px}
 .tool-card{
+  flex:0 0 264px;
+  scroll-snap-align:start;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:14px;
@@ -1999,12 +2063,13 @@ a.logo:hover{opacity:.85}
 }
 
 @media (max-width:980px){
-  .tools-grid{grid-template-columns:repeat(2, 1fr)}
+  .tools-arrows{display:none}
 }
 @media (max-width:480px){
   .tools-section{padding:48px 0}
-  .tools-grid{grid-template-columns:1fr;gap:12px}
-  .tool-card{padding:18px}
+  .tools-grid{gap:12px}
+  .tool-card{padding:18px;flex:0 0 234px}
+  .tools-rail-wrap::before,.tools-rail-wrap::after{width:28px}
 }
 
 /* EMI Calculator modal */
@@ -3645,6 +3710,10 @@ a.logo:hover{opacity:.85}
         <h2 class="mp-h2"><span id="cuTitle">Curated <b>for you.</b></span></h2>
         <p class="mp-sub" style="margin-top:8px">Themed shortlists handpicked by our editors — switch categories to discover sunroof cars, family 7-seaters, EVs, and more.</p>
       </div>
+      <div class="cu-arrows">
+        <button class="cu-arr" id="cuPrev" aria-label="Scroll collection left" disabled><svg width="17" height="17" aria-hidden="true"><use href="#i-arl"/></svg></button>
+        <button class="cu-arr" id="cuNext" aria-label="Scroll collection right"><svg width="17" height="17" aria-hidden="true"><use href="#i-arr"/></svg></button>
+      </div>
     </div>
 
     <div class="cu-tab-bar" role="tablist" aria-label="Curated collections">
@@ -3661,6 +3730,7 @@ a.logo:hover{opacity:.85}
     <div class="cu-panels">
       <div class="cu-panel active" data-cu-panel="sunroof-under-10l" role="tabpanel">
         <p class="cu-panel-desc">Premium feel on a budget — affordable cars with electric sunroofs</p>
+        <div class="cu-rail-wrap at-start">
         <div class="cu-grid">
           <a href="#" class="cu-card">
             <div class="cu-card-img">
@@ -3727,9 +3797,11 @@ a.logo:hover{opacity:.85}
             </div>
           </a>
         </div>
+        </div>
       </div>
       <div class="cu-panel" data-cu-panel="adventure-ready" role="tabpanel">
         <p class="cu-panel-desc">4×4 SUVs and rugged off-roaders built for the wild</p>
+        <div class="cu-rail-wrap at-start">
         <div class="cu-grid">
           <a href="#" class="cu-card">
             <div class="cu-card-img">
@@ -3796,9 +3868,11 @@ a.logo:hover{opacity:.85}
             </div>
           </a>
         </div>
+        </div>
       </div>
       <div class="cu-panel" data-cu-panel="family-7-plus" role="tabpanel">
         <p class="cu-panel-desc">Spacious 7 and 8-seaters for the whole family</p>
+        <div class="cu-rail-wrap at-start">
         <div class="cu-grid">
           <a href="#" class="cu-card">
             <div class="cu-card-img">
@@ -3865,9 +3939,11 @@ a.logo:hover{opacity:.85}
             </div>
           </a>
         </div>
+        </div>
       </div>
       <div class="cu-panel" data-cu-panel="ev-range-warriors" role="tabpanel">
         <p class="cu-panel-desc">Electric SUVs and sedans with 400+ km certified range</p>
+        <div class="cu-rail-wrap at-start">
         <div class="cu-grid">
           <a href="#" class="cu-card">
             <div class="cu-card-img">
@@ -3934,9 +4010,11 @@ a.logo:hover{opacity:.85}
             </div>
           </a>
         </div>
+        </div>
       </div>
       <div class="cu-panel" data-cu-panel="luxury-under-25l" role="tabpanel">
         <p class="cu-panel-desc">Premium feel and tech without the luxury-brand price tag</p>
+        <div class="cu-rail-wrap at-start">
         <div class="cu-grid">
           <a href="#" class="cu-card">
             <div class="cu-card-img">
@@ -4003,9 +4081,11 @@ a.logo:hover{opacity:.85}
             </div>
           </a>
         </div>
+        </div>
       </div>
       <div class="cu-panel" data-cu-panel="mileage-kings" role="tabpanel">
         <p class="cu-panel-desc">Best fuel efficiency for daily commute and city drives</p>
+        <div class="cu-rail-wrap at-start">
         <div class="cu-grid">
           <a href="#" class="cu-card">
             <div class="cu-card-img">
@@ -4072,9 +4152,11 @@ a.logo:hover{opacity:.85}
             </div>
           </a>
         </div>
+        </div>
       </div>
       <div class="cu-panel" data-cu-panel="first-car-under-8l" role="tabpanel">
         <p class="cu-panel-desc">Reliable, easy-to-drive cars for first-time buyers</p>
+        <div class="cu-rail-wrap at-start">
         <div class="cu-grid">
           <a href="#" class="cu-card">
             <div class="cu-card-img">
@@ -4141,9 +4223,11 @@ a.logo:hover{opacity:.85}
             </div>
           </a>
         </div>
+        </div>
       </div>
       <div class="cu-panel" data-cu-panel="power-performance" role="tabpanel">
         <p class="cu-panel-desc">Sedans and coupés that put a smile on your face</p>
+        <div class="cu-rail-wrap at-start">
         <div class="cu-grid">
           <a href="#" class="cu-card">
             <div class="cu-card-img">
@@ -4210,6 +4294,7 @@ a.logo:hover{opacity:.85}
             </div>
           </a>
         </div>
+        </div>
       </div>
     </div>
 
@@ -4238,8 +4323,71 @@ a.logo:hover{opacity:.85}
       panels.forEach(p => {
         p.classList.toggle('active', p.dataset.cuPanel === id);
       });
+      if (window.cuRailSync) window.cuRailSync(true);
     });
   });
+})();
+
+// Curated section — horizontal rail (per-panel) with arrows + drag
+(function(){
+  var prev = document.getElementById('cuPrev'),
+      next = document.getElementById('cuNext'),
+      arrows = document.querySelector('.cu-arrows');
+
+  function activeRail(){
+    var panel = document.querySelector('.cu-panel.active');
+    return panel ? panel.querySelector('.cu-grid') : null;
+  }
+  function step(rail){
+    var card = rail.querySelector('.cu-card');
+    var gap = parseFloat(getComputedStyle(rail).columnGap) || 20;
+    return card ? (card.offsetWidth + gap) * 2 : rail.clientWidth * 0.8;
+  }
+  function sync(reset){
+    var rail = activeRail();
+    if(!rail) return;
+    if(reset){ rail.style.scrollBehavior='auto'; rail.scrollLeft = 0; rail.style.scrollBehavior='smooth'; }
+    var wrap = rail.parentElement;
+    var max = rail.scrollWidth - rail.clientWidth;
+    var x = rail.scrollLeft;
+    var atStart = x <= 2, atEnd = x >= max - 2, noScroll = max <= 2;
+    wrap.classList.toggle('at-start', atStart);
+    wrap.classList.toggle('at-end', atEnd || noScroll);
+    if(prev) prev.disabled = atStart;
+    if(next) next.disabled = atEnd || noScroll;
+    if(arrows) arrows.style.visibility = noScroll ? 'hidden' : '';
+  }
+  window.cuRailSync = sync;
+
+  if(prev) prev.addEventListener('click', function(){ var r=activeRail(); if(r) r.scrollBy({left:-step(r), behavior:'smooth'}); });
+  if(next) next.addEventListener('click', function(){ var r=activeRail(); if(r) r.scrollBy({left:step(r), behavior:'smooth'}); });
+  window.addEventListener('resize', function(){ sync(false); });
+
+  document.querySelectorAll('.cu-grid').forEach(function(rail){
+    rail.addEventListener('scroll', function(){ sync(false); }, {passive:true});
+
+    /* drag-to-scroll (desktop) */
+    var down=false, startX=0, startScroll=0, moved=false;
+    rail.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse') return;
+      down=true; moved=false; startX=e.clientX; startScroll=rail.scrollLeft;
+      rail.style.scrollBehavior='auto';
+    });
+    rail.addEventListener('pointermove', function(e){
+      if(!down) return;
+      var dx = e.clientX - startX;
+      if(Math.abs(dx) > 4) moved=true;
+      rail.scrollLeft = startScroll - dx;
+    });
+    ['pointerup','pointerleave','pointercancel'].forEach(function(ev){
+      rail.addEventListener(ev, function(){ down=false; rail.style.scrollBehavior='smooth'; });
+    });
+    rail.addEventListener('click', function(e){
+      if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; }
+    }, true);
+  });
+
+  sync(false);
 })();
 </script>
   <section class="section alt" data-section="offers"><div class="sec-hd"><div><div class="eyebrow live">Limited time · Dealer offers</div><h2 class="sec-title">Get <b>offers</b><br>on popular models.</h2></div><div class="sec-meta"><div>Verified by dealers</div><div><a href="#">View all offers →</a></div></div></div><div class="cwrap start"><div class="car" data-render="offer"></div></div><div class="ctl"><span class="pos"><b class="cur">01</b> / <span class="tot">08</span></span><div class="track"><div class="fill"></div></div><div class="arrows"><button class="arr prev" aria-label="Previous" disabled><svg width="16" height="16" aria-hidden="true"><use href="#i-arl"/></svg></button><button class="arr next" aria-label="Next"><svg width="16" height="16" aria-hidden="true"><use href="#i-arr"/></svg></button></div></div></section>
@@ -4270,9 +4418,14 @@ a.logo:hover{opacity:.85}
         <h2 class="mp-h2" id="toolsTitle">Helpful tools for your <b>buying decision.</b></h2>
         <p class="mp-sub" style="margin-top:8px">From EMI to fuel cost — make informed choices before you buy your next car.</p>
       </div>
+      <div class="tools-arrows">
+        <button class="tools-arr" id="toolsPrev" aria-label="Scroll tools left" disabled><svg width="17" height="17" aria-hidden="true"><use href="#i-arl"/></svg></button>
+        <button class="tools-arr" id="toolsNext" aria-label="Scroll tools right"><svg width="17" height="17" aria-hidden="true"><use href="#i-arr"/></svg></button>
+      </div>
     </div>
 
-    <div class="tools-grid">
+    <div class="tools-rail-wrap at-start">
+    <div class="tools-grid" id="toolsRail">
         <a class="tool-card" onclick="openEmiCalc(); return false;" style="--tool-color: #1f5d3c">
           
           <div class="tool-icon" style="color: #1f5d3c">
@@ -4328,8 +4481,60 @@ a.logo:hover{opacity:.85}
           <span class="tool-cta" style="color: #f9a825">Open calculator →</span>
         </a>
     </div>
+    </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var rail = document.getElementById('toolsRail');
+  if(!rail) return;
+  var wrap = rail.parentElement,
+      prev = document.getElementById('toolsPrev'),
+      next = document.getElementById('toolsNext');
+
+  function step(){
+    var card = rail.querySelector('.tool-card');
+    var gap = parseFloat(getComputedStyle(rail).columnGap) || 16;
+    return card ? (card.offsetWidth + gap) * 2 : rail.clientWidth * 0.8;
+  }
+  function sync(){
+    var max = rail.scrollWidth - rail.clientWidth;
+    var x = rail.scrollLeft;
+    var atStart = x <= 2, atEnd = x >= max - 2, noScroll = max <= 2;
+    wrap.classList.toggle('at-start', atStart);
+    wrap.classList.toggle('at-end', atEnd || noScroll);
+    if(prev) prev.disabled = atStart;
+    if(next) next.disabled = atEnd || noScroll;
+  }
+  if(prev) prev.addEventListener('click', function(){ rail.scrollBy({left:-step(), behavior:'smooth'}); });
+  if(next) next.addEventListener('click', function(){ rail.scrollBy({left:step(), behavior:'smooth'}); });
+  rail.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync);
+
+  /* drag-to-scroll (desktop) */
+  var down=false, startX=0, startScroll=0, moved=false;
+  rail.addEventListener('pointerdown', function(e){
+    if(e.pointerType !== 'mouse') return;
+    down=true; moved=false; startX=e.clientX; startScroll=rail.scrollLeft;
+    rail.style.scrollBehavior='auto';
+  });
+  rail.addEventListener('pointermove', function(e){
+    if(!down) return;
+    var dx = e.clientX - startX;
+    if(Math.abs(dx) > 4) moved=true;
+    rail.scrollLeft = startScroll - dx;
+  });
+  ['pointerup','pointerleave','pointercancel'].forEach(function(ev){
+    rail.addEventListener(ev, function(){ down=false; rail.style.scrollBehavior='smooth'; });
+  });
+  rail.addEventListener('click', function(e){
+    if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; }
+  }, true);
+
+  sync();
+})();
+</script>
 
 
 <div class="calc-modal-bd" id="emiBd" onclick="closeEmiCalc()"></div>
