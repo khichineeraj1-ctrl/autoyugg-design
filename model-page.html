@@ -1371,8 +1371,22 @@ a.review-author:hover{opacity:.8}
 .dlr-city-pill svg{width:13px;height:13px;color:var(--accent)}
 .dlr-city-pill .change{font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.06em;font-weight:500;margin-left:2px}
 
-.dlr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.dlr-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;transition:all .15s;display:flex;flex-direction:column;gap:12px;position:relative}
+.dlr-rail-wrap{position:relative}
+.dlr-rail-wrap::before,.dlr-rail-wrap::after{content:"";position:absolute;top:0;bottom:0;width:52px;pointer-events:none;z-index:2;transition:opacity .25s}
+.dlr-rail-wrap::before{left:-1px;background:linear-gradient(90deg,var(--surface) 20%,transparent 100%)}
+.dlr-rail-wrap::after{right:-1px;background:linear-gradient(270deg,var(--surface) 20%,transparent 100%)}
+.dlr-rail-wrap.at-start::before{opacity:0}
+.dlr-rail-wrap.at-end::after{opacity:0}
+.dlr-grid{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px;margin:-4px -2px}
+.dlr-grid::-webkit-scrollbar{display:none}
+.dlr-grid .dlr-empty{flex:1 1 100%;scroll-snap-align:none}
+.dlr-head-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.dlr-arrows{display:flex;gap:8px}
+.dlr-arr{width:38px;height:38px;background:var(--surface);border:1px solid var(--line);border-radius:100px;display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .2s,opacity .2s}
+.dlr-arr:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink);transform:scale(1.05)}
+.dlr-arr:disabled{opacity:.3;cursor:not-allowed}
+.dlr-arr svg{width:15px;height:15px}
+.dlr-card{flex:0 0 340px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;transition:all .15s;display:flex;flex-direction:column;gap:12px;position:relative}
 .dlr-card:hover{border-color:var(--ink);box-shadow:0 4px 16px rgba(13,13,13,.06);transform:translateY(-1px)}
 
 .dlr-card-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
@@ -1414,12 +1428,13 @@ a.review-author:hover{opacity:.8}
 .dlr-view-all:hover{background:rgba(196,73,52,.06);border-color:var(--accent)}
 
 @media(max-width:1024px){
-  .dlr-grid{grid-template-columns:repeat(2,1fr)}
+  .dlr-arrows{display:none}
 }
 @media(max-width:600px){
   .dlr{padding:40px 0}
-  .dlr-grid{grid-template-columns:1fr;gap:10px}
-  .dlr-card{padding:16px}
+  .dlr-grid{gap:10px}
+  .dlr-rail-wrap::before,.dlr-rail-wrap::after{width:26px}
+  .dlr-card{padding:16px;flex:0 0 280px}
   .dlr-card-name{font-size:14.5px}
   .dlr-foot{flex-direction:column;align-items:stretch}
   .dlr-view-all{justify-content:center}
@@ -1428,8 +1443,21 @@ a.review-author:hover{opacity:.8}
 /* ════════════════════════════════════════════════════════════ */
 /*  ON-ROAD PRICE BY CITY — grid on model page                  */
 /* ════════════════════════════════════════════════════════════ */
-.mp-orp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
-.mp-orp-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;text-decoration:none;color:inherit;transition:all .15s;display:flex;flex-direction:column;gap:10px;position:relative}
+.mp-orp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.mp-orp-arrows{display:flex;gap:8px;flex-shrink:0}
+.mp-orp-arr{width:38px;height:38px;background:var(--surface);border:1px solid var(--line);border-radius:100px;display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .2s,opacity .2s}
+.mp-orp-arr:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink);transform:scale(1.05)}
+.mp-orp-arr:disabled{opacity:.3;cursor:not-allowed}
+.mp-orp-arr svg{width:15px;height:15px}
+.mp-orp-rail-wrap{position:relative;margin-top:24px}
+.mp-orp-rail-wrap::before,.mp-orp-rail-wrap::after{content:"";position:absolute;top:0;bottom:0;width:52px;pointer-events:none;z-index:2;transition:opacity .25s}
+.mp-orp-rail-wrap::before{left:-1px;background:linear-gradient(90deg,var(--bg) 20%,transparent 100%)}
+.mp-orp-rail-wrap::after{right:-1px;background:linear-gradient(270deg,var(--bg) 20%,transparent 100%)}
+.mp-orp-rail-wrap.at-start::before{opacity:0}
+.mp-orp-rail-wrap.at-end::after{opacity:0}
+.mp-orp-grid{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px;margin:-4px -2px}
+.mp-orp-grid::-webkit-scrollbar{display:none}
+.mp-orp-card{flex:0 0 250px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;text-decoration:none;color:inherit;transition:all .15s;display:flex;flex-direction:column;gap:10px;position:relative}
 .mp-orp-card:hover{border-color:var(--ink);background:var(--bg-alt);transform:translateY(-1px)}
 .mp-orp-card.current{border-color:var(--accent);background:linear-gradient(135deg,rgba(196,73,52,.04),rgba(196,73,52,.01))}
 .mp-orp-card.current::before{content:"YOU";position:absolute;top:12px;right:12px;background:var(--accent);color:#fff;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;padding:3px 7px;border-radius:4px}
@@ -1447,11 +1475,12 @@ a.review-author:hover{opacity:.8}
 .mp-orp-all:hover{background:rgba(196,73,52,.06);border-color:var(--accent)}
 
 @media(max-width:1024px){
-  .mp-orp-grid{grid-template-columns:repeat(2,1fr)}
+  .mp-orp-arrows{display:none}
 }
 @media(max-width:600px){
-  .mp-orp-grid{grid-template-columns:1fr;gap:8px}
-  .mp-orp-card{padding:14px 16px}
+  .mp-orp-grid{gap:8px}
+  .mp-orp-rail-wrap::before,.mp-orp-rail-wrap::after{width:26px}
+  .mp-orp-card{padding:14px 16px;flex:0 0 214px}
   .mp-orp-card-name{font-size:15px}
   .mp-orp-card-price-val{font-size:16px}
   .mp-orp-card-arrow{opacity:1;background:var(--ink);color:#fff}
@@ -3890,12 +3919,44 @@ a.review-author:hover{opacity:.8}
   gap:24px;
   flex-wrap:wrap;
 }
-.tools-grid{
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:16px;
+.tools-rail-wrap{position:relative}
+.tools-rail-wrap::before,.tools-rail-wrap::after{
+  content:"";position:absolute;top:0;bottom:0;width:56px;
+  pointer-events:none;z-index:2;transition:opacity .25s;
 }
+.tools-rail-wrap::before{left:-1px;background:linear-gradient(90deg,var(--bg-alt) 20%,transparent 100%)}
+.tools-rail-wrap::after{right:-1px;background:linear-gradient(270deg,var(--bg-alt) 20%,transparent 100%)}
+.tools-rail-wrap.at-start::before{opacity:0}
+.tools-rail-wrap.at-end::after{opacity:0}
+.tools-grid{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:4px 2px;
+  margin:-4px -2px;
+}
+.tools-grid::-webkit-scrollbar{display:none}
+.tools-arrows{display:flex;gap:8px;flex-shrink:0}
+.tools-arr{
+  width:42px;height:42px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:100px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink);cursor:pointer;
+  transition:background-color .2s,color .2s,border-color .2s,transform .2s,opacity .2s;
+}
+.tools-arr:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink);transform:scale(1.05)}
+.tools-arr:disabled{opacity:.3;cursor:not-allowed}
+.tools-arr svg{width:17px;height:17px}
 .tool-card{
+  flex:0 0 264px;
+  scroll-snap-align:start;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:14px;
@@ -3965,12 +4026,13 @@ a.review-author:hover{opacity:.8}
 }
 
 @media (max-width:980px){
-  .tools-grid{grid-template-columns:repeat(2, 1fr)}
+  .tools-arrows{display:none}
 }
 @media (max-width:480px){
   .tools-section{padding:48px 0}
-  .tools-grid{grid-template-columns:1fr;gap:12px}
-  .tool-card{padding:18px}
+  .tools-grid{gap:12px}
+  .tool-card{padding:18px;flex:0 0 234px}
+  .tools-rail-wrap::before,.tools-rail-wrap::after{width:28px}
 }
 
 /* EMI Calculator modal */
@@ -4776,51 +4838,58 @@ a.review-author:hover{opacity:.8}
    NATIVE INLINE TEST DRIVE WIDGET (high-intent lead capture)
    ═══════════════════════════════════════════════════════════ */
 .tdn{
-  background:linear-gradient(135deg, #1a1410 0%, #2a2018 100%);
-  color:#fff;border-radius:20px;
+  background:linear-gradient(135deg,#fdf6f6 0%,#fff8f4 60%,#fdf4f4 100%);
+  color:var(--ink);border-radius:20px;
+  border:1.5px solid rgba(139,24,32,.1);
+  box-shadow:0 2px 24px rgba(139,24,32,.06);
   padding:32px;margin:48px 0;position:relative;overflow:hidden;
 }
 .tdn::before{
-  content:"";position:absolute;top:-100px;right:-80px;
-  width:340px;height:340px;border-radius:50%;
-  background:radial-gradient(circle, rgba(139,24,32,.25) 0%, transparent 65%);
+  content:"";position:absolute;top:-80px;right:-60px;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle, rgba(139,24,32,.07) 0%, transparent 65%);
   pointer-events:none;
+}
+.tdn::after{
+  content:"";position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),rgba(139,24,32,.3));
+  border-radius:0 0 20px 20px;
 }
 .tdn-wrap{position:relative;z-index:1;max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:22px}
 .tdn-head{display:flex;flex-direction:column;gap:6px}
 .tdn-eyebrow{
   font-family:var(--sans,sans-serif);
-  font-size:11.5px;font-weight:500;letter-spacing:0;text-transform:none;
-  color:#ff8a47;display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--accent);display:inline-flex;align-items:center;gap:6px;
 }
-.tdn-eyebrow::before{content:"●";font-size:8px;color:#ff8a47;animation:tdnBlink 2s infinite}
-@keyframes tdnBlink{0%,100%{opacity:1}50%{opacity:.4}}
+.tdn-eyebrow::before{content:"●";font-size:8px;color:var(--accent);animation:tdnBlink 2s infinite}
+@keyframes tdnBlink{0%,100%{opacity:1}50%{opacity:.35}}
 .tdn-title{
   font-family:var(--display,'Playfair Display', serif);
   font-size:clamp(24px,3.2vw,32px);font-weight:700;
-  letter-spacing:-.015em;line-height:1.15;color:#fff;margin:0;
+  letter-spacing:-.015em;line-height:1.15;color:var(--ink);margin:0;
 }
-.tdn-sub{font-size:14px;color:rgba(255,255,255,.7);line-height:1.5}
-.tdn-sub b{color:#fff;font-weight:700}
+.tdn-sub{font-size:14px;color:var(--ink-soft);line-height:1.5}
+.tdn-sub b{color:var(--ink);font-weight:600}
 
 .tdn-form{display:grid;grid-template-columns:1fr 1.6fr auto;gap:12px;align-items:end}
 .tdn-fld{display:flex;flex-direction:column;gap:6px}
 .tdn-fld label{
   font-family:var(--sans,sans-serif);
-  font-size:11.5px;font-weight:400;letter-spacing:0;text-transform:none;
-  color:rgba(255,255,255,.55);
+  font-size:11.5px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;
+  color:var(--ink-faint);
 }
 .tdn-input,.tdn-select{
-  background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.12);
-  color:#fff;padding:13px 14px;border-radius:10px;font-size:15px;font-weight:600;
-  width:100%;transition:border-color .15s, background .15s;font-family:inherit;
+  background:#fff;border:1.5px solid #e2d8d8;
+  color:var(--ink);padding:13px 14px;border-radius:10px;font-size:15px;font-weight:600;
+  width:100%;transition:border-color .15s, box-shadow .15s;font-family:inherit;
 }
-.tdn-input::placeholder{color:rgba(255,255,255,.4);font-weight:400}
-.tdn-input:focus,.tdn-select:focus{outline:none;border-color:#ff8a47;background:rgba(255,255,255,.12)}
+.tdn-input::placeholder{color:#c0b4b4;font-weight:400}
+.tdn-input:focus,.tdn-select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(139,24,32,.08)}
 .tdn-phone{display:flex;gap:0}
 .tdn-phone-cc{
-  background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);
-  color:#fff;padding:13px 14px;border-radius:10px 0 0 10px;
+  background:#f9f4f4;border:1.5px solid #e2d8d8;
+  color:var(--ink);padding:13px 14px;border-radius:10px 0 0 10px;
   font-family:var(--mono,'JetBrains Mono', monospace);font-size:13px;font-weight:700;
   border-right:0;
 }
@@ -4828,24 +4897,24 @@ a.review-author:hover{opacity:.8}
 
 .tdn-when{display:flex;gap:6px}
 .tdn-when-btn{
-  flex:1;background:rgba(255,255,255,.06);
-  border:1.5px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);
-  padding:12px 8px;border-radius:10px;font-size:13px;font-weight:400;
-  cursor:pointer;transition:background .15s, border-color .15s;
+  flex:1;background:#fff;
+  border:1.5px solid #e2d8d8;color:var(--ink-soft);
+  padding:12px 8px;border-radius:10px;font-size:13px;font-weight:500;
+  cursor:pointer;transition:background .15s, border-color .15s, color .15s;
   font-family:inherit;
 }
-.tdn-when-btn:hover{background:rgba(255,255,255,.12)}
-.tdn-when-btn.active{background:#ff8a47;border-color:#ff8a47;color:#1a1410}
+.tdn-when-btn:hover{background:#fdf0f0;border-color:rgba(139,24,32,.25);color:var(--accent)}
+.tdn-when-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
 
 .tdn-submit{
-  background:#fff;color:#1a1410;border:0;
+  background:var(--accent);color:#fff;border:0;
   padding:14px 26px;border-radius:100px;
   font-weight:700;font-size:14.5px;cursor:pointer;
   display:inline-flex;align-items:center;gap:8px;
   transition:background .15s, transform .1s, box-shadow .15s;
   font-family:inherit;white-space:nowrap;
 }
-.tdn-submit:hover{background:#ff8a47;color:#1a1410;box-shadow:0 8px 24px rgba(255,138,71,.35)}
+.tdn-submit:hover{background:#6b1218;box-shadow:0 8px 24px rgba(139,24,32,.28);transform:translateY(-1px)}
 .tdn-submit:active{transform:scale(.97)}
 .tdn-submit svg{width:16px;height:16px}
 
@@ -4853,10 +4922,10 @@ a.review-author:hover{opacity:.8}
   display:flex;gap:20px;flex-wrap:wrap;
   font-family:var(--sans,sans-serif);
   font-size:12px;font-weight:400;letter-spacing:0;text-transform:none;
-  color:rgba(255,255,255,.45);
+  color:var(--ink-faint);
 }
 .tdn-trust span{display:inline-flex;align-items:center;gap:5px}
-.tdn-trust span::before{content:"✓";color:#5cb87a;font-weight:600;font-size:11px}
+.tdn-trust span::before{content:"✓";color:#16a34a;font-weight:700;font-size:11px}
 
 /* Mobile sticky CTA */
 .tdn-sticky{
@@ -6214,12 +6283,22 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
 <!-- ═══════════════════════════════════════════════════════════ -->
 <section class="mp-section" id="orp-cities" aria-labelledby="orpCitiesTitle">
   <div class="mp-wrap">
-    <div class="mp-eyebrow">On-road price by city</div>
-    <h2 class="mp-h2" id="orpCitiesTitle"><span id="orpCitiesTitleText">Curvv EV on-road price <b>across India.</b></span></h2>
-    <p class="mp-sub" id="orpCitiesSub">RTO road tax, registration, and insurance vary by state. Click any city for the full breakdown.</p>
+    <div class="mp-orp-head">
+      <div>
+        <div class="mp-eyebrow">On-road price by city</div>
+        <h2 class="mp-h2" id="orpCitiesTitle"><span id="orpCitiesTitleText">Curvv EV on-road price <b>across India.</b></span></h2>
+        <p class="mp-sub" id="orpCitiesSub">RTO road tax, registration, and insurance vary by state. Click any city for the full breakdown.</p>
+      </div>
+      <div class="mp-orp-arrows">
+        <button class="mp-orp-arr" id="orpPrev" aria-label="Scroll cities left" disabled><svg width="15" height="15" aria-hidden="true"><use href="#i-arl"/></svg></button>
+        <button class="mp-orp-arr" id="orpNext" aria-label="Scroll cities right"><svg width="15" height="15" aria-hidden="true"><use href="#i-arr"/></svg></button>
+      </div>
+    </div>
 
-    <div class="mp-orp-grid" id="mpOrpGrid">
-      <!-- Cards rendered by JS based on detected/selected city -->
+    <div class="mp-orp-rail-wrap at-start" id="mpOrpRailWrap">
+      <div class="mp-orp-grid" id="mpOrpGrid">
+        <!-- Cards rendered by JS based on detected/selected city -->
+      </div>
     </div>
 
     <div class="mp-orp-foot">
@@ -6227,6 +6306,65 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var rail = document.getElementById('mpOrpGrid');
+  if(!rail) return;
+  var wrap = document.getElementById('mpOrpRailWrap'),
+      prev = document.getElementById('orpPrev'),
+      next = document.getElementById('orpNext'),
+      arrows = document.querySelector('.mp-orp-arrows');
+
+  function step(){
+    var card = rail.querySelector('.mp-orp-card');
+    var gap = parseFloat(getComputedStyle(rail).columnGap) || 10;
+    return card ? (card.offsetWidth + gap) * 2 : rail.clientWidth * 0.8;
+  }
+  function sync(){
+    var max = rail.scrollWidth - rail.clientWidth;
+    var x = rail.scrollLeft;
+    var atStart = x <= 2, atEnd = x >= max - 2, noScroll = max <= 2;
+    wrap.classList.toggle('at-start', atStart);
+    wrap.classList.toggle('at-end', atEnd || noScroll);
+    if(prev) prev.disabled = atStart;
+    if(next) next.disabled = atEnd || noScroll;
+    if(arrows) arrows.style.visibility = noScroll ? 'hidden' : '';
+  }
+  if(prev) prev.addEventListener('click', function(){ rail.scrollBy({left:-step(), behavior:'smooth'}); });
+  if(next) next.addEventListener('click', function(){ rail.scrollBy({left:step(), behavior:'smooth'}); });
+  rail.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync);
+
+  /* re-sync when cards re-render on city change */
+  if(window.MutationObserver){
+    new MutationObserver(function(){ rail.scrollLeft = 0; sync(); })
+      .observe(rail, {childList:true});
+  }
+
+  /* drag-to-scroll (desktop) */
+  var down=false, startX=0, startScroll=0, moved=false;
+  rail.addEventListener('pointerdown', function(e){
+    if(e.pointerType !== 'mouse') return;
+    down=true; moved=false; startX=e.clientX; startScroll=rail.scrollLeft;
+    rail.style.scrollBehavior='auto';
+  });
+  rail.addEventListener('pointermove', function(e){
+    if(!down) return;
+    var dx = e.clientX - startX;
+    if(Math.abs(dx) > 4) moved=true;
+    rail.scrollLeft = startScroll - dx;
+  });
+  ['pointerup','pointerleave','pointercancel'].forEach(function(ev){
+    rail.addEventListener(ev, function(){ down=false; rail.style.scrollBehavior='smooth'; });
+  });
+  rail.addEventListener('click', function(e){
+    if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; }
+  }, true);
+
+  sync();
+})();
+</script>
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- DEALERS NEAR YOU                                              -->
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -6670,15 +6808,23 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
         <h2 class="dlr-h" id="dlrTitle"><span id="dlrBrand">Tata</span> dealers <b>near you.</b></h2>
         <p class="dlr-sub" id="dlrSub">Visit a dealer for a test drive, on-road price quote, or to book your <span id="dlrModel">Curvv EV</span>. All dealers below are authorised and offer full sales, service, and warranty support.</p>
       </div>
-      <button class="dlr-city-pill" id="dlrCityBtn" type="button">
-        <svg width="16" height="16" aria-hidden="true"><use href="#i-pin"/></svg>
-        <span id="dlrCityName">Mumbai</span>
-        <span class="change">change</span>
-      </button>
+      <div class="dlr-head-right">
+        <button class="dlr-city-pill" id="dlrCityBtn" type="button">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-pin"/></svg>
+          <span id="dlrCityName">Mumbai</span>
+          <span class="change">change</span>
+        </button>
+        <div class="dlr-arrows">
+          <button class="dlr-arr" id="dlrPrev" aria-label="Scroll dealers left" disabled><svg width="15" height="15" aria-hidden="true"><use href="#i-arl"/></svg></button>
+          <button class="dlr-arr" id="dlrNext" aria-label="Scroll dealers right"><svg width="15" height="15" aria-hidden="true"><use href="#i-arr"/></svg></button>
+        </div>
+      </div>
     </div>
 
-    <div class="dlr-grid" id="dlrGrid">
-      <!-- Dealer cards rendered by JS -->
+    <div class="dlr-rail-wrap at-start" id="dlrRailWrap">
+      <div class="dlr-grid" id="dlrGrid">
+        <!-- Dealer cards rendered by JS -->
+      </div>
     </div>
 
     <div class="dlr-foot">
@@ -6687,6 +6833,68 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var rail = document.getElementById('dlrGrid');
+  if(!rail) return;
+  var wrap = document.getElementById('dlrRailWrap'),
+      prev = document.getElementById('dlrPrev'),
+      next = document.getElementById('dlrNext'),
+      arrows = wrap && wrap.parentElement ? document.querySelector('.dlr-arrows') : null;
+
+  function step(){
+    var card = rail.querySelector('.dlr-card');
+    var gap = parseFloat(getComputedStyle(rail).columnGap) || 14;
+    return card ? (card.offsetWidth + gap) * 2 : rail.clientWidth * 0.8;
+  }
+  function sync(){
+    var max = rail.scrollWidth - rail.clientWidth;
+    var x = rail.scrollLeft;
+    var atStart = x <= 2, atEnd = x >= max - 2, noScroll = max <= 2;
+    wrap.classList.toggle('at-start', atStart);
+    wrap.classList.toggle('at-end', atEnd || noScroll);
+    if(prev) prev.disabled = atStart;
+    if(next) next.disabled = atEnd || noScroll;
+    if(arrows) arrows.style.display = noScroll ? 'none' : '';
+  }
+  window.dlrRailSync = sync;
+
+  if(prev) prev.addEventListener('click', function(){ rail.scrollBy({left:-step(), behavior:'smooth'}); });
+  if(next) next.addEventListener('click', function(){ rail.scrollBy({left:step(), behavior:'smooth'}); });
+  rail.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync);
+
+  /* re-sync whenever dealer cards are re-rendered (city change) */
+  if(window.MutationObserver){
+    new MutationObserver(function(){ rail.scrollLeft = 0; sync(); })
+      .observe(rail, {childList:true});
+  }
+
+  /* drag-to-scroll (desktop) */
+  var down=false, startX=0, startScroll=0, moved=false;
+  rail.addEventListener('pointerdown', function(e){
+    if(e.pointerType !== 'mouse') return;
+    if(e.target.closest('a,button')) return;
+    down=true; moved=false; startX=e.clientX; startScroll=rail.scrollLeft;
+    rail.style.scrollBehavior='auto';
+  });
+  rail.addEventListener('pointermove', function(e){
+    if(!down) return;
+    var dx = e.clientX - startX;
+    if(Math.abs(dx) > 4) moved=true;
+    rail.scrollLeft = startScroll - dx;
+  });
+  ['pointerup','pointerleave','pointercancel'].forEach(function(ev){
+    rail.addEventListener(ev, function(){ down=false; rail.style.scrollBehavior='smooth'; });
+  });
+  rail.addEventListener('click', function(e){
+    if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; }
+  }, true);
+
+  sync();
+})();
+</script>
 
 
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -7668,9 +7876,14 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
         <h2 class="mp-h2" id="toolsTitle">Helpful tools for your <b>buying decision.</b></h2>
         <p class="mp-sub" style="margin-top:8px">From EMI to fuel cost — make informed choices before you buy your next car.</p>
       </div>
+      <div class="tools-arrows">
+        <button class="tools-arr" id="toolsPrev" aria-label="Scroll tools left" disabled><svg width="17" height="17" aria-hidden="true"><use href="#i-arl"/></svg></button>
+        <button class="tools-arr" id="toolsNext" aria-label="Scroll tools right"><svg width="17" height="17" aria-hidden="true"><use href="#i-arr"/></svg></button>
+      </div>
     </div>
 
-    <div class="tools-grid">
+    <div class="tools-rail-wrap at-start">
+    <div class="tools-grid" id="toolsRail">
         <a class="tool-card" onclick="openEmiCalc(); return false;" style="--tool-color: #1f5d3c">
           
           <div class="tool-icon" style="color: #1f5d3c">
@@ -7726,8 +7939,60 @@ window.__EMI_DEFAULT_VARIANT_IDX = 0;
           <span class="tool-cta" style="color: #f9a825">Open calculator →</span>
         </a>
     </div>
+    </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var rail = document.getElementById('toolsRail');
+  if(!rail) return;
+  var wrap = rail.parentElement,
+      prev = document.getElementById('toolsPrev'),
+      next = document.getElementById('toolsNext');
+
+  function step(){
+    var card = rail.querySelector('.tool-card');
+    var gap = parseFloat(getComputedStyle(rail).columnGap) || 16;
+    return card ? (card.offsetWidth + gap) * 2 : rail.clientWidth * 0.8;
+  }
+  function sync(){
+    var max = rail.scrollWidth - rail.clientWidth;
+    var x = rail.scrollLeft;
+    var atStart = x <= 2, atEnd = x >= max - 2;
+    wrap.classList.toggle('at-start', atStart);
+    wrap.classList.toggle('at-end', atEnd || max <= 2);
+    if(prev) prev.disabled = atStart;
+    if(next) next.disabled = atEnd || max <= 2;
+  }
+  if(prev) prev.addEventListener('click', function(){ rail.scrollBy({left:-step(), behavior:'smooth'}); });
+  if(next) next.addEventListener('click', function(){ rail.scrollBy({left:step(), behavior:'smooth'}); });
+  rail.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync);
+
+  /* drag-to-scroll (desktop) */
+  var down=false, startX=0, startScroll=0, moved=false;
+  rail.addEventListener('pointerdown', function(e){
+    if(e.pointerType !== 'mouse') return;
+    down=true; moved=false; startX=e.clientX; startScroll=rail.scrollLeft;
+    rail.style.scrollBehavior='auto';
+  });
+  rail.addEventListener('pointermove', function(e){
+    if(!down) return;
+    var dx = e.clientX - startX;
+    if(Math.abs(dx) > 4) moved=true;
+    rail.scrollLeft = startScroll - dx;
+  });
+  ['pointerup','pointerleave','pointercancel'].forEach(function(ev){
+    rail.addEventListener(ev, function(){ down=false; rail.style.scrollBehavior='smooth'; });
+  });
+  rail.addEventListener('click', function(e){
+    if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; }
+  }, true);
+
+  sync();
+})();
+</script>
 
 <section class="nl">
   <div class="nl-inner">
