@@ -53,7 +53,7 @@ The current homepage is `homepage-final.html`; the current upcoming page is `upc
 - Surface: `#ffffff` with `#e9ebee` borders
 - Accent: `#8b1820` (oxblood) — primary brand color
 - Text: `#1a1410` (ink) / `#52525b` (soft) / `#94949c` (faint)
-- Fonts: Apple system stack + display serif fallback + monospace caps for labels
+- Fonts: Apple system stack + display serif fallback (no monospace anywhere; small caps labels use the sans stack)
 - NO italics anywhere — use color/weight/underline instead
 - Always use `[Brand]` placeholder, never a client name
 

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voice Search Demo</title>
+<style>
+:root{
+  --bg:#ffffff;--bg-alt:#f5f6f8;--surface:#fff;
+  --ink:#1a1410;--ink-soft:#52525b;--ink-faint:#94949c;--line:#e9ebee;
+  --accent:#8b1820;--accent-soft:#f5e6e8;--green:#1a8744;
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",system-ui,Roboto,sans-serif;
+}
+*{box-sizing:border-box;font-style:normal}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+.hero{max-width:760px;margin:0 auto;padding:96px 16px 48px}
+h1{font-family:var(--display);font-size:clamp(32px,6vw,52px);line-height:1.05;letter-spacing:-.03em;margin:0}
+h1 .accent{color:var(--accent)}
+.sub{color:var(--ink-soft);margin:14px 0 0;font-size:16px}
+.search-box{margin-top:28px;background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:6px 6px 6px 18px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;align-items:center;gap:6px}
+.search-box:focus-within{border-color:var(--ink)}
+.search-input{flex:1;border:0;padding:15px 0;font:15px var(--sans);background:transparent;outline:0;min-width:0;color:var(--ink)}
+.search-voice{width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--ink-soft);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.search-voice:hover{background:var(--bg-alt);color:var(--ink)}
+.search-voice svg{width:18px;height:18px}
+.search-submit{background:var(--ink);color:#fff;padding:12px 26px;border-radius:11px;font:600 14px var(--sans);border:0;cursor:pointer}
+.label{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:36px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--ink);background:var(--surface)}
+.card:hover{border-color:var(--ink)}
+.card b{display:block;font-size:15px}
+.card span{display:block;font-size:12px;color:var(--ink-soft);margin-top:4px}
+.card .p{color:var(--accent);font-weight:700;font-size:14px;margin-top:8px}
+.note{font-size:13px;color:var(--ink-soft);border-left:3px solid var(--accent);padding:8px 12px;background:var(--bg-alt);border-radius:0 8px 8px 0;margin-top:40px}
+</style>
+<link rel="stylesheet" href="assets/voice-search.css">
+</head>
+<body>
+<section class="hero">
+  <h1>Find your next<br>car with <span class="accent">confidence.</span></h1>
+  <p class="sub">Tap the mic and just ask — “automatic SUV under 15 lakh”, “sabse zyada mileage wali scooty”, “Tata Curvv ka price”.</p>
+
+  <form class="search-box" id="typedForm">
+    <input type="search" id="heroSearch" class="search-input" placeholder="Search by brand, model, or budget…" autocomplete="off">
+    <button class="search-voice" id="heroVoice" type="button" aria-label="Voice search" title="Search by voice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+    </button>
+    <button class="search-submit" type="submit">Search</button>
+  </form>
+
+  <div class="label" id="resLabel" hidden>Results</div>
+  <div class="grid" id="resGrid"></div>
+
+  <p class="note">Demo page. Needs the PHP endpoints running (see README) and HTTPS or localhost for microphone access.</p>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="assets/voice-search.js"></script>
+<script>
+$(function () {
+  VoiceSearch.init({
+    sessionUrl: 'api/session.php',
+    searchUrl : 'api/search.php',
+    triggers  : '#heroVoice'
+  });
+
+  function render(results) {
+    $('#resLabel').prop('hidden', false).text(results.length + ' results');
+    $('#resGrid').html($.map(results, function (v) {
+      return '<a class="card" href="' + v.url + '"><b>' + $('<div>').text(v.name).html() + '</b>' +
+             '<span>' + [v.body, v.fuel, v.rating ? '★ ' + v.rating : ''].filter(Boolean).join(' · ') + '</span>' +
+             '<div class="p">' + v.price_label + '</div></a>';
+    }).join(''));
+  }
+
+  // Voice results also fill the page grid
+  $(document).on('voicesearch:results', function (e, results, args) {
+    if (args && args.query) $('#heroSearch').val(args.query);
+    render(results);
+  });
+
+  // Same endpoint powers normal typed search via AJAX
+  $('#typedForm').on('submit', function (e) {
+    e.preventDefault();
+    $.getJSON('api/search.php', { query: $('#heroSearch').val() }).done(function (r) { render(r.results || []); });
+  });
+});
+</script>
+</body>
+</html>

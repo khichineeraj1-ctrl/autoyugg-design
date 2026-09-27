@@ -16,7 +16,6 @@
   --green:#1a8744;--green-soft:#e3f3ea;
   --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",system-ui,sans-serif;
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,Roboto,sans-serif;
-  --mono:ui-monospace,"SF Mono",Menlo,monospace;
 }
 *,::before,::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -196,7 +195,7 @@ a.logo:hover{opacity:.85}
 .ep-review-verdict.rec{background:var(--green-soft);color:var(--green)}
 .ep-review-verdict.wait{background:#faecd6;color:#b86b00}
 .ep-review-excerpt{font-size:13px;color:var(--ink-soft);line-height:1.5;border-top:1px solid var(--line);padding-top:10px;margin-top:2px}
-.ep-review-date{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-top:8px}
+.ep-review-date{font-family:var(--sans);font-size:10px;color:var(--ink-faint);margin-top:8px}
 
 /* More reviews link */
 .ep-load-more{
@@ -237,7 +236,7 @@ a.logo:hover{opacity:.85}
 .ep-expertise-row{margin-bottom:12px}
 .ep-expertise-lbl{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px}
 .ep-expertise-name{font-weight:600}
-.ep-expertise-pct{color:var(--ink-soft);font-family:var(--mono)}
+.ep-expertise-pct{color:var(--ink-soft);font-family:var(--sans)}
 .ep-expertise-bar{height:4px;background:var(--line);border-radius:100px;overflow:hidden}
 .ep-expertise-fill{height:100%;background:var(--accent);border-radius:100px;transition:width .6s ease}
 
@@ -392,7 +391,7 @@ a.logo:hover{opacity:.85}
 <!-- ── Tab nav ── -->
 <nav class="ep-tabs">
   <div class="ep-tabs-inner">
-    <button class="ep-tab active" data-tab="reviews">Reviews <span style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">(180)</span></button>
+    <button class="ep-tab active" data-tab="reviews">Reviews <span style="font-family:var(--sans);font-size:10px;color:var(--ink-faint)">(180)</span></button>
     <button class="ep-tab" data-tab="about">About</button>
     <button class="ep-tab" data-tab="videos">Videos</button>
   </div>

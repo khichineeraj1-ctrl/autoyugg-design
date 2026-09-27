@@ -1,0 +1,5 @@
+# Block direct access to config/helpers; only session.php and search.php are public
+<FilesMatch "^(config|bootstrap)\.php$">
+    Require all denied
+</FilesMatch>
+Options -Indexes

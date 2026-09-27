@@ -80,7 +80,6 @@ html{-webkit-text-size-adjust:100%;overflow-x:hidden;width:100%}
   --blue:#1e5fb8;--blue-soft:#e3edf9;
   --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro","Helvetica Neue","Segoe UI",system-ui,sans-serif;
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro","Helvetica Neue","Segoe UI",system-ui,Roboto,sans-serif;
-  --mono:ui-monospace,"SF Mono",Menlo,monospace;
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:hidden;font-feature-settings:"ss01","cv11";letter-spacing:-.003em;max-width:100%}
@@ -147,7 +146,7 @@ a.logo:hover{opacity:.85}
 .so-tags a{font-size:13px;color:var(--ink-soft);background:var(--bg-alt);padding:7px 13px;border-radius:8px;transition:background-color .15s,color .15s}
 .so-tags a:hover{background:var(--ink);color:#fff}
 .so-hint{font-family:var(--sans);font-size:10px;letter-spacing:.04em;color:var(--ink-faint);text-transform:uppercase;margin-top:14px;display:flex;gap:14px}
-.so-hint kbd{font-family:var(--mono);font-size:9px;background:var(--bg-alt);border:1px solid var(--line);border-radius:4px;padding:2px 6px;color:var(--ink)}
+.so-hint kbd{font-family:var(--sans);font-size:9px;background:var(--bg-alt);border:1px solid var(--line);border-radius:4px;padding:2px 6px;color:var(--ink)}
 
 /* ──────────────────────────────────────────────────── */
 /*  LOCATION OVERLAY                                      */
@@ -448,7 +447,7 @@ a.logo:hover{opacity:.85}
 .ctl{max-width:1240px;margin:24px auto 0;padding:0 48px;display:flex;align-items:center;gap:24px}
 .track{flex:1;height:3px;background:var(--line);border-radius:100px;overflow:hidden;position:relative}
 .fill{position:absolute;top:0;left:0;height:100%;background:var(--ink);border-radius:100px;transition:width .2s,left .2s}
-.pos{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--ink-soft);min-width:60px}
+.pos{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--ink-soft);min-width:60px}
 .pos b{color:var(--ink);font-weight:700}
 .arrows{display:flex;gap:8px}
 .arr{width:44px;height:44px;background:var(--surface);border:1px solid var(--line);border-radius:100px;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background-color .2s,color .2s,border-color .2s,transform .2s}
@@ -484,31 +483,31 @@ a.logo:hover{opacity:.85}
 .vmeta{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
 .vprice{font-size:13px;font-weight:600}
 .vstrike{color:var(--ink-faint);font-size:12px;text-decoration:line-through;margin-right:4px}
-.vtag{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-soft)}
+.vtag{font-family:var(--sans);font-size:11px;font-weight:500;color:var(--ink-soft)}
 .vcta{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent);padding:7px 12px 7px 14px;border-radius:100px;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(214,59,31,.16);transition:background-color .2s,color .2s,border-color .2s,padding .2s;white-space:nowrap;line-height:1}
 .vcta-arr{font-size:14px;line-height:1;display:inline-block;transition:transform .25s ease;font-weight:700}
 .vc:hover .vcta{background:var(--accent);color:#fff;border-color:var(--accent);padding-right:14px}
 .vc:hover .vcta-arr{transform:translateX(3px)}
 .vstrip{background:var(--ink);color:#fff;padding:10px 18px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
 .vstrip b{color:var(--accent-soft)}
-.spark{margin-top:12px;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;color:var(--ink-faint)}
+.spark{margin-top:12px;display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:10px;color:var(--ink-faint)}
 .spark svg{height:22px;flex:1}
 .spark path{fill:none;stroke:var(--green);stroke-width:1.5}
 .spark.hot path{stroke:var(--accent)}
-.bt{flex:0 0 200px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px 20px;transition:transform .25s,background-color .25s,color .25s,border-color .25s;cursor:pointer;user-select:none;display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:180px;contain:layout style}
-.bt:hover{transform:translateY(-4px);background:var(--ink);color:#fff;border-color:var(--ink)}
-/* replaced */
-.bt-ico svg{width:100%;height:100%;fill:currentColor;color:var(--ink);transition:color .25s}
-.bt:hover .bt-ico svg{color:#fff}
-.bt-name{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;line-height:1.15}
-.bt-cnt{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-faint);margin-top:auto}
-.bt:hover .bt-cnt{color:rgba(255,255,255,.6)}
+.bt{flex:0 0 200px;scroll-snap-align:start;border-radius:16px;overflow:hidden;cursor:pointer;user-select:none;contain:layout style;text-decoration:none;display:block;position:relative;border:0}
+.bt:hover .bt-photo img{transform:scale(1.07)}
+.bt:hover .bt-overlay{background:linear-gradient(0deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.18) 100%)}
+.bt-photo{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#e8e9ec}
+.bt-photo img{width:100%;height:100%;object-fit:cover;transition:transform .45s cubic-bezier(.25,.46,.45,.94);display:block}
+.bt-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,.08) 60%);transition:background .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:14px}
+.bt-name{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.01em;line-height:1.2;color:#fff}
+.bt-cnt{font-family:var(--sans);font-size:10.5px;font-weight:500;color:rgba(255,255,255,.72);margin-top:3px}
 .br{flex:0 0 160px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;user-select:none;padding:18px;contain:layout style}
 .br:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.06);border-color:#dcdee2}
 .br-mark{width:56px;height:56px;background:var(--bg-alt);border-radius:100px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:22px;letter-spacing:-.04em;color:var(--ink);margin-bottom:12px;transition:background-color .25s,color .25s}
 .br:hover .br-mark{background:var(--ink);color:#fff}
 .br-name{font-size:13px;font-weight:600;line-height:1.2}
-.br-cnt{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-faint);margin-top:4px;letter-spacing:.05em}
+.br-cnt{font-family:var(--sans);font-size:10px;font-weight:500;color:var(--ink-faint);margin-top:4px;letter-spacing:.05em}
 .cmp{flex:0 0 380px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;user-select:none;contain:layout style}
 .cmp:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08);border-color:#dcdee2}
 .cmpv{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:linear-gradient(135deg,#f6f7f9 0%,#eceef1 100%);padding:24px 16px}
@@ -529,7 +528,7 @@ a.logo:hover{opacity:.85}
 .nw-tag{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--surface);color:var(--ink);padding:5px 10px;border-radius:4px}
 .nw-bd{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
 .nw-tt{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1.3}
-.nw-mt{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-faint);letter-spacing:.05em}
+.nw-mt{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-family:var(--sans);font-size:11px;font-weight:500;color:var(--ink-faint);letter-spacing:.05em}
 
 /* ════════════════════════════════════════════════════════ */
 /*  FOOTER                                                    */
@@ -640,7 +639,7 @@ a.logo:hover{opacity:.85}
 .ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
 .ft-brand .logo{font-size:28px;color:#fff;margin-bottom:14px;display:inline-block}
 .ft-brand p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:20px;max-width:280px}
-.ft-stats{display:flex;gap:20px;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.06em;margin-bottom:24px}
+.ft-stats{display:flex;gap:20px;font-family:var(--sans);font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.06em;margin-bottom:24px}
 .ft-stats span b{display:block;font-family:var(--display);font-size:22px;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:2px}
 .ft-social{display:flex;gap:8px}
 .ft-social a{width:36px;height:36px;border-radius:100px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:background-color .2s,color .2s}
@@ -662,7 +661,7 @@ a.logo:hover{opacity:.85}
 
 /* Bottom bar */
 .ft-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.ft-copy{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:rgba(255,255,255,.4)}
+.ft-copy{font-family:var(--sans);font-size:11px;letter-spacing:.05em;color:rgba(255,255,255,.4)}
 .ft-copy b{color:rgba(255,255,255,.7);font-weight:600}
 .ft-legal{display:flex;gap:24px;font-size:12px}
 .ft-legal a{color:rgba(255,255,255,.55);transition:color .15s}
@@ -712,7 +711,7 @@ a.logo:hover{opacity:.85}
   .bike{padding:8px 20px;gap:14px}
   .cwrap::before,.cwrap::after{width:30px}
   .vc{flex:0 0 270px}
-  .bt{flex:0 0 160px;min-height:150px}
+  .bt{flex:0 0 160px}
   .br{flex:0 0 130px}
   .cmp{flex:0 0 290px}
   .nw{flex:0 0 270px}
@@ -786,14 +785,14 @@ a.logo:hover{opacity:.85}
 .byc-biked-opt svg{width:14px;height:14px;display:block;margin:0 auto 4px;color:currentColor}
 .byc-biked-opts.list{grid-template-columns:1fr;gap:5px}
 .byc-biked-opts.list .byc-biked-opt{display:flex;align-items:center;justify-content:space-between;text-align:left;padding:7px 10px;font-size:11px}
-.byc-biked-opts.list .byc-biked-opt span{font-family:var(--mono);font-weight:500;font-size:9px;color:var(--ink-faint)}
+.byc-biked-opts.list .byc-biked-opt span{font-family:var(--sans);font-weight:500;font-size:9px;color:var(--ink-faint)}
 .byc-biked-opts.list .byc-biked-opt.selected span{color:rgba(255,255,255,.7)}
 .byc-biked-budget-rail{height:5px;background:var(--bg-alt);border-radius:100px;position:relative;margin:14px 0 8px}
 .byc-biked-budget-fill{position:absolute;top:0;left:18%;right:25%;height:100%;background:var(--ink);border-radius:100px}
 .byc-biked-budget-handle{position:absolute;top:50%;transform:translateY(-50%);width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}
 .byc-biked-budget-handle.l{left:18%;margin-left:-7px}
 .byc-biked-budget-handle.r{right:25%;margin-right:-7px}
-.byc-biked-budget-vals{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;font-weight:600;color:var(--ink)}
+.byc-biked-budget-vals{display:flex;justify-content:space-between;font-family:var(--sans);font-size:10px;font-weight:600;color:var(--ink)}
 .byc-badge{position:absolute;top:-12px;right:-12px;background:var(--accent);color:#fff;font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:7px 11px;border-radius:100px;z-index:5;box-shadow:0 4px 12px rgba(196,73,52,.3);transform:rotate(6deg)}
 @media(max-width:1024px){
   .byc{padding:56px 0}
@@ -884,7 +883,7 @@ a.logo:hover{opacity:.85}
   transition:width .3s cubic-bezier(.32,.72,.4,1);
 }
 .bw-step-num{
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:11px;
   font-weight:600;
   letter-spacing:.06em;
@@ -1070,7 +1069,7 @@ a.logo:hover{opacity:.85}
   color:#fff;
   padding:4px 9px;
   border-radius:6px;
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:11px;
   font-weight:600;
   white-space:nowrap;
@@ -1081,7 +1080,7 @@ a.logo:hover{opacity:.85}
 .bw-slider-marks{
   display:flex;
   justify-content:space-between;
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:10px;
   color:var(--ink-faint);
   letter-spacing:.04em;
@@ -1138,7 +1137,7 @@ a.logo:hover{opacity:.85}
   color:#fff;
   padding:3px 10px;
   border-radius:100px;
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:10px;
   font-weight:700;
   letter-spacing:.08em;
@@ -1189,7 +1188,7 @@ a.logo:hover{opacity:.85}
   padding-top:8px;
   border-top:1px solid var(--line);
 }
-.bw-result-price{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink)}
+.bw-result-price{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--ink)}
 .bw-result-cta{
   font-family:var(--sans);
   font-size:11px;
@@ -1210,7 +1209,7 @@ a.logo:hover{opacity:.85}
   position:absolute;
   top:14px;
   right:14px;
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:10px;
   font-weight:600;
   color:var(--ink-faint);
@@ -1247,7 +1246,7 @@ a.logo:hover{opacity:.85}
   background:#fafbfc;
 }
 .bw-preset-range{
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:10px;
   letter-spacing:.04em;
   color:var(--ink-faint);
@@ -1614,7 +1613,7 @@ a.logo:hover{opacity:.85}
   color:var(--ink);
 }
 .cu-card-price-sub{
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:10.5px;
   color:var(--ink-faint);
   margin-left:auto;
@@ -1633,7 +1632,7 @@ a.logo:hover{opacity:.85}
   gap:10px;
   font-size:12px;
   color:var(--ink-faint);
-  font-family:var(--mono);
+  font-family:var(--sans);
 }
 .cu-curator-avatar{
   width:24px;height:24px;border-radius:50%;
@@ -1641,7 +1640,7 @@ a.logo:hover{opacity:.85}
   display:flex;align-items:center;justify-content:center;
   font-size:11px;font-weight:700;
   color:var(--ink-soft);
-  font-family:var(--mono);
+  font-family:var(--sans);
 }
 .cu-view-all{
   display:inline-flex;
@@ -1900,7 +1899,7 @@ a.logo:hover{opacity:.85}
 .calc-row input[type="range"]::-moz-range-thumb{
   width:20px;height:20px;border-radius:50%;background:var(--ink);border:0;cursor:pointer;
 }
-.calc-row-mini{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-faint);font-family:var(--mono);margin-top:4px}
+.calc-row-mini{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-faint);font-family:var(--sans);margin-top:4px}
 
 .calc-output{
   background:linear-gradient(135deg, #fafbfc 0%, #f3edd9 100%);
@@ -2248,7 +2247,7 @@ a.logo:hover{opacity:.85}
   align-items:center;
   padding:0 12px;
   background:var(--bg-alt);
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:13px;
   font-weight:700;
   color:var(--ink);
@@ -2259,7 +2258,7 @@ a.logo:hover{opacity:.85}
   border:0 !important;
   box-shadow:none !important;
   padding:11px 12px !important;
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:14px;
   letter-spacing:.04em;
 }
@@ -2426,7 +2425,7 @@ a.logo:hover{opacity:.85}
   border:1px dashed var(--ink-soft);
   border-radius:8px;
   padding:10px 18px;
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-size:13px;
   font-weight:700;
   color:var(--ink);
@@ -2518,7 +2517,7 @@ a.logo:hover{opacity:.85}
    ═══════════════════════════════════════════════════════════ */
 .m-body{padding:14px 22px 24px;display:flex;flex-direction:column;gap:24px;overflow-y:auto;flex:1}
 .m-sect-title{
-  font-family:var(--mono,'JetBrains Mono', monospace);
+  font-family:var(--sans);
   font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
   color:#7a7470;margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid #eceef1;
 }
@@ -2531,7 +2530,7 @@ a.logo:hover{opacity:.85}
 .m-sect-list li a:hover{background:#f6f7f9;color:#8b1820}
 .m-sect-list li a.current{color:#8b1820;font-weight:700}
 .m-sect-list li a .m-link-tag{
-  font-family:var(--mono,'JetBrains Mono', monospace);
+  font-family:var(--sans);
   font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
   background:#fff7e8;color:#9a6300;padding:2px 7px;border-radius:100px;
 }
@@ -2569,7 +2568,7 @@ a.logo:hover{opacity:.85}
 }
 .ft-lean-social a:hover{background:#8b1820;color:#fff}
 .ft-lean-col h4{
-  font-family:var(--mono,'JetBrains Mono', monospace);
+  font-family:var(--sans);
   font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
   color:#fff;margin:0 0 14px;
 }
@@ -4343,8 +4342,8 @@ trending:[['Royal Enfield','Hunter 350','₹1.50 - 1.75 L','↑ 156% MoM','NEW L
 newlyLaunched:[['Triumph','Speed 400','₹2.40 L','12 days ago','FRESH'],['Bajaj','Pulsar NS400Z','₹1.85 L','24 days ago','FRESH'],['Yamaha','MT-15 V3','₹1.78 L','35 days ago','LATEST'],['Hero','Karizma XMR 250','₹2.00 L','42 days ago','LATEST'],['Royal Enfield','Goan Classic 350','₹2.39 L','58 days ago','LATEST'],['Suzuki','V-Strom 800DE','₹10.30 L','67 days ago','LATEST'],['Honda','SP125 Pro','₹91,500','78 days ago','RECENT'],['KTM','390 Adventure X','₹3.30 L','85 days ago','RECENT']],
 upcoming:[['Royal Enfield','Guerrilla 450','₹2.39 L*','Jun 2026','BOOKING OPEN'],['Royal Enfield','Bear 650','₹3.50 L*','Aug 2026','REVEALED'],['Honda','CBR 500R','₹5.00 L*','Jul 2026','TEASED'],['Bajaj','Pulsar 250F','₹1.75 L*','Jul 2026','UPCOMING'],['KTM','Duke 250 2026','₹2.00 L*','Aug 2026','UPCOMING'],['Kawasaki','Z300','₹3.50 L*','Sep 2026','TEASED'],['Yamaha','FZ25 V4','₹1.85 L*','Aug 2026','REVEALED'],['TVS','Ronin 310','₹2.10 L*','Sep 2026','UPCOMING']],
 bodyTypes:[['Sports Bike','42 models','bt-sports'],['Scooter','95 models','bt-scooter'],['Cruiser','38 models','bt-cruiser'],['Commuter','120 models','bt-comm'],['Street Bike','85 models','bt-sports'],['Super Bike','18 models','bt-sports'],['Cafe Racer','22 models','bt-cruiser'],['Scrambler','14 models','bt-adv'],['Adventure','28 models','bt-adv'],['Moped','32 models','bt-comm'],['Tourer','11 models','bt-tourer'],['Maxi Scooter','9 models','bt-scooter']],
-curated:[['Royal Enfield','Meteor 350','₹2.14 - 2.53 L','Based on Hunter 350 search','STRONG MATCH'],['Honda','H'Ness CB350','₹2.10 - 2.27 L','Similar classic style','GOOD MATCH'],['Jawa','42 Bobber','₹2.09 - 2.40 L','You like retro cruisers','GOOD MATCH'],['KTM','Duke 250','₹2.39 L','Sporty, in your budget','GOOD MATCH'],['Yamaha','MT-15','₹1.69 - 1.71 L','Naked alternative','GOOD MATCH'],['TVS','Ronin','₹1.55 - 1.74 L','Cruiser in entry range','POPULAR PICK'],['Bajaj','Dominar 400','₹2.31 L','Touring bike pick','GOOD MATCH'],['Hero','Xpulse 200 4V','₹1.49 L','Adventure value pick','POPULAR PICK']],
-offers:[['Royal Enfield','Meteor 350','₹2.09 L','₹2.14 L','₹5,000 OFF','Apr 30'],['Honda','H'Ness CB350','₹2.04 L','₹2.10 L','₹6,000 OFF','Apr 28'],['TVS','Ronin','₹1.50 L','₹1.55 L','₹5,000 OFF','Apr 30'],['Bajaj','Dominar 400','₹2.29 L','₹2.34 L','₹5,000 OFF','May 5'],['Hero','Karizma XMR','₹1.84 L','₹1.88 L','₹4,000 OFF','Apr 30'],['Royal Enfield','Classic 350','₹1.90 L','₹1.93 L','₹3,000 OFF','May 2'],['Yamaha','R15 V4','₹1.79 L','₹1.82 L','₹3,000 OFF','Apr 30'],['KTM','Duke 200','₹1.90 L','₹1.94 L','₹4,000 OFF','Apr 30']],
+curated:[['Royal Enfield','Meteor 350','₹2.14 - 2.53 L','Based on Hunter 350 search','STRONG MATCH'],['Honda',"H'Ness CB350",'₹2.10 - 2.27 L','Similar classic style','GOOD MATCH'],['Jawa','42 Bobber','₹2.09 - 2.40 L','You like retro cruisers','GOOD MATCH'],['KTM','Duke 250','₹2.39 L','Sporty, in your budget','GOOD MATCH'],['Yamaha','MT-15','₹1.69 - 1.71 L','Naked alternative','GOOD MATCH'],['TVS','Ronin','₹1.55 - 1.74 L','Cruiser in entry range','POPULAR PICK'],['Bajaj','Dominar 400','₹2.31 L','Touring bike pick','GOOD MATCH'],['Hero','Xpulse 200 4V','₹1.49 L','Adventure value pick','POPULAR PICK']],
+offers:[['Royal Enfield','Meteor 350','₹2.09 L','₹2.14 L','₹5,000 OFF','Apr 30'],['Honda',"H'Ness CB350",'₹2.04 L','₹2.10 L','₹6,000 OFF','Apr 28'],['TVS','Ronin','₹1.50 L','₹1.55 L','₹5,000 OFF','Apr 30'],['Bajaj','Dominar 400','₹2.29 L','₹2.34 L','₹5,000 OFF','May 5'],['Hero','Karizma XMR','₹1.84 L','₹1.88 L','₹4,000 OFF','Apr 30'],['Royal Enfield','Classic 350','₹1.90 L','₹1.93 L','₹3,000 OFF','May 2'],['Yamaha','R15 V4','₹1.79 L','₹1.82 L','₹3,000 OFF','Apr 30'],['KTM','Duke 200','₹1.90 L','₹1.94 L','₹4,000 OFF','Apr 30']],
 brands:[['R','Royal Enfield','18 models'],['H','Honda','14 models'],['B','Bajaj','16 models'],['T','TVS','12 models'],['Y','Yamaha','10 models'],['K','KTM','8 models'],['H','Hero','15 models'],['S','Suzuki','9 models'],['R','Royal Enfield','18 models'],['K','Kawasaki','6 models'],['T','Triumph','5 models'],['J','Jawa','4 models']],
 comparisons:[['Royal Enfield','Meteor 350','Honda',"H'Ness CB350",'2.1M','₹4,000'],['Royal Enfield','Hunter 350','Bajaj','Dominar 400','1.8M','₹56,000'],['KTM','Duke 390','Yamaha','MT-15','1.5M','₹1.30 L'],['TVS','Apache RTR 200','Bajaj','NS200','1.2M','₹5,000'],['Honda','Activa 6G','TVS','Jupiter','980K','₹2,000'],['Royal Enfield','Classic 350','Jawa','42 Bobber','870K','₹21,000']],
 news:[['LAUNCH','Royal Enfield Guerrilla 450 bookings: 45,000 in 48 hours — RE fastest ever','Apr 24','4 min'],['REVIEW','Bajaj Pulsar NS400Z first ride: The naked king India waited for','Apr 23','8 min'],['POLICY','GST Council may cut tax on sub-125cc bikes — what riders should know','Apr 22','5 min'],['SCOOP','Spied: Honda CBR 500R testing in India, launch by festive season?','Apr 22','3 min'],['COMPARE','Royal Enfield Meteor 350 vs Honda H\'Ness CB350: Which cruiser wins on value?','Apr 21','7 min'],['AUTO EXPO','Bharat Mobility 2026: 14 new bike launches confirmed across segments','Apr 20','6 min']]},
@@ -4374,7 +4373,38 @@ const sil=id=>`<svg width="16" height="16" viewBox="0 0 200 80"><use href="#${id
 
 const T={
   vehicle:(it,i,c)=>{const[b,m,p,g,t,tt,sp]=it;return `<a href="#" class="vc"><div class="rk${i<3?' top':''}">${String(i+1).padStart(2,'0')}</div>${t?`<span class="pill ${tt}">${t}</span>`:''}<div class="vimg">${sil(c.sil)}</div><div class="vbody"><div class="vbrand">${b}</div><div class="vname">${m}</div><div class="spark${sp==='hot'?' hot':''}"><svg width="16" height="16"><use href="#sp-${sp}"/></svg><span>12 MO · ${g}</span></div><div class="vmeta"><div class="vprice">${p}</div><span class="vcta">View<span class="vcta-arr">→</span></span></div></div></a>`},
-  bodyType:it=>{const[n,c,ic]=it;return `<a href="#" class="bt"><div class="bt-ico"><svg viewBox="0 0 96 56" preserveAspectRatio="xMidYMid meet"><use href="#${ic}"/></svg></div><div class="bt-name">${n}</div><div class="bt-cnt">${c}</div></a>`},
+  bodyType:it=>{
+    const[n,c,ic]=it;
+    /* Correct MD5-hash Wikimedia Commons URLs */
+    const IMGS={
+      'bt-sports': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/KTM_Duke_200_(2019).jpg/480px-KTM_Duke_200_(2019).jpg',
+      'bt-scooter':'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Honda_Activa_6G.jpg/480px-Honda_Activa_6G.jpg',
+      'bt-cruiser':'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Royal_Enfield_Classic_350.jpg/480px-Royal_Enfield_Classic_350.jpg',
+      'bt-comm':   'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Hero_Splendor_Plus.jpg/480px-Hero_Splendor_Plus.jpg',
+      'bt-adv':    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Royal_Enfield_Himalayan.jpg/480px-Royal_Enfield_Himalayan.jpg',
+      'bt-ebike':  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ather_450X.jpg/480px-Ather_450X.jpg',
+      'bt-tourer': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Royal_Enfield_Super_Meteor_650.jpg/480px-Royal_Enfield_Super_Meteor_650.jpg',
+    };
+    /* Wikipedia article fallback titles — fetched async if static URL 404s */
+    const WIKI={
+      'bt-sports':'KTM Duke 200','bt-scooter':'Honda Activa','bt-cruiser':'Royal Enfield Classic 350',
+      'bt-comm':'Hero Splendor','bt-adv':'Royal Enfield Himalayan','bt-ebike':'Ather 450X','bt-tourer':'Royal Enfield Super Meteor 650',
+    };
+    /* gradient shown while loading / on hard failure */
+    const GRAD={
+      'bt-sports': 'linear-gradient(135deg,#1a1a2e,#c0392b)',
+      'bt-scooter':'linear-gradient(135deg,#0f3460,#533483)',
+      'bt-cruiser':'linear-gradient(135deg,#2d1b69,#11998e)',
+      'bt-comm':   'linear-gradient(135deg,#373b44,#4286f4)',
+      'bt-adv':    'linear-gradient(135deg,#1a3a1a,#2d6a4f)',
+      'bt-ebike':  'linear-gradient(135deg,#0a4d3a,#2dc653)',
+      'bt-tourer': 'linear-gradient(135deg,#3c1642,#086375)',
+    };
+    const img=IMGS[ic]||'';
+    const grad=GRAD[ic]||'linear-gradient(135deg,#222,#444)';
+    const wikiTitle=WIKI[ic]||'';
+    return `<a href="#" class="bt"><div class="bt-photo" style="background:${grad}" data-ic="${ic}" data-wiki="${encodeURIComponent(wikiTitle)}"><img src="${img}" alt="${n}" loading="lazy" onerror="window._btImgErr&&window._btImgErr(this)"></div><div class="bt-overlay"><div class="bt-name">${n}</div><div class="bt-cnt">${c}</div></div></a>`;
+  },
   curated:(it,i,c)=>{const[b,m,p,r,t]=it;return `<a href="#" class="vc"><span class="${pillCls(t)}" style="left:16px;right:auto">${t}</span><div class="vimg">${sil(c.sil)}</div><div class="vbody"><div class="vbrand">${b}</div><div class="vname">${m}</div><div class="vreason">${r}</div><div class="vmeta"><div class="vprice">${p}</div><span class="vcta">View<span class="vcta-arr">→</span></span></div></div></a>`},
   offer:(it,i,c)=>{const[b,m,pn,pw,ol,v]=it;return `<a href="#" class="vc" onclick="event.preventDefault();window.openLeadForm&&window.openLeadForm('offer','${b} ${m}')"><span class="pill offer">${ol}</span><div class="vimg">${sil(c.sil)}</div><div class="vbody"><div class="vbrand">${b}</div><div class="vname">${m}</div><div class="vsub">Ends <b>${v}</b></div><div class="vmeta"><div class="vprice"><span class="vstrike">${pw}</span>${pn}</div><span class="vcta">Get offer<span class="vcta-arr">→</span></span></div></div><div class="vstrip"><span>Dealer offer</span><b>${ol}</b></div></a>`},
   brand:it=>{const[s,n,c]=it;return `<a href="#" class="br"><div class="br-mark">${s}</div><div class="br-name">${n}</div><div class="br-cnt">${c}</div></a>`},
@@ -5881,5 +5911,30 @@ const TD_DEALER_LOCALITIES = {
 })();
 </script>
 
+<script>
+/* Wikipedia API fallback — if a static Wikimedia URL 404s, fetch the real thumbnail */
+window._btImgErr = function(imgEl) {
+  var wrap = imgEl.parentElement;
+  var title = wrap && decodeURIComponent(wrap.dataset.wiki || '');
+  if (!title) { imgEl.style.display = 'none'; return; }
+  imgEl.style.display = 'none'; // hide broken img while fetching
+  fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title))
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      var src = d.thumbnail && d.thumbnail.source;
+      if (src) {
+        var fresh = new Image();
+        fresh.alt = imgEl.alt;
+        fresh.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block';
+        fresh.src = src;
+        wrap.appendChild(fresh);
+      }
+    })
+    .catch(function(){});
+};
+</script>
+
+<!-- Voice search (OpenAI Realtime) -->
+<script src="voice-search/assets/voice-search-site.js" defer></script>
 </body>
 </html>
